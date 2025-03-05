@@ -1,0 +1,232 @@
+
+/* -------------------nav&side-------------------- */
+body {
+    margin: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none;
+    background: linear-gradient(45deg, #007bff, #ff00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+    display: flex;
+    gap: 45px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #007bff;
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-icons i {
+    font-size: 18px;
+    color: #007bff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.nav-icons i:hover {
+    color: #ff00ff;
+}
+
+.profile-pic {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+/* Sidebar */
+.sidebar {
+    margin-top:70px;
+    width: 220px;
+    background: #ffffff;
+    box-shadow: 2px 0 10px 5px rgba(0, 0, 0, 0.1);
+    padding-top: 40px;
+    position: fixed;
+    overflow-y:Auto;
+    border-radius: 0px 10px 10px 0px;
+    left: 0;
+}
+
+/* Profile Section */
+.profile {
+    text-align: center;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.profile img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #007bff;
+}
+
+.profile h3 {
+    margin: 8px 0 3px;
+    font-size: 16px;
+    color: #222;
+    font-weight: bold;
+}
+
+.profile p {
+    font-size: 12px;
+    color: #777;
+}
+
+/* Sidebar Menu */
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    width: 100%;
+}
+
+.sidebar-menu a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    color: black;
+    transition: 0.3s;
+    gap: 12px;
+    font-weight: 500;
+    border-radius: 5px;
+}
+
+
+.sidebar-menu a:hover {
+    background: rgba(0, 123, 255, 0.1);
+    color: #007bff;
+}
+
+.sidebar-menu i {
+    width: 18px;
+    font-size: 16px;
+    color: #007bff;
+}
+
+/* Active State */
+.active {
+    background: #007bff;
+    color: white !important;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.active i {
+    color: white;
+}
+
+/* Content Area */
+.content {
+    margin-left: 240px;
+    padding: 80px 20px;
+    background: #ffffff;
+    flex-grow: 1;
+}
+
+.content h1 {
+    font-size: 22px;
+    color: #333;
+}
+
+.content p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 180px;
+    }
+    .content {
+        margin-left: 200px;
+    }
+    .nav-links {
+        display: none;
+    }
+}
+/* ---------------------------------------------------------------- */
+.card {
+    position: relative;
+    box-shadow: 2px 0 10px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .edit-button {
+    position: absolute;
+    bottom: 10px; /* Adjust this value as needed */
+    right: 10px; /* Adjust this value as needed */
+  }
+  .profile-image {
+    width: 100px; /* Adjust this value as needed */
+    height: 100px; /* Adjust this value as needed */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+  }
+
+  .profile-image-container {
+    position: absolute;
+    top: 150px; /* Adjust this value as needed */
+    left: 5%; /* Adjust this value as needed */
+    transform: translateX(-50%);
+    
+  }
+.card-body{
+    padding-left: 150px;
+}
+.form{
+    height: 30rem
+}
+/* ---------------------------------------- */
+
+
+
+
