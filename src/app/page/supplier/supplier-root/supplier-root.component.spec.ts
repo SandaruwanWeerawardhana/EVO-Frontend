@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SupplierRootComponent } from './supplier-root.component';
+import { RatingReviewsComponent } from '../rating-reviews/rating-reviews.component';
 
 describe('SupplierRootComponent', () => {
   let component: SupplierRootComponent;
@@ -8,7 +9,7 @@ describe('SupplierRootComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SupplierRootComponent]
+      imports: []
     })
     .compileComponents();
 
