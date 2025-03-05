@@ -11,10 +11,14 @@ import { VenueDashboardComponent } from "./page/event/venue-dashboard/venue-dash
 import { EventRootComponent } from "./page/event/event-root/event-root.component";
 import { AgendaComponent } from "./page/event/agenda/agenda.component";
 import { DetailedPreviousWorkComponent } from "./page/supplier/detailed-previous-work/detailed-previous-work.component";
+import { UserRootComponent } from "./page/user/user-root/user-root.component";
+import { LoginComponent } from "./page/user/login/login.component";
+import { SignupComponent } from "./page/user/signup/signup.component";
+import { LandingComponent } from './page/user/landing/landing.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, VenueDashboardComponent,DetailedPreviousWorkComponent, EventRootComponent, AgendaComponent, EventSummaryComponent, EventSelectionComponent, BeautyEssentialsInfoComponent, ServiceSelectionComponent, PhotographerInfoComponent, SupplierRootComponent, EntertainmentInfoComponent],
+  imports: [RouterOutlet, UserRootComponent, LoginComponent, SignupComponent,LandingComponent, VenueDashboardComponent,DetailedPreviousWorkComponent, EventRootComponent, AgendaComponent, EventSummaryComponent, EventSelectionComponent, BeautyEssentialsInfoComponent, ServiceSelectionComponent, PhotographerInfoComponent, SupplierRootComponent, EntertainmentInfoComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
