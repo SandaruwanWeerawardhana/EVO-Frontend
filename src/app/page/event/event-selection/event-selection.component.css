@@ -1,0 +1,9 @@
+.EventCard{
+    box-shadow: 2px 2px;
+    color: gray;
+}
+
+#btnConf{
+    padding-left: 35px;
+    padding-right: 35px;
+}
