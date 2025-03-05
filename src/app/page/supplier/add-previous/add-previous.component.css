@@ -1,0 +1,83 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+   
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.card-title {
+    font-size: 44px;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+label {
+    font-weight: 500;
+    color: #050000;
+}
+
+.form-control, .form-select {
+    border-radius: 8px;
+    border: 2px solid #ccc;
+   
+    font-size: 16px;
+}
+
+textarea.form-control {
+    resize: none;
+}
+
+#imageUpload {
+    display: block;
+    margin: 10px 0;
+}
+
+#imagePreview {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+#imagePreview img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+}
+
+.d-flex .btn {
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+.btn-primary {
+    background-color: #4F46E5;
+    color: white;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.btn-primary:hover {
+    background-color: #5a32a3;
+}

@@ -10,10 +10,11 @@ import { BeautyEssentialsInfoComponent } from './page/event/beauty-essentials-in
 import { VenueDashboardComponent } from "./page/event/venue-dashboard/venue-dashboard.component";
 import { EventRootComponent } from "./page/event/event-root/event-root.component";
 import { AgendaComponent } from "./page/event/agenda/agenda.component";
+import { DetailedPreviousWorkComponent } from "./page/supplier/detailed-previous-work/detailed-previous-work.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, VenueDashboardComponent, EventRootComponent, AgendaComponent, EventSummaryComponent, EventSelectionComponent, BeautyEssentialsInfoComponent, ServiceSelectionComponent, PhotographerInfoComponent, SupplierRootComponent, EntertainmentInfoComponent],
+  imports: [RouterOutlet, VenueDashboardComponent,DetailedPreviousWorkComponent, EventRootComponent, AgendaComponent, EventSummaryComponent, EventSelectionComponent, BeautyEssentialsInfoComponent, ServiceSelectionComponent, PhotographerInfoComponent, SupplierRootComponent, EntertainmentInfoComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
