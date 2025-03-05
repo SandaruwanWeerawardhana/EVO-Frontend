@@ -1,0 +1,66 @@
+<body class="bg-light">
+    <div class="container mt-5">
+        <h1 class="fw-bold ">Select Your Agenda</h1>
+        <p class="text-muted ">Fill out this form carefully to generate the completed agenda.</p>
+
+        <div class="card p-4 shadow-sm">
+            <h2 class="fw-bold">Event Details</h2>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label for="event-type" class="form-label">Event Type</label>
+                    <input type="text" class="form-control" id="event-type" name="event-type">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="venue" class="form-label">Venue</label>
+                    <input type="text" class="form-control" id="venue" name="venue">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="date" class="form-label">Date</label>
+                    <input type="date" class="form-control" id="date" name="date">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="organizer" class="form-label">Organizer</label>
+                    <input type="text" class="form-control" id="organizer" name="organizer">
+                </div>
+            </div>
+        </div>
+
+        <div class="card p-4 shadow-sm mt-4">
+            <h2 class="fw-bold">Session Details</h2>
+            <div id="sessions-container">
+                <div class="session border p-3 mb-3">
+                    <h3 class="fw-semibold">Session No 1</h3>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Session Title</label>
+                            <input type="text" class="form-control" name="session-title">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Session Type</label>
+                            <input type="text" class="form-control" name="session-type">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Start Time</label>
+                            <input type="time" class="form-control" name="start-time">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">End Time</label>
+                            <input type="time" class="form-control" name="end-time">
+                        </div>
+                    </div>
+                    <button class="btn btn-danger mt-3" onclick="removeSession(this)">Remove Session</button>
+                </div>
+            </div>
+            <button class="btn btn-primary mt-3" onclick="addSession()">+ Add New Session</button>
+        </div>
+
+        <button class="btn btn-success mt-4 w-100">Submit Agenda</button>
+    </div>
+
+    
