@@ -5,7 +5,7 @@ import { DetailedPreviousWorkComponent } from "./page/supplier/detailed-previous
 
 @Component({
   selector: 'app-root',
-  imports: [SupplierRootComponent, DetailedPreviousWorkComponent],
+  imports: [RouterOutlet, SupplierRootComponent, DetailedPreviousWorkComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
