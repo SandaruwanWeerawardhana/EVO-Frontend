@@ -1,3 +1,192 @@
 import { Routes } from '@angular/router';
+import { LandingComponent } from './page/landing/landing.component';
+import { LoginComponent } from './page/user/login/login.component';
+import { SignupComponent } from './page/user/signup/signup.component';
+import { EventRootComponent } from './page/event/event-root/event-root.component';
+import { SupplierRootComponent } from './page/supplier/supplier-root/supplier-root.component';
+import { RatingReviewsComponent } from './page/supplier/rating-reviews/rating-reviews.component';
+import { BookingEventComponent } from './page/supplier/dash/booking-event/booking-event.component';
+import { EventSelectionComponent } from './page/event/event-selection/event-selection.component';
+import { AllEventsComponent } from './page/event/all-events/all-events.component';
+import { ServiceSelectionComponent } from './page/event/service-selection/service-selection.component';
+import { VenueDashboardComponent } from './page/event/venue-dashboard/venue-dashboard.component';
+import { EventSummaryComponent } from './page/event/event-summary/event-summary.component';
+import { AgendaComponent } from './page/event/agenda/agenda.component';
+import { AllSuppliersComponent } from './page/supplier/all-suppliers/all-suppliers.component';
+import { PhotographerInfoComponent } from './page/supplier/photographer-info/photographer-info.component';
+import { EntertainmentInfoComponent } from './page/supplier/entertainment-info/entertainment-info.component';
+import { BeautyEssentialsInfoComponent } from './page/supplier/beauty-essentials-info/beauty-essentials-info.component';
+import { DashboardComponent } from './page/supplier/dash/dashboard/dashboard.component';
+import { AddPreviousComponent } from './page/supplier/dash/add-previous/add-previous.component';
+import { DashRootComponent } from './page/supplier/dash/dash-root/dash-root.component';
+import { ProfileViewComponent } from './page/supplier/dash/profile-view/profile-view.component';
+import { ManagePackagesComponent } from './page/supplier/dash/manage-packages/manage-packages.component';
+import { InventoryComponent } from './page/supplier/dash/inventory/inventory.component';
+import { BlogsComponent } from './page/supplier/dash/blogs/blogs.component';
+import { PaymentsComponent } from './page/supplier/dash/payments/payments.component';
+import { MassagesComponent } from './page/supplier/dash/massages/massages.component';
+import { MyReviewsComponent } from './page/supplier/dash/my-reviews/my-reviews.component';
+import { CustomerDashboardComponent } from './page/customer/customer-dashboard/customer-dashboard.component';
+import { EventManageComponent } from './page/customer/event-manage/event-manage.component';
+import { MassageComponent } from './page/customer/massage/massage.component';
+import { OngoingEventComponent } from './page/customer/ongoing-event/ongoing-event.component';
+import { PaymentsCustomerComponent } from './page/customer/payments-customer/payments-customer.component';
+import { ProfileCustomerComponent } from './page/customer/profile-customer/profile-customer.component';
+import { ReviewsCustomerComponent } from './page/customer/reviews-customer/reviews-customer.component';
+import { DashRootCustomerComponent } from './page/customer/dash-root-customer/dash-root-customer.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  {
+    path: "",
+    component: LandingComponent
+  },
+  {
+    path: "login",
+    component: LoginComponent
+  },
+  {
+    path: "register",
+    component: SignupComponent
+  },
+  {
+    path: "event",
+    component: EventRootComponent,
+    children: [
+      {
+        path: "",
+        component: AllEventsComponent
+      },
+      {
+        path: "event-selection",
+        component: EventSelectionComponent
+      },
+      {
+        path: "venue-selection",
+        component: VenueDashboardComponent
+      },
+      {
+        path: "event-service-selection",
+        component: ServiceSelectionComponent
+      },
+      {
+        path: "event-summery",
+        component: EventSummaryComponent
+      },
+      {
+        path: "agenda",
+        component: AgendaComponent
+      }
+    ]
+  },
+  {
+    path: "supplier",
+    component: SupplierRootComponent,
+    children: [
+      {
+        path: "",
+        component: AllSuppliersComponent
+      },
+      {
+        path: "dashboard",
+        component: DashboardComponent,
+        children: [
+          {
+            path: "",
+            component: DashRootComponent
+          },
+          {
+            path: "profile",
+            component: ProfileViewComponent
+          },
+          {
+            path: "add-previous",
+            component: AddPreviousComponent
+          },
+          {
+            path: "all-bookings",
+            component: BookingEventComponent
+          },
+          {
+            path: "packages",
+            component: ManagePackagesComponent
+          },
+          {
+            path: "inventory",
+            component: InventoryComponent
+          },
+          {
+            path: "blogs",
+            component: BlogsComponent
+          },
+          {
+            path: "payments",
+            component: PaymentsComponent
+          },
+          {
+            path: "massages",
+            component: MassagesComponent
+          },
+          {
+            path: "my-reviews",
+            component: MyReviewsComponent
+          }
+        ]
+      },
+      {
+        path: "review",
+        component: RatingReviewsComponent
+      },
+      {
+        path: "bookings",
+        component: BookingEventComponent
+      },
+      {
+        path: "photographer-info",
+        component: PhotographerInfoComponent
+      },
+      {
+        path: "entertaiment-info",
+        component: EntertainmentInfoComponent
+      },
+      {
+        path: "beauty-info",
+        component: BeautyEssentialsInfoComponent
+      }
+
+    ]
+  },
+  {
+    path: "customer",
+    component: CustomerDashboardComponent,
+    children:[
+      {
+        path:"",
+        component:DashRootCustomerComponent
+      },
+      {
+        path:"event-manage",
+        component:EventManageComponent
+      },
+      {
+        path:"massage",
+        component:MassageComponent
+      },
+      {
+        path:"ongoin-event",
+        component:OngoingEventComponent
+      },
+      {
+        path:"payments",
+        component:PaymentsCustomerComponent
+      },
+      {
+        path:"profile",
+        component:ProfileCustomerComponent
+      },
+      {
+        path:"reviews",
+        component:ReviewsCustomerComponent
+      }
+    ]
+  }
+];
