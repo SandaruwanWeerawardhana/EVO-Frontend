@@ -34,6 +34,13 @@ import { PaymentsCustomerComponent } from './page/customer/payments-customer/pay
 import { ProfileCustomerComponent } from './page/customer/profile-customer/profile-customer.component';
 import { ReviewsCustomerComponent } from './page/customer/reviews-customer/reviews-customer.component';
 import { DashRootCustomerComponent } from './page/customer/dash-root-customer/dash-root-customer.component';
+import { AdminRootComponent } from './page/customer/admin-dashbaord/admin-root/admin-root.component';
+import { TransectionsComponent } from './page/customer/admin-dashbaord/pages/transections/transections.component';
+import { ReportsComponent } from './page/customer/admin-dashbaord/pages/reports/reports.component';
+import { NotificationsComponent } from './page/customer/admin-dashbaord/pages/notifications/notifications.component';
+import { AuditHistoryComponent } from './page/customer/admin-dashbaord/pages/audit-history/audit-history.component';
+import { ProfileComponent } from './page/customer/admin-dashbaord/pages/profile/profile.component';
+import { OverviewComponent } from './page/customer/admin-dashbaord/pages/overview/overview.component';
 
 export const routes: Routes = [
   {
@@ -188,5 +195,36 @@ export const routes: Routes = [
         component:ReviewsCustomerComponent
       }
     ]
+  },{
+    path: "admin-dash",
+    component:AdminRootComponent,
+    children:[
+      {
+        path:"",
+        component:OverviewComponent
+      },
+      {
+        path:"transections",
+        component:TransectionsComponent
+      },
+      {
+        path:"reports",
+        component:ReportsComponent
+      },
+      {
+        path:"notifications",
+        component:NotificationsComponent
+      },
+      {
+        path:"audit",
+        component:AuditHistoryComponent
+      },
+      {
+        path:"admin-profile",
+        component:ProfileComponent
+      }
+     
+    ]
+
   }
 ];
