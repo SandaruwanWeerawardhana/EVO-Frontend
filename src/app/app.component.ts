@@ -16,13 +16,18 @@ import { SignupComponent } from "./page/user/signup/signup.component";
 import { LandingComponent } from './page/landing/landing.component';
 import { ProfileViewComponent } from "./page/supplier/dash/profile-view/profile-view.component";
 import { CustomerDashboardComponent } from "./page/customer/customer-dashboard/customer-dashboard.component";
+import Customer from '../model/Customer';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, LoginComponent, SignupComponent, LandingComponent, VenueDashboardComponent, DetailedPreviousWorkComponent, EventRootComponent, AgendaComponent, EventSummaryComponent, EventSelectionComponent, BeautyEssentialsInfoComponent, ServiceSelectionComponent, PhotographerInfoComponent, SupplierRootComponent, EntertainmentInfoComponent, ProfileViewComponent, CustomerDashboardComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'EVO-Frontend-app';
+
+  getData(){
+    new Customer(1,"saman","panadura");
+  }
 }
