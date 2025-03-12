@@ -35,6 +35,7 @@ import { ProfileCustomerComponent } from './page/customer/profile-customer/profi
 import { ReviewsCustomerComponent } from './page/customer/reviews-customer/reviews-customer.component';
 import { DashRootCustomerComponent } from './page/customer/dash-root-customer/dash-root-customer.component';
 import { PreviousWorkComponent } from './page/supplier/previous-work/previous-work.component';
+import { ConditionsComponent } from './page/customer/admin/conditions/conditions.component';
 
 
 export const routes: Routes = [
@@ -192,6 +193,10 @@ export const routes: Routes = [
       {
         path:"reviews",
         component:ReviewsCustomerComponent
+      }
+      {
+        path:"conditions",
+        component:ConditionsComponent
       }
     ]
   }
