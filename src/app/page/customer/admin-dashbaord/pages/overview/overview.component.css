@@ -99,6 +99,60 @@
   border: 1px solid #d8d5d8 !important; 
 }
 
+/* Container holding both charts side by side */
+.charts-wrapper {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap; /* Wraps charts on smaller screens */
+  margin: 20px 0;
+}
+
+/* Individual chart container */
+.chart-container {
+  flex: 1;
+  height: 300px;       /* Set chart height */
+  position: relative;  /* Required for Chart.js responsiveness */
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+/* Ensure the canvas fills the container */
+.chart-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .charts-wrapper {
+    flex-direction: column;
+  }
+  .chart-container {
+    height: 250px; /* Adjust height for mobile devices if needed */
+  }
+}
+.profile-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjust spacing between image and name */
+}
+
+.profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-name {
+  font-weight: bold; /* Optional: Adjust text styling */
+}
+
+
 
 
 

@@ -20,6 +20,17 @@
         <p>15</p>
       </div>
     </div>
+
+ 
+  <div class="charts-wrapper" style="display: flex; gap: 1rem;">
+    <div class="chart-container" style="flex: 1; height: 300px;">
+      <canvas #barCanvas></canvas>
+    </div>
+    <div class="chart-container" style="flex: 1; height: 300px;">
+      <canvas #doughnutCanvas></canvas>
+    </div>
+  </div>
+</div>
   
     <div class="table-container">
       <table class="table table-hover table-bordered shadow-lg">
@@ -94,4 +105,49 @@
         </tbody>
       </table>
     </div>
-  </div>
+    <div class="table-container">
+      <table class="table table-hover table-bordered shadow-lg">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Profile</th>
+            <th scope="col">Date</th>
+            <th scope="col">Transection ID</th>
+            <th scope="col">Description</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Payment type</th>
+            <th scope="col">Confirmation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="profile-cell">
+              <img src="https://avatars.dicebear.com/api/micah/JohnDoe.svg
+              " alt="Profile Picture" class="profile-img">
+              <span class="profile-name">Mark</span>
+            </td>
+            <th scope="row">2022/4/5</th>
+            <td>TranID123</td>
+            <td>Otto</td>
+            <td>confirm</td>
+            <td>confirm</td>
+            <td>confirm</td>
+          </tr>
+          <tr>
+            <td class="profile-cell">
+              <img src="https://avatars.dicebear.com/api/micah/JohnDoe.svg" alt="Profile Picture" class="profile-img">
+              <span class="profile-name">Jacob</span>
+            </td>
+            <th scope="row">2022/4/5</th>
+            <td>TranID456</td>
+            <td>Thornton</td>
+            <td>Pending</td>
+            <td>Pending</td>
+            <td>Pending</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+    
+    
+
