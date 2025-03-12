@@ -18,3 +18,4 @@ export default class Venur{
       this.capacity =capacity;
   }
 }
+
