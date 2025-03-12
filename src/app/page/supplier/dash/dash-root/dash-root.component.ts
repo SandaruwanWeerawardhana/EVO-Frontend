@@ -1,16 +1,61 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import Chart from 'chart.js/auto';
 @Component({
   selector: 'app-dash-root',
-  imports: [],
+  imports: [HttpClientModule],
   templateUrl: './dash-root.component.html',
   styleUrl: './dash-root.component.css'
 })
-export class DashRootComponent {
+export class DashRootComponent implements OnInit {
   ngAfterViewInit() {
     this.loadBarChart();
     this.loadPieChart();
   }
+
+  constructor(private http:HttpClient){
+
+  }
+
+  postArray:any[]=[];
+
+  ngOnInit(): void {
+      this.loadWorks();
+      this.loadRatings();
+      this.loadCustomers();
+  }
+
+  loadWorks() {
+    this.http.get<any[]>('https://3309-112-134-151-168.ngrok-free.app/supplier/previous-work/get-all')
+      .subscribe({
+        next: (res) => {
+          this.postArray = res; 
+        }
+      });
+  }
+ loadRatings() {
+    this.http.get<any[]>('https://3309-112-134-151-168.ngrok-free.app/review/get-all')
+      .subscribe({
+        next: (res) => {
+          this.postArray = res; 
+        }
+      });
+  }
+  loadCustomers() {
+    this.http.get<any[]>('https://3309-112-134-151-168.ngrok-free.app/userController/users')
+      .subscribe({
+        next: (res) => {
+          this.postArray = res
+            .filter(user => user.userType === 'customer')
+            .sort((a, b) => a.userType.localeCompare(b.userType));
+          console.log('Filtered and Sorted Users:', this.postArray);
+        },
+        error: (err) => {
+          console.error('Error fetching users:', err);
+        }
+      });
+  }
+  
 
   loadBarChart() {
     const barChart = new Chart("barChart", {
