@@ -3,8 +3,6 @@ import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { Chart, ChartConfiguration, ChartType, registerables } from 'chart.js/auto';
 
 Chart.register(...registerables);
-
-
 @Component({
   selector: 'app-overview',
   imports: [CommonModule],
@@ -26,12 +24,12 @@ export class OverviewComponent implements AfterViewInit  {
     { id: 1, name: 'nathasha', email: 'nathasha@gmail.com', role: 'Supplier' },
     { id: 2, name: 'shashini', email: 'johndoe@example.com', role: 'User' }
   ];
-
+  
   ngAfterViewInit() {
     this.createBarChart();
     this.createDoughnutChart();
   }
-
+  
   createBarChart() {
     const data = {
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -87,8 +85,7 @@ createDoughnutChart() {
       backgroundColor: [
         'rgb(206, 21, 200)',
         'rgb(152, 156, 153)',
-        'rgb(54, 162, 235)'
-        
+        'rgb(54, 162, 235)' 
       ],
       hoverOffset: 4
     }]
