@@ -4,11 +4,9 @@ export default class Venur{
   supplierId: number;
   location: string ;
   type:string;
-
-    // aluthen add kla
   name:string
   about:string;
-  capacity:number;  
+  capacity:number;
 
   constructor(id:number , supplierId:number ,name:string, location :string , type: string , about:string , capacity:number){
       this.id=id;
