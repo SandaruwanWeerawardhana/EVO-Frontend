@@ -37,6 +37,14 @@ import { DashRootCustomerComponent } from './page/customer/dash-root-customer/da
 import { PreviousWorkComponent } from './page/supplier/previous-work/previous-work.component';
 import { ConditionsComponent } from './page/customer/admin/conditions/conditions.component';
 import { AddPackagesComponent } from './page/supplier/dash/add-packages/add-packages.component';
+import { AdminRootComponent } from './page/customer/admin-dashbaord/admin-root/admin-root.component';
+import { TransectionsComponent } from './page/customer/admin-dashbaord/pages/transections/transections.component';
+import { ReportsComponent } from './page/customer/admin-dashbaord/pages/reports/reports.component';
+import { NotificationsComponent } from './page/customer/admin-dashbaord/pages/notifications/notifications.component';
+import { AuditHistoryComponent } from './page/customer/admin-dashbaord/pages/audit-history/audit-history.component';
+import { ProfileComponent } from './page/customer/admin-dashbaord/pages/profile/profile.component';
+import { OverviewComponent } from './page/customer/admin-dashbaord/pages/overview/overview.component';
+import { RequestsComponent } from './page/customer/admin-dashbaord/pages/requests/requests.component';
 
 export const routes: Routes = [
   {
@@ -201,6 +209,39 @@ export const routes: Routes = [
         path:"conditions",
         component:ConditionsComponent
       }
+    ]
+  },{
+    path: "admin-dash",
+    component:AdminRootComponent,
+    children:[
+      {
+        path:"",
+        component:OverviewComponent
+      },
+      {
+        path:"transections",
+        component:TransectionsComponent
+      },
+      {
+        path:"reports",
+        component:ReportsComponent
+      },
+      {
+        path:"notifications",
+        component:NotificationsComponent
+      },
+      {
+        path:"audit",
+        component:AuditHistoryComponent
+      },
+      {
+        path:"requests",
+        component:RequestsComponent
+      },
+      {
+        path:"admin-profile",
+        component:ProfileComponent
+      }   
     ]
   }
 ];

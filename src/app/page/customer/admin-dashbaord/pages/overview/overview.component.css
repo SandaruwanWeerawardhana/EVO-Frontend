@@ -1,0 +1,162 @@
+  
+.dashboard-container {
+    padding: 20px;
+    overflow-x: auto;  
+    margin-top: 70px;
+
+  }
+  
+  .card-container {
+    display: flex;
+    flex-wrap: nowrap; 
+    gap: 40px;
+    justify-content: flex-start; 
+    overflow-x: auto; 
+  }
+  
+  .dashboard-card {
+    width: 250px; 
+    background-color: #EE61CF;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    flex-shrink: 0; 
+  }
+  
+  .dashboard-card h5 {
+    margin: 0;
+    font-size: 18px;
+    color: #000000;
+  }
+  
+  .dashboard-card p {
+    margin: 10px 0 0;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .card-container::after {
+    content: '';
+    flex: 0 0 20px;
+  }
+  .dashboard-card-start{
+    margin-left:auto;
+    width: 250px; 
+    background-color: #EE61CF;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    flex-shrink: 0; 
+  }
+  .dashboard-card-start h5{
+    margin: 0;
+    font-size: 18px;
+    color: #000000;
+
+  }
+  .dashboard-card-start p{
+    margin: 10px 0 0;
+    font-size: 24px;
+    font-weight: bold;
+
+  }
+  .table-container {
+    margin-top: 20px;
+    padding: 15px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .table {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  
+  .table-hover tbody tr:hover {
+    background-color: rgba(52, 58, 64, 0.1);
+  }
+  
+  .table th, .table td {
+    text-align: center;
+  }
+  
+  .shadow-lg {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+ 
+.table-bordered {
+  border: 1px solid #a7a2a7; 
+}
+
+.table-bordered th, .table-bordered td {
+  border: 1px solid #d8d5d8 !important; 
+}
+
+/* Container holding both charts side by side */
+.charts-wrapper {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap; /* Wraps charts on smaller screens */
+  margin: 20px 0;
+}
+
+/* Individual chart container */
+.chart-container {
+  flex: 1;
+  height: 300px;       /* Set chart height */
+  position: relative;  /* Required for Chart.js responsiveness */
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+/* Ensure the canvas fills the container */
+.chart-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .charts-wrapper {
+    flex-direction: column;
+  }
+  .chart-container {
+    height: 250px; /* Adjust height for mobile devices if needed */
+  }
+}
+.profile-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjust spacing between image and name */
+}
+
+.profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-name {
+  font-weight: bold; /* Optional: Adjust text styling */
+}
+
+
+
+
+
+  
+  
+  
+  
