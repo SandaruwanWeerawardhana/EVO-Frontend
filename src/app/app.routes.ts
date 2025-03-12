@@ -35,8 +35,12 @@ import { ProfileCustomerComponent } from './page/customer/profile-customer/profi
 import { ReviewsCustomerComponent } from './page/customer/reviews-customer/reviews-customer.component';
 import { DashRootCustomerComponent } from './page/customer/dash-root-customer/dash-root-customer.component';
 import { PreviousWorkComponent } from './page/supplier/previous-work/previous-work.component';
+<<<<<<< HEAD
 import { ConditionsComponent } from './page/customer/admin/conditions/conditions.component';
 
+=======
+import { AddPackagesComponent } from './page/supplier/dash/add-packages/add-packages.component';
+>>>>>>> e4582f58ed2c299e714f6d7a4ab5346056ec47e6
 
 export const routes: Routes = [
   {
@@ -112,6 +116,10 @@ export const routes: Routes = [
           {
             path: "packages",
             component: ManagePackagesComponent
+          },
+          {
+            path:"add-packages",
+            component:AddPackagesComponent
           },
           {
             path: "inventory",
