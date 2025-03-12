@@ -10,7 +10,6 @@ export default class PhotographerBasicInfo{
     this.orders = orders;
     this.description = description;
   }
-
 }
 
 
