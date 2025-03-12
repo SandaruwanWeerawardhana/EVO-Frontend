@@ -1,22 +1,22 @@
-export default class Venur{
 
-  id:number;
-  supplierId: number;
-  location: string ;
-  type:string;
+type VenueType = "RESTAURANT" | "VILLA" | "HOTEL";
 
-    // aluthen add kla
-  name:string
-  about:string;
-  capacity:number;  
+export default class Venue {
+    name: string;
+    id: number;
+    supplierId: number;
+    location: string;
+    type: VenueType;
+    price:number;
+    image: string; 
 
-  constructor(id:number , supplierId:number ,name:string, location :string , type: string , about:string , capacity:number){
-      this.id=id;
-      this.supplierId=supplierId;
-      this.name = name ;
-      this.location=location;
-      this.type= type;
-      this.about = about;
-      this.capacity =capacity;
-  }
+    constructor(name: string, id: number, supplierId: number, location: string, type: VenueType,price:number, image: string) {
+        this.name = name;
+        this.id = id;
+        this.supplierId = supplierId;
+        this.location = location;
+        this.type = type;
+        this.price=price;
+        this.image = image; 
+    }
 }
