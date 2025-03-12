@@ -1,4 +1,4 @@
-
+import { CommonModule } from '@angular/common'; 
 import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { Chart, ChartConfiguration, ChartType, registerables } from 'chart.js/auto';
 
@@ -7,7 +7,7 @@ Chart.register(...registerables);
 
 @Component({
   selector: 'app-overview',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './overview.component.html',
   styleUrls: ['./overview.component.css']
 })
@@ -18,6 +18,15 @@ export class OverviewComponent implements AfterViewInit  {
   barChart!: Chart;
   doughnutChart!: Chart;
 
+  users = [
+    { id: 1, name: 'nathasha', email: 'nathasha@gmail.com', role: 'Supplier' },
+    { id: 2, name: 'shashini', email: 'johndoe@example.com', role: 'User' },
+    { id: 1, name: 'nathasha', email: 'nathasha@gmail.com', role: 'Supplier' },
+    { id: 2, name: 'shashini', email: 'johndoe@example.com', role: 'User' },
+    { id: 1, name: 'nathasha', email: 'nathasha@gmail.com', role: 'Supplier' },
+    { id: 2, name: 'shashini', email: 'johndoe@example.com', role: 'User' }
+  ];
+
   ngAfterViewInit() {
     this.createBarChart();
     this.createDoughnutChart();
@@ -27,7 +36,7 @@ export class OverviewComponent implements AfterViewInit  {
     const data = {
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
       datasets: [{
-        label: 'Monthly Sales',
+        label: 'Monthly all Events',
         data: [65, 59, 80, 81, 56, 55, 40],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
@@ -70,14 +79,16 @@ export class OverviewComponent implements AfterViewInit  {
 
 createDoughnutChart() {
   const doughnutData = {
-    labels: ['Red', 'Blue', 'Yellow'],
+    lables:['Events'],
+    labels: ['Weddings', 'Birthdays', 'Coporate'],
     datasets: [{
       label: 'My First Dataset',
       data: [300, 50, 100],
       backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)'
+        'rgb(206, 21, 200)',
+        'rgb(152, 156, 153)',
+        'rgb(54, 162, 235)'
+        
       ],
       hoverOffset: 4
     }]
