@@ -21,7 +21,7 @@
               <hr>
           </div>
         </div>
-        <a class="evo-primary-text text-center" href="#">See All Events <i class="bi bi-chevron-right"></i></a>
+
       </div>
 
     </div>
@@ -32,7 +32,7 @@
           <h5 class="card-title evo-card-heading">Events</h5>
           <hr>
           <div class="container">
-            <canvas id="myChart" style="max-height: 275px;"></canvas>
+            <canvas id="myChart" style="max-height: 250px;"></canvas>
           </div>
         </div>
 
@@ -43,28 +43,38 @@
     <div class="card-body">
       <h4 class="card-title evo-card-heading" style="font-size: 36px;">Customer Archives</h4>
       <hr>
-      <table class="table table-borderless">
-        <thead class="evo-table-head">
-          <tr>
-            <th scope="col">Type</th>
-            <th scope="col">Date</th>
-            <th scope="col">Status</th>
-            <th scope="col" colspan="3">Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of archives">
-            <td>{{item.type}}</td>
-            <td>{{item.date}}</td>
-            <!-- <td><span class="badge text-white evo-bg-approved evo-green-text p-2 rounded-pill">{{item.status}}</span></td> -->
-            <!-- <td><span [ngClass]="item.status == 'Approved' ? archiveApprovedStyle : archivePendingStyle">{{item.status}}</span></td> -->
-
-            <td><span class="badge evo-bg-approved evo-green-text px-3 py-1 rounded-pill">{{item.status}}</span></td>
-            <td>{{item.description}}</td>
-          </tr>
-
-        </tbody>
-      </table>
+      <div class="container" style="max-width: 800px;">
+        <table class="table table-borderless table-hover">
+          <thead class="evo-table-head">
+            <tr>
+              <th scope="col">Type</th>
+              <th scope="col">Date</th>
+              <th scope="col" style="text-align: center">Status</th>
+              <th scope="col" colspan="3">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of archives">
+              <td>{{item.type}}</td>
+              <td>{{item.date}}</td>
+              <td style="text-align: center">
+                <span 
+                  [ngClass]="
+                    item.status === 'Approved' ? archiveApprovedStyle : 
+                    item.status === 'Pending' ? archivePendingStyle : 
+                    archiveRejectedStyle
+                  ">
+                  {{item.status}}
+                </span>
+              </td>
+  
+              <!-- <td><span class="badge evo-bg-approved evo-green-text px-3 py-1 rounded-pill">{{item.status}}</span></td> -->
+              <td>{{item.description}}</td>
+            </tr>
+  
+          </tbody>
+        </table>
+      </div>
     </div>
 
   </div>

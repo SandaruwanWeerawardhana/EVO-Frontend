@@ -1,6 +1,7 @@
 // src/app/page/customer/dash-root-customer/dash-root-customer.component.ts
 import { Component , AfterViewInit} from '@angular/core';
-import { NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
+
 import { Chart, LinearScale, CategoryScale, BarElement, BarController } from 'chart.js/auto';
 Chart.register(LinearScale, CategoryScale, BarElement, BarController);
 
@@ -17,19 +18,25 @@ type Archives = {
   description: string;  
 }
 
+
 @Component({
   selector: 'app-dash-root-customer',
-  imports: [NgFor],
+  // imports: [NgFor],
+  imports: [CommonModule],
   templateUrl: './dash-root-customer.component.html',
   styleUrl: './dash-root-customer.component.css'
 })
 export class DashRootCustomerComponent implements AfterViewInit  {
 
-  archiveApprovedStyle:string = "badge evo-bg-approved evo-green-text px-3 py-1 rounded-pill";
-
-  archivePendingStyle:string = "badge bg-warning evo-green-text px-3 py-1 rounded-pill";
+  archiveApprovedStyle: string = "badge evo-bg-approved evo-green-text px-3 py-1 rounded-pill text-center";
+  archivePendingStyle: string = "badge evo-bg-pending evo-pending-text px-3 py-1 rounded-pill text-center";
+  archiveRejectedStyle: string = "badge evo-bg-rejected evo-rejected-text px-3 py-1 rounded-pill text-center";
 
   limit:number = 4;
+
+  approvedEventCount = 0;
+  pendingEventCount = 0;
+  rejectedEventCount = 0;
 
   limitedEvents:Event[]=[];
 
@@ -114,6 +121,15 @@ export class DashRootCustomerComponent implements AfterViewInit  {
 
   constructor() {
     this.limitedEvents = this.events.slice(0, this.limit);
+    this.archives.forEach((item)=>{
+      if (item.status=="Approved") {
+        this.approvedEventCount++;
+      } else if (item.status=="Pending") {
+        this.pendingEventCount++;
+      } else if (item.status=="Rejected") {
+        this.rejectedEventCount++;
+      }
+    })
   }
 
  
@@ -125,16 +141,16 @@ export class DashRootCustomerComponent implements AfterViewInit  {
         labels: ['Pending', 'Approved', 'Rejected'], // Adjust labels for doughnut slices
         datasets: [{
           label: 'Event Status',
-          data: [10, 20, 5], // Sample data - update with your actual values if needed
+          data: [this.pendingEventCount, this.approvedEventCount, this.rejectedEventCount], // Sample data - update with your actual values if needed
           backgroundColor: [
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(255, 99, 132, 0.2)'
+            '#713F12',
+            '#14532D',
+            '#7F1D1D'
           ],
           borderColor: [
-            'rgba(54, 162, 235, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(255, 99, 132, 1)'
+            '#713F12',
+            '#14532D',
+            '#7F1D1D'
           ],
           borderWidth: 1
         }]
