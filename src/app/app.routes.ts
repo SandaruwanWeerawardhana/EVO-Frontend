@@ -160,7 +160,6 @@ export const routes: Routes = [
         path: "beauty-info",
         component: BeautyEssentialsInfoComponent
       }
-
     ]
   },
   {
@@ -227,9 +226,7 @@ export const routes: Routes = [
       {
         path:"admin-profile",
         component:ProfileComponent
-      }
-     
+      }   
     ]
-
   }
 ];
