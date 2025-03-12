@@ -3,7 +3,8 @@
 import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import Chart from 'chart.js/auto';
-import { DashboardData } from '../../../../../model/Supplier-dash-root'; 
+import { DashboardData } from '../../../../../model/Supplier-dash-root';
+import { environment } from '../../../../../environment/env.test'; 
 
 @Component({
   selector: 'app-dash-root',
@@ -28,7 +29,7 @@ export class DashRootComponent implements OnInit, AfterViewInit {
   }
 
   loadWorks() {
-    this.http.get<any[]>('https://3309-112-134-151-168.ngrok-free.app/supplier/previous-work/get-all')
+    this.http.get<any[]>(environment.baseUrl+'/supplier/previous-work/get-all')
       .subscribe({
         next: (res) => {
           this.dashboardData.totalWorks = res.length;
@@ -37,7 +38,7 @@ export class DashRootComponent implements OnInit, AfterViewInit {
   }
 
   loadRatings() {
-    this.http.get<any[]>('https://3309-112-134-151-168.ngrok-free.app/review/get-all')
+    this.http.get<any[]>(environment.baseUrl+'/review/get-all')
       .subscribe({
         next: (res) => {
           this.dashboardData.totalRatings = res.length;
@@ -46,7 +47,7 @@ export class DashRootComponent implements OnInit, AfterViewInit {
   }
 
   loadCustomers() {
-    this.http.get<any[]>('https://3309-112-134-151-168.ngrok-free.app/userController/users')
+    this.http.get<any[]>(environment.baseUrl+'/userController/users')
       .subscribe({
         next: (res) => {
           this.dashboardData.customers = res.filter(user => user.userType === 'customer').length;
