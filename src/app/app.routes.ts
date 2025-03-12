@@ -34,6 +34,7 @@ import { PaymentsCustomerComponent } from './page/customer/payments-customer/pay
 import { ProfileCustomerComponent } from './page/customer/profile-customer/profile-customer.component';
 import { ReviewsCustomerComponent } from './page/customer/reviews-customer/reviews-customer.component';
 import { DashRootCustomerComponent } from './page/customer/dash-root-customer/dash-root-customer.component';
+import { PreviousWorkComponent } from './page/supplier/previous-work/previous-work.component';
 import { AddPackagesComponent } from './page/supplier/dash/add-packages/add-packages.component';
 
 export const routes: Routes = [
@@ -156,6 +157,10 @@ export const routes: Routes = [
       {
         path: "beauty-info",
         component: BeautyEssentialsInfoComponent
+      },
+      {
+        path:"previous-work",
+        component:PreviousWorkComponent
       }
 
     ]
