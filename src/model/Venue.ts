@@ -1,4 +1,3 @@
-
 type VenueType = "RESTAURANT" | "VILLA" | "HOTEL";
 
 export default class Venue {
