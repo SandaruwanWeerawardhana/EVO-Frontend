@@ -1,61 +1,61 @@
+
+
 import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import Chart from 'chart.js/auto';
+import { DashboardData } from '../../../../../model/Supplier-dash-root'; 
+
 @Component({
   selector: 'app-dash-root',
   imports: [HttpClientModule],
   templateUrl: './dash-root.component.html',
   styleUrl: './dash-root.component.css'
 })
-export class DashRootComponent implements OnInit {
+export class DashRootComponent implements OnInit, AfterViewInit {
+  dashboardData: DashboardData = new DashboardData();
+
+  constructor(private http: HttpClient) {}
+
   ngAfterViewInit() {
     this.loadBarChart();
     this.loadPieChart();
   }
 
-  constructor(private http:HttpClient){
-
-  }
-
-  postArray:any[]=[];
-
   ngOnInit(): void {
-      this.loadWorks();
-      this.loadRatings();
-      this.loadCustomers();
+    this.loadWorks();
+    this.loadRatings();
+    this.loadCustomers();
   }
 
   loadWorks() {
     this.http.get<any[]>('https://3309-112-134-151-168.ngrok-free.app/supplier/previous-work/get-all')
       .subscribe({
         next: (res) => {
-          this.postArray = res; 
+          this.dashboardData.totalWorks = res.length;
         }
       });
   }
- loadRatings() {
+
+  loadRatings() {
     this.http.get<any[]>('https://3309-112-134-151-168.ngrok-free.app/review/get-all')
       .subscribe({
         next: (res) => {
-          this.postArray = res; 
+          this.dashboardData.totalRatings = res.length;
         }
       });
   }
+
   loadCustomers() {
     this.http.get<any[]>('https://3309-112-134-151-168.ngrok-free.app/userController/users')
       .subscribe({
         next: (res) => {
-          this.postArray = res
-            .filter(user => user.userType === 'customer')
-            .sort((a, b) => a.userType.localeCompare(b.userType));
-          console.log('Filtered and Sorted Users:', this.postArray);
+          this.dashboardData.customers = res.filter(user => user.userType === 'customer').length;
         },
         error: (err) => {
           console.error('Error fetching users:', err);
         }
       });
   }
-  
 
   loadBarChart() {
     const barChart = new Chart("barChart", {
