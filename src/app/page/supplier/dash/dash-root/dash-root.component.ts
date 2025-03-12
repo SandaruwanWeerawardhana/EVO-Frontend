@@ -15,7 +15,6 @@ import { environment } from '../../../../../environment/env.test';
 export class DashRootComponent implements OnInit, AfterViewInit {
   dashboardData: DashboardData = new DashboardData();
 
-
   constructor(private http: HttpClient) {}
 
   ngAfterViewInit() {
