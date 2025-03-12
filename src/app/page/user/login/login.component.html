@@ -1,5 +1,5 @@
 <div id="bodyDiv">
-    <div class="container py-5 h-100">
+    <div class="container h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col col-xl-10">
                 <div class="card" style="border-radius: 1rem">
@@ -22,12 +22,14 @@
 
                                     <div class="mb-4">
                                         <label for="txtEmail">Email Address</label>
-                                        <input type="email" class="form-control p-2 border-primary border-1" id="txtEmail" />
+                                        <input type="email" class="form-control p-2 border-primary border-1" id="txtEmail" 
+                                               [(ngModel)]="txtEmail" name="txtEmail" />
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="txtPassword">Password</label>
-                                        <input type="password" class="form-control p-2 border-primary border-1" id="txtPassword" />
+                                        <input type="password" class="form-control p-2 border-primary border-1" id="txtPassword" 
+                                               [(ngModel)]="txtPassword" name="txtPassword" />
                                     </div>
 
                                     <div class="form-check mb-4 d-flex justify-content-between">
@@ -39,13 +41,13 @@
                                     </div>
 
                                     <div class="d-grid mb-3">
-                                        <button type="submit" class="btn btn-primary btn-lg p-2 fw-bold">
+                                        <button type="button" class="btn btn-primary btn-lg p-2 fw-bold" (click)="loginButtonOnAction()">
                                             Login
                                         </button>
                                     </div>
 
                                     <p class="text-center">
-                                        Don't have an account? <a href="#">Sign Up</a>
+                                        Don't have an account? <a routerLink="/register">Sign Up</a>
                                     </p>
                                     <div class="d-flex align-items-center mb-4">
                                         <hr class="flex-grow-1">
@@ -54,11 +56,11 @@
                                     </div>
                                     <div class="d-flex justify-content-center gap-3">
                                         <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/281/281764.png"
-                                                alt="Google"></a>
+                                                alt="Google" width="30"></a>
                                         <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
-                                                alt="Facebook"></a>
+                                                alt="Facebook" width="30"></a>
                                         <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
-                                                alt="LinkedIn"></a>
+                                                alt="LinkedIn" width="30"></a>
                                     </div>
                                 </form>
 
