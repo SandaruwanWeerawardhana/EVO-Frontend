@@ -21,7 +21,6 @@
       </div>
     </div>
 
- 
   <div class="charts-wrapper" style="display: flex; gap: 1rem;">
     <div class="chart-container" style="flex: 1; height: 300px;">
       <canvas #barCanvas></canvas>
@@ -31,73 +30,102 @@
     </div>
   </div>
 </div>
-  
+
     <div class="table-container">
+      <h2>Users</h2>
       <table class="table table-hover table-bordered shadow-lg">
-        <thead class="table-dark">
+        <thead class="custom-thead">
+          <tr>
+            <th scope="col">Permissions</th>
+            <th scope="col">user Id</th>
+            <th scope="col">user name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Role</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td><button class="button">Accept</button><button class="buttonr">Reject</button></td>
+            <td>{{ user.id }}</td>
+            <td class="profile">
+              <img src="https://avatars.dicebear.com/api/micah/{{ user.name }}.svg" alt="Profile Picture" class="profile-img">
+              <span class="profile-name">{{ user.name }}</span>
+            </td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.role }}</td>
+          </tr>
+          </tbody>
+      </table>
+    </div>
+
+    <div class="table-container">
+      <h2>Transactions</h2>
+      <table class="table table-hover table-bordered shadow-lg">
+        <thead class="custom-thead">
           <tr>
             <th scope="col">Date</th>
             <th scope="col">Transection ID</th>
             <th scope="col">Description</th>
             <th scope="col">Amount</th>
-            <th scope="col">Payment type</th>
-            <th scope="col">Confirmation</th>
+            <th scope="col">Supplier</th>
+            <th scope="col">Customer</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <th scope="row">2022/4/5</th>
-            <td>Mark</td>
+            <td>T001</td>
             <td>Otto</td>
-            <td>confirm</td>
-            <td>confirm</td>
-            <td>confirm</td>
+            <td>Rs.1000</td>
+            <td>mr.perere</td>
+            <td>deneth</td>
           </tr>
           <tr>
             <th scope="row">2022/4/5</th>
-            <td>Jacob</td>
+            <td>T001</td>
             <td>Thornton</td>
-            <td>Pending</td>
-            <td>Pending</td>
-            <td>Pending</td>
-          </tr>
-          <tr>
-            <th scope="row">2022/4/5</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>Pending</td>
+            <td>Rs.1000</td>
             <td>Pending</td>
             <td>Pending</td>
           </tr>
           <tr>
             <th scope="row">2022/4/5</th>
-            <td>Jacob</td>
+            <td>T001</td>
             <td>Thornton</td>
-            <td>Pending</td>
+            <td>Rs.1000</td>
             <td>Pending</td>
             <td>Pending</td>
           </tr>
           <tr>
             <th scope="row">2022/4/5</th>
-            <td>Jacob</td>
+            <td>T001</td>
             <td>Thornton</td>
-            <td>Pending</td>
+            <td>Rs.1000</td>
             <td>Pending</td>
             <td>Pending</td>
           </tr>
           <tr>
             <th scope="row">2022/4/5</th>
-            <td>Jacob</td>
+            <td>T001</td>
             <td>Thornton</td>
-            <td>Pending</td>
+            <td>Rs.1000</td>
             <td>Pending</td>
             <td>Pending</td>
           </tr>
           <tr>
             <th scope="row">2022/4/5</th>
-            <td>Jacob</td>
+            <td>T001</td>
             <td>Thornton</td>
+            <td>Rs.1000</td>
             <td>Pending</td>
+            <td>Pending</td>
+          </tr>
+          <tr>
+            <th scope="row">2022/4/5</th>
+            <td>T001</td>
+            <td>Thornton</td>
+            <td>Rs.1000</td>
             <td>Pending</td>
             <td>Pending</td>
           </tr>
@@ -105,49 +133,5 @@
         </tbody>
       </table>
     </div>
-    <div class="table-container">
-      <table class="table table-hover table-bordered shadow-lg">
-        <thead class="table-dark">
-          <tr>
-            <th scope="col">Profile</th>
-            <th scope="col">Date</th>
-            <th scope="col">Transection ID</th>
-            <th scope="col">Description</th>
-            <th scope="col">Amount</th>
-            <th scope="col">Payment type</th>
-            <th scope="col">Confirmation</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="profile-cell">
-              <img src="https://avatars.dicebear.com/api/micah/JohnDoe.svg
-              " alt="Profile Picture" class="profile-img">
-              <span class="profile-name">Mark</span>
-            </td>
-            <th scope="row">2022/4/5</th>
-            <td>TranID123</td>
-            <td>Otto</td>
-            <td>confirm</td>
-            <td>confirm</td>
-            <td>confirm</td>
-          </tr>
-          <tr>
-            <td class="profile-cell">
-              <img src="https://avatars.dicebear.com/api/micah/JohnDoe.svg" alt="Profile Picture" class="profile-img">
-              <span class="profile-name">Jacob</span>
-            </td>
-            <th scope="row">2022/4/5</th>
-            <td>TranID456</td>
-            <td>Thornton</td>
-            <td>Pending</td>
-            <td>Pending</td>
-            <td>Pending</td>
-          </tr>
-          
-        </tbody>
-      </table>
-    </div>
-    
     
 
