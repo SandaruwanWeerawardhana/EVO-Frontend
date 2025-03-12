@@ -1,4 +1,3 @@
-// src/app/page/customer/dash-root-customer/dash-root-customer.component.ts
 import { Component , AfterViewInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -138,10 +137,10 @@ export class DashRootCustomerComponent implements AfterViewInit  {
     new Chart("myChart", {
       type: "doughnut",
       data: {
-        labels: ['Pending', 'Approved', 'Rejected'], // Adjust labels for doughnut slices
+        labels: ['Pending', 'Approved', 'Rejected'],
         datasets: [{
           label: 'Event Status',
-          data: [this.pendingEventCount, this.approvedEventCount, this.rejectedEventCount], // Sample data - update with your actual values if needed
+          data: [this.pendingEventCount, this.approvedEventCount, this.rejectedEventCount], 
           backgroundColor: [
             '#713F12',
             '#14532D',
@@ -157,11 +156,6 @@ export class DashRootCustomerComponent implements AfterViewInit  {
       },
       options: {
         responsive: true,
-        // scales: {
-        //   y: {
-        //     beginAtZero: true
-        //   }
-        // },
         cutout: '80%',
         plugins: {
           legend: {
