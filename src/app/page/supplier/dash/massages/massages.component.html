@@ -1,140 +1,128 @@
-<br><br><br><br>
+<div class="container-fluid">
+    <div class="row vh-100">
+        <!-- Left Container (Messages List) -->
+        <div class="col-md-4 col-lg-3 border-end p-3 bg-light d-none d-md-block">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5>Messages <span class="badge bg-primary">12</span></h5>
+                <button class="btn btn-sm btn-outline-secondary"><i class="bi bi-funnel-fill"></i></button>
+            </div>
+            <input type="text" class="form-control mb-3" placeholder="Search messages">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat UI</title>
-    <!-- Bootstrap 5 CDN -->
-    <link rel="stylesheet" href="supplier-messages.component.css">
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action">
+                    <div class="d-flex align-items-center">
+                        <img src="/assets/girlMsgProfile1.jpg" class="rounded-circle me-2" width="40" height="40">
+                        <div>
+                            <h6 class="mb-0">Carmen Chong</h6>
+                            <small>Haha oh man</small>
+                        </div>
+                        <span class="badge bg-warning ms-auto">Price</span>
+                    </div>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <div class="d-flex align-items-center">
+                        <img src="/assets/girlMsgProfile2.jpg" class="rounded-circle me-2" width="40" height="40">
+                        <div>
+                            <h6 class="mb-0">Hannia Navadil</h6>
+                            <small>Haha oh man</small>
+                        </div>
+                        <span class="badge bg-warning ms-auto">Price</span>
+                    </div>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <div class="d-flex align-items-center">
+                        <img src="/assets/girlMsgProfile3.jpg" class="rounded-circle me-2" width="40" height="40">
+                        <div>
+                            <h6 class="mb-0">Elmer Laverty</h6>
+                            <small>Haha oh man</small>
+                        </div>
+                        <span class="badge bg-warning ms-auto">Price</span>
+                    </div>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <div class="d-flex align-items-center">
+                        <img src="/assets/boyMsgProfile4.jpg" class="rounded-circle me-2" width="40" height="40">
+                        <div>
+                            <h6 class="mb-0">Vinit Loriya</h6>
+                            <small>Haha oh man</small>
+                        </div>
+                        <span class="badge bg-warning ms-auto">Price</span>
+                    </div>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <div class="d-flex align-items-center">
+                        <img src="/assets/boyMsgProfile2.jpg" class="rounded-circle me-2" width="40" height="40">
+                        <div>
+                            <h6 class="mb-0">Jesmine Veniishia</h6>
+                            <small>Haha oh man</small>
+                        </div>
+                        <span class="badge bg-warning ms-auto">Price</span>
+                    </div>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action active">
+                    <div class="d-flex align-items-center">
+                        <img src="/assets/boyMsgProfile.jpg" class="rounded-circle me-2" width="40" height="40">
+                        <div>
+                            <h6 class="mb-0">Florencio Dorrance</h6>
+                            <small>Availability</small>
+                        </div>
+                        <span class="badge bg-success ms-auto">Availability</span>
+                    </div>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <div class="d-flex align-items-center">
+                        <img src="/assets/boyMsgProfile3.jpg" class="rounded-circle me-2" width="40" height="40">
+                        <div>
+                            <h6 class="mb-0">Lauren Laboy</h6>
+                            <small>Haha that's terrifying</small>
+                        </div>
+                        <span class="badge bg-warning ms-auto">Price</span>
+                    </div>
+                </a>
+            </div>
+        </div>
 
-    <div class="container-fluid">
-        <div class="row vh-100">
-            <!-- Left Container (Messages List) -->
-            <div class="col-md-4 col-lg-3 border-end p-3 bg-light d-none d-md-block">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h5>Messages <span class="badge bg-primary">12</span></h5>
-                    <button class="btn btn-sm btn-outline-secondary"><i class="bi bi-funnel-fill"></i></button>
-                </div>
-                <input type="text" class="form-control mb-3" placeholder="Search messages">
+        <!-- Right Container (Chat Window) -->
+        <div class="col-md-8 col-lg-9 d-flex flex-column">
+            <!-- Chat Header -->
+            <div class="d-flex align-items-center p-3 border-bottom bg-light">
+                <img src="/assets/boyMsgProfile.jpg" class="rounded-circle me-2" width="40" height="40">
+                <h5 class="mb-0">Florencio Dorrance</h5>
+                <small class="text-success ms-auto">Online</small>
+            </div>
 
-                <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <div class="d-flex align-items-center">
-                            <img src="/assets/girlMsgProfile1.jpg" class="rounded-circle me-2" width="40" height="40">
-                            <div>
-                                <h6 class="mb-0">Carmen Chong</h6>
-                                <small>Haha oh man</small>
-                            </div>
-                            <span class="badge bg-warning ms-auto">Price</span>
-                        </div>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <div class="d-flex align-items-center">
-                            <img src="/assets/girlMsgProfile2.jpg" class="rounded-circle me-2" width="40" height="40">
-                            <div>
-                                <h6 class="mb-0">Hannia Navadil</h6>
-                                <small>Haha oh man</small>
-                            </div>
-                            <span class="badge bg-warning ms-auto">Price</span>
-                        </div>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <div class="d-flex align-items-center">
-                            <img src="/assets/girlMsgProfile3.jpg" class="rounded-circle me-2" width="40" height="40">
-                            <div>
-                                <h6 class="mb-0">Elmer Laverty</h6>
-                                <small>Haha oh man</small>
-                            </div>
-                            <span class="badge bg-warning ms-auto">Price</span>
-                        </div>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <div class="d-flex align-items-center">
-                            <img src="/assets/boyMsgProfile4.jpg" class="rounded-circle me-2" width="40" height="40">
-                            <div>
-                                <h6 class="mb-0">Vinit Loriya</h6>
-                                <small>Haha oh man</small>
-                            </div>
-                            <span class="badge bg-warning ms-auto">Price</span>
-                        </div>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <div class="d-flex align-items-center">
-                            <img src="/assets/boyMsgProfile2.jpg" class="rounded-circle me-2" width="40" height="40">
-                            <div>
-                                <h6 class="mb-0">Jesmine Veniishia</h6>
-                                <small>Haha oh man</small>
-                            </div>
-                            <span class="badge bg-warning ms-auto">Price</span>
-                        </div>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action active">
-                        <div class="d-flex align-items-center">
-                            <img src="/assets/boyMsgProfile.jpg" class="rounded-circle me-2" width="40" height="40">
-                            <div>
-                                <h6 class="mb-0">Florencio Dorrance</h6>
-                                <small>Availability</small>
-                            </div>
-                            <span class="badge bg-success ms-auto">Availability</span>
-                        </div>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <div class="d-flex align-items-center">
-                            <img src="/assets/boyMsgProfile3.jpg" class="rounded-circle me-2" width="40" height="40">
-                            <div>
-                                <h6 class="mb-0">Lauren Laboy</h6>
-                                <small>Haha that's terrifying</small>
-                            </div>
-                            <span class="badge bg-warning ms-auto">Price</span>
-                        </div>
-                    </a>
+            <!-- Chat Body -->
+
+            <!-- Chat Body -->
+            <div id="chat-body" class="flex-grow-1 overflow-auto p-3" style="height: calc(100vh - 60px);">
+                <div class="d-flex flex-column">
+                    <div class="alert alert-secondary w-50">omg, this is amazing</div>
+                    <div class="alert alert-secondary w-50">perfect!</div>
+                    <div class="alert alert-secondary w-50">Wow, this is really epic</div>
+
+                    <div class="alert alert-primary w-50 ms-auto text-white">How are you?</div>
+                    <div class="alert alert-secondary w-50">Just ideas for next time</div>
+                    <div class="alert alert-secondary w-50">I'll be there in 2 mins</div>
+
+                    <div class="alert alert-primary w-50 ms-auto text-white">woohooo</div>
+                    <div class="alert alert-primary w-50 ms-auto text-white">Haha oh man</div>
+                    <div class="alert alert-primary w-50 ms-auto text-white">Haha that's terrifying</div>
+
+                    <div class="alert alert-secondary w-50">aww</div>
+                    <div class="alert alert-secondary w-50">omg, this is amazing</div>
+                    <div class="alert alert-secondary w-50">woohooo</div>
                 </div>
             </div>
 
-            <!-- Right Container (Chat Window) -->
-            <div class="col-md-8 col-lg-9 d-flex flex-column">
-                <!-- Chat Header -->
-                <div class="d-flex align-items-center p-3 border-bottom bg-light">
-                    <img src="/assets/boyMsgProfile.jpg" class="rounded-circle me-2" width="40" height="40">
-                    <h5 class="mb-0">Florencio Dorrance</h5>
-                    <small class="text-success ms-auto">Online</small>
-                </div>
-
-                <!-- Chat Body -->
-
-    <!-- Chat Body -->
-    <div id="chat-body" class="flex-grow-1 overflow-auto p-3" style="height: calc(100vh - 60px);">
-        <div class="d-flex flex-column">
-            <div class="alert alert-secondary w-50">omg, this is amazing</div>
-            <div class="alert alert-secondary w-50">perfect!</div>
-            <div class="alert alert-secondary w-50">Wow, this is really epic</div>
-
-            <div class="alert alert-primary w-50 ms-auto text-white">How are you?</div>
-            <div class="alert alert-secondary w-50">Just ideas for next time</div>
-            <div class="alert alert-secondary w-50">I'll be there in 2 mins</div>
-
-            <div class="alert alert-primary w-50 ms-auto text-white">woohooo</div>
-            <div class="alert alert-primary w-50 ms-auto text-white">Haha oh man</div>
-            <div class="alert alert-primary w-50 ms-auto text-white">Haha that's terrifying</div>
-
-            <div class="alert alert-secondary w-50">aww</div>
-            <div class="alert alert-secondary w-50">omg, this is amazing</div>
-            <div class="alert alert-secondary w-50">woohooo</div>
-        </div>
-    </div>
-
-    <!-- Message Typing Area -->
-    <div style="position: fixed; bottom: 0; width: 60%; background: white; padding: 10px; 
+            <!-- Message Typing Area -->
+            <div style="position: fixed; bottom: 0; width: 60%; background: white; padding: 10px; 
                 border-top: 1px solid #ccc; display: flex; align-items: center;">
-        <input type="text" placeholder="Type a message..." 
-               style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 5px; outline: none;">
-        <button style="margin-left: 10px; padding: 8px 15px; background: #007bff; color: white; 
+                <input type="text" placeholder="Type a message..."
+                    style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 5px; outline: none;">
+                <button style="margin-left: 10px; padding: 8px 15px; background: #007bff; color: white; 
                        border: none; border-radius: 5px; cursor: pointer;">Send</button>
-    </div>
-   
             </div>
+
         </div>
     </div>
-
-  
-   
-
+</div>
