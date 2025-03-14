@@ -1,21 +1,21 @@
-type VenueType = "RESTAURANT" | "VILLA" | "HOTEL";
+export default class Venur{
 
-export default class Venue {
-    name: string;
-    id: number;
-    supplierId: number;
-    location: string;
-    type: VenueType;
-    price:number;
-    image: string; 
+  id:number;
+  supplierId: number;
+  location: string ;
+  type:string;
+  name:string
+  about:string;
+  capacity:number;
 
-    constructor(name: string, id: number, supplierId: number, location: string, type: VenueType,price:number, image: string) {
-        this.name = name;
-        this.id = id;
-        this.supplierId = supplierId;
-        this.location = location;
-        this.type = type;
-        this.price=price;
-        this.image = image; 
-    }
+  constructor(id:number , supplierId:number ,name:string, location :string , type: string , about:string , capacity:number){
+      this.id=id;
+      this.supplierId=supplierId;
+      this.name = name ;
+      this.location=location;
+      this.type= type;
+      this.about = about;
+      this.capacity =capacity;
+  }
 }
+

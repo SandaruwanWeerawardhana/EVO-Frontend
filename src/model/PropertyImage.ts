@@ -1,3 +1,5 @@
+import Venue from "./Venue";
+
 export default class PropertyImage{
 
    id:number;
