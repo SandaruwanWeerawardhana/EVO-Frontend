@@ -1,9 +1,56 @@
 <div class="table-container" style="margin-top: 70px;">
-    <input 
-    type="text" 
-    placeholder="Search..." 
-    class="form-control mb-3"
-  />
+
+
+  <div class="filter-controls">
+    <div class="row">
+      <div class="col-auto mb-3">
+        <input 
+          type="text" 
+          placeholder="Search by Supplier..." 
+          class="form-control"
+          [(ngModel)]="searchCustomer"
+        />
+      </div>
+      <div class="col-auto mb-3">
+        <input 
+          type="date" 
+          placeholder="Start Date" 
+          class="form-control"
+          [(ngModel)]="startDate"
+        />
+      </div>
+      <div class="col-auto mb-3">
+        <input 
+          type="date" 
+          placeholder="End Date" 
+          class="form-control"
+          [(ngModel)]="endDate"
+        />
+      </div>
+      <div class="col-auto mb-3">
+        <input 
+          type="number" 
+          placeholder="Min Amount" 
+          class="form-control"
+          [(ngModel)]="minAmount"
+        />
+      </div>
+      <div class="col-auto mb-3">
+        <input 
+          type="number" 
+          placeholder="Max Amount" 
+          class="form-control"
+          [(ngModel)]="maxAmount"
+        />
+      </div>
+      <div class="col-auto mb-3">
+        <button class="btn btn-secondary" (click)="clearFilters()">
+          Clear Filters
+        </button>
+      </div>
+    </div>
+  </div>
+
     <table class="table table-hover table-bordered shadow-lg">
       <thead class="table-dark">
         <tr>
@@ -13,16 +60,18 @@
           <th scope="col">Supplier Type</th>
           <th scope="col">Amount</th>
           <th scope="col">Remarks</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of customerPayments">
+        <tr *ngFor="let item of filteredPayments">
           <th scope="row">{{item.date}}</th>
           <td>{{item.transactionId}}</td>
           <td>{{item.supplier}}</td>
           <td>{{item.supplierType}}</td>
           <td>{{item.amount}}</td>
           <td>{{item.remarks}}</td>
+          <td><a href="#"><img src="/payments-customer/receipt_print.png" alt="print receipt" style="height: 30px;" title="Print Receipt"></a></td>
         </tr>
       </tbody>
     </table>

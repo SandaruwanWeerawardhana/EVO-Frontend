@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 type CustomerPayment = {
   date: string;
@@ -12,11 +13,18 @@ type CustomerPayment = {
 
 @Component({
   selector: 'app-payments-customer',
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './payments-customer.component.html',
   styleUrl: './payments-customer.component.css'
 })
 export class PaymentsCustomerComponent {
+
+  searchCustomer: string = '';
+  startDate: string = '';
+  endDate: string = '';
+  minAmount: number | null = null;
+  maxAmount: number | null = null;
+
   customerPayments: CustomerPayment[] = [
     {
       date: new Date("2025-03-25").toDateString(),
@@ -67,4 +75,52 @@ export class PaymentsCustomerComponent {
       remarks: "Remark 5"
     }
   ]
+
+  get filteredPayments(): CustomerPayment[] {
+    return this.customerPayments.filter(payment => {
+      // Filter by search query (supplier name)
+      const matchesSearchCustomer = this.searchCustomer ? 
+        payment.supplier.toLowerCase().includes(this.searchCustomer.toLowerCase()) : 
+        true;
+      
+      // Filter by minimum amount
+      const meetsMinAmount = this.minAmount !== null ? 
+        payment.amount >= this.minAmount : 
+        true;
+      
+      // Filter by maximum amount
+      const meetsMaxAmount = this.maxAmount !== null ? 
+        payment.amount <= this.maxAmount : 
+        true;
+      
+      // Filter by date range
+      let meetsDateRange = true;
+      
+      if (this.startDate || this.endDate) {
+        const paymentDate = new Date(payment.date);
+        
+        if (this.startDate) {
+          const startDateObj = new Date(this.startDate);
+          meetsDateRange = meetsDateRange && paymentDate >= startDateObj;
+        }
+        
+        if (this.endDate) {
+          const endDateObj = new Date(this.endDate);
+          meetsDateRange = meetsDateRange && paymentDate <= endDateObj;
+        }
+      }
+      
+      // Return true only if all conditions are met
+      return matchesSearchCustomer && meetsMinAmount && meetsMaxAmount && meetsDateRange;
+    });
+  }
+  
+  // Clear filters
+  clearFilters(): void {
+    this.searchCustomer = '';
+    this.minAmount = null;
+    this.maxAmount = null;
+    this.startDate = '';
+    this.endDate = '';
+  }
 }
