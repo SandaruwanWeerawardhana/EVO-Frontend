@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
 import { RouterLink } from '@angular/router';
 import User from '../../../../model/User';
-import Supplier from '../../../../model/Supplier';
+import Supplier from '../../../../model/supplier';
 import { SupabaseService } from '../../../../service/supabase.service';
 
 @Component({
@@ -88,7 +88,7 @@ export class SignupComponent {
         icon: 'error',
         confirmButtonText: 'OK'
       });
-      return false;  
+      return false;
     }
 
     if (this.password !== this.confirmPassword) {
@@ -205,27 +205,41 @@ export class SignupComponent {
     }
 
     this.isUploading = true;
-    
+
     try {
       await this.uploadFileToSupabase();
-      
+
+      // userId: number,
+      // profileId: number,
+      // businessName: string,
+      // SupplierType: string,
+      // email: string,
+      // password:string,
+      // phoneNumber: string,
+      // description: string,
+      // website: string,
+      // imgUrl: string,
+      // rating: number,
+      // uploadedFileUrl:string
+
       const supplier = new Supplier(
+        0,
         0,
         `${this.firstName} ${this.lastName}`,
         'Supplier',
-        this.password,
         this.email,
-        new Date(),
-        this.businessName,
-        this.businessDescription,
+        this.password,
         this.mobileNumber,
+        this.businessDescription,
         this.website,
+        "",
+        2,
         this.uploadedFileUrl
       );
 
       console.log('New Supplier object created:', supplier);
 
-      // API Integration 
+      // API Integration
 
       Swal.fire({
         title: "Successfully Signed Up!",
