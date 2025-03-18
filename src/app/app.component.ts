@@ -19,6 +19,7 @@ import { CustomerDashboardComponent } from "./page/customer/customer-dashboard/c
 import Customer from '../model/Customer';
 import { VenuePagePopupComponent } from "./page/event/venue-page-popup/venue-page-popup.component";
 
+
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, VenuePagePopupComponent],

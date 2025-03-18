@@ -1,11 +1,29 @@
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio fugiat error ea incidunt accusamus repudiandae cupiditate quod excepturi velit! Eveniet temporibus ab reiciendis suscipit obcaecati distinctio saepe odit quas eius.
-Distinctio, laudantium. Soluta cumque tempore corporis obcaecati similique sunt fugiat laborum quia! Quisquam quas dicta nemo, nesciunt error minima, dolore quam quaerat eos sequi quidem hic nostrum a magni optio.
-Vero, officia? Voluptatem soluta maxime adipisci nihil a excepturi modi aspernatur odio vero sit cupiditate maiores aperiam, illum rem iure sequi molestiae laborum eaque nulla praesentium ipsa rerum ratione facilis.
-Praesentium molestiae ea a, quasi error quam molestias ratione doloremque rem optio? Consequuntur aliquam voluptatum, ipsa illum tempore ut similique doloremque ipsum obcaecati suscipit. Veritatis sunt quae quaerat fugit officiis.
-Praesentium obcaecati et iste quam corporis, placeat ea saepe architecto expedita tempora. In pariatur aut inventore. Pariatur nemo laborum, similique commodi dignissimos ipsum dolorum sed quibusdam expedita consequatur soluta illum?
-Maxime aspernatur inventore at magni laboriosam? Perspiciatis, accusantium obcaecati ratione necessitatibus architecto ipsum minima quisquam voluptas reprehenderit laudantium inventore ullam blanditiis praesentium possimus facere quibusdam. Rerum magni vitae nostrum fuga?
-Reprehenderit fugiat aliquam nemo aut mollitia consectetur quisquam accusamus culpa quae autem accusantium facilis aliquid alias animi rem magni temporibus architecto incidunt perferendis, sunt quaerat laborum nulla? Corporis, maxime deserunt.
-Recusandae, exercitationem adipisci aut modi, incidunt facilis fuga consectetur fugit esse dolorem delectus debitis facere dolor provident aspernatur ipsam ipsum? Perspiciatis cupiditate quisquam inventore dolorem, quos sit ab doloribus laborum!
-Cupiditate ipsam quia tempore! Esse odit maxime nam rerum nemo dolores, ab asperiores reiciendis harum dicta ipsum sint cupiditate animi quasi quod suscipit, fuga atque. Pariatur assumenda saepe omnis esse!
-Nemo porro magnam incidunt. Eligendi laudantium placeat id, facilis, minima non assumenda doloribus nesciunt rem temporibus provident incidunt. Dolorem molestias sit soluta ex doloremque dolores nihil error corrupti debitis ullam?</p>
-<p>payments-customer works!</p>
+<div class="table-container" style="margin-top: 70px;">
+    <input 
+    type="text" 
+    placeholder="Search..." 
+    class="form-control mb-3"
+  />
+    <table class="table table-hover table-bordered shadow-lg">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Transection ID</th>
+          <th scope="col">Supplier</th>
+          <th scope="col">Supplier Type</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Remarks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of customerPayments">
+          <th scope="row">{{item.date}}</th>
+          <td>{{item.transactionId}}</td>
+          <td>{{item.supplier}}</td>
+          <td>{{item.supplierType}}</td>
+          <td>{{item.amount}}</td>
+          <td>{{item.remarks}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
