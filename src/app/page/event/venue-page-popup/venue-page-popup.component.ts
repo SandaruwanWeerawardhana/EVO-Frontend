@@ -26,6 +26,6 @@ export class VenuePagePopupComponent {
     this.getData();
   }
      getData(){
-      this.venue=  new Venue(1,1,"Shangrila","horana","Hotel","Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quod adipisci ea, at rerum nemo illum necessitatibus aspernatur cumque maiores inventore aliquid tenetur quisquam. Harum distinctio quam dolor sint dolore,",1000);
+      // this.venue=  new Venue(1,1,"Shangrila","horana","Hotel","Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quod adipisci ea, at rerum nemo illum necessitatibus aspernatur cumque maiores inventore aliquid tenetur quisquam. Harum distinctio quam dolor sint dolore,",1000);
     }
 }

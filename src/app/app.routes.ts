@@ -204,7 +204,7 @@ export const routes: Routes = [
       {
         path:"reviews",
         component:ReviewsCustomerComponent
-      }
+      },
       {
         path:"conditions",
         component:ConditionsComponent
@@ -241,7 +241,7 @@ export const routes: Routes = [
       {
         path:"admin-profile",
         component:ProfileComponent
-      }   
+      }
     ]
   }
 ];
