@@ -17,17 +17,16 @@ import { LandingComponent } from './page/landing/landing.component';
 import { ProfileViewComponent } from "./page/supplier/dash/profile-view/profile-view.component";
 import { CustomerDashboardComponent } from "./page/customer/customer-dashboard/customer-dashboard.component";
 import Customer from '../model/Customer';
+import { VenuePagePopupComponent } from "./page/event/venue-page-popup/venue-page-popup.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, VenuePagePopupComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'EVO-Frontend-app';
 
-  getData(){
-    new Customer(1,"saman","panadura");
-  }
+ 
 }
