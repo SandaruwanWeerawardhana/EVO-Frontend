@@ -18,6 +18,7 @@ import { ProfileViewComponent } from "./page/supplier/dash/profile-view/profile-
 import { CustomerDashboardComponent } from "./page/customer/customer-dashboard/customer-dashboard.component";
 import Customer from '../model/Customer';
 
+
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet],
