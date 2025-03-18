@@ -19,7 +19,7 @@ import { BeautyEssentialsInfoComponent } from './page/supplier/beauty-essentials
 import { DashboardComponent } from './page/supplier/dash/dashboard/dashboard.component';
 import { AddPreviousComponent } from './page/supplier/dash/add-previous/add-previous.component';
 import { DashRootComponent } from './page/supplier/dash/dash-root/dash-root.component';
-import { ProfileViewComponent } from './page/supplier/dash/profile-view/profile-view.component';
+import { ProfileViewComponent } from './page/supplier/dash/profile/profile-view/profile-view.component';
 import { ManagePackagesComponent } from './page/supplier/dash/manage-packages/manage-packages.component';
 import { InventoryComponent } from './page/supplier/dash/inventory/inventory.component';
 import { BlogsComponent } from './page/supplier/dash/blogs/blogs.component';
@@ -34,6 +34,8 @@ import { PaymentsCustomerComponent } from './page/customer/payments-customer/pay
 import { ProfileCustomerComponent } from './page/customer/profile-customer/profile-customer.component';
 import { ReviewsCustomerComponent } from './page/customer/reviews-customer/reviews-customer.component';
 import { DashRootCustomerComponent } from './page/customer/dash-root-customer/dash-root-customer.component';
+import { ProfileEditComponent } from './page/supplier/dash/profile/profile-edit/profile-edit.component';
+import { ProfileComponent } from './page/supplier/dash/profile/profile.component';
 
 export const routes: Routes = [
   {
@@ -96,7 +98,24 @@ export const routes: Routes = [
           },
           {
             path: "profile",
-            component: ProfileViewComponent
+            component: ProfileComponent,
+            children: [
+              {
+                path: "",
+                component: ProfileViewComponent
+              },
+              {
+                path: "profile-view",
+                component: ProfileViewComponent
+
+              },
+              {
+                path: "profile-edit",
+                component: ProfileEditComponent
+
+              }
+            ]
+            
           },
           {
             path: "add-previous",

@@ -14,7 +14,7 @@ import { DetailedPreviousWorkComponent } from "./page/supplier/detailed-previous
 import { LoginComponent } from "./page/user/login/login.component";
 import { SignupComponent } from "./page/user/signup/signup.component";
 import { LandingComponent } from './page/landing/landing.component';
-import { ProfileViewComponent } from "./page/supplier/dash/profile-view/profile-view.component";
+import { ProfileViewComponent } from "./page/supplier/dash/profile/profile-view/profile-view.component";
 import { CustomerDashboardComponent } from "./page/customer/customer-dashboard/customer-dashboard.component";
 import Customer from '../model/Customer';
 

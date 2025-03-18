@@ -1,8 +1,5 @@
 
 
-
-
-
 /* Responsive */
 @media (max-width: 768px) {
     .sidebar {
@@ -48,6 +45,9 @@
     height: 30rem
 }
 /* ---------------------------------------- */
+.content{
+    margin-top:80px;
+}
 
 
 
