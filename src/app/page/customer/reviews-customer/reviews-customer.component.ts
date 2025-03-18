@@ -33,7 +33,7 @@ export class ReviewsCustomerComponent {
   isPopupOpen: boolean = false;
 
   openPopup(review: any) {
-    this.editedReview = { ...review }; // Create a copy to edit
+    this.editedReview = { ...review };
     this.isPopupOpen = true;
   }
 
