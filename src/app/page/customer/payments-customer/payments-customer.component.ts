@@ -1,15 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { CustomerPayment } from '../../../../model/CustomerPayment';
+import { CustomerPaymentFilter } from '../../../../model/CustomerPaymentFilter';
 
-type CustomerPayment = {
-  date: string;
-  transactionId: string;
-  supplier: string;
-  supplierType: string;
-  amount: number;
-  remarks: string;
-}
 
 @Component({
   selector: 'app-payments-customer',
@@ -19,11 +13,13 @@ type CustomerPayment = {
 })
 export class PaymentsCustomerComponent {
 
-  searchCustomer: string = '';
-  startDate: string = '';
-  endDate: string = '';
-  minAmount: number | null = null;
-  maxAmount: number | null = null;
+  filter: CustomerPaymentFilter = {
+    searchCustomer: '',
+    startDate: '',
+    endDate: '',
+    minAmount: null,
+    maxAmount: null
+  }
 
   customerPayments: CustomerPayment[] = [
     {
@@ -79,33 +75,33 @@ export class PaymentsCustomerComponent {
   get filteredPayments(): CustomerPayment[] {
     return this.customerPayments.filter(payment => {
       // Filter by search query (supplier name)
-      const matchesSearchCustomer = this.searchCustomer ? 
-        payment.supplier.toLowerCase().includes(this.searchCustomer.toLowerCase()) : 
+      const matchesSearchCustomer = this.filter.searchCustomer ? 
+        payment.supplier.toLowerCase().includes(this.filter.searchCustomer.toLowerCase()) : 
         true;
       
       // Filter by minimum amount
-      const meetsMinAmount = this.minAmount !== null ? 
-        payment.amount >= this.minAmount : 
+      const meetsMinAmount = this.filter.minAmount !== null ? 
+        payment.amount >= this.filter.minAmount : 
         true;
       
       // Filter by maximum amount
-      const meetsMaxAmount = this.maxAmount !== null ? 
-        payment.amount <= this.maxAmount : 
+      const meetsMaxAmount = this.filter.maxAmount !== null ? 
+        payment.amount <= this.filter.maxAmount : 
         true;
       
       // Filter by date range
       let meetsDateRange = true;
       
-      if (this.startDate || this.endDate) {
+      if (this.filter.startDate || this.filter.endDate) {
         const paymentDate = new Date(payment.date);
         
-        if (this.startDate) {
-          const startDateObj = new Date(this.startDate);
+        if (this.filter.startDate) {
+          const startDateObj = new Date(this.filter.startDate);
           meetsDateRange = meetsDateRange && paymentDate >= startDateObj;
         }
         
-        if (this.endDate) {
-          const endDateObj = new Date(this.endDate);
+        if (this.filter.endDate) {
+          const endDateObj = new Date(this.filter.endDate);
           meetsDateRange = meetsDateRange && paymentDate <= endDateObj;
         }
       }
@@ -117,10 +113,10 @@ export class PaymentsCustomerComponent {
   
   // Clear filters
   clearFilters(): void {
-    this.searchCustomer = '';
-    this.minAmount = null;
-    this.maxAmount = null;
-    this.startDate = '';
-    this.endDate = '';
+    this.filter.searchCustomer = '';
+    this.filter.minAmount = null;
+    this.filter.maxAmount = null;
+    this.filter.startDate = '';
+    this.filter.endDate = '';
   }
 }
