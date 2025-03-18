@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ProfileViewComponent } from "../dash/profile-view/profile-view.component";
+import { ProfileViewComponent } from "../dash/profile/profile-view/profile-view.component";
 import { RouterOutlet } from '@angular/router';
 import { AddPreviousComponent } from "../dash/add-previous/add-previous.component";
 
