@@ -23,7 +23,6 @@ export class PhotographerInfoComponent implements OnInit{
   total_charges: number = 0;
   selectedPackage: string = '';
 
-
   basicinfo: PhotographerBasicInfo = {"title": "John Doe Photography", "rating": "five", "orders": 120, "description": "Professional wedding photographer"}
 
   features: PhotographerExtraFeature[] = [
