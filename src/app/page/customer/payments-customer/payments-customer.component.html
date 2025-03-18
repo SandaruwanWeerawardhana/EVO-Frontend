@@ -4,49 +4,57 @@
   <div class="filter-controls">
     <div class="row">
       <div class="col-auto mb-3">
+        <label class="form-label ps-2"><h6>Supplier Name</h6></label>
         <input 
           type="text" 
           placeholder="Search by Supplier..." 
           class="form-control"
-          [(ngModel)]="searchCustomer"
+          [(ngModel)]="filter.searchCustomer"
         />
       </div>
       <div class="col-auto mb-3">
+        <label class="form-label ps-2"><h6>Start Date</h6></label>
         <input 
           type="date" 
           placeholder="Start Date" 
           class="form-control"
-          [(ngModel)]="startDate"
+          [(ngModel)]="filter.startDate"
         />
       </div>
       <div class="col-auto mb-3">
+        <label class="form-label ps-2"><h6>End Date</h6></label>
         <input 
           type="date" 
           placeholder="End Date" 
           class="form-control"
-          [(ngModel)]="endDate"
+          [(ngModel)]="filter.endDate"
         />
       </div>
       <div class="col-auto mb-3">
+        <label class="form-label ps-2"><h6>Min Amount</h6></label>
         <input 
           type="number" 
-          placeholder="Min Amount" 
+          placeholder="-" 
           class="form-control"
-          [(ngModel)]="minAmount"
+          [(ngModel)]="filter.minAmount"
         />
       </div>
       <div class="col-auto mb-3">
+        <label class="form-label ps-2"><h6>Max Amount</h6></label>
         <input 
           type="number" 
-          placeholder="Max Amount" 
+          placeholder="-" 
           class="form-control"
-          [(ngModel)]="maxAmount"
+          [(ngModel)]="filter.maxAmount"
         />
       </div>
       <div class="col-auto mb-3">
-        <button class="btn btn-secondary" (click)="clearFilters()">
-          Clear Filters
-        </button>
+        <label class="form-label ps-2"></label>
+        <div>
+          <button class="btn btn-secondary mt-2" (click)="clearFilters()">
+            Clear Filters
+          </button>
+        </div>
       </div>
     </div>
   </div>

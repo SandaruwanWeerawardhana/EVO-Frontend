@@ -74,7 +74,7 @@ export class PaymentsCustomerComponent {
 
   get filteredPayments(): CustomerPayment[] {
     return this.customerPayments.filter(payment => {
-      // Filter by search query (supplier name)
+      // Search by supplier name
       const matchesSearchCustomer = this.filter.searchCustomer ? 
         payment.supplier.toLowerCase().includes(this.filter.searchCustomer.toLowerCase()) : 
         true;
@@ -106,7 +106,7 @@ export class PaymentsCustomerComponent {
         }
       }
       
-      // Return true only if all conditions are met
+      // Return true if all conditions are met
       return matchesSearchCustomer && meetsMinAmount && meetsMaxAmount && meetsDateRange;
     });
   }
