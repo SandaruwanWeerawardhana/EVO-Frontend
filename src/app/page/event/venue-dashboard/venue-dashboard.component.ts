@@ -1,68 +1,56 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import Venue from '../../../../model/Venue';
+import { VenuePagePopupComponent } from '../venue-page-popup/venue-page-popup.component';
+
 @Component({
-    selector: 'app-venue-dashboard',
-    standalone: true,
-    imports: [RouterLink, CommonModule],
-    templateUrl: './venue-dashboard.component.html',
-    styleUrl: './venue-dashboard.component.css',
+  selector: 'app-venue-dashboard',
+  standalone: true,
+  imports: [RouterLink, CommonModule, VenuePagePopupComponent],
+  templateUrl: './venue-dashboard.component.html',
+  styleUrls: ['./venue-dashboard.component.css']
 })
 export class VenueDashboardComponent {
+  @ViewChild(VenuePagePopupComponent) venuePopup!: VenuePagePopupComponent;
 
-
-  // this.id=id;
-  // this.supplierId=supplierId;
-  // this.name = name ;
-  // this.location=location;
-  // this.type= type;
-  // this.price=price;
-  // this.image=image;
-  // this.about = about;
-  // this.capacity =capacity;
-
-
-
-  public venue: Venue[] = [
+  venues: Venue[] = [
     {
       id: 1,
       supplierId: 1,
-        name: "shangrila",
-        location: "panadura",
-        type: 'VILLA',
-        price:25000,
-        image: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
-        about:"bla bla",
-        capacity:5
+      name: "Shangri-La",
+      location: "Panadura",
+      type: 'VILLA',
+      price: 25000,
+      image: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
+      about: "Luxurious beachfront villa with panoramic ocean views",
+      capacity: 150
     },
-    // {
-    //     name: "galadari",
-    //     id: 2,
-    //     supplierId: 1,
-    //     location: "colombo",
-    //     type: 'RESTAURANT',
-    //     price:25000,
-    //     image: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg"
-    // },
-    // {
-    //     name: "shangrila",
-    //     id: 3,
-    //     supplierId: 1,
-    //     location: "kandy",
-    //     type: 'HOTEL',
-    //     price:25000,
-    //     image: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg"
-    // },
-    // {
-    //     name: "Galadari",
-    //     id: 4,
-    //     supplierId: 1,
-    //     location: "horana",
-    //     type: 'VILLA',
-    //     price:25000,
-    //     image: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg"
-    // }
-];
-}
+    {
+      id: 2,
+      supplierId: 2,
+      name: "Tropical Paradise",
+      location: "Galle",
+      type: 'RESORT',
+      price: 35000,
+      image: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
+      about: "A serene resort surrounded by lush greenery",
+      capacity: 200
+    },
+    {
+      id: 3,
+      supplierId: 3,
+      name: "Ocean Breeze",
+      location: "Hambantota",
+      type: 'BEACH HOUSE',
+      price: 40000,
+      image: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
+      about: "A modern beach house with direct access to the ocean",
+      capacity: 100
+    }
+  ];
 
+  showVenuePopup(venue: Venue): void {
+    this.venuePopup.showModal(venue);
+  }
+}

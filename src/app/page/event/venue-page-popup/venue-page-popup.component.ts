@@ -1,31 +1,41 @@
-import { Component } from '@angular/core';
-import Venue from '../../../../model/Venue';
-import PropertyImage from '../../../../model/PropertyImage';
-import { FormsModule } from '@angular/forms';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router'; 
+import Venue from '../../../../model/Venue';
+import * as bootstrap from 'bootstrap';
 
 @Component({
   selector: 'app-venue-page-popup',
-  imports: [FormsModule,CommonModule],
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './venue-page-popup.component.html',
-  styleUrl: './venue-page-popup.component.css'
+  styleUrls: ['./venue-page-popup.component.css']
 })
-
-
 export class VenuePagePopupComponent {
+  @ViewChild('venueModal') modalElement!: ElementRef;
+  currentVenue: Venue | null = null;
 
-  venue!: Venue;
-  image: PropertyImage[] = [
-    {"id":1 , "src" :"https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg"},
-    {"id":1 , "src" :"https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg"},
-    {"id":1 , "src" :"https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg"},
-    {"id":1 , "src" :"https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg"},
-  ]
+  imageGallery = [
+    { "src": "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg" },
+    { "src": "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg" },
+    { "src": "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg" },
+    { "src": "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg" }
+  ];
 
-  constructor(){
-    this.getData();
+  constructor(private router: Router) {} 
+
+  showModal(venue: Venue): void {
+    this.currentVenue = venue;
+    const modal = new bootstrap.Modal(this.modalElement.nativeElement);
+    modal.show();
   }
-     getData(){
-      // this.venue=  new Venue(1,1,"Shangrila","horana","Hotel","Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quod adipisci ea, at rerum nemo illum necessitatibus aspernatur cumque maiores inventore aliquid tenetur quisquam. Harum distinctio quam dolor sint dolore,",1000);
+
+  bookNow(): void {
+    if (this.currentVenue) {
+     
+        this.router.navigate(['/event/event-summery']);
+      
     }
+  }
 }
