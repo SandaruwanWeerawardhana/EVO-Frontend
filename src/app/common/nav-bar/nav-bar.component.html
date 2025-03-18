@@ -1,18 +1,37 @@
-    <!-- Navbar -->
-    <nav class="navbar">
-      <a href="#" class="logo">EvoPlan</a>
-
-      <div class="nav-links">
-          <a href="#">Home</a>
-          <a routerLink="/supplier">supplier</a>
-          <a routerLink="/event">event</a>
-          <a routerLink="/login">login</a>
-          <a routerLink="/register">register</a>
+<body>
+  <nav class="navbar navbar-expand-lg sticky-top">
+      <div class="container">
+          <a class="navbar-brand" href="#">EvoPlan</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                      <a class="nav-link" routerLink="">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" routerLink="/supplier">Suppliers</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" routerLink="/event">Events</a>
+                  </li>
+                  <li class="nav-item ms-2">
+                      <a class="btn btn-outline-primary" routerLink="/login" role="button">Log In</a>
+                  </li>
+                  <li class="nav-item ms-2">
+                      <a class="btn btn-primary" routerLink="/register" role="button">Sign Up</a>
+                  </li>
+              </ul>
+          </div>
       </div>
+  </nav>
 
+<!-- After login this section should be developed
       <div class="nav-icons">
           <i class="bi bi-bell-fill"></i>
           <i class="bi bi-envelope"></i>
           <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="profile-pic">
       </div>
-  </nav>
+
+-->
