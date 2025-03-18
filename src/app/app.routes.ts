@@ -34,6 +34,9 @@ import { PaymentsCustomerComponent } from './page/customer/payments-customer/pay
 import { ProfileCustomerComponent } from './page/customer/profile-customer/profile-customer.component';
 import { ReviewsCustomerComponent } from './page/customer/reviews-customer/reviews-customer.component';
 import { DashRootCustomerComponent } from './page/customer/dash-root-customer/dash-root-customer.component';
+import { PreviousWorkComponent } from './page/supplier/previous-work/previous-work.component';
+import { ConditionsComponent } from './page/customer/admin/conditions/conditions.component';
+import { AddPackagesComponent } from './page/supplier/dash/add-packages/add-packages.component';
 import { AdminRootComponent } from './page/customer/admin-dashbaord/admin-root/admin-root.component';
 import { TransectionsComponent } from './page/customer/admin-dashbaord/pages/transections/transections.component';
 import { ReportsComponent } from './page/customer/admin-dashbaord/pages/reports/reports.component';
@@ -119,6 +122,10 @@ export const routes: Routes = [
             component: ManagePackagesComponent
           },
           {
+            path:"add-packages",
+            component:AddPackagesComponent
+          },
+          {
             path: "inventory",
             component: InventoryComponent
           },
@@ -159,6 +166,10 @@ export const routes: Routes = [
       {
         path: "beauty-info",
         component: BeautyEssentialsInfoComponent
+      },
+      {
+        path:"previous-work",
+        component:PreviousWorkComponent
       }
     ]
   },
@@ -193,6 +204,10 @@ export const routes: Routes = [
       {
         path:"reviews",
         component:ReviewsCustomerComponent
+      },
+      {
+        path:"conditions",
+        component:ConditionsComponent
       }
     ]
   },{
@@ -226,7 +241,7 @@ export const routes: Routes = [
       {
         path:"admin-profile",
         component:ProfileComponent
-      }   
+      }
     ]
   }
 ];

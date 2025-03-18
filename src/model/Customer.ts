@@ -8,4 +8,4 @@ export default class Customer{
       this.name=name;
       this.address=address;
     }
-  }
+ }
