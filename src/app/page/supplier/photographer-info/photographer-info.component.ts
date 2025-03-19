@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { RatingReviewsComponent } from "../rating-reviews/rating-reviews.component";
 import { HttpClient } from '@angular/common/http';
-import PhotographerReview from '../../../../model/PhotographerReview';
-import PhotographerExtraFeature from '../../../../model/PhotographerExtraFeature';
-import PhotographerImage from '../../../../model/PhotographerImage';
-import PhotographerPackage from '../../../../model/PhotographerPackage';
+import PhotographerReview from '../../../model/PhotographerReview';
+import PhotographerExtraFeature from '../../../model/PhotographerExtraFeature';
+import PhotographerImage from '../../../model/PhotographerImage';
+import PhotographerPackage from '../../../model/PhotographerPackage';
 import { CommonModule } from '@angular/common';
-import PhotographerBasicInfo from '../../../../model/PhotographerBasicInfo';
+import PhotographerBasicInfo from '../../../model/PhotographerBasicInfo';
 @Component({
   selector: 'app-photographer-info',
-  imports: [RatingReviewsComponent,CommonModule],
+  imports: [CommonModule],
   templateUrl: './photographer-info.component.html',
   styleUrl: './photographer-info.component.css'
 })

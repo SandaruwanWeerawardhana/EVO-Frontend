@@ -3,8 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
 import { RouterLink } from '@angular/router';
-import User from '../../../../model/User';
-import Supplier from '../../../../model/supplier';
+import User from '../../../model/User';
+import Supplier from '../../../model/supplier';
 import { SupabaseService } from '../../../../service/supabase.service';
 
 @Component({
@@ -224,18 +224,17 @@ export class SignupComponent {
 
       const supplier = new Supplier(
         0,
-        0,
         `${this.firstName} ${this.lastName}`,
         'Supplier',
-        this.email,
         this.password,
-        this.mobileNumber,
+        this.email,
+        new Date(),
+        this.businessName,
         this.businessDescription,
+        this.mobileNumber,
         this.website,
-        "",
-        2,
-        this.uploadedFileUrl
-      );
+        ""
+    );
 
       console.log('New Supplier object created:', supplier);
 

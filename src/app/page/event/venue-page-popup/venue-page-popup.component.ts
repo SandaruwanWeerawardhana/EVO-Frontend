@@ -1,8 +1,8 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router'; 
-import Venue from '../../../../model/Venue';
+import { Router } from '@angular/router';
+import Venue from '../../../model/Venue';
 import * as bootstrap from 'bootstrap';
 
 @Component({
@@ -23,7 +23,7 @@ export class VenuePagePopupComponent {
     { "src": "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg" }
   ];
 
-  constructor(private router: Router) {} 
+  constructor(private router: Router) {}
 
   showModal(venue: Venue): void {
     this.currentVenue = venue;
@@ -33,9 +33,9 @@ export class VenuePagePopupComponent {
 
   bookNow(): void {
     if (this.currentVenue) {
-     
+
         this.router.navigate(['/event/event-summery']);
-      
+
     }
   }
 }

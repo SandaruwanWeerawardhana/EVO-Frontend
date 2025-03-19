@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import ProfileCustomer from '../../../../model/ProfileCustomer';
+import ProfileCustomer from '../../../model/ProfileCustomer';
 import { NgFor } from '@angular/common';
 
 @Component({
@@ -10,7 +10,7 @@ import { NgFor } from '@angular/common';
 })
 export class ProfileCustomerComponent {
 
-  customer :ProfileCustomer = 
+  customer :ProfileCustomer =
     {
       "id": 1,
       "fullName": "Ruvindu Sharadha",
@@ -19,9 +19,9 @@ export class ProfileCustomerComponent {
       "address": "Nuwara Eliya",
       "gender": "Male"
     }
-  
 
 
- 
+
+
 
 }

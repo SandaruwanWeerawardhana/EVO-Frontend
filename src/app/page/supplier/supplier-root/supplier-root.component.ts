@@ -10,7 +10,7 @@ import { NavBarComponent } from "../../../common/nav-bar/nav-bar.component";
 
 @Component({
   selector: 'app-supplier-root',
-  imports: [SideBarComponent, RouterOutlet, NavBarComponent],
+  imports: [RouterOutlet, NavBarComponent],
   templateUrl: './supplier-root.component.html',
   styleUrl: './supplier-root.component.css'
 })

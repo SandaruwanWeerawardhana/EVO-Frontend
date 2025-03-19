@@ -5,7 +5,7 @@ import { DashRootCustomerComponent } from '../../../customer/dash-root-customer/
 
 @Component({
   selector: 'app-profile',
-  imports: [RouterLink, RouterOutlet, AppComponent, DashRootCustomerComponent],
+  imports: [RouterLink, RouterOutlet],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })

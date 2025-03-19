@@ -44,7 +44,7 @@ import { TransectionsComponent } from './page/customer/admin-dashbaord/pages/tra
 import { ReportsComponent } from './page/customer/admin-dashbaord/pages/reports/reports.component';
 import { NotificationsComponent } from './page/customer/admin-dashbaord/pages/notifications/notifications.component';
 import { AuditHistoryComponent } from './page/customer/admin-dashbaord/pages/audit-history/audit-history.component';
-import { ProfileComponent } from './page/customer/admin-dashbaord/pages/profile/profile.component';
+// import { AdminProfileComponent } from './page/customer/admin-dashbaord/pages/profile/profile.component';
 import { OverviewComponent } from './page/customer/admin-dashbaord/pages/overview/overview.component';
 import { RequestsComponent } from './page/customer/admin-dashbaord/pages/requests/requests.component';
 
@@ -126,7 +126,7 @@ export const routes: Routes = [
 
               }
             ]
-            
+
           },
           {
             path: "add-previous",
@@ -257,10 +257,10 @@ export const routes: Routes = [
         path:"requests",
         component:RequestsComponent
       },
-      {
-        path:"admin-profile",
-        component:ProfileComponent
-      }
+      // {
+      //   path:"admin-profile",
+      //   component:AdminProfileComponent
+      // }
     ]
   }
 ];

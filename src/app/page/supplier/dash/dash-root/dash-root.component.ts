@@ -3,8 +3,8 @@
 import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import Chart from 'chart.js/auto';
-import { DashboardData } from '../../../../../model/Supplier-dash-root';
-import { environment } from '../../../../../environment/env.test'; 
+import { DashboardData } from '../../../../model/Supplier-dash-root';
+import { environment } from '../../../../environment/env.test';
 
 @Component({
   selector: 'app-dash-root',

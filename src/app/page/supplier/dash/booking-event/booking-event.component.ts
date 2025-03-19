@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import Swal from 'sweetalert2';
-import Booking from '../../../../../model/Booking';
+import Booking from '../../../../model/Booking';
 import { DatePipe } from '@angular/common';
 import { CommonModule } from '@angular/common';
 

@@ -53,14 +53,14 @@
 <div class="container mt-4">
     <div class="card-container">
         <div *ngFor="let supplier of suppliers" class="card" style="width: 22rem;">
-            <img [src]="supplier.imgUrl" class="card-img-top ratio ratio-4x3" alt="Supplier Image">
+            <img [src]="supplier.website" class="card-img-top ratio ratio-4x3" alt="Supplier Image">
             <div class="card-body">
                 <h5 class="card-title fw-bold">{{ supplier.businessName }}</h5>
-                <p class="card-text">{{ supplier.description }}</p>
+                <p class="card-text">{{ supplier.businessDescription }}</p>
                 <hr>
                 <p class="mb-1"><strong>Completed Orders:</strong> 110</p>
                 <hr>
-                <p><strong>Ratings:</strong> {{ supplier.rating }}</p>
+                <p><strong>Ratings:</strong> {{ supplier.userType }}</p>
             </div>
             <div class="card-footer text-center bg-primary">
                 <button routerLink="/supplier/photographer-info" class="btn btn-primary w-100 text-white fw-bold">Select Supplier</button>

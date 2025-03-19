@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import Venue from '../../../../model/Venue';
+import Venue from '../../../model/Venue';
 import { VenuePagePopupComponent } from '../venue-page-popup/venue-page-popup.component';
 
 @Component({
