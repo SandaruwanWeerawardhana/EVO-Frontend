@@ -1,68 +1,40 @@
 <div class="container">
-    <h1 class="mb-5">Booking Events</h1>
+    <h1 class="mb-5" style="text-align: center; color: #292a2c;"> Booking Events</h1>
     <table>
         <thead>
             <tr>
-                <th>DATE</th>
-                <th>NAME</th>
-                <th>TYPE</th>
-                <th>STATUS</th>
-                <th>View Details</th>
-                <th>Export</th>
+                <th> DATE</th>
+                <th> NAME</th>
+                <th> TYPE</th>
+                <th> STATUS</th>
+                <th> View Details</th>
+                <th> Export</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>21/10/2021</td>
+            <tr *ngFor="let booking of bookings">
+                <td>{{booking.date}}</td>
                 <td class="name-container">
-                    <img src="/Rating-Reviews-img/profile.jpg" alt="" class="profile-img">Theresa Webb
+                    <img src="/Rating-Reviews-img/profile.jpg" alt="Profile" class="profile-img">Theresa Webb
                 </td>
-                <td>Wedding</td>
-                <td><span class="status confirmed">Confirmed</span></td>
-                <td><button class="view-btn">View</button></td>
-                <td><button class="export-btn">Export PDF</button></td>
-            </tr>
-            <tr>
-                <td>21/10/2021</td>
-                <td class="name-container">
-                    <img src="/Rating-Reviews-img/profile.jpg" alt="" class="profile-img">Abel Jaskolski
-                </td>
-                <td>Birthday</td>
-                <td><span class="status confirmed">Confirmed</span></td>
-                <td><button class="view-btn">View</button></td>
-                <td><button class="export-btn">Export PDF</button></td>
-            </tr>
-            <tr>
-                <td>21/10/2021</td>
-                <td class="name-container">
-                    <img src="/Rating-Reviews-img/profile.jpg" alt="" class="profile-img">Theresa Webb
-                </td>
-                <td>Wedding</td>
-                <td><span class="status confirmed">Confirmed</span></td>
-                <td><button class="view-btn">View</button></td>
-                <td><button class="export-btn">Export PDF</button></td>
-            </tr>
-            <tr>
-                <td>21/10/2021</td>
-                <td class="name-container">
-                    <img src="/Rating-Reviews-img/profile.jpg" alt="" class="profile-img">Abel Jaskolski
-                </td>
-                <td>Get Together</td>
-                <td><span class="status cancelled">Cancelled</span></td>
-                <td><button class="view-btn">View</button></td>
-                <td><button class="export-btn">Export PDF</button></td>
-            </tr>
-            <tr>
-                <td>21/10/2021</td>
-                <td class="name-container">
-                    <img src="/Rating-Reviews-img/profile.jpg" alt="" class="profile-img">Theresa Webb
-                </td>
-                <td>Birthday</td>
-                <td><span class="status confirmed">Confirmed</span></td>
-                <td><button class="view-btn">View</button></td>
-                <td><button class="export-btn">Export PDF</button></td>
+                <td>{{booking.type}}</td>
+                <td><span class="status confirmed">{{booking.status}}</span></td>
+                <td><button class="view-btn" (click)="popUpDetails()">View</button></td>
+                <td><div class="button-container">
+                    <label class="label">
+                        <input type="checkbox" class="input" />
+                        <span class="circle"><svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M12 19V5m0 14-4-4m4 4 4-4"></path>
+                            </svg>
+                            <div class="square"></div>
+                        </span>
+                        <p class="title">Download</p>
+                        <p class="title2">Open</p>
+                    </label>
+                </div></td>
             </tr>
         </tbody>
-
     </table>
 </div>
