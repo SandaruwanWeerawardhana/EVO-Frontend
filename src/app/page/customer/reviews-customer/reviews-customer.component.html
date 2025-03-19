@@ -1,11 +1,54 @@
-<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam rem odio placeat corrupti numquam ipsum quia necessitatibus aspernatur esse! Laborum eligendi debitis numquam sapiente. Libero itaque dolorum sit est explicabo?
-Rerum fugiat recusandae minus id tempora autem laborum nostrum consequatur, illum porro sequi, deserunt ab velit sint omnis! Quo quia quaerat corrupti voluptates distinctio voluptatem iusto exercitationem dolor! Recusandae, earum.
-Fugiat repellendus quae hic eius libero aspernatur non sapiente delectus maxime natus doloremque fuga aut corporis, cumque consequatur! Eaque ullam inventore rem expedita nam aut nihil iure? Nisi, aliquam nostrum.
-Optio assumenda voluptates aut asperiores nesciunt laborum? Est ratione expedita sed odit consequuntur iusto, atque eum aliquam quaerat aperiam, voluptatum obcaecati libero explicabo totam dolores sit, mollitia culpa voluptate quam!
-Ducimus perferendis, aut consectetur tempore reprehenderit culpa natus nam blanditiis laboriosam rem debitis placeat fuga impedit, quo quidem mollitia minima repudiandae quasi! Laborum pariatur tempore, vel dicta corrupti sequi! Aliquid?
-Vel inventore doloribus eveniet eius, animi ex odit ducimus dolor iusto sequi sunt fugit, earum tenetur cum magni minus reprehenderit sint mollitia, nisi recusandae at repellat sapiente ea nobis! Porro?
-Ea eius a nesciunt, deleniti asperiores similique voluptates necessitatibus! Sint temporibus excepturi soluta, similique blanditiis assumenda dolores ad consectetur? Saepe, aliquid! Necessitatibus, possimus eaque. Quas culpa non repellat maiores doloremque.
-Fugiat ea aperiam voluptatibus dolor veniam vitae hic animi quidem quaerat eius nostrum ipsa impedit deleniti, ipsum magni nobis expedita amet libero culpa minima. Hic at suscipit magnam perferendis nostrum?
-Eaque eius qui fuga, eos, aspernatur dolorum ipsam aliquid soluta animi quidem corrupti est fugiat quibusdam distinctio? Earum tempore magnam accusamus, necessitatibus impedit dignissimos inventore placeat optio, ut laborum voluptatem?
-Ex qui architecto dolor labore accusamus consectetur suscipit quis quod eveniet? Voluptates similique modi harum perferendis ullam illo saepe! Eligendi, earum. Quam impedit unde numquam necessitatibus vitae velit obcaecati nemo.</p>
-<p>reviews-customer works!</p>
+<div class="container mt-4 p-5">
+  <h1 class="text-lg-start mb-4">Rating & Reviews</h1>
+
+  <!-- Loop through reviews -->
+  <div class="card mb-4" *ngFor="let review of reviews">
+    <div class="card-body">
+      <h3 class="card-title">{{ review.name }}</h3>
+      <p class="card-text text-muted">{{ review.date }}</p>
+
+      <!-- Star Rating Display -->
+      <div class="rating">
+        <span
+          *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"
+          [class.filled]="i < review.rating"
+        >
+          &#9733;
+        </span>
+        <span class="rating-value">{{ review.rating }}.0</span>
+      </div>
+
+      <p class="card-text">{{ review.comment }}</p>
+
+      <button class="m-2" (click)="openPopup(review)">Edit</button>
+      <button class="delete-btn" (click)="deleteReview(review.id)">
+        Delete
+      </button>
+    </div>
+  </div>
+
+  <!-- Edit Popup -->
+  <div class="popup-overlay" *ngIf="isPopupOpen">
+    <div class="popup">
+      <h3>Edit Comment</h3>
+
+      <!-- Editable Star Rating -->
+      <div class="rating">
+        <span
+          *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"
+          (click)="editedReview.rating = i + 1"
+          [class.filled]="i < editedReview.rating"
+        >
+          &#9733;
+        </span>
+        <span class="rating-value">{{ editedReview.rating }}.0</span>
+      </div>
+
+      <textarea [(ngModel)]="editedReview.comment"></textarea>
+      <div class="popup-buttons">
+        <button (click)="saveComment()">Save</button>
+        <button (click)="closePopup()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
