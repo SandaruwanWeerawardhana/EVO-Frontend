@@ -1,4 +1,4 @@
-export default class Venur{
+export default class Venue{
 
   id:number;
   supplierId: number;
@@ -19,6 +19,7 @@ export default class Venur{
     price:number,
     image:string,
     capacity:number){
+      
       this.id=id;
       this.supplierId=supplierId;
       this.name = name ;
