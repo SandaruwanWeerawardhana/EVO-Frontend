@@ -10,6 +10,7 @@
           [(ngModel)]="filter.searchCustomer"
         />
       </div>
+      
       <div class="col-auto mb-3">
         <label class="form-label ps-2"><h6>Start Date</h6></label>
         <input 
@@ -19,6 +20,7 @@
           [(ngModel)]="filter.startDate"
         />
       </div>
+      
       <div class="col-auto mb-3">
         <label class="form-label ps-2"><h6>End Date</h6></label>
         <input 
@@ -28,6 +30,7 @@
           [(ngModel)]="filter.endDate"
         />
       </div>
+      
       <div class="col-auto mb-3">
         <label class="form-label ps-2"><h6>Min Amount</h6></label>
         <input 
@@ -37,6 +40,7 @@
           [(ngModel)]="filter.minAmount"
         />
       </div>
+      
       <div class="col-auto mb-3">
         <label class="form-label ps-2"><h6>Max Amount</h6></label>
         <input 
@@ -46,6 +50,7 @@
           [(ngModel)]="filter.maxAmount"
         />
       </div>
+      
       <div class="col-auto mb-3">
         <label class="form-label ps-2"></label>
         <div>
@@ -70,6 +75,7 @@
           <th scope="col">Export</th>
         </tr>
       </thead>
+      
       <tbody>
         <tr *ngFor="let item of filteredPayments">
           <td scope="row">{{item.date}}</td>
