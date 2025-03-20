@@ -53,7 +53,7 @@
 <div class="container mt-4">
     <div class="card-container">
         <div *ngFor="let supplier of suppliers" class="card" style="width: 22rem;">
-            <img [src]="supplier.website" class="card-img-top ratio ratio-4x3" alt="Supplier Image">
+            <img [src]="supplier.profilePictureUrl" class="card-img-top ratio ratio-4x3" alt="Supplier Image">
             <div class="card-body">
                 <h5 class="card-title fw-bold">{{ supplier.businessName }}</h5>
                 <p class="card-text">{{ supplier.businessDescription }}</p>
