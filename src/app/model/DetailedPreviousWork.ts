@@ -13,3 +13,5 @@ export default class DetailedPreviousWork {
       this.description = description;
       this.imageUrls = imageUrls;
     }
+
+  }
