@@ -117,7 +117,7 @@ small {
 }
 
 
-/* Customer Name */
+
 .customer-name {
     font-size: 1.5rem;
     font-weight: bold;
@@ -127,7 +127,7 @@ small {
     -webkit-text-fill-color: transparent;
 }
 
-/* Package & Extras */
+
 .package-name, .extras, .date, .time, .location {
     font-size: 1rem;
     margin-bottom: 6px;
@@ -135,7 +135,6 @@ small {
     display: block;
 }
 
-/* Highlighted Price */
 .price-box {
     text-align: center;
     background: linear-gradient(45deg, #D000FF, #0066FF);
