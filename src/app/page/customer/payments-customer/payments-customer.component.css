@@ -142,7 +142,6 @@ tbody tr:hover {
     visibility: hidden;
 }
 
-
 .label .circle {
     height: 35px;
     width: 35px;
@@ -230,7 +229,6 @@ tbody tr:hover {
 .label .input:checked~.title2:last-child {
     animation: showInstalledMessage 0.4s ease 3.5s forwards;
 }
-
 
 @keyframes pulse {
     0% {
