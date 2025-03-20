@@ -101,7 +101,6 @@ html, body, div{
     background-color: #105cd4 !important;
   }
   
-  
   .card-footer:has(.btn:hover) {
     background-color: #105cd4 !important;
   }
