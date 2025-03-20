@@ -38,7 +38,7 @@
                             <input type="text" class="form-control h-150 search-input" placeholder="Search Photographers" style="width: 200px;">
                             <i class="fa-search fas search-icon"></i>
                         </div>
-                    </div>
+                    </div> 
                 </div>
             </div>
         </div>
@@ -47,7 +47,7 @@
     <div class="mt-4">
         <div class="supplier-list">
             <div *ngFor="let supplier of suppliers" class="card" style="width: 22rem;">
-                <img [src]="supplier.website" class="card-img-top ratio ratio-4x3" alt="Supplier Image">
+                <img [src]="supplier.brDocument" class="card-img-top img-fluid rounded ratio ratio-4x3" alt="{{supplier.businessName}}">
                 <div class="card-body">
                     <h5 class="card-title fw-bold">{{ supplier.businessName }}</h5>
                     <p class="card-text">{{ supplier.businessDescription }}</p>
