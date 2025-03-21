@@ -12,4 +12,6 @@ export default class DetailedPreviousWork {
       this.eventDate = eventDate;
       this.description = description;
       this.imageUrls = imageUrls;
+
     }
+  }

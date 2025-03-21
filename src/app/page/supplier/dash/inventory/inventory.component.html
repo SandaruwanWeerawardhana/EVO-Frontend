@@ -1,11 +1,104 @@
-<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum eligendi laboriosam voluptas illum nihil officia, consequuntur esse incidunt itaque repudiandae deserunt libero assumenda quas aliquam iste placeat delectus inventore odit.
-Autem impedit facere recusandae saepe, temporibus distinctio cumque tempore, repudiandae rerum rem nemo eligendi soluta laudantium id architecto dicta, quo mollitia porro? Enim ullam repudiandae mollitia dolore cupiditate maxime dolor.
-Exercitationem, consectetur voluptas aspernatur facere sunt doloribus. Libero earum voluptatum autem blanditiis saepe officia facere aspernatur impedit rem architecto? Architecto sed harum labore incidunt fugiat quam sit placeat fugit debitis?
-Dicta dolores ipsa odio! Obcaecati dolore unde, nesciunt dolor deserunt porro amet, doloremque iste culpa voluptatum accusantium esse eos incidunt rerum quam cupiditate quisquam assumenda eaque itaque id consequatur quidem!
-Blanditiis, porro sit! Placeat veritatis consequatur dignissimos ea excepturi. Dolor, ea. Et at eaque hic quisquam similique, soluta explicabo! Similique, aliquid officia ullam numquam eligendi sed velit possimus dolorum recusandae.
-Deserunt ea error voluptatum magni saepe quia inventore aliquid similique mollitia, ut cum vero voluptates atque harum eaque doloremque possimus quo? At earum rem, voluptates sequi distinctio incidunt? Ut, consectetur.
-Repellat asperiores ut atque fugit obcaecati, libero doloremque ipsam officiis architecto, illum porro dolores velit tempore perferendis non saepe temporibus rerum exercitationem voluptatem excepturi blanditiis voluptas facilis! Dignissimos, incidunt placeat?
-Sint maiores, sapiente quas quod doloribus numquam officiis atque sit alias, in praesentium nemo dolore illo! Voluptatum dicta quisquam optio itaque accusamus dolore, porro provident laborum beatae, unde mollitia doloribus.
-Ad aut sed, dolor consequatur minima corporis iure obcaecati quibusdam quod commodi laboriosam. Nobis possimus nam animi voluptatem exercitationem veritatis? Officiis sint error ex impedit minus iste ut, facilis tempore?
-Mollitia veritatis quo animi asperiores magni ipsam ab ullam officia, sunt beatae in eos culpa delectus odit dicta fuga minus rerum nulla? Rerum reprehenderit laudantium molestias debitis hic, provident mollitia?</p>
-<p>inventory works!</p>
+
+
+<div class="container">
+    <h1 style="text-align: center; color: #000510;" class="fw-bold"> Inventory</h1>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModals" data-bs-whatever="@getbootstrap"><i class="bi bi-plus-circle"></i>  ADD ITEM</button>
+    <table>
+        <thead>
+            <tr>
+                <th class="text-center"> TITLE</th>
+                <th class="text-center"> IMAGE</th>
+                <th class="text-center"> CATEGORY</th>
+                <th class="text-center"> DESCRIPTION</th>
+                <th class="text-center"> ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let inventory of inventories">
+                <td>{{inventory.title}}</td>
+                <td class="name-container">
+                    <img src={{inventory.imageURL}} alt="image" class="profile-img">
+                </td>
+                <td>{{inventory.category}}</td>
+                <td>{{inventory.description}}</td>
+
+                <td class="action-column">
+                    <button type="button" class="btn btn-primary rounded-circle icon-btn update-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i class="bi bi-vector-pen"></i></button>
+                    <button class="icon-btn delete-btn" title="Delete">
+                        <i class="bi bi-trash3-fill"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <h1 class="modal-title fw-bold text-center pt-4 " id="exampleModalLabel">Update Item</h1>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="Title" class="col-form-label">Title:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="image" class="col-form-label">Image:</label>
+            <input type="file" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="category" class="col-form-label">Category:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Description:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+         
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="exampleModals" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+          <h2 class="modal-title fw-bold text-center pt-4 " id="exampleModalLabel">ADD ITEM</h2>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="Title" class="col-form-label">Title:</label>
+              <input type="text" class="form-control" id="recipient-name">
+            </div>
+            <div class="mb-3">
+              <label for="image" class="col-form-label">Image:</label>
+              <input type="file" class="form-control" id="recipient-name">
+            </div>
+            <div class="mb-3">
+              <label for="category" class="col-form-label">Category:</label>
+              <input type="text" class="form-control" id="recipient-name">
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Description:</label>
+              <textarea class="form-control" id="message-text"></textarea>
+            </div>
+           
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">ADD</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
