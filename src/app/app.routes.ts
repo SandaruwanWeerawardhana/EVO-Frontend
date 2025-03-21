@@ -236,6 +236,10 @@ export const routes: Routes = [
       {
         path:"conditions",
         component:ConditionsComponent
+      },
+      {
+        path:"blogs",
+        component:BlogsComponent
       }
     ]
   },{
