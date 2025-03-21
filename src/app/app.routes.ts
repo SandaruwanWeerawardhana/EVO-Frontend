@@ -47,6 +47,7 @@ import { AuditHistoryComponent } from './page/customer/admin-dashbaord/pages/aud
 // import { AdminProfileComponent } from './page/customer/admin-dashbaord/pages/profile/profile.component';
 import { OverviewComponent } from './page/customer/admin-dashbaord/pages/overview/overview.component';
 import { RequestsComponent } from './page/customer/admin-dashbaord/pages/requests/requests.component';
+import { SupplierPendingRequestComponent } from './page/supplier/dash/supplier-pending-request/supplier-pending-request.component';
 import { ViewInventoryComponent } from './page/supplier/view-inventory/view-inventory.component';
 
 export const routes: Routes = [
@@ -164,6 +165,9 @@ export const routes: Routes = [
           {
             path: "my-reviews",
             component: MyReviewsComponent
+          },{
+            path: "requests",
+            component: SupplierPendingRequestComponent
           }
         ]
       },
