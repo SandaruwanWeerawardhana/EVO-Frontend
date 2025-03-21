@@ -10,7 +10,11 @@ body {
     padding: 20px; /* Adds space from top and bottom */
     gap: 20px; /* Adds space between elements */
   }
-  
+
+.content{
+    margin-top:-60px;
+}
+
   .card {
     background: #cccccc;
     border-radius: 10px;
