@@ -1,22 +1,38 @@
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Profile Section -->
-      <div class="profile">
-          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User">
-          <h3>Aster Seawalker</h3>
-          <p>asterseawalkergmail.com</p>
-      </div>
-
-      <!-- Sidebar Menu -->
-      <ul class="sidebar-menu">
+<ul class="sidebar-menu">
           <li><a routerLink="/customer" class="sidebar-link"><i class="bi bi-house-door"></i> Dashboard</a></li>
           <li><a routerLink="/customer/profile" class="sidebar-link"><i class="bi bi-person"></i> User</a></li>
           <li><a routerLink="/customer/ongoin-event" class="sidebar-link"><i class="bi bi-archive"></i> OnGoing</a></li>
-          <li><a routerLink="/customer/blog" class="sidebar-link"><i class="bi bi-chat-text"></i> Blogs</a></li>
+          <li><a routerLink="/customer/blogs" class="sidebar-link"><i class="bi bi-chat-text"></i> Blogs</a></li>
           <li><a routerLink="/customer/payments" class="sidebar-link"><i class="bi bi-cash-stack"></i> Payments</a></li>
           <li><a routerLink="/customer/massage" class="sidebar-link"><i class="bi bi-envelope"></i> Messages</a></li>
           <li><a routerLink="/customer/reviews" class="sidebar-link"><i class="bi bi-star"></i> Review</a></li>
           <li><a routerLink="" class="sidebar-link"><i class="bi bi-box-arrow-right"></i> Log Out</a></li>
       </ul>
 
-  </div>
+<div class="sidebar" [class.closed]="isSidebarClosed">
+    <div class="d-flex justify-content-end heaer hover me-3">
+        <i class="bi bi-x-lg toggle-icon" *ngIf="!isSidebarClosed" (click)="toggleSidebar()"></i>
+        <i class="bi bi-list toggle-icon open-icon" *ngIf="isSidebarClosed" (click)="toggleSidebar()"></i>
+    </div>
+
+    <div class="profile">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="profile-img">
+        <div class="status-indicator"></div>
+        <h3 class="mb-0">Aster Seawalker</h3>
+        <p>asterseawalkergmail.com</p>
+        <p class="mt-0"> 🟢 online</p>
+    </div>
+  
+    <ul class="sidebar-menu">
+        <li><a (click)="isActive(0)" [ngClass]="{'active': isSelect===0}" routerLink="/customer" class="active sidebar-link"><i class="bi bi-house-door"></i> Dashboard</a></li>
+        <li><a (click)="isActive(1)" [ngClass]="{'active': isSelect===1}" routerLink="/customer/profile" class="sidebar-link"><i class="bi bi-person"></i> Customer</a></li>
+        <li><a (click)="isActive(2)" [ngClass]="{'active': isSelect===2}" routerLink="/customer/ongoin-event" class="sidebar-link"><i class="bi bi-archive"></i> OnGoing</a></li>
+        <li><a (click)="isActive(3)" [ngClass]="{'active': isSelect===3}" routerLink="/customer/blog" class="sidebar-link"><i class="bi bi-chat-text"></i> Blogs</a></li>
+        <li><a (click)="isActive(4)" [ngClass]="{'active': isSelect===4}" routerLink="/customer/payments" class="sidebar-link"><i class="bi bi-cash-stack"></i> Payments</a></li>
+        <li><a (click)="isActive(5)" [ngClass]="{'active': isSelect===5}" routerLink="/customer/massage" class="sidebar-link"><i class="bi bi-envelope"></i> Messages</a></li>
+        <li><a (click)="isActive(6)" [ngClass]="{'active': isSelect===6}" routerLink="/customer/reviews" class="sidebar-link"><i class="bi bi-star"></i> Review</a></li>
+        <li><a (click)="isActive(7)" [ngClass]="{'active': isSelect===7}" routerLink="" class="sidebar-link"><i class="bi bi-box-arrow-right"></i> Log Out</a></li>
+    </ul>
+</div>
+
+  
