@@ -1,9 +1,20 @@
+<ul class="sidebar-menu">
+          <li><a routerLink="/customer" class="sidebar-link"><i class="bi bi-house-door"></i> Dashboard</a></li>
+          <li><a routerLink="/customer/profile" class="sidebar-link"><i class="bi bi-person"></i> User</a></li>
+          <li><a routerLink="/customer/ongoin-event" class="sidebar-link"><i class="bi bi-archive"></i> OnGoing</a></li>
+          <li><a routerLink="/customer/blogs" class="sidebar-link"><i class="bi bi-chat-text"></i> Blogs</a></li>
+          <li><a routerLink="/customer/payments" class="sidebar-link"><i class="bi bi-cash-stack"></i> Payments</a></li>
+          <li><a routerLink="/customer/massage" class="sidebar-link"><i class="bi bi-envelope"></i> Messages</a></li>
+          <li><a routerLink="/customer/reviews" class="sidebar-link"><i class="bi bi-star"></i> Review</a></li>
+          <li><a routerLink="" class="sidebar-link"><i class="bi bi-box-arrow-right"></i> Log Out</a></li>
+      </ul>
+
 <div class="sidebar" [class.closed]="isSidebarClosed">
     <div class="d-flex justify-content-end heaer hover me-3">
         <i class="bi bi-x-lg toggle-icon" *ngIf="!isSidebarClosed" (click)="toggleSidebar()"></i>
         <i class="bi bi-list toggle-icon open-icon" *ngIf="isSidebarClosed" (click)="toggleSidebar()"></i>
     </div>
-  
+
     <div class="profile">
         <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="profile-img">
         <div class="status-indicator"></div>
