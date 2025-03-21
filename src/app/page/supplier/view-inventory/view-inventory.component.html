@@ -1,3 +1,32 @@
 <div class="card mb-4">
-<p>view-inventory works!</p>
+  <div class="card-header"><strong>View Our Asset</strong></div>
+  <div class="card-body">
+    <div class="row g-3">
+
+      
+        <div class="col-12 col-sm-6 col-md-4">
+          <div class="card" id="">
+            <div *ngFor="let inventory of inventories">
+            <div class="card-header text-center">
+              <img
+                src={{inventory.imageURL}}
+                alt="Product Image"
+                class="card-img image"
+              />
+            </div>
+            <div class="card-body">
+              <h4 class="card-title fw-bold text-center">{{inventory.title}}</h4>
+              <p class="card-text">
+                {{inventory.category}}
+              </p>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+    
+    </div>
+  </div>
 </div>
