@@ -1,70 +1,92 @@
-<div #venueModal class="modal fade" tabindex="-1" aria-labelledby="venueModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content">
-      
-      <div class="modal-header">
-        <div class="d-flex align-items-center w-100">
-          <div class="me-3">
-            <img [src]="currentVenue?.image" class="profile-img" style="width: 60px; height: 60px; object-fit: cover;" alt="Venue">
-          </div>
-          <h5 class="modal-title fw-bolder">{{ currentVenue?.name }}</h5>
-        </div>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
+<div class="venue-popup">
+  <div #venueModal class="modal fade" tabindex="-1" aria-labelledby="venueModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
 
-      <div class="modal-body">
-        <div class="row mb-3">
-          <div class="col-md-6">
-            <h5 class="fw-bold">About</h5>
-            <p class="text-muted">{{ currentVenue?.about }}</p>
+        <div class="modal-header">
+          <div class="d-flex align-items-center w-100 justify-content-between">
+            <div class="d-flex align-items-center">
+              <img [src]="currentVenue?.image" class="profile-img me-3" alt="Venue"
+                aria-describedby="venueImageDescription">
+              <h5 class="modal-title fw-bolder mb-0" id="venueModalLabel">{{ currentVenue?.name }}</h5>
+            </div>
+            <div class="date-container">
+              <label for="form-label" class="fw-bold" id="bookingDateLabel">Booking Date</label>
+              <input type="date" class="form-control" aria-labelledby="bookingDateLabel">
+            </div>
           </div>
-          <div class="col-md-6">
-            <div class="g-3 row">
-              <div class="col-6">
-                <div class="d-flex align-items-center">
-                  <i class="bi bi-geo-alt-fill me-2"></i>
-                  <span>{{ currentVenue?.location }}</span>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <h5 class="ser">About</h5>
+              <p class="text-muted" aria-describedby="venueAboutDescription">{{ currentVenue?.about }}</p>
+            </div>
+            <div class="col-md-6">
+              <div class="row g-3">
+                <div class="col-6">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-geo-alt-fill me-2"></i>
+                    <span>{{ currentVenue?.location }}</span>
+                  </div>
                 </div>
-              </div>
-              <div class="col-6">
-                <div class="d-flex align-items-center">
-                  <i class="bi bi-people-fill me-2"></i>
-                  <span>Capacity: {{ currentVenue?.capacity }}</span>
+                <div class="col-6">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-people-fill me-2"></i>
+                    <span>Capacity: {{ currentVenue?.capacity }}</span>
+                  </div>
                 </div>
-              </div>
-              <div class="col-6">
-                <div class="d-flex align-items-center">
-                  <i class="bi bi-cash-coin me-2"></i>
-                  <span>${{ currentVenue?.price }} / event</span>
+                <div class="col-6">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-cash-coin me-2"></i>
+                    <span>${{ currentVenue?.price }} / event</span>
+                  </div>
                 </div>
-              </div>
-              <div class="col-6">
-                <div class="d-flex align-items-center">
-                  <i class="bi bi-building me-2"></i>
-                  <span>{{ currentVenue?.type }}</span>
+                <div class="col-6">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-building me-2"></i>
+                    <span>{{ currentVenue?.type }}</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+
 
         <h5 class="fw-bold mb-3">Gallery</h5>
         <div class="g-2 row">
           <div class="col-3" *ngFor="let img of imageGallery">
             <img [src]="img.src" class="rounded-2 img-fluid" style="height: 100px; object-fit: cover;">
+
+          <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
+            <div class="carousel-inner">
+              @for (img of imageGallery; track $index) {
+              <div class="carousel-item active">
+                <img src="{{img.src}}" class="d-block w-100" alt="...">
+              </div>
+              }
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="bookNow()">
+              Book Now
+            </button>
           </div>
         </div>
       </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button 
-          type="button" 
-          class="btn btn-primary" data-bs-dismiss="modal"
-          (click)="bookNow()"> 
-          Book Now
-        </button>
-      </div>
     </div>
   </div>
-</div>
