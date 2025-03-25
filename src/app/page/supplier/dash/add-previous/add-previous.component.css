@@ -6,6 +6,10 @@
     margin-top: 100px;
 }
 
+.content{
+    margin-top: -100px;
+}
+
 .custom-card:hover {
     transform: translateY(-5px);
 }
