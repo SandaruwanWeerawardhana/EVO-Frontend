@@ -49,6 +49,7 @@ import { OverviewComponent } from './page/customer/admin-dashbaord/pages/overvie
 import { RequestsComponent } from './page/customer/admin-dashbaord/pages/requests/requests.component';
 import { SupplierPendingRequestComponent } from './page/supplier/dash/supplier-pending-request/supplier-pending-request.component';
 import { ViewInventoryComponent } from './page/supplier/view-inventory/view-inventory.component';
+import { UpcommingEventComponent } from './page/customer/upcomming-event/upcomming-event.component';
 
 export const routes: Routes = [
   {
@@ -218,8 +219,14 @@ export const routes: Routes = [
         component:MassageComponent
       },
       {
-        path:"ongoin-event",
-        component:OngoingEventComponent
+        path:"upcoming-event",
+        component:UpcommingEventComponent,
+        children:[
+          {
+            path:"ongoing-event",
+            component:OngoingEventComponent
+          }
+        ]
       },
       {
         path:"payments",
