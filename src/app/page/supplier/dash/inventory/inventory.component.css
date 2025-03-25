@@ -85,9 +85,9 @@ tbody tr:hover {
 }
 
 .profile-img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
+    width: 90px;
+    height: 75px;
+    border-radius: 30%;
     vertical-align: middle;
     margin-right: 12px;
     border: 2px solid #2962FF;
@@ -96,6 +96,7 @@ tbody tr:hover {
 .name-container {
     display: flex;
     align-items: center;
+
 }
 
 
