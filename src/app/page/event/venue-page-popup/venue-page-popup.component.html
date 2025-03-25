@@ -17,7 +17,6 @@
           </div>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-
         <div class="modal-body">
           <div class="row mb-3">
             <div class="col-md-6">
@@ -53,6 +52,12 @@
               </div>
             </div>
           </div>
+
+
+        <h5 class="fw-bold mb-3">Gallery</h5>
+        <div class="g-2 row">
+          <div class="col-3" *ngFor="let img of imageGallery">
+            <img [src]="img.src" class="rounded-2 img-fluid" style="height: 100px; object-fit: cover;">
 
           <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
             <div class="carousel-inner">
