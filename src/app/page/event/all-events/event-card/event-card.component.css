@@ -1,0 +1,21 @@
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175) !important;
+}
+
+.user-avatar img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.carousel-indicators button {
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50%;
+    opacity: 0.5 !important;
+}
+
+.carousel-indicators button.active {
+    opacity: 1 !important;
+}
