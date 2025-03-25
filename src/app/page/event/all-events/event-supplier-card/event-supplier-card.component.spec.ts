@@ -10,7 +10,7 @@ describe('EventSupplierCardComponent', () => {
     await TestBed.configureTestingModule({
       imports: [EventSupplierCardComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(EventSupplierCardComponent);
     component = fixture.componentInstance;

@@ -9,14 +9,14 @@ import Supplier from '../../../model/supplier';
 
 @Component({
   selector: 'app-all-events',
-  imports: [RouterLink, NgFor, EventCardComponent,NgIf],
+  imports: [RouterLink, NgFor, EventCardComponent, NgIf],
   templateUrl: './all-events.component.html',
   styleUrl: './all-events.component.css'
 })
 export class AllEventsComponent {
- @ViewChild('venueModal') modalElement!: ElementRef;
+  @ViewChild('venueModal') modalElement!: ElementRef;
   currentVenue: Venue | null = null;
-  isFirstVar:Boolean = true;
+  isFirstVar: Boolean = true;
 
   imageGallery = [
     { "src": "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg" },
@@ -25,75 +25,148 @@ export class AllEventsComponent {
     { "src": "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg" }
   ];
 
-  eventDetails:any=[{
-    name:"hi",
+
+
+
+  eventDetails: any = [{
+    name: "hi",
     event: {
-      eventType:"Wedding",
-      budjet:7500.00,
-      description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit voluptates repellat inventore? Ea, delectus soluta veritatis unde magnam expedita blanditiis consequuntur, at sunt aspernatur sint ratione et, sapiente ducimus saepe."
+      eventType: "Wedding",
+      budjet: 7500.00,
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit voluptates repellat inventore? Ea, delectus soluta veritatis unde magnam expedita blanditiis consequuntur, at sunt aspernatur sint ratione et, sapiente ducimus saepe."
     },
-    user:{
-      firstName:"kavesha",
+    user: {
+      firstName: "kavesha",
 
     },
-    suppliers :[ {
-      supplierName:"kaveesha",
-      profilePictureUrl:"https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
-      businessDescription:"lorem",
-      businessName:"Alfa"
+    suppliers: [{
+      supplierName: "sanjana1",
+      profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
+      businessDescription: "lorem",
+      businessName: "Alfa"
     },
     {
-      supplierName:"kaveesha",
-      profilePictureUrl:"https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
-      businessDescription:"lorem",
-      businessName:"Alfa"
-    },{
-      supplierName:"kaveesha",
-      profilePictureUrl:"https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
-      businessDescription:"lorem",
-      businessName:"Alfa"
-    },{
-      supplierName:"kaveesha",
-      profilePictureUrl:"https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
-      businessDescription:"lorem",
-      businessName:"Alfa"
+      supplierName: "sanjana2",
+      profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
+      businessDescription: "lorem",
+      businessName: "Alfa"
+    }, {
+      supplierName: "sanjana3",
+      profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
+      businessDescription: "lorem",
+      businessName: "Alfa"
+    }, {
+      supplierName: "sanjana4",
+      profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
+      businessDescription: "lorem",
+      businessName: "Alfa"
     }]
-  },{
-    name:"hi",
+  }, {
+    name: "hi",
     event: {
-      eventType:"Wedding",
-      budjet:7500.00,
-      description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit voluptates repellat inventore? Ea, delectus soluta veritatis unde magnam expedita blanditiis consequuntur, at sunt aspernatur sint ratione et, sapiente ducimus saepe."
+      eventType: "Wedding",
+      budjet: 7500.00,
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit voluptates repellat inventore? Ea, delectus soluta veritatis unde magnam expedita blanditiis consequuntur, at sunt aspernatur sint ratione et, sapiente ducimus saepe."
     },
-    user:{
-      firstName:"kavesha",
+    user: {
+      firstName: "kavesha",
 
     },
-    suppliers :[ {
-      supplierName:"kaveesha",
-      profilePictureUrl:"https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
-      businessDescription:"lorem",
-      businessName:"Alfa"
+    suppliers: [{
+      supplierName: "sanjana1",
+      profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
+      businessDescription: "lorem",
+      businessName: "Alfa"
     },
     {
-      supplierName:"kaveesha",
-      profilePictureUrl:"https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
-      businessDescription:"lorem",
-      businessName:"Alfa"
-    },{
-      supplierName:"kaveesha",
-      profilePictureUrl:"https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
-      businessDescription:"lorem",
-      businessName:"Alfa"
-    },{
-      supplierName:"kaveesha",
-      profilePictureUrl:"https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
-      businessDescription:"lorem",
-      businessName:"Alfa"
+      supplierName: "sanjana2",
+      profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
+      businessDescription: "lorem",
+      businessName: "Alfa"
+    }, {
+      supplierName: "sanjana3",
+      profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
+      businessDescription: "lorem",
+      businessName: "Alfa"
+    }, {
+      supplierName: "sanjana4",
+      profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
+      businessDescription: "lorem",
+      businessName: "Alfa"
     }]
+  }, {
+    name: "hi",
+    event: {
+      eventType: "Wedding",
+      budjet: 7500.00,
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit voluptates repellat inventore? Ea, delectus soluta veritatis unde magnam expedita blanditiis consequuntur, at sunt aspernatur sint ratione et, sapiente ducimus saepe."
+    },
+    user: {
+      firstName: "kavesha",
+
+    },
+    suppliers: [{
+      supplierName: "sanjana1",
+      profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
+      businessDescription: "lorem",
+      businessName: "Alfa"
+    },
+    {
+      supplierName: "sanjana2",
+      profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
+      businessDescription: "lorem",
+      businessName: "Alfa"
+    }, {
+      supplierName: "sanjana3",
+      profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
+      businessDescription: "lorem",
+      businessName: "Alfa"
+    }, {
+      supplierName: "sanjana4",
+      profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
+      businessDescription: "lorem",
+      businessName: "Alfa"
+    }]
+  }, {
+    name: "hi",
+    event: {
+      eventType: "Wedding",
+      budjet: 7500.00,
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit voluptates repellat inventore? Ea, delectus soluta veritatis unde magnam expedita blanditiis consequuntur, at sunt aspernatur sint ratione et, sapiente ducimus saepe."
+    },
+    user: {
+      firstName: "kavesha",
+
+    },
+    suppliers: [{
+      supplierName: "kaveesha1",
+      profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
+      businessDescription: "lorem",
+      businessName: "Alfa"
+    },
+    {
+      supplierName: "kaveesha2",
+      profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
+      businessDescription: "lorem",
+      businessName: "Alfa"
+    }, {
+      supplierName: "kaveesha3",
+      profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
+      businessDescription: "lorem",
+      businessName: "Alfa"
+    }, {
+      supplierName: "kaveesha3",
+      profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
+      businessDescription: "lorem",
+      businessName: "Alfa"
+    }],
   }]
 
-  constructor(private router: Router) {}
+
+
+
+
+  constructor(private router: Router) { }
 
   showModal(venue: Venue): void {
     this.currentVenue = venue;
@@ -104,14 +177,14 @@ export class AllEventsComponent {
   bookNow(): void {
     if (this.currentVenue) {
 
-        this.router.navigate(['/event/event-summery']);
+      this.router.navigate(['/event/event-summery']);
 
     }
   }
 
-  isFirst():Boolean{
-    if(this.isFirstVar){
-      this.isFirstVar=false;
+  isFirst(): Boolean {
+    if (this.isFirstVar) {
+      this.isFirstVar = false;
       return true;
     }
     return false;
