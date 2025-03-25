@@ -18,12 +18,14 @@ export class ProfileCustomerComponent {
   isEditing: boolean = false;
 
   customer = {
+
     fullName: 'Samantha',
     email: 'samantha@example.com',
     phoneNumber: '0785678900',
     address: 'galle',
     gender: 'Male',
     profileImgSrc: '/profile/profile.jpg' 
+    
   };
 
   constructor() {}
@@ -60,5 +62,7 @@ export class ProfileCustomerComponent {
      alert("Profile updated successfully!");
     }
   }
+
+
 
 }
