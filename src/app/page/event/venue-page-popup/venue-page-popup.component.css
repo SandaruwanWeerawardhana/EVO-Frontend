@@ -1,25 +1,85 @@
-.about{
-  font-size: 14px;
-  font-weight: 400;
-  }
-  .bodytxt{
-    font-size: 15px;
-    color: rgb(133, 23, 243);
-    font-weight: 500;
-  }
-  .profile-img{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-  }
-  .header{
-    margin-left: 15px;
-    margin-top: 8px;
-  }
-  .aboutheader{
-    font-size: 20px;
-    font-weight: 700;
-    margin-left: 20px;
-    color: rgb(0, 0, 0);
-    margin-top: 5px;
-  }
+.venue-popup{
+.modal-content {
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+  background: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+  padding: 15px;
+}
+
+.modal-header .profile-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.date-container input {
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  padding: 6px;
+  width: 100%;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.ser {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.text-muted {
+  color: #6c757d;
+}
+
+.modal-body .d-flex i {
+  color: #007bff;
+  font-size: 1.2rem;
+}
+
+.modal-body .d-flex span {
+  font-size: 1rem;
+  color: #333;
+}
+
+.carousel-item img {
+  border-radius: 8px;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+.carousel-control-prev, .carousel-control-next {
+  filter: invert(1);
+}
+
+.modal-footer {
+  border-top: 1px solid #dee2e6;
+  padding: 12px;
+}
+
+.btn-primary {
+  background: #007bff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+}
+
+.btn-secondary {
+  background: #6c757d;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+}
+}
