@@ -1,8 +1,6 @@
 <div class="table-container" style="margin-top: 70px;">
-
-
   <div class="filter-controls">
-    <div class="row">
+    <div class="row g-2 mb-4 filter-buttons justify-content-center align-items-center">
       <div class="col-auto mb-3">
         <label class="form-label ps-2"><h6>Supplier Name</h6></label>
         <input 
@@ -12,6 +10,7 @@
           [(ngModel)]="filter.searchCustomer"
         />
       </div>
+      
       <div class="col-auto mb-3">
         <label class="form-label ps-2"><h6>Start Date</h6></label>
         <input 
@@ -21,6 +20,7 @@
           [(ngModel)]="filter.startDate"
         />
       </div>
+      
       <div class="col-auto mb-3">
         <label class="form-label ps-2"><h6>End Date</h6></label>
         <input 
@@ -30,6 +30,7 @@
           [(ngModel)]="filter.endDate"
         />
       </div>
+      
       <div class="col-auto mb-3">
         <label class="form-label ps-2"><h6>Min Amount</h6></label>
         <input 
@@ -39,6 +40,7 @@
           [(ngModel)]="filter.minAmount"
         />
       </div>
+      
       <div class="col-auto mb-3">
         <label class="form-label ps-2"><h6>Max Amount</h6></label>
         <input 
@@ -48,6 +50,7 @@
           [(ngModel)]="filter.maxAmount"
         />
       </div>
+      
       <div class="col-auto mb-3">
         <label class="form-label ps-2"></label>
         <div>
@@ -59,8 +62,9 @@
     </div>
   </div>
 
-    <table class="table table-hover table-bordered shadow-lg">
-      <thead class="table-dark">
+  <div class="container">
+    <table>
+      <thead>
         <tr>
           <th scope="col">Date</th>
           <th scope="col">Transection ID</th>
@@ -68,19 +72,35 @@
           <th scope="col">Supplier Type</th>
           <th scope="col">Amount</th>
           <th scope="col">Remarks</th>
-          <th scope="col"></th>
+          <th scope="col">Export</th>
         </tr>
       </thead>
+      
       <tbody>
         <tr *ngFor="let item of filteredPayments">
-          <th scope="row">{{item.date}}</th>
+          <td scope="row">{{item.date}}</td>
           <td>{{item.transactionId}}</td>
           <td>{{item.supplier}}</td>
           <td>{{item.supplierType}}</td>
           <td>{{item.amount}}</td>
           <td>{{item.remarks}}</td>
-          <td><a href="#"><img src="/payments-customer/receipt_print.png" alt="print receipt" style="height: 30px;" title="Print Receipt"></a></td>
+          <td><div class="button-container">
+            <label class="label">
+                <input type="checkbox" class="input" />
+                <span class="circle"><svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M12 19V5m0 14-4-4m4 4 4-4"></path>
+                    </svg>
+                    <div class="square"></div>
+                </span>
+                <p class="title">Download</p>
+                <p class="title2">Open</p>
+            </label>
+        </div></td>
         </tr>
       </tbody>
     </table>
   </div>
+
+</div>

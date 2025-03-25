@@ -1,25 +1,125 @@
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Profile Section -->
-      <div class="profile">
-          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User">
-          <h3>Aster Seawalker</h3>
-          <p>asterseawalkergmail.com</p>
+<div class="sidebar-container">
+  <div class="sidebar">
+    <!-- Logo section -->
+    <div class="logo-container">
+      <div class="logo">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="supplier logo">
       </div>
+      <div class="app-name">Marasinghe</div>
+    </div>
 
-      <!-- Sidebar Menu -->
-      <ul class="sidebar-menu">
-          <li><a routerLink="/supplier/dashboard/" class="sidebar-link"><i class="bi bi-house-door"></i> Dashboard</a></li>
-          <li><a routerLink="/supplier/dashboard/profile" class="sidebar-link"><i class="bi bi-person"></i> User</a></li>
-          <li><a routerLink="/supplier/dashboard/packages" class="sidebar-link"><i class="bi bi-box-seam"></i> Packages</a></li>
-          <li><a routerLink="/supplier/dashboard/all-bookings" class="sidebar-link"><i class="bi bi-calendar-check"></i> Bookings</a></li>
-          <li><a routerLink="/supplier/dashboard/add-previous" class="sidebar-link"><i class="bi bi-calendar-check"></i> Add previous</a></li>
-          <li><a routerLink="/supplier/dashboard/inventory" class="sidebar-link"><i class="bi bi-archive"></i> Inventory</a></li>
-          <li><a routerLink="/supplier/dashboard/blogs" href="#" class="sidebar-link"><i class="bi bi-chat-text"></i> Blogs</a></li>
-          <li><a routerLink="/supplier/dashboard/payments" href="#" class="sidebar-link"><i class="bi bi-cash-stack"></i> Payments</a></li>
-          <li><a routerLink="/supplier/dashboard/massages" class="sidebar-link"><i class="bi bi-envelope"></i> Messages</a></li>
-          <li><a routerLink="/supplier/dashboard/my-reviews" class="sidebar-link"><i class="bi bi-star"></i> Review</a></li>
-          <li><a routerLink="" class="sidebar-link"><i class="bi bi-box-arrow-right"></i> Log Out</a></li>
-      </ul>
+    <!-- Navigation links -->
+    <nav class="nav-links">
+      <a class="nav-link" [routerLink]="['/supplier/dashboard/']" routerLinkActive="active">
+        <div class="link-content">
+          <div class="icon-container">
+            <i class="fas fa-tachometer-alt"></i>
+          </div>
+          <span class="link-text">Dashboard</span>
+        </div>
+      </a>
 
+      <a class="nav-link" [routerLink]="['/supplier/dashboard/profile']" routerLinkActive="active">
+        <div class="link-content">
+          <div class="icon-container">
+            <i class="fas fa-user"></i>
+          </div>
+          <span class="link-text">Profile</span>
+        </div>
+      </a>
+
+      <a class="nav-link" [routerLink]="['/supplier/dashboard/add-packages']" routerLinkActive="active">
+        <div class="link-content">
+          <div class="icon-container">
+            <i class="fas fa-box"></i>
+          </div>
+          <span class="link-text">Packages</span>
+        </div>
+      </a>
+
+      <a class="nav-link" [routerLink]="['/supplier/dashboard/all-bookings']" routerLinkActive="active">
+        <div class="link-content">
+          <div class="icon-container">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+          <span class="link-text">Bookings</span>
+        </div>
+      </a>
+      
+      <a class="nav-link" [routerLink]="['/supplier/dashboard/requests']" routerLinkActive="active">
+        <div class="link-content">
+          <div class="icon-container">
+            <i class="fas fa-clipboard-list"></i>
+          </div>
+          <span class="link-text">Requests</span>
+        </div>
+      </a>
+
+      <a class="nav-link" [routerLink]="['/supplier/dashboard/add-previous']" routerLinkActive="active">
+        <div class="link-content">
+          <div class="icon-container">
+            <i class="fas fa-history"></i>
+          </div>
+          <span class="link-text">Add Previous</span>
+        </div>
+      </a>
+
+      <a class="nav-link" [routerLink]="['/supplier/dashboard/inventory']" routerLinkActive="active">
+        <div class="link-content">
+          <div class="icon-container">
+            <i class="fas fa-warehouse"></i>
+          </div>
+          <span class="link-text">Inventory</span>
+        </div>
+      </a>
+      
+      <a class="nav-link" [routerLink]="['/supplier/dashboard/blogs']" routerLinkActive="active">
+        <div class="link-content">
+          <div class="icon-container">
+            <i class="fas fa-blog"></i>
+          </div>
+          <span class="link-text">Blogs</span>
+        </div>
+      </a>
+      
+      <a class="nav-link" [routerLink]="['/supplier/dashboard/payments']" routerLinkActive="active">
+        <div class="link-content">
+          <div class="icon-container">
+            <i class="fas fa-credit-card"></i>
+          </div>
+          <span class="link-text">Payments</span>
+        </div>
+      </a>
+      
+      <a class="nav-link" [routerLink]="['/supplier/dashboard/massages']" routerLinkActive="active">
+        <div class="link-content">
+          <div class="icon-container">
+            <i class="fas fa-comments"></i>
+          </div>
+          <span class="link-text">Messages</span>
+        </div>
+      </a>
+      
+      <a class="nav-link" [routerLink]="['/supplier/dashboard/my-reviews']" routerLinkActive="active">
+        <div class="link-content">
+          <div class="icon-container">
+            <i class="fas fa-star"></i>
+          </div>
+          <span class="link-text">Reviews</span>
+        </div>
+      </a>
+    </nav>
+    
+    <!-- Logout button -->
+    <div class="logout-container">
+      <button class="logout-button">
+        <div class="link-content">
+          <div class="icon-container">
+            <i class="fas fa-sign-out-alt"></i>
+          </div>
+          <span class="link-text">Logout</span>
+        </div>
+      </button>
+    </div>
   </div>
+</div>
