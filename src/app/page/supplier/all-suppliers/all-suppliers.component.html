@@ -1,72 +1,66 @@
-<div class="container mt-4">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">Select Your Event Type</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Select Your Services</li>
-        </ol>
-    </nav>
-
-    <h2 class="fw-bold">Select Your Supplier</h2>
-    <p class="text-muted">Select & Customize Your Event Experience with EvoPlan Services</p>
-
-    <div class="container">
-        <div class="row g-2 mb-4 filter-buttons justify-content-center align-items-center">
-            <div class="col-md-2">
-                <label class="form-label fw-bold">Popularity</label>
-                <select class="form-select h-100">
-                    <option selected>Most Popular</option>
-                    <option>Least Popular</option>
-                </select>
-            </div>
-            <div class="col-md-2">
-                <label class="form-label fw-bold">Budget</label>
-                <select class="form-select h-100">
-                    <option selected>Any Budget</option>
-                    <option>Low</option>
-                    <option>Medium</option>
-                    <option>High</option>
-                </select>
-            </div>
-            <div class="col-md-2">
-                <label class="form-label fw-bold">Service Type</label>
-                <select class="form-select h-100">
-                    <option selected>All Services</option>
-                    <option>Photography</option>
-                    <option>Catering</option>
-                    <option>Decor</option>
-                </select>
-            </div>
-            <div class="col-md-2">
-                <label class="form-label fw-bold">Search</label>
-                <div class="search-wrapper h-75">
-                    <div class="search-input-group h-100">
-                        <input type="text" class="search-input form-control h-100" placeholder="Search Photographers">
-                        <i class="fas fa-search search-icon"></i>
-                    </div>
+<div class="container">
+    <div class="pt-4">
+        <h2 class="fw-bold">Select Your Supplier</h2>
+        <p class="text-muted">Select & Customize Your Event Experience with EvoPlan Services</p>
+        </div>
+    
+        <div class="container">
+            <div class="g-4 row align-items-center justify-content-center filter-buttons mb-2">
+                <div class="col-md-2">
+                    <label class="form-label fw-bold">Popularity</label>
+                    <select class="form-select h-100">
+                        <option selected>Most Popular</option>
+                        <option>Least Popular</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label fw-bold">Budget</label>
+                    <select class="form-select h-100">
+                        <option selected>Any Budget</option>
+                        <option>Low</option>
+                        <option>Medium</option>
+                        <option>High</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label fw-bold">Service Type</label>
+                    <select class="form-select h-100">
+                        <option selected>All Services</option>
+                        <option>Photography</option>
+                        <option>Catering</option>
+                        <option>Decor</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label fw-bold">Search</label>
+                    <div class="h-75 search-wrapper">
+                        <div class="h-100 search-input-group">
+                            <input type="text" class="form-control h-150 search-input" placeholder="Search Photographers" style="width: 200px;">
+                            <i class="fa-search fas search-icon"></i>
+                        </div>
+                    </div> 
                 </div>
             </div>
         </div>
-    </div>
-</div>
-
-<div class="container mt-4">
-    <div class="card-container">
-        <div *ngFor="let supplier of suppliers" class="card" style="width: 22rem;">
-            <img [src]="supplier.website" class="card-img-top ratio ratio-4x3" alt="Supplier Image">
-            <div class="card-body">
-                <h5 class="card-title fw-bold">{{ supplier.businessName }}</h5>
-                <p class="card-text">{{ supplier.businessDescription }}</p>
-                <hr>
-                <p class="mb-1"><strong>Completed Orders:</strong> 110</p>
-                <hr>
-                <p><strong>Ratings:</strong> {{ supplier.userType }}</p>
-            </div>
-            <div class="card-footer text-center bg-primary">
-                <button routerLink="/supplier/photographer-info" class="btn btn-primary w-100 text-white fw-bold">Select Supplier</button>
+  
+    <div class="mt-4">
+        <div class="supplier-list">
+            <div *ngFor="let supplier of suppliers" class="card" style="width: 22rem;">
+                <img [src]="supplier.brDocument" class="card-img-top img-fluid rounded ratio ratio-4x3" alt="{{supplier.businessName}}">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">{{ supplier.businessName }}</h5>
+                    <p class="card-text">{{ supplier.businessDescription }}</p>
+                    <hr>
+                    <p class="mb-1"><strong>Completed Orders:</strong> 110</p>
+                    <hr>
+                    <p><strong>Ratings:</strong> {{ supplier.userType }}</p>
+                </div>
+                <div class="card-footer bg-primary text-center">
+                    <button routerLink="/supplier/photographer-info" class="btn btn-primary text-white w-100 fw-bold">Select Supplier</button>
+                </div>
             </div>
         </div>
+    
+        <div style="margin: 80px;"></div>
     </div>
-
-    <div style="margin: 80px;"></div>
 </div>
