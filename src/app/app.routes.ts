@@ -50,6 +50,7 @@ import { RequestsComponent } from './page/customer/admin-dashbaord/pages/request
 import { SupplierPendingRequestComponent } from './page/supplier/dash/supplier-pending-request/supplier-pending-request.component';
 
 import { MessageComponent } from './page/customer/admin-dashbaord/pages/message/message.component';
+import { BirthdayPartyFormComponent } from './page/event/birthday-party-form/birthday-party-form.component';
 
 // import { ViewInventoryComponent } from './page/supplier/view-inventory/view-inventory.component';
 
@@ -57,7 +58,7 @@ import { MessageComponent } from './page/customer/admin-dashbaord/pages/message/
 export const routes: Routes = [
   {
     path: "",
-    component: LandingComponent
+    component: BirthdayPartyFormComponent
   },
   {
     path: "login",
