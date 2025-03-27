@@ -49,7 +49,6 @@ import { OverviewComponent } from './page/customer/admin-dashbaord/pages/overvie
 import { RequestsComponent } from './page/customer/admin-dashbaord/pages/requests/requests.component';
 import { SupplierPendingRequestComponent } from './page/supplier/dash/supplier-pending-request/supplier-pending-request.component';
 import { ViewInventoryComponent } from './page/supplier/view-inventory/view-inventory.component';
-import { WeddingFormComponent } from './page/event/wedding-form/wedding-form.component';
 
 export const routes: Routes = [
   {
@@ -200,10 +199,10 @@ export const routes: Routes = [
         path:"previous-work",
         component:PreviousWorkComponent
       },
-      {
-        path:"view-inventory",
-        component:ViewInventoryComponent
-      }
+      // {
+      //   path:"view-inventory",
+      //   component:ViewInventoryComponent
+      // }
     ]
   },
   {
@@ -274,6 +273,11 @@ export const routes: Routes = [
       {
         path:"requests",
         component:RequestsComponent
+      },
+      {
+        path:"messages",
+        component:MessageComponent
+
       },
       // {
       //   path:"admin-profile",
