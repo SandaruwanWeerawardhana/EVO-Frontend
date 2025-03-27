@@ -36,27 +36,27 @@ export class AllEventsComponent {
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit voluptates repellat inventore? Ea, delectus soluta veritatis unde magnam expedita blanditiis consequuntur, at sunt aspernatur sint ratione et, sapiente ducimus saepe."
     },
     user: {
-      firstName: "kavesha",
+      firstName: "Dhanu",
 
     },
     suppliers: [{
-      supplierName: "sanjana1",
+      supplierName: "Manu1",
       profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
       businessDescription: "lorem",
       businessName: "Alfa"
     },
     {
-      supplierName: "sanjana2",
+      supplierName: "Manu2",
       profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
       businessDescription: "lorem",
       businessName: "Alfa"
     }, {
-      supplierName: "sanjana3",
+      supplierName: "Manu3",
       profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
       businessDescription: "lorem",
       businessName: "Alfa"
     }, {
-      supplierName: "sanjana4",
+      supplierName: "Manu4",
       profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
       businessDescription: "lorem",
       businessName: "Alfa"
@@ -69,27 +69,27 @@ export class AllEventsComponent {
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit voluptates repellat inventore? Ea, delectus soluta veritatis unde magnam expedita blanditiis consequuntur, at sunt aspernatur sint ratione et, sapiente ducimus saepe."
     },
     user: {
-      firstName: "kavesha",
+      firstName: "Dhanu",
 
     },
     suppliers: [{
-      supplierName: "sanjana1",
+      supplierName: "Manu1",
       profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
       businessDescription: "lorem",
       businessName: "Alfa"
     },
     {
-      supplierName: "sanjana2",
+      supplierName: "Manu2",
       profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
       businessDescription: "lorem",
       businessName: "Alfa"
     }, {
-      supplierName: "sanjana3",
+      supplierName: "Manu3",
       profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
       businessDescription: "lorem",
       businessName: "Alfa"
     }, {
-      supplierName: "sanjana4",
+      supplierName: "Manu4",
       profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
       businessDescription: "lorem",
       businessName: "Alfa"
@@ -102,27 +102,27 @@ export class AllEventsComponent {
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit voluptates repellat inventore? Ea, delectus soluta veritatis unde magnam expedita blanditiis consequuntur, at sunt aspernatur sint ratione et, sapiente ducimus saepe."
     },
     user: {
-      firstName: "kavesha",
+      firstName: "Dhanu",
 
     },
     suppliers: [{
-      supplierName: "sanjana1",
+      supplierName: "Manu1",
       profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
       businessDescription: "lorem",
       businessName: "Alfa"
     },
     {
-      supplierName: "sanjana2",
+      supplierName: "Manu2",
       profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
       businessDescription: "lorem",
       businessName: "Alfa"
     }, {
-      supplierName: "sanjana3",
+      supplierName: "Manu3",
       profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
       businessDescription: "lorem",
       businessName: "Alfa"
     }, {
-      supplierName: "sanjana4",
+      supplierName: "Manu4",
       profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
       businessDescription: "lorem",
       businessName: "Alfa"
@@ -135,27 +135,27 @@ export class AllEventsComponent {
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit voluptates repellat inventore? Ea, delectus soluta veritatis unde magnam expedita blanditiis consequuntur, at sunt aspernatur sint ratione et, sapiente ducimus saepe."
     },
     user: {
-      firstName: "kavesha",
+      firstName: "Dhanu",
 
     },
     suppliers: [{
-      supplierName: "kaveesha1",
+      supplierName: "Dhanu1",
       profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
       businessDescription: "lorem",
       businessName: "Alfa"
     },
     {
-      supplierName: "kaveesha2",
+      supplierName: "Dhanu2",
       profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
       businessDescription: "lorem",
       businessName: "Alfa"
     }, {
-      supplierName: "kaveesha3",
+      supplierName: "Dhanu3",
       profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
       businessDescription: "lorem",
       businessName: "Alfa"
     }, {
-      supplierName: "kaveesha3",
+      supplierName: "Dhanu3",
       profilePictureUrl: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
       businessDescription: "lorem",
       businessName: "Alfa"
