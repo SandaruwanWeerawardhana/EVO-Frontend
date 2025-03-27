@@ -1,11 +1,88 @@
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi voluptatem hic, dolorem eius nihil ab. Consectetur quis, quisquam pariatur quasi maxime impedit, explicabo quos, ipsam sit neque veritatis eligendi ullam?
-Eum nobis cupiditate natus voluptates at, minus adipisci ipsa molestias quia nulla fugiat aspernatur? Repudiandae quod veniam optio dolorem aliquam odit eaque rem obcaecati! Ea obcaecati veniam accusamus earum? Nisi.
-Eveniet quae assumenda, ut itaque suscipit facere. Accusantium dolorem optio accusamus, voluptatibus fuga velit iusto ipsa soluta eum quibusdam repudiandae maiores quod veniam natus impedit placeat enim, saepe repellendus ipsam.
-Quasi dolore enim explicabo harum doloremque nostrum delectus adipisci ipsum, autem molestias nisi repellat voluptas earum quis, officiis rem eos quia reprehenderit accusamus blanditiis! Eum consequatur dolorem quaerat at laudantium.
-Provident, in dolor. Voluptatibus odit dolorum eligendi? Quas quaerat modi explicabo, error enim autem ea porro beatae temporibus, est mollitia. Laudantium, neque illum dolorem soluta eius facilis ipsum ullam reiciendis!
-Sint voluptates eius ipsam quos, dolor enim mollitia numquam nihil harum sit animi rem in ea distinctio earum facilis eligendi, sed pariatur vitae veritatis. Possimus nobis non assumenda unde asperiores.
-Dolor nobis autem natus. Itaque dignissimos omnis dolore, nesciunt tempore minima repellat quae numquam sint voluptatem quidem quibusdam dolorem reprehenderit? Eos rem praesentium porro eveniet cupiditate illo nam recusandae omnis?
-Quis consequuntur illum eligendi deleniti sapiente ratione? Deleniti, enim! Cum amet dolorem temporibus ipsam animi omnis harum asperiores. Cumque eaque animi quos voluptatibus! Aut, atque commodi perferendis pariatur corporis maiores?
-Incidunt, corrupti magni accusamus harum itaque rerum est consequatur, impedit quia quos ab architecto. Quaerat consectetur laudantium facilis a qui numquam exercitationem, blanditiis harum nam, culpa voluptatem sed! Possimus, eum.
-Mollitia similique dolor quaerat eligendi? Deleniti, omnis eum voluptas quae quos sequi minima accusamus hic consectetur qui harum unde quam suscipit iste reiciendis nostrum magnam? Nobis, earum error! Nobis, asperiores!</p>
-<p>payments works!</p>
+<div class="container mt-4">
+  <div class="table-container">
+    <div class="filter-controls">
+      <div class="row g-3">
+        <div class="col-12 col-sm-6 col-md-4">
+          <label class="form-label ps-2"><h6>Supplier Name</h6></label>
+          <input 
+            type="text" 
+            placeholder="Search by Supplier..." 
+            class="form-control"
+            [(ngModel)]="filter.searchSupplier"
+          />
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+          <label class="form-label ps-2"><h6>Start Date</h6></label>
+          <input 
+            type="date" 
+            class="form-control"
+            [(ngModel)]="filter.startDate"
+          />
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+          <label class="form-label ps-2"><h6>End Date</h6></label>
+          <input 
+            type="date" 
+            class="form-control"
+            [(ngModel)]="filter.endDate"
+          />
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+          <label class="form-label ps-2"><h6>Min Amount</h6></label>
+          <input 
+            type="number" 
+            class="form-control"
+            [(ngModel)]="filter.minAmount"
+          />
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+          <label class="form-label ps-2"><h6>Max Amount</h6></label>
+          <input 
+            type="number" 
+            class="form-control"
+            [(ngModel)]="filter.maxAmount"
+          />
+        </div>
+      </div>
+
+      
+      <div class="row mt-3">
+        <div class="col-12 text-center">
+          <button class="btn btn-secondary w-25" (click)="clearFilters()">
+            Clear Filters
+          </button>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="table-responsive mt-4">
+      <table class="table table-hover table-bordered shadow-lg">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Transaction ID</th>
+            <th scope="col">Supplier</th>
+            <th scope="col">Supplier Type</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Remarks</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of filteredPayments">
+            <td>{{item.date}}</td>
+            <td>{{item.transactionId}}</td>
+            <td>{{item.supplier}}</td>
+            <td>{{item.supplierType}}</td>
+            <td>{{item.amount}}</td>
+            <td>{{item.remarks}}</td>
+            <td>
+              <a href="#"><img src="/payments-customer/receipt_print.png" alt="print receipt" style="height: 30px;" title="Print Receipt"></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

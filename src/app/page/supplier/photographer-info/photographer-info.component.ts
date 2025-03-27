@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { RatingReviewsComponent } from "../rating-reviews/rating-reviews.component";
-import { HttpClient } from '@angular/common/http';
 import PhotographerReview from '../../../model/PhotographerReview';
 import PhotographerExtraFeature from '../../../model/PhotographerExtraFeature';
 import PhotographerImage from '../../../model/PhotographerImage';
 import PhotographerPackage from '../../../model/PhotographerPackage';
 import { CommonModule } from '@angular/common';
 import PhotographerBasicInfo from '../../../model/PhotographerBasicInfo';
+import { RouterLink } from '@angular/router';
+
 @Component({
   selector: 'app-photographer-info',
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink,PhotographerInfoComponent,RatingReviewsComponent],
   templateUrl: './photographer-info.component.html',
   styleUrl: './photographer-info.component.css'
 })
