@@ -1,7 +1,6 @@
-<div class="container">
+<!-- <div class="container">
     <h1>Event Summary</h1>
 
-    <!-- Venue Section -->
     <div class="row">
         <h3 class="mt-2">Venue</h3>
         <div class="card border-top-0 EventSummaryCard">
@@ -32,7 +31,7 @@
         </div>
     </div>
 
-    <!-- Catering Section -->
+    
     <div class="row mt-5">
         <h3 class="mt-2">Catering</h3>
         <div class="card border-top-0 EventSummaryCard">
@@ -62,7 +61,6 @@
         </div>
     </div>
 
-    <!-- Entertainment Section -->
     <div class="row mt-5">
         <h3 class="mt-2">Entertainment</h3>
         <div class="card border-top-0 EventSummaryCard">
@@ -101,4 +99,70 @@
             <button routerLink="/event/agenda" type="button" class="btn btn-primary" id="btnConf">Confirm</button>
         </div>
     </div>
+</div> -->
+<div class="container">
+
+    <div class="row m-4">
+        <h1 class="text-xl-center">Event Summary</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="card mb-3 EventCard" style="max-width: 540px;">
+                <div class="row no-gutters">
+                    <div class="col-4">
+                        <img src="/event-selection-images/card1.png" class="card-img" alt="card1 Image">
+                    </div>
+                    <div class="col-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{event.eventType}} </h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipi at quam ex?</p>
+                            <p><button type="button" class="btn bg-danger text-white">Reject</button>
+                                {{event.eventStatus}}</p>
+                            
+                            <p class="card-text">Start Date :{{event.startDate}} End Date :{{event.endDate}}</p>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-6" *ngFor="let supplier of supplers">
+            <div class="card mb-3 EventCard" style="max-width: 540px;">
+                <div class="row no-gutters">
+                    <div class="col-4">
+                        <img src="/event-selection-images/card1.png" class="card-img" alt="card1 Image">
+                    </div>
+                    <div class="col-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{supplier.name}}</h5>
+                            <p class="card-text">for planning, coordination, and execution of weddings.</p>
+                            <a routerLink="/event/venue-selection" class="btn btn-primary" role="button">Plan a
+                                Wedding</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="card mb-3 EventCard" style="max-width: 540px;">
+                <div class="row no-gutters">
+                    <div class="col-4">
+                        <img src="https://www.mrbrewer.com/wp-content/uploads/2020/04/Icons-08-980x980.png"
+                            class="card-img" alt="card1 Image">
+                    </div>
+                    <div class="col-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Add Supplier</h5>
+                            <p class="card-text">Compleate your planing</p>
+                            <a routerLink="/supplier" class="btn btn-primary" role="button">Add A Supplier</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
