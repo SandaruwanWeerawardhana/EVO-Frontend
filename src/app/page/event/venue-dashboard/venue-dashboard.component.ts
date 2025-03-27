@@ -7,7 +7,7 @@ import { VenuePagePopupComponent } from '../venue-page-popup/venue-page-popup.co
 @Component({
   selector: 'app-venue-dashboard',
   standalone: true,
-  imports: [VenuePagePopupComponent],
+  imports: [RouterLink, CommonModule, VenuePagePopupComponent],
   templateUrl: './venue-dashboard.component.html',
   styleUrls: ['./venue-dashboard.component.css']
 })
@@ -23,7 +23,7 @@ export class VenueDashboardComponent {
       type: 'VILLA',
       price: 25000,
       image: "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg",
-      about: "Luxurious beachfront villa with panoramic ocean views Luxurious beachfront villa with panoramic ocean views Luxurious beachfront villa with panoramic ocean views Luxurious beachfront villa with panoramic ocean views",
+      about: "Luxurious beachfront villa with panoramic ocean views",
       capacity: 150
     },
     {
