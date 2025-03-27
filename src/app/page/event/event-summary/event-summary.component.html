@@ -1,112 +1,9 @@
-<!-- <div class="container">
-    <h1>Event Summary</h1>
-
-    <div class="row">
-        <h3 class="mt-2">Venue</h3>
-        <div class="card border-top-0 EventSummaryCard">
-            <div class="row mt-2 mb-2">
-                <div class="col-4 d-flex justify-content-center">
-                    <div class="card" style="width: 18rem;">
-                        <img src="/event-summary-images/venue.png" class="card-img-top" alt="venue image">
-                        <div class="card-body">
-                            <h4>The Grand Haven</h4>
-                            <p class="card-text">Where Elegance Meets Comfort</p>
-                            <h6>Location : The Grand Heaven,456 Beachfront Avenue, Panadura.</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <h3 class="text-dark">Extra Features</h3>
-                    <ol class="list-group list-group-flush">
-                        <li class="list-group-item">1 Feature 01</li>
-                        <li class="list-group-item">2 Feature 02</li>
-                        <li class="list-group-item">3 Feature 03</li>
-                    </ol>
-                </div>
-                <div class="col-2 align-self-end">
-                    <h5 class="text-dark">Total Fee :</h5>
-                    <h5 class="text-dark">Rs: 2,500,000</h5>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="row mt-5">
-        <h3 class="mt-2">Catering</h3>
-        <div class="card border-top-0 EventSummaryCard">
-            <div class="row mt-2 mb-2">
-                <div class="col-4 d-flex justify-content-center">
-                    <div class="card" style="width: 18rem;">
-                        <img src="/event-summary-images/catering.png" class="card-img-top" alt="catering image">
-                        <div class="card-body">
-                            <h4>Silver Spoon Catering</h4>
-                            <p class="card-text">Exquisite Cuisine, Exceptional Service</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <h3 class="text-dark">Extra Features</h3>
-                    <ol class="list-group list-group-flush">
-                        <li class="list-group-item">1 Feature 01</li>
-                        <li class="list-group-item">2 Feature 02</li>
-                        <li class="list-group-item">3 Feature 03</li>
-                    </ol>
-                </div>
-                <div class="col-2 align-self-end">
-                    <h5 class="text-dark">Total Fee :</h5>
-                    <h5 class="text-dark">Rs: 80,000</h5>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row mt-5">
-        <h3 class="mt-2">Entertainment</h3>
-        <div class="card border-top-0 EventSummaryCard">
-            <div class="row mt-2 mb-2">
-                <div class="col-4 d-flex justify-content-center">
-                    <div class="card" style="width: 18rem;">
-                        <img src="/event-summary-images/entertainment.png" class="card-img-top" alt="venue image">
-                        <div class="card-body">
-                            <h4>DJ Smooth Vibes</h4>
-                            <p class="card-text">Where Rhythm Meets Flow</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <h3 class="text-dark">Extra Features</h3>
-                    <ol class="list-group list-group-flush">
-                        <li class="list-group-item">1 Feature 01</li>
-                        <li class="list-group-item">2 Feature 02</li>
-                        <li class="list-group-item">3 Feature 03</li>
-                    </ol>
-                </div>
-                <div class="col-2 align-self-end">
-                    <h5 class="text-dark">Total Fee :</h5>
-                    <h5 class="text-dark">Rs: 20,000</h5>
-                </div>
-            </div>
-        </div>
-    </div>
-  -->
-    <!-- <div class="row mt-5 fixed-bottom bg-light p-2" id="footerFixed">
-        <div class="col-6">
-            <h5 class="">Total Charges :</h5>
-            <h5>Rs: 2,600,000</h5>
-        </div>
-        <div class="col-6 d-flex align-items-end justify-content-end">
-            <button routerLink="/event/agenda" type="button" class="btn btn-primary" id="btnConf">Confirm</button>
-        </div>
-    </div> 
-</div> -->
 
 <div class="container">
 
-    <div class="row m-4">
-        <h1 class="   fw-bold">Event Summary</h1>
-    </div>
-
+    <div class="row col-6 ">
+        <h1 class="fw-bold mt-3  mb-5 ms-2">Event Summary</h1>
+      </div>
     <div class="row">
       <div class="col-6">
         <div class="card border-0 shadow-lg rounded-4 overflow-hidden m-2">
@@ -138,38 +35,6 @@
             </div>
         </div>
     </div>
-      
-    <div class="col-6">
-        <div class="card border-0 shadow-lg rounded-4 overflow-hidden m-2">
-            <div class="row g-0">
-                <div class="col-4 position-relative">
-                    <img src="/event-selection-images/card1.png" class="w-100 h-100 object-cover" alt="Event Image">
-                  <button  class="bi bi-trash3"></button>
-                </div>
-                <div class="col-8">
-                    <div class="card-body d-flex flex-column h-100">
-                        <div>
-                            <h5 class="card-title fw-bold mb-2">{{event.eventType}}</h5>
-                            <p class="text-muted mb-3">Lorem ipsum dolor sit amet, consectetur adipi at quam ex?</p>
-                            <p *ngIf="event.eventStatus"
-                               [ngStyle]="{'color': event.eventStatus === 'Pending' ? 'brown' : 'green'}"
-                               class="fw-semibold mb-2">
-                                Status: {{event.eventStatus}}
-                            </p>
-                            <div class="text-muted small">
-                                <div>Start Date: {{event.startDate}}</div>
-                                <div>End Date: {{event.endDate}}</div>
-                            </div>
-                        </div>
-                        <div class="mt-auto text-end">
-                            <button type="button" class="btn btn-sm btn-danger">Reject</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="col-6">
       <div class="card border-0 shadow-lg rounded-4 overflow-hidden m-2">
           <div class="row g-0">
@@ -200,30 +65,68 @@
           </div>
       </div>
   </div>
-    
-   
-
-<!-- 
-        <div class="col-6" *ngFor="let supplier of supplers">
-            <div class="card mb-3 EventCard" style="max-width: 540px;">
-                <div class="row no-gutters">
-                    <div class="col-4">
-                        <img src="/event-selection-images/card1.png" class="card-img" alt="card1 Image">
+  <div class="col-6">
+    <div class="card border-0 shadow-lg rounded-4 overflow-hidden m-2">
+        <div class="row g-0">
+            <div class="col-4 position-relative">
+                <img src="/event-selection-images/card1.png" class="w-100 h-100 object-cover" alt="Event Image">
+              <button  class="bi bi-trash3"></button>
+            </div>
+            <div class="col-8">
+                <div class="card-body d-flex flex-column h-100">
+                    <div>
+                        <h5 class="card-title fw-bold mb-2">{{event.eventType}}</h5>
+                        <p class="text-muted mb-3">Lorem ipsum dolor sit amet, consectetur adipi at quam ex?</p>
+                        <p *ngIf="event.eventStatus"
+                           [ngStyle]="{'color': event.eventStatus === 'Pending' ? 'brown' : 'green'}"
+                           class="fw-semibold mb-2">
+                            Status: {{event.eventStatus}}
+                        </p>
+                        <div class="text-muted small">
+                            <div>Start Date: {{event.startDate}}</div>
+                            <div>End Date: {{event.endDate}}</div>
+                        </div>
                     </div>
-                    <div class="col-8">
-                        <div class="card-body">
-                            <h5 class="card-title">{{supplier.name}}</h5>
-                            <p class="card-text">for planning, coordination, and execution of weddings.</p>
-                            <a routerLink="/event/venue-selection" class="btn btn-primary" role="button">Plan a
-                                Wedding</a>
+                    <div class="mt-auto text-end">
+                        <button type="button" class="btn btn-sm btn-danger">Reject</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="col-6">
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden m-2">
+            <div class="row g-0">
+                <div class="col-4 position-relative">
+                    <img src="/event-selection-images/card1.png" class="w-100 h-100 object-cover" alt="Event Image">
+                  <button  class="bi bi-trash3"></button>
+                </div>
+                <div class="col-8">
+                    <div class="card-body d-flex flex-column h-100">
+                        <div>
+                            <h5 class="card-title fw-bold mb-2">{{event.eventType}}</h5>
+                            <p class="text-muted mb-3">Lorem ipsum dolor sit amet, consectetur adipi at quam ex?</p>
+                            <p *ngIf="event.eventStatus"
+                               [ngStyle]="{'color': event.eventStatus === 'Pending' ? 'brown' : 'green'}"
+                               class="fw-semibold mb-2">
+                                Status: {{event.eventStatus}}
+                            </p>
+                            <div class="text-muted small">
+                                <div>Start Date: {{event.startDate}}</div>
+                                <div>End Date: {{event.endDate}}</div>
+                            </div>
+                        </div>
+                        <div class="mt-auto text-end">
+                            <button type="button" class="btn btn-sm btn-danger">Reject</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div> -->
-
+        </div>
+    </div>
         <div class="col-6">
-            <div class="card mb-3 EventCard" style="max-width: 540px;">
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden m-2" style="max-width: 540px;">
                 <div class="row no-gutters">
                     <div class="col-4">
                         <img src="https://www.mrbrewer.com/wp-content/uploads/2020/04/Icons-08-980x980.png"
@@ -240,6 +143,17 @@
             </div>
         </div>
     </div>
-
 </div>
+<div class="bottom-spacing"></div>
+<div class="row mt-5 fixed-bottom bg-light p-2" id="footerFixed">
+  <div class="col-6">
+      <h5 class="">Total Charges :</h5>
+      <h5>Rs: 2,600,000</h5>
+  </div>
+  <div class="col-6 d-flex align-items-end justify-content-end">
+      <button routerLink="/event/agenda" type="button" class="btn btn-primary" id="btnConf">Confirm</button>
+  </div>
+
+
+  
 
