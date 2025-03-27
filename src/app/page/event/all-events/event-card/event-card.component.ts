@@ -1,9 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 import { EventSupplierCardComponent } from '../event-supplier-card/event-supplier-card.component';
+import { HttpClient } from '@angular/common/http';
+import { EventCardService } from '../../../../../service/EventCardService';
 @Component({
   selector: 'app-event-card',
-  imports: [NgFor, EventSupplierCardComponent],
+  imports: [NgFor, EventSupplierCardComponent,CommonModule],
   templateUrl: './event-card.component.html',
   styleUrl: './event-card.component.css'
 })
@@ -22,5 +24,17 @@ export class EventCardComponent implements OnInit {
       return true;
     }
     return false;
+  }
+
+  eventList:Event[] = []
+
+  constructor(private http: HttpClient, private eventCardService:EventCardService){
+
+  }
+
+  getAllEventCards(){
+    this.eventCardService.getAllEvents().subscribe((eventList:Event[])=>{
+      this.eventList=eventList;
+    })
   }
 }
