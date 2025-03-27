@@ -18,11 +18,11 @@
     box-shadow: 2px 0 10px 5px rgba(0, 0, 0, 0.1);
   }
 
-  .edit-button {
+   .edit-button {
     position: absolute;
-    bottom: 10px; /* Adjust this value as needed */
-    right: 10px; /* Adjust this value as needed */
-  }
+    bottom: 10px; 
+    right: 10px; 
+  } 
   .profile-image {
     width: 100px; /* Adjust this value as needed */
     height: 100px; /* Adjust this value as needed */
@@ -48,6 +48,7 @@
 .content{
     margin-top:-80px;
 }
+
 
 
 
