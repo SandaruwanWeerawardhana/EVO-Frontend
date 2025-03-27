@@ -58,7 +58,7 @@ import { BirthdayPartyFormComponent } from './page/event/birthday-party-form/bir
 export const routes: Routes = [
   {
     path: "",
-    component: BirthdayPartyFormComponent
+    component: LandingComponent
   },
   {
     path: "login",
