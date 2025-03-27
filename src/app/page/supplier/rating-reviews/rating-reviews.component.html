@@ -1,4 +1,3 @@
- 
 <div class="container">
     <h2>Rating & Reviews</h2>
     <div class="stats-container">
@@ -10,7 +9,7 @@
             <p class="big-text m-3">4.0
                 <i class="bi bi-star-fill"></i>
                 <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i> 
+                <i class="bi bi-star-fill"></i>
                 <i class="bi bi-star-fill"></i>
                 <i class="bi bi-star-fill"></i>
             </p>
@@ -39,85 +38,111 @@
         </div>
     </div>
 
-    <hr class="m-1">
 
-    <div class="review">
-        <div class="review-header">
-            <div class="profile-pic">
-                <img src="/Rating-Reviews-img/profile.jpg" alt="">
-            </div>
-            <div>
-                <p class="name">Sarah Thompson</p>
-                <p class="date">12-09-2024</p>
-            </div>
-        </div>
-        <div class="review-body">
-            <p class="stars pt-1"> 
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                
-                <span style="padding: 10px;">5.0</span>
-            </p>
-            <p class="review-text">kevin's photos of our family reunion were fantastic! He has a knack for capturing
-                genuine moments and made everyone feel at ease. We're thrilled with the results!</p>
-        </div>
-        <div class="review-buttons p-1">
-            <button class="btn">Direct Message</button>
-        </div>
-    </div>
+    <div class="expandable-reviews container">
+      <div class="collapse-container">
+          <div class="reviews-preview">
+              <div class="review card mb-3">
+                  <div class="card-header d-flex align-items-center">
+                      <div class="profile-pic me-3">
+                          <img src="/Rating-Reviews-img/profile.jpg" alt="Profile" class="rounded-circle" width="50" height="50">
+                      </div>
+                      <div>
+                          <p class="name mb-0">Sarah Thompson</p>
+                          <p class="date text-muted mb-0">12-09-2024</p>
+                      </div>
+                  </div>
+                  <div class="card-body">
+                      <p class="stars">
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <span class="ms-2 text-muted">5.0</span>
+                      </p>
+                      <p class="review-text">kevin's photos of our family reunion were fantastic! He has a knack for capturing genuine moments and made everyone feel at ease. We're thrilled with the results!</p>
+                  </div>
+              </div>
 
-    <div class="review">
-        <div class="review-header">
-            <div class="profile-pic">
-                <img src="/Rating-Reviews-img/profile.jpg" alt="">
-            </div>
-            <div>
-                <p class="name">Sarah Thompson</p>
-                <p class="date">12-09-2024</p>
-            </div>
-        </div>
-        <div class="review-body">
-            <p class="stars"> <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i> 
-                <span style="padding: 10px;">5.0</span>
-            </p>
-            <p class="review-text">kevin's photos of our family reunion were fantastic! He has a knack for capturing
-                genuine moments and made everyone feel at ease. We're thrilled with the results!</p>
-        </div>
-        <div class="review-buttons"> 
-            <button class="btn">Direct Message</button>
-        </div>
-    </div>
+              <div class="review card mb-3">
+                  <div class="card-header d-flex align-items-center">
+                      <div class="profile-pic me-3">
+                          <img src="/Rating-Reviews-img/profile.jpg" alt="Profile" class="rounded-circle" width="50" height="50">
+                      </div>
+                      <div>
+                          <p class="name mb-0">Emily Rodriguez</p>
+                          <p class="date text-muted mb-0">15-11-2024</p>
+                      </div>
+                  </div>
+                  <div class="card-body">
+                      <p class="stars">
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <span class="ms-2 text-muted">5.0</span>
+                      </p>
+                      <p class="review-text">Absolutely delighted with Kevin's photography! His ability to capture the essence of our family event was remarkable.</p>
+                  </div>
+              </div>
+          </div>
 
-    <div class="review">
-        <div class="review-header">
-            <div class="profile-pic">
-                <img src="/Rating-Reviews-img/profile.jpg" alt="">
-            </div>
-            <div>
-                <p class="name">Sarah Thompson</p>
-                <p class="date">12-09-2024</p>
-            </div>
-        </div>
-        <div class="review-body">
-            <p class="stars"> <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                 <span style="padding: 10px;">5.0</span>
-            </p>
-            <p class="review-text">kevin's photos of our family reunion were fantastic! He has a knack for capturing
-                genuine moments and made everyone feel at ease. We're thrilled with the results!</p>
-        </div>
-        <div class="review-buttons">
-            <button class="btn">Direct Message</button>
-        </div>
-    </div>
+          <div class="collapse" id="moreReviews">
+
+              <div class="review card mb-3">
+                  <div class="card-header d-flex align-items-center">
+                      <div class="profile-pic me-3">
+                          <img src="/Rating-Reviews-img/profile.jpg" alt="Profile" class="rounded-circle" width="50" height="50">
+                      </div>
+                      <div>
+                          <p class="name mb-0">Michael Chen</p>
+                          <p class="date text-muted mb-0">20-12-2024</p>
+                      </div>
+                  </div>
+                  <div class="card-body">
+                      <p class="stars">
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <span class="ms-2 text-muted">5.0</span>
+                      </p>
+                      <p class="review-text">Kevin's photographic skills are truly exceptional. From wedding to family portraits, his ability to tell a story through images is unparalleled.</p>
+                  </div>
+              </div>
+
+              <div class="review card mb-3">
+                  <div class="card-header d-flex align-items-center">
+                      <div class="profile-pic me-3">
+                          <img src="/Rating-Reviews-img/profile.jpg" alt="Profile" class="rounded-circle" width="50" height="50">
+                      </div>
+                      <div>
+                          <p class="name mb-0">David Kim</p>
+                          <p class="date text-muted mb-0">05-01-2025</p>
+                      </div>
+                  </div>
+                  <div class="card-body">
+                      <p class="stars">
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <span class="ms-2 text-muted">5.0</span>
+                      </p>
+                      <p class="review-text">Professional, creative, and absolutely brilliant. Kevin transformed our corporate event photos into storytelling masterpieces.</p>
+                  </div>
+              </div>
+          </div>
+
+          <div class="text-center mt-5">
+              <a data-bs-toggle="collapse" href="#moreReviews" role="button" aria-expanded="false" aria-controls="moreReviews">
+                  <h6>See More Reviews</h6>
+              </a>
+          </div>
+      </div>
+  </div>
 </div>
