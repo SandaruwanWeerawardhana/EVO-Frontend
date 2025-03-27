@@ -221,12 +221,10 @@ export const routes: Routes = [
       {
         path:"upcoming-event",
         component:UpcommingEventComponent,
-        children:[
-          {
-            path:"ongoing-event",
-            component:OngoingEventComponent
-          }
-        ]
+      },
+      {
+        path:"ongoing-event",
+        component:OngoingEventComponent
       },
       {
         path:"payments",
