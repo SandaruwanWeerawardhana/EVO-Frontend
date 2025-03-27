@@ -36,24 +36,7 @@
   </p>
 
   <div class="container my-5">
-    <h2>Reviews</h2>
-    <br>
-    <div class="mb-4" style="margin-left: 2rem;">
-      <p *ngFor="let review of reviews">
-        "Our wedding photos are absolutely stunning! Captured every special moment beautifully. Highly recommend!"<br>
-        <span class="text-muted" *ngIf="review.rating == 'five'">⭐⭐⭐⭐⭐</span>
-        <span class="text-muted" *ngIf="review.rating == 'four'">⭐⭐⭐⭐☆</span>
-        <span class="text-muted" *ngIf="review.rating == 'three'">⭐⭐⭐☆☆</span>
-        <span class="text-muted" *ngIf="review.rating == 'two'">⭐⭐☆☆☆</span>
-        <span class="text-muted" *ngIf="review.rating == 'one'">⭐☆☆☆☆</span>
-      </p>
-
-      <div class="text-end">
-        <a href="#" class="btn btn-link">Read More >></a>
-      </div>
-
-    </div>
-
+    <app-rating-reviews></app-rating-reviews>
     <h2>Packages</h2>
 
     <div class="row text-start">
@@ -76,8 +59,6 @@
           </div>
         </div>
       </div>
-
-
     </div>
 
     <h2>Select your extra features</h2>
@@ -101,7 +82,7 @@
         <h3>Total Charges :</h3>
         <h2>{{total_charges}}.00</h2>
       </div>
-      <button class="btn btn-primary btn-lg"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+      <button class="btn btn-primary btn-lg" routerLink="/event/event-summery"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
           fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
           <path
             d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
@@ -110,5 +91,4 @@
       </button>
     </div>
   </div>
-
 </div>
