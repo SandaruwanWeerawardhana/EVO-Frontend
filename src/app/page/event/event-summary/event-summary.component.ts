@@ -1,4 +1,4 @@
-import { NgFor, NgIf } from '@angular/common';
+import { NgFor, NgIf, NgStyle } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import EventSummery from '../../../model/EventSummery';
@@ -6,7 +6,7 @@ import EventSummery from '../../../model/EventSummery';
 @Component({
   selector: 'app-event-summary',
   standalone: true,
-  imports: [RouterLink,NgFor,NgIf],
+  imports: [RouterLink,NgFor,NgIf,NgStyle],
   templateUrl: './event-summary.component.html',
   styleUrls: ['./event-summary.component.css']
 })

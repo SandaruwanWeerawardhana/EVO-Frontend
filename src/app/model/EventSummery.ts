@@ -13,7 +13,7 @@ export default class EventSummery {
         eventId: number,
         venueId: number,
         customerId: number,
-        suppilerList: [ ],
+        suppilerList: [],
         total: number
     ) {
         this.eventSummeryId = eventSummeryId;
