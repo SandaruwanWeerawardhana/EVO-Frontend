@@ -10,10 +10,11 @@ import { catchError, of, retry, tap } from 'rxjs';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './massages.component.html',
-  styleUrl: './massages.component.css'
+  styleUrl: './massages.component.css',
 })
 export class MassagesComponent implements OnInit, OnDestroy {
-  connectionStatus: 'CONNECTED' | 'CONNECTING' | 'DISCONNECTED' = 'DISCONNECTED';
+  connectionStatus: 'CONNECTED' | 'CONNECTING' | 'DISCONNECTED' =
+    'DISCONNECTED';
   messageText: string = '';
   private stompClient: Client | null = null;
   private webSocket: WebSocket | null = null;
@@ -36,22 +37,25 @@ export class MassagesComponent implements OnInit, OnDestroy {
   }
 
   private loadAdminIds() {
-    this.http.get<string[]>(
-      `http://localhost:8080/system/message/admin-supplier/adminsBySupplierId?supplierId=${this.supplierId}`
-    ).pipe(
-      retry(2),
-      catchError(error => {
-        this.loadError = error.message;
-        this.loadingAdmins = false;
-        return of([]);
-      }),
-      tap(() => this.loadingAdmins = false)
-    ).subscribe(ids => {
-      this.adminIds = ids;
-      if (ids.length > 0 && !this.selectedAdminId) {
-        this.selectedAdminId = ids[0];
-      }
-    });
+    this.http
+      .get<string[]>(
+        `http://localhost:8080/system/message/admin-supplier/adminsBySupplierId?supplierId=${this.supplierId}`
+      )
+      .pipe(
+        retry(2),
+        catchError((error) => {
+          this.loadError = error.message;
+          this.loadingAdmins = false;
+          return of([]);
+        }),
+        tap(() => (this.loadingAdmins = false))
+      )
+      .subscribe((ids) => {
+        this.adminIds = ids;
+        if (ids.length > 0 && !this.selectedAdminId) {
+          this.selectedAdminId = ids[0];
+        }
+      });
   }
 
   selectAdmin(adminId: string) {
@@ -59,14 +63,15 @@ export class MassagesComponent implements OnInit, OnDestroy {
     this.messages = []; // Clear previous messages when switching admin
   }
 
- connect() {
+  connect() {
     this.connectionStatus = 'CONNECTING';
     this.cdr.detectChanges();
 
     this.webSocket = new WebSocket(this.wsUrl);
     this.stompClient = over(this.webSocket);
 
-    this.stompClient.connect({},
+    this.stompClient.connect(
+      {},
       (frame: any) => this.onConnectSuccess(frame),
       (error: any) => this.onConnectError(error)
     );
@@ -95,7 +100,7 @@ export class MassagesComponent implements OnInit, OnDestroy {
     setTimeout(() => this.connect(), delay);
   }
 
-  private handleIncomingMessage(message: { 
+  private handleIncomingMessage(message: {
     content: string;
     timestamp: string;
     sender: string;
@@ -104,24 +109,28 @@ export class MassagesComponent implements OnInit, OnDestroy {
     if (message.recipientId === this.selectedAdminId) {
       this.messages.push({
         ...message,
-        timestamp: new Date(message.timestamp)
+        timestamp: new Date(message.timestamp),
       });
       this.cdr.detectChanges();
     }
   }
 
   sendMessage() {
-    if (this.messageText.trim() && this.stompClient?.connected && this.selectedAdminId) {
+    if (
+      this.messageText.trim() &&
+      this.stompClient?.connected &&
+      this.selectedAdminId
+    ) {
       const message = {
         content: this.messageText,
         timestamp: new Date().toISOString(),
         sender: 'supplier',
         recipientId: this.selectedAdminId,
-        supplierId: this.supplierId
+        supplierId: this.supplierId,
       };
-      
+
       this.stompClient.send('/app/chat', {}, JSON.stringify(message));
-      this.messages.push({...message, sender: 'user'});
+      this.messages.push({ ...message, sender: 'user' });
       this.messageText = '';
     }
   }
