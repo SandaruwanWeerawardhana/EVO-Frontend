@@ -1,3 +1,4 @@
+
 import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -32,6 +33,10 @@ export class MassagesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.loadAdminIds();
+    this.initializeWebSocket();
+  }
+
+  private initializeWebSocket() {
     this.connect();
   }
 
@@ -54,12 +59,52 @@ export class MassagesComponent implements OnInit, OnDestroy {
     });
   }
 
-  selectAdmin(adminId: string) {
-    this.selectedAdminId = adminId;
-    this.messages = []; // Clear previous messages when switching admin
+  private loadMessages(adminId: string) {
+    console.log('Loading messages for Admin ID:', adminId); 
+    this.http.get<any[]>(
+      `http://localhost:8080/system/message/admin-supplier/chat/${adminId}/${this.supplierId}`
+    ).pipe(
+      catchError(error => {
+        console.error('Failed to load messages:', error);
+        return of([]); 
+      })
+    ).subscribe(messages => {
+      console.log('Messages loaded:', messages);
+      this.messages = messages.map(msg => ({
+        content: msg.content,
+        timestamp: this.parseDate(msg.send_time), 
+        sender: msg.user_type === 'SUPPLIER' ? 'SUPPLIER' : 'ADMIN'
+      }));
+      this.cdr.detectChanges(); 
+    });
   }
 
- connect() {
+  // Add date parsing helper
+  private parseDate(dateString: string): Date {
+    const date = new Date(dateString);
+    return isNaN(date.getTime()) ? new Date() : date;
+  }
+
+  selectAdmin(adminId: string) {
+    console.log('Selected Admin ID:', adminId); 
+    this.selectedAdminId = adminId;
+    this.messages = [];
+    this.loadMessages(adminId);
+    this.updateWebSocketSubscription();
+  }
+
+  private updateWebSocketSubscription() {
+    if (this.stompClient?.connected) {
+      console.log('Updating WebSocket subscription for Admin ID:', this.selectedAdminId); 
+      this.stompClient.unsubscribe('current_chat');
+      this.stompClient.subscribe(
+        `/topic/chat/${this.supplierId}/${this.selectedAdminId}`,
+        (message) => this.handleIncomingMessage(JSON.parse(message.body))
+      );
+    }
+  }
+
+  connect() {
     this.connectionStatus = 'CONNECTING';
     this.cdr.detectChanges();
 
@@ -78,7 +123,6 @@ export class MassagesComponent implements OnInit, OnDestroy {
     this.reconnectAttempts = 0;
     this.cdr.detectChanges();
 
-    // Subscribe to messages
     this.stompClient?.subscribe('/topic/messages', (message) => {
       const parsed = JSON.parse(message.body);
       this.handleIncomingMessage(parsed);
@@ -95,18 +139,22 @@ export class MassagesComponent implements OnInit, OnDestroy {
     setTimeout(() => this.connect(), delay);
   }
 
-  private handleIncomingMessage(message: { 
-    content: string;
-    timestamp: string;
-    sender: string;
-    recipientId: string;
-  }) {
-    if (message.recipientId === this.selectedAdminId) {
-      this.messages.push({
-        ...message,
-        timestamp: new Date(message.timestamp)
-      });
-      this.cdr.detectChanges();
+  private handleIncomingMessage(message: any) {
+    if (message.supplierId === this.supplierId && message.adminId === this.selectedAdminId) {
+      const newMsg = {
+        content: message.content,
+        timestamp: new Date(message.timestamp),
+        sender: message.user_type === 'SUPPLIER' ? 'user' : 'admin'
+      };
+
+   
+      if (!this.messages.some(m => 
+        m.content === newMsg.content && 
+        m.timestamp.getTime() === newMsg.timestamp.getTime()
+      )) {
+        this.messages.push(newMsg);
+        this.cdr.detectChanges();
+      }
     }
   }
 
@@ -115,13 +163,19 @@ export class MassagesComponent implements OnInit, OnDestroy {
       const message = {
         content: this.messageText,
         timestamp: new Date().toISOString(),
-        sender: 'supplier',
-        recipientId: this.selectedAdminId,
-        supplierId: this.supplierId
+        user_type: 'SUPPLIER',
+        supplierId: this.supplierId,
+        adminId: this.selectedAdminId
       };
-      
+
       this.stompClient.send('/app/chat', {}, JSON.stringify(message));
-      this.messages.push({...message, sender: 'user'});
+      
+    
+      this.messages.push({
+        ...message,
+        timestamp: new Date(message.timestamp),
+        sender: 'user'
+      });
       this.messageText = '';
     }
   }
