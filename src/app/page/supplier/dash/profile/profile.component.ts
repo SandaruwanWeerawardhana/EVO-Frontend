@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
-import { AppComponent } from '../../../../app.component';
-import { DashRootCustomerComponent } from '../../../customer/dash-root-customer/dash-root-customer.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
-  imports: [RouterLink, RouterOutlet],
+  imports: [RouterOutlet],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })

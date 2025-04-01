@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CommonModule, NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { EventSupplierCardComponent } from '../event-supplier-card/event-supplier-card.component';
 import { HttpClient } from '@angular/common/http';
 import { EventCardService } from '../../../../../service/EventCardService';
 @Component({
   selector: 'app-event-card',
-  imports: [NgFor, EventSupplierCardComponent,CommonModule],
+  imports: [ EventSupplierCardComponent,CommonModule],
   templateUrl: './event-card.component.html',
   styleUrl: './event-card.component.css'
 })

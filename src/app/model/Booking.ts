@@ -1,4 +1,4 @@
- export default class Booking{
+ export default class OLD_Booking{
   date:string;
   name:string;
   type:string;
