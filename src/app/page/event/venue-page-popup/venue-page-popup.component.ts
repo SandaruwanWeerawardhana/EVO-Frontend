@@ -16,10 +16,11 @@ export class VenuePagePopupComponent {
   @ViewChild('venueModal') modalElement!: ElementRef;
   currentVenue: Venue | null = null;
 
-  public imageGallery = [
-    { "src": "https://cdn.pixabay.com/photo/2014/07/21/19/20/lobby-398845_1280.jpg" },
-    { "src": "https://cdn.pixabay.com/photo/2013/12/11/13/49/holiday-226830_1280.jpg"},
-    { "src": "https://cdn.pixabay.com/photo/2021/12/18/06/13/hotel-6878058_1280.jpg" }
+  imageGallery = [
+    { "src": "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg" },
+    { "src": "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg" },
+    { "src": "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg" },
+    { "src": "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg" }
   ];
 
   constructor(private router: Router) {}
