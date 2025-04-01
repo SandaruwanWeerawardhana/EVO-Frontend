@@ -1,5 +1,5 @@
 
-export default class DetailedPreviousWork {
+export default class OLD_DetailedPreviousWork {
     eventId: number;
     customerNames: string;
     eventDate: string;
