@@ -7,31 +7,10 @@
     color: gray;
 }
 
+.object-cover {
+  object-fit: cover;
+}
+
 .bottom-spacing{
-  padding: 5rem;
-}
-
-.btn{
-  transition: none !important;
-  border: none;
-  margin: 20px;
-  padding: 10px;
-}
-
-.btn:hover{
-  transition: none !important;
-  border: none;
-  background-color: #105cd4 !important;
-}
-
-.aas-btn-row{
-  display: flex;
-  justify-content: center;
-}
-
-.aas-txt-row{
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  margin: 10px;
+  padding:80px;
 }
