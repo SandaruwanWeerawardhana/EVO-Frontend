@@ -51,7 +51,11 @@ import { SupplierPendingRequestComponent } from './page/supplier/dash/supplier-p
 
 import { MessageComponent } from './page/customer/admin-dashbaord/pages/message/message.component';
 
+
+import { ViewInventoryComponent } from './page/supplier/view-inventory/view-inventory.component';
+
 // import { ViewInventoryComponent } from './page/supplier/view-inventory/view-inventory.component';
+
 
 
 export const routes: Routes = [
