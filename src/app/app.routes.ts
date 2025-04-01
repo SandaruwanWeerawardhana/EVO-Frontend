@@ -44,9 +44,12 @@ import { TransectionsComponent } from './page/customer/admin-dashbaord/pages/tra
 import { ReportsComponent } from './page/customer/admin-dashbaord/pages/reports/reports.component';
 import { NotificationsComponent } from './page/customer/admin-dashbaord/pages/notifications/notifications.component';
 import { AuditHistoryComponent } from './page/customer/admin-dashbaord/pages/audit-history/audit-history.component';
-// import { AdminProfileComponent } from './page/customer/admin-dashbaord/pages/profile/profile.component';
+      // import { AdminProfileComponent } from './page/customer/admin-dashbaord/pages/profile/profile.component';
 import { OverviewComponent } from './page/customer/admin-dashbaord/pages/overview/overview.component';
 import { RequestsComponent } from './page/customer/admin-dashbaord/pages/requests/requests.component';
+import { SupplierPendingRequestComponent } from './page/supplier/dash/supplier-pending-request/supplier-pending-request.component';
+import { ViewInventoryComponent } from './page/supplier/view-inventory/view-inventory.component';
+import { UpcommingEventComponent } from './page/customer/upcomming-event/upcomming-event.component';
 
 export const routes: Routes = [
   {
@@ -163,6 +166,9 @@ export const routes: Routes = [
           {
             path: "my-reviews",
             component: MyReviewsComponent
+          },{
+            path: "requests",
+            component: SupplierPendingRequestComponent
           }
         ]
       },
@@ -189,6 +195,10 @@ export const routes: Routes = [
       {
         path:"previous-work",
         component:PreviousWorkComponent
+      },
+      {
+        path:"view-inventory",
+        component:ViewInventoryComponent
       }
     ]
   },
@@ -209,7 +219,11 @@ export const routes: Routes = [
         component:MassageComponent
       },
       {
-        path:"ongoin-event",
+        path:"upcoming-event",
+        component:UpcommingEventComponent,
+      },
+      {
+        path:"ongoing-event",
         component:OngoingEventComponent
       },
       {

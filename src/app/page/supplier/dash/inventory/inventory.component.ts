@@ -1,11 +1,25 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import Inventory  from '../../../../model/Inventory'; 
 
 @Component({
   selector: 'app-inventory',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './inventory.component.html',
   styleUrl: './inventory.component.css'
 })
 export class InventoryComponent {
+  
+  inventories: Inventory[] = [];
+
+  loadData():void{
+    this.inventories.push(new Inventory('Camera','https://images.pexels.com/photos/249597/pexels-photo-249597.jpeg?auto=compress&cs=tinysrgb&w=600','with 2 lens','CAMERA'));
+
+  
+  }
+
+  constructor(){
+    this.loadData();
+  }
 
 }
