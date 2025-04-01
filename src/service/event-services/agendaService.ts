@@ -12,8 +12,8 @@ export class AgendaService {
 
     constructor(private http:HttpClient) {
     }
-    loadevent():Observable<Event[]>{
-        return this.http.get<Event[]>('${env.baseUrl}/api/event/search/{id}');
+    loadevent(id:number):Observable<Event[]>{
+        return this.http.get<Event[]>('${env.baseUrl}/api/event/search/${id}');
     }
     savesession(session:Session, agendaId:number):Observable<Session>{
         return this.http.post<Session>('${env.baseUrl}/api/event/agenda/${agendaId}/add-task', {session});
