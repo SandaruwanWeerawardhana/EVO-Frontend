@@ -47,13 +47,14 @@ import { AuditHistoryComponent } from './page/customer/admin-dashbaord/pages/aud
 import { OverviewComponent } from './page/customer/admin-dashbaord/pages/overview/overview.component';
 import { RequestsComponent } from './page/customer/admin-dashbaord/pages/requests/requests.component';
 import { SupplierPendingRequestComponent } from './page/supplier/dash/supplier-pending-request/supplier-pending-request.component';
-import { WeddingFormComponent } from './page/event/wedding-form/wedding-form.component';
-import { MessageComponent } from './page/customer/admin-dashbaord/pages/message/message.component';
-import { AnnivesaryFormComponent } from './page/event/annivesary-form/annivesary-form.component';
-import { GetTogetherFormComponent } from './page/event/get-together-form/get-together-form.component';
-import { BirthdayPartyFormComponent } from './page/event/birthday-party-form/birthday-party-form.component';
-import { UpcommingEventComponent } from './page/customer/upcomming-event/upcomming-event.component';
 
+
+import { MessageComponent } from './page/customer/admin-dashbaord/pages/message/message.component';
+import { BirthdayPartyFormComponent } from './page/event/birthday-party-form/birthday-party-form.component';
+import { WeddingFormComponent } from './page/event/wedding-form/wedding-form.component';
+import { GetTogetherFormComponent } from './page/event/get-together-form/get-together-form.component';
+import { AnnivesaryFormComponent } from './page/event/annivesary-form/annivesary-form.component';
+import { UpcommingEventComponent } from './page/customer/upcomming-event/upcomming-event.component';
 export const routes: Routes = [
   {
     path: "",
