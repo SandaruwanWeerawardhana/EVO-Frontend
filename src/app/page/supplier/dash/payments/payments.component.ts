@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { SupplierPayment } from '../../../../model/SupplierPayment';
-import { SupplierPaymentFilter } from '../../../../model/SupplierPaymentFilter';
+import { OLD_SupplierPayment } from '../../../../model/SupplierPayment';
+import { OLD_SupplierPaymentFilter } from '../../../../model/SupplierPaymentFilter';
 
 
 @Component({
@@ -12,7 +12,7 @@ import { SupplierPaymentFilter } from '../../../../model/SupplierPaymentFilter';
   styleUrl: './payments.component.css'
 })
 export class PaymentsComponent {
-  filter: SupplierPaymentFilter = {
+  filter: OLD_SupplierPaymentFilter = {
     searchSupplier: '',
     startDate: '',
     endDate: '',
@@ -20,7 +20,7 @@ export class PaymentsComponent {
     maxAmount: null
   }
 
-  supplierPayments: SupplierPayment[] = [
+  supplierPayments: OLD_SupplierPayment[] = [
     {
       date: new Date("2025-03-25").toDateString(),
       transactionId: "T1",
@@ -71,9 +71,9 @@ export class PaymentsComponent {
     }
   ]
 
-  get filteredPayments(): SupplierPayment[] {
+  get filteredPayments(): OLD_SupplierPayment[] {
     return this.supplierPayments.filter(payment => {
-      
+
       const matchesSearchSupplier = this.filter.searchSupplier ?
         payment.supplier.toLowerCase().includes(this.filter.searchSupplier.toLowerCase()) :
         true;

@@ -3,8 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
 import { RouterLink } from '@angular/router';
-import User from '../../../model/User';
-import Supplier from '../../../model/supplier';
+import OLD_User from '../../../model/User';
+import OLD_Supplier from '../../../model/supplier';
 import { SupabaseService } from '../../../../service/supabase.service';
 
 @Component({
@@ -170,7 +170,7 @@ export class SignupComponent {
 
   onCustomerSignUpButtonClicked() {
     if (this.validateBasicInfo()) {
-      const user = new User(
+      const user = new OLD_User(
         0,
         `${this.firstName} ${this.lastName}`,
         'Customer',
@@ -222,7 +222,7 @@ export class SignupComponent {
       // rating: number,
       // uploadedFileUrl:string
 
-      const supplier = new Supplier(
+      const supplier = new OLD_Supplier(
         0,
         `${this.firstName} ${this.lastName}`,
         'Supplier',

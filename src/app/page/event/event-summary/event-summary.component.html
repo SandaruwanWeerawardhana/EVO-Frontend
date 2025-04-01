@@ -1,42 +1,144 @@
-<div class="container">
-    <h1>Event Summary</h1>
 
-    <!-- Venue Section -->
+<div class="container">
+    <div class="row col-6 ">
+        <h1 class="fw-bold mt-3  mb-5 ms-2">Event Summary</h1>
+      </div>
     <div class="row">
-        <h3 class="mt-2">Venue</h3>
-        <div class="card border-top-0 EventSummaryCard">
-            <div class="row mt-2 mb-2">
-                <div class="col-4 d-flex justify-content-center">
-                    <div class="card" style="width: 18rem;">
-                        <img src="/event-summary-images/venue.png" class="card-img-top" alt="venue image">
-                        <div class="card-body">
-                            <h4>The Grand Haven</h4>
-                            <p class="card-text">Where Elegance Meets Comfort</p>
-                            <h6>Location : The Grand Heaven,456 Beachfront Avenue, Panadura.</h6>
+      <div class="col-6">
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden m-2">
+            <div class="row g-0">
+                <div class="col-4 position-relative">
+                    <img src="/event-selection-images/card1.png" class="w-100 h-100 object-cover" alt="Event Image">
+                  <button  class="bi bi-trash3"></button>
+                </div>
+                <div class="col-8">
+                    <div class="card-body d-flex flex-column h-100">
+                        <div>
+                            <h5 class="card-title fw-bold mb-2">{{event.eventType}}</h5>
+                            <p class="text-muted mb-3">Lorem ipsum dolor sit amet, consectetur adipi at quam ex?</p>
+                            <p *ngIf="event.eventStatus"
+                               [ngStyle]="{'color': event.eventStatus === 'Pending' ? 'brown' : 'green'}"
+                               class="fw-semibold mb-2">
+                                Status: {{event.eventStatus}}
+                            </p>
+                            <div class="text-muted small">
+                                <div>Start Date: {{event.startDate}}</div>
+                                <div>End Date: {{event.endDate}}</div>
+                            </div>
+                        </div>
+                        <div class="mt-auto text-end">
+                            <button type="button" class="btn btn-sm btn-danger">Reject</button>
                         </div>
                     </div>
-                </div>
-                <div class="col-6">
-                    <h3 class="text-dark">Extra Features</h3>
-                    <ol class="list-group list-group-flush">
-                        <li class="list-group-item">1 Feature 01</li>
-                        <li class="list-group-item">2 Feature 02</li>
-                        <li class="list-group-item">3 Feature 03</li>
-                    </ol>
-                </div>
-                <div class="col-2 align-self-end">
-                    <h5 class="text-dark">Total Fee :</h5>
-                    <h5 class="text-dark">Rs: 2,500,000</h5>
                 </div>
             </div>
         </div>
     </div>
-
-        <!-- Add Another Section -->
-        <div class="row mt-5">
-          <div class="card border-top-0 EventSummaryCard">
-            <div class="aas-txt-row">
-              <h5 class="text-content-aas">Enhance your event by adding more suppliers! More suppliers mean a greater variety of services, making your event more engaging and memorable for attendees</h5>
+    <div class="col-6">
+      <div class="card border-0 shadow-lg rounded-4 overflow-hidden m-2">
+          <div class="row g-0">
+              <div class="col-4 position-relative">
+                  <img src="/event-selection-images/card1.png" class="w-100 h-100 object-cover" alt="Event Image">
+                <button  class="bi bi-trash3"></button>
+              </div>
+              <div class="col-8">
+                  <div class="card-body d-flex flex-column h-100">
+                      <div>
+                          <h5 class="card-title fw-bold mb-2">{{event.eventType}}</h5>
+                          <p class="text-muted mb-3">Lorem ipsum dolor sit amet, consectetur adipi at quam ex?</p>
+                          <p *ngIf="event.eventStatus"
+                             [ngStyle]="{'color': event.eventStatus === 'Pending' ? 'brown' : 'green'}"
+                             class="fw-semibold mb-2">
+                              Status: {{event.eventStatus}}
+                          </p>
+                          <div class="text-muted small">
+                              <div>Start Date: {{event.startDate}}</div>
+                              <div>End Date: {{event.endDate}}</div>
+                          </div>
+                      </div>
+                      <div class="mt-auto text-end">
+                          <button type="button" class="btn btn-sm btn-danger">Reject</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="col-6">
+    <div class="card border-0 shadow-lg rounded-4 overflow-hidden m-2">
+        <div class="row g-0">
+            <div class="col-4 position-relative">
+                <img src="/event-selection-images/card1.png" class="w-100 h-100 object-cover" alt="Event Image">
+              <button  class="bi bi-trash3"></button>
+            </div>
+            <div class="col-8">
+                <div class="card-body d-flex flex-column h-100">
+                    <div>
+                        <h5 class="card-title fw-bold mb-2">{{event.eventType}}</h5>
+                        <p class="text-muted mb-3">Lorem ipsum dolor sit amet, consectetur adipi at quam ex?</p>
+                        <p *ngIf="event.eventStatus"
+                           [ngStyle]="{'color': event.eventStatus === 'Pending' ? 'brown' : 'green'}"
+                           class="fw-semibold mb-2">
+                            Status: {{event.eventStatus}}
+                        </p>
+                        <div class="text-muted small">
+                            <div>Start Date: {{event.startDate}}</div>
+                            <div>End Date: {{event.endDate}}</div>
+                        </div>
+                    </div>
+                    <div class="mt-auto text-end">
+                        <button type="button" class="btn btn-sm btn-danger">Reject</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="col-6">
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden m-2">
+            <div class="row g-0">
+                <div class="col-4 position-relative">
+                    <img src="/event-selection-images/card1.png" class="w-100 h-100 object-cover" alt="Event Image">
+                  <button  class="bi bi-trash3"></button>
+                </div>
+                <div class="col-8">
+                    <div class="card-body d-flex flex-column h-100">
+                        <div>
+                            <h5 class="card-title fw-bold mb-2">{{event.eventType}}</h5>
+                            <p class="text-muted mb-3">Lorem ipsum dolor sit amet, consectetur adipi at quam ex?</p>
+                            <p *ngIf="event.eventStatus"
+                               [ngStyle]="{'color': event.eventStatus === 'Pending' ? 'brown' : 'green'}"
+                               class="fw-semibold mb-2">
+                                Status: {{event.eventStatus}}
+                            </p>
+                            <div class="text-muted small">
+                                <div>Start Date: {{event.startDate}}</div>
+                                <div>End Date: {{event.endDate}}</div>
+                            </div>
+                        </div>
+                        <div class="mt-auto text-end">
+                            <button type="button" class="btn btn-sm btn-danger">Reject</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="col-6">
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden m-2" style="max-width: 540px;">
+                <div class="row no-gutters">
+                    <div class="col-4">
+                        <img src="https://www.mrbrewer.com/wp-content/uploads/2020/04/Icons-08-980x980.png"
+                            class="card-img" alt="card1 Image">
+                    </div>
+                    <div class="col-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Add Supplier</h5>
+                            <p class="card-text">Compleate your planing</p>
+                            <a routerLink="/supplier" class="btn btn-primary" role="button">Add A Supplier</a>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="aas-btn-row">
               <button class="btn btn-primary btn-lg" routerLink="/supplier"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
@@ -51,6 +153,8 @@
             </div>
           </div>
       </div>
+
+
 
     <div class="bottom-spacing"></div>
 
