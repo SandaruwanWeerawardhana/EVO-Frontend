@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Review } from '../../../model/Review';
+import { OLD_Review } from '../../../model/Review';
 
 
 @Component({
@@ -12,15 +12,15 @@ import { Review } from '../../../model/Review';
   styleUrls: ['./reviews-customer.component.css'],
 })
 export class ReviewsCustomerComponent {
-  reviews: Review[] = [
-    new Review(
+  reviews: OLD_Review[] = [
+    new OLD_Review(
       1,
       'Sarah Thompson',
       '12-09-2024',
       "Frank's photos of our family reunion were fantastic! He has a knack for capturing genuine moments and made everyone feel at ease. We're thrilled with the results!",
       5
     ),
-    new Review(
+    new OLD_Review(
       2,
       'John Doe',
       '11-08-2024',

@@ -1,11 +1,11 @@
-import Supplier from "./supplier";
+import OLD_Supplier from "./supplier";
 
-export default class EventSummery {
+export default class OLD_EventSummery {
     eventSummeryId: number;
     eventId: number;
     venueId: number;
     customerId: number;
-    suppilerList: Supplier[];
+    suppilerList: OLD_Supplier[];
     total: number;
 
     constructor(
@@ -23,6 +23,6 @@ export default class EventSummery {
         this.suppilerList = suppilerList;
         this.total = total;
     }
-        
-    
+
+
 }

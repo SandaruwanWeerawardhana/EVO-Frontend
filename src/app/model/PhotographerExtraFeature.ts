@@ -1,4 +1,4 @@
-export default class PhotographerExtraFeature{
+export default class OLD_PhotographerExtraFeature{
   id:number;
   feature:string;
   price:number;

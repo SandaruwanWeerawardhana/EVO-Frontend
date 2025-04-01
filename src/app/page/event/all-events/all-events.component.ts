@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import Venue from '../../../model/Venue';
+import OLD_Venue from '../../../model/Venue';
 import { NgFor } from '@angular/common';
 import * as bootstrap from 'bootstrap';
 import { EventCardComponent } from "./event-card/event-card.component";
@@ -14,7 +14,7 @@ import { EventCardComponent } from "./event-card/event-card.component";
 })
 export class AllEventsComponent {
   @ViewChild('venueModal') modalElement!: ElementRef;
-  currentVenue: Venue | null = null;
+  currentVenue: OLD_Venue | null = null;
   isFirstVar: Boolean = true;
 
   imageGallery = [
@@ -167,7 +167,7 @@ export class AllEventsComponent {
 
   constructor(private router: Router) { }
 
-  showModal(venue: Venue): void {
+  showModal(venue: OLD_Venue): void {
     this.currentVenue = venue;
     const modal = new bootstrap.Modal(this.modalElement.nativeElement);
     modal.show();
