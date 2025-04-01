@@ -7,7 +7,7 @@ import { VenuePagePopupComponent } from '../venue-page-popup/venue-page-popup.co
 @Component({
   selector: 'app-venue-dashboard',
   standalone: true,
-  imports: [VenuePagePopupComponent],
+  imports: [RouterLink, CommonModule, VenuePagePopupComponent],
   templateUrl: './venue-dashboard.component.html',
   styleUrls: ['./venue-dashboard.component.css']
 })

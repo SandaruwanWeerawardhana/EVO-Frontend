@@ -196,10 +196,10 @@ export const routes: Routes = [
         path:"previous-work",
         component:PreviousWorkComponent
       },
-      {
-        path:"view-inventory",
-        component:ViewInventoryComponent
-      }
+      // {
+      //   path:"view-inventory",
+      //   component:ViewInventoryComponent
+      // }
     ]
   },
   {
@@ -274,6 +274,11 @@ export const routes: Routes = [
       {
         path:"requests",
         component:RequestsComponent
+      },
+      {
+        path:"messages",
+        component:MessageComponent
+
       },
       // {
       //   path:"admin-profile",
