@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { OLD_CustomerPayment } from '../../../model/CustomerPayment';
 import { OLD_CustomerPaymentFilter } from '../../../model/CustomerPaymentFilter';
+import { CustomerPayment } from '../../../model/CustomerPayment';
 
 
 @Component({
@@ -21,7 +21,7 @@ export class PaymentsCustomerComponent {
     maxAmount: null
   }
 
-  customerPayments: OLD_CustomerPayment[] = [
+  customerPayments: CustomerPayment[] = [
     {
       date: new Date("2025-03-25").toDateString(),
       transactionId: "T1",
@@ -72,7 +72,7 @@ export class PaymentsCustomerComponent {
     }
   ]
 
-  get filteredPayments(): OLD_CustomerPayment[] {
+  get filteredPayments():CustomerPayment[] {
     return this.customerPayments.filter(payment => {
       // Search by supplier name
       const matchesSearchCustomer = this.filter.searchCustomer ?
