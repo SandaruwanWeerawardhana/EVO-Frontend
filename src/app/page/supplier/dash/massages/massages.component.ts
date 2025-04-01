@@ -1,4 +1,4 @@
-import { CommonModule, DatePipe } from '@angular/common'; // Import DatePipe
+import { CommonModule, DatePipe } from '@angular/common'; 
 import { Component, OnDestroy, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
@@ -6,7 +6,7 @@ import { Client, over } from 'stompjs';
 import { catchError, of, retry, tap } from 'rxjs';
 
 
-interface Message {
+interface  Message {
   content: string;
   sendTime: Date;
   sender: 'SUPPLIER' | 'ADMIN';
@@ -204,7 +204,8 @@ export class MassagesComponent implements OnInit, OnDestroy {
       const message = {
         content: this.messageText,
         supplierId: this.supplierId,
-        adminId: this.selectedAdminId
+        adminId: this.selectedAdminId,
+        userType: 'SUPPLIER'
       };
 
     
