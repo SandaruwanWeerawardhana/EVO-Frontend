@@ -40,23 +40,25 @@ import { PreviousWorkComponent } from './page/supplier/previous-work/previous-wo
 import { ConditionsComponent } from './page/customer/admin/conditions/conditions.component';
 import { AddPackagesComponent } from './page/supplier/dash/add-packages/add-packages.component';
 import { AdminRootComponent } from './page/customer/admin-dashbaord/admin-root/admin-root.component';
-import { TransectionsComponent } from './page/customer/admin-dashbaord/pages/transections/transections.component';
+
 import { ReportsComponent } from './page/customer/admin-dashbaord/pages/reports/reports.component';
 import { NotificationsComponent } from './page/customer/admin-dashbaord/pages/notifications/notifications.component';
 import { AuditHistoryComponent } from './page/customer/admin-dashbaord/pages/audit-history/audit-history.component';
 import { OverviewComponent } from './page/customer/admin-dashbaord/pages/overview/overview.component';
 import { RequestsComponent } from './page/customer/admin-dashbaord/pages/requests/requests.component';
 import { SupplierPendingRequestComponent } from './page/supplier/dash/supplier-pending-request/supplier-pending-request.component';
-<<<<<<<<< Temporary merge branch 1
-import { ViewInventoryComponent } from './page/supplier/view-inventory/view-inventory.component';
-import { WeddingFormComponent } from './page/event/wedding-form/wedding-form.component';
-=========
 
 import { MessageComponent } from './page/customer/admin-dashbaord/pages/message/message.component';
+import { WeddingFormComponent } from './page/event/wedding-form/wedding-form.component';
+import { BirthdayPartyFormComponent } from './page/event/birthday-party-form/birthday-party-form.component';
+import { GetTogetherFormComponent } from './page/event/get-together-form/get-together-form.component';
+import { AnnivesaryFormComponent } from './page/event/annivesary-form/annivesary-form.component';
+import { UpcommingEventComponent } from './page/customer/upcomming-event/upcomming-event.component';
+import { TransectionsComponent } from './page/customer/admin-dashbaord/pages/transections/transections.component';
 
 // import { ViewInventoryComponent } from './page/supplier/view-inventory/view-inventory.component';
 
->>>>>>>>> Temporary merge branch 2
+
 
 export const routes: Routes = [
   {
@@ -240,7 +242,7 @@ export const routes: Routes = [
       },
       {
         path:"upcoming-event",
-        component:UpcommingEventComponent,
+        component:UpcommingEventComponent
       },
       {
         path:"ongoing-event",
