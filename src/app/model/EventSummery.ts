@@ -1,6 +1,6 @@
 import OLD_Supplier from "./supplier";
 
-export default class OLD_EventSummery {
+export default class EventSummery {
     eventSummeryId: number;
     eventId: number;
     venueId: number;
