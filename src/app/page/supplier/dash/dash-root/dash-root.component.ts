@@ -3,7 +3,7 @@
 import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import Chart from 'chart.js/auto';
-import { DashboardData } from '../../../../model/Supplier-dash-root';
+import { OLD_DashboardData } from '../../../../model/Supplier-dash-root';
 import { environment } from '../../../../environment/env.test';
 
 @Component({
@@ -13,7 +13,7 @@ import { environment } from '../../../../environment/env.test';
   styleUrl: './dash-root.component.css'
 })
 export class DashRootComponent implements OnInit, AfterViewInit {
-  dashboardData: DashboardData = new DashboardData();
+  dashboardData: OLD_DashboardData = new OLD_DashboardData();
 
   constructor(private http: HttpClient) {}
 
