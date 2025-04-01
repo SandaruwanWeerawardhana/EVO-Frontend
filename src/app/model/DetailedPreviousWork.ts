@@ -1,4 +1,3 @@
-
 export default class DetailedPreviousWork {
     eventId: number;
     customerNames: string;
