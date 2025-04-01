@@ -1,4 +1,4 @@
-export default class WeddingForm{
+export default class OLD_WeddingForm{
     id:number;
     brideName:string;
     groomName:string;
