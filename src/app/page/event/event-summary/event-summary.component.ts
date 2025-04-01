@@ -10,14 +10,16 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./event-summary.component.css']
 })
 export class EventSummaryComponent implements OnInit {
+
+
   public eventSummery:any = null;
   event:any = {
     eventType : "wedding",
     startDate :"2023/02/02",
     endDate :"2026/03/07",
     eventStatus:"Pending"
-  }; 
-  supplers:any[] = [{ 
+  };
+  supplers:any[] = [{
     name:"Rocky"
   }];
 
