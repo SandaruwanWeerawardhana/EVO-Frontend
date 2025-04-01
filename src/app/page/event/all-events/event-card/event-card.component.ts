@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EventSupplierCardComponent } from '../event-supplier-card/event-supplier-card.component';
 import { HttpClient } from '@angular/common/http';
-import { EventCardService } from '../../../../../service/EventCardService';
+import { EventCardService } from '../../../../../service/event-services/EventCardService';
 @Component({
   selector: 'app-event-card',
   imports: [ EventSupplierCardComponent,CommonModule],

@@ -1,4 +1,4 @@
-    export interface SupplierPayment {
+    export interface OLD_SupplierPayment {
         date: string;
         transactionId: string;
         supplier: string;
