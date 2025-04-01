@@ -7,13 +7,89 @@
 
   <div class="row mb-4">
     <div class="col-12">
-      <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-        <div class="card-header bg-primary-subtle bg-opacity-10 py-2 px-3">
+      <div class="card shadow-lg border-0 rounded-4 overflow-hidden bg-gradient">
+        <div class="card-header bg-primary bg-opacity-10 py-3">
+          <h5 class="fw-bold m-0">
+            <i class="bi bi-calendar-event-fill text-primary me-2"></i>Event Details
+          </h5>
+        </div>
+        <div class="card-body p-0">
+          <div class="row g-0">
+            <div class="col-md-8 p-3">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="detail-box p-3 rounded-3 bg-light bg-opacity-75 h-100">
+                    <div class="small text-muted mb-1">Event Type</div>
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-tag-fill text-primary me-2 fs-5"></i>
+                      <h5 class="fw-bold mb-0">Event type</h5>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="col-md-6">
+                  <div class="detail-box p-3 rounded-3 bg-light bg-opacity-75 h-100">
+                    <div class="small text-muted mb-1">Capacity</div>
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-people-fill text-primary me-2 fs-5"></i>
+                      <h5 class="fw-bold mb-0">Capacity</h5>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="col-md-6">
+                  <div class="detail-box p-3 rounded-3 bg-light bg-opacity-75 h-100">
+                    <div class="small text-muted mb-1">Event Date</div>
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-calendar-date-fill text-primary me-2 fs-5"></i>
+                      <h5 class="fw-bold mb-0">Start day</h5>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-md-6">
+                  <div class="detail-box p-3 rounded-3 bg-light bg-opacity-75 h-100">
+                    <div class="small text-muted mb-1">Event Time</div>
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-clock-fill text-primary me-2 fs-5"></i>
+                      <h5 class="fw-bold mb-0">
+                      9.00 AM
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 position-relative d-none d-md-block">
+              <div class="h-100 d-flex align-items-center justify-content-center p-3 bg-primary bg-opacity-10">
+                <div class="text-center">
+                  <i class="bi bi-calendar-check-fill text-primary display-1 mb-2"></i>
+                  <div class="fw-bold fs-5">Event Status</div>
+                  <span class="badge fs-6 mt-2 px-3 py-2 rounded-pill"
+                    [ngStyle]="{'color':'white', 'background-color': event.eventStatus === 'Pending' ? 'red' : 'green'}">
+                    {{event.eventStatus }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="card shadow-lg border-0 shadow-sm rounded-4 overflow-hidden">
+        <div class="card-header bg-primary bg-opacity-10 py-2 px-3">
           <div class="d-flex justify-content-between align-items-center">
             <h5 class="fw-bold m-0">
               <i class="bi bi-geo-alt-fill text-primary me-2"></i>Venue
             </h5>
-            <span  class="badge bg-success rounded-pill">Confirmed</span>
+            <div class="rounded-pill fw-semibold fs-6 py-1 px-2"
+              [ngStyle]="{'color':event.eventStatus === 'Pending' ? 'black' : 'white',
+              'background-color': event.eventStatus === 'Pending' ? 'red' : 'green'}">{{event.eventStatus}}
+            </div>
           </div>
         </div>
         <div class="card-body p-0">
@@ -21,22 +97,20 @@
             <div class="col-md-3 position-relative">
               <img src="/event-selection-images/card1.png" class="w-100 h-100 object-cover" alt="Venue Image" style="max-height: 180px;">
             </div>
-            <div class="col-md-9">
+            <div class="col-md-9 bg-body-tertiary">
               <div class="p-3">
                 <div class="d-flex justify-content-between align-items-start mb-2">
                   <h5 class="fw-bold mb-0">Venue name</h5>
                   <div>
                     <button class="btn btn-sm btn-outline-secondary me-1">
-                      <i class="bi bi-pencil">Edit</i>
+                      <i class="bi bi-pencil me-1"></i>Edit
                     </button>
                     <button class="btn btn-sm btn-primary">
-                      <i class="bi bi-building me-1"></i>Visit
+                      <i class="bi bi-search me-1"></i>Visit
                     </button>
                   </div>
                 </div>
-
-                <p class="small mb-3">discription</p>
-
+                <p class="small mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum vitae voluptates rerum, laborum voluptatem cupiditate sint asperiores quae nisi suscipit facere expedita maiores saepe quaerat dolorem perferendis minus dolorum aperiam!</p>
                 <div class="row g-2">
                   <div class="col-md-3 col-6">
                     <div class="d-flex align-items-center">
@@ -48,6 +122,12 @@
                     <div class="d-flex align-items-center">
                       <i class="bi bi-calendar-check text-primary me-1"></i>
                       <small>{{event.endDate }}</small>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-6">
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-geo-fill text-primary me-1"></i>
+                      <small>location</small>
                     </div>
                   </div>
                   <div class="col-md-3 col-6">
@@ -71,30 +151,13 @@
     </div>
   </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- <div class="row mb-4">
+  <div class="row mb-4">
     <div class="col-12">
       <div class="d-flex justify-content-between align-items-center mb-3">
         <div class="d-flex align-items-center">
           <i class="bi bi-truck text-primary me-2"></i>
           <h5 class="fw-bold m-0">Suppliers</h5>
         </div>
-        <button class="btn btn-sm btn-primary rounded-pill">
-          <i class="bi bi-plus-lg me-1"></i>Add Supplier
-        </button>
       </div>
 
       <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
@@ -105,7 +168,7 @@
                 <th class="fw-semibold ps-3">Supplier</th>
                 <th class="fw-semibold">Type</th>
                 <th class="fw-semibold">Date</th>
-                <th class="fw-semibold">Amount</th>
+                <th class="fw-semibold">Price</th>
                 <th class="fw-semibold">Status</th>
                 <th class="fw-semibold text-end pe-3">Actions</th>
               </tr>
@@ -114,12 +177,12 @@
               <tr>
                 <td class="ps-3">
                   <div class="d-flex align-items-center">
-                    <div class="bg-light rounded-circle p-2 me-2">
-                      <i class="bi bi-cup-hot text-primary"></i>
+                    <div class="bg-light">
+                      <img src="/event-selection-images/card1.png" class="rounded-circle me-2" width="40" height="40" alt="Profile Image">
                     </div>
                     <div>
-                      <div class="fw-semibold">Royal Catering</div>
-                      <div class="small text-muted">Premium food service</div>
+                      <div class="fw-semibold">supplier name</div>
+                      <div class="small text-muted">description</div>
                     </div>
                   </div>
                 </td>
@@ -127,7 +190,7 @@
                 <td>Apr 15-17</td>
                 <td>Rs. 600,000</td>
                 <td>
-                  <span class="badge bg-warning text-dark rounded-pill">Pending</span>
+                  <span class="badge bg-danger text-light rounded-pill">Pending</span>
                 </td>
                 <td class="text-end pe-3">
                   <button class="btn btn-sm btn-outline-primary me-1">
@@ -142,20 +205,20 @@
               <tr>
                 <td class="ps-3">
                   <div class="d-flex align-items-center">
-                    <div class="bg-light rounded-circle p-2 me-2">
-                      <i class="bi bi-speaker text-primary"></i>
+                    <div class="bg-light">
+                      <img src="/event-selection-images/card1.png" class="rounded-circle me-2" width="40" height="40" alt="Profile Image">
                     </div>
                     <div>
-                      <div class="fw-semibold">Tech Solutions</div>
-                      <div class="small text-muted">Audio-visual equipment</div>
+                      <div class="fw-semibold">supplier name</div>
+                      <div class="small text-muted">description</div>
                     </div>
                   </div>
                 </td>
-                <td>Equipment</td>
+                <td>Catering</td>
                 <td>Apr 15-17</td>
-                <td>Rs. 500,000</td>
+                <td>Rs. 600,000</td>
                 <td>
-                  <span class="badge bg-success rounded-pill">Confirmed</span>
+                  <span class="badge text-white bg-success rounded-pill">Accepted</span>
                 </td>
                 <td class="text-end pe-3">
                   <button class="btn btn-sm btn-outline-primary me-1">
@@ -166,38 +229,9 @@
                   </button>
                 </td>
               </tr>
-
-              <tr>
-                <td class="ps-3">
-                  <div class="d-flex align-items-center">
-                    <div class="bg-light rounded-circle p-2 me-2">
-                      <i class="bi bi-stars text-primary"></i>
-                    </div>
-                    <div>
-                      <div class="fw-semibold">Elegant Décor</div>
-                      <div class="small text-muted">Event decoration</div>
-                    </div>
-                  </div>
-                </td>
-                <td>Decoration</td>
-                <td>Apr 14-17</td>
-                <td>Rs. 350,000</td>
-                <td>
-                  <span class="badge bg-success rounded-pill">Confirmed</span>
-                </td>
-                <td class="text-end pe-3">
-                  <button class="btn btn-sm btn-outline-primary me-1">
-                    <i class="bi bi-eye"></i>
-                  </button>
-                  <button class="btn btn-sm btn-outline-danger">
-                    <i class="bi bi-trash"></i>
-                  </button>
-                </td>
-              </tr>
-
               <tr class="bg-light bg-opacity-50">
                 <td colspan="6" class="text-center py-3">
-                  <button class="btn btn-sm btn-outline-primary rounded-pill">
+                  <button class="btn btn-sm btn-outline-primary">
                     <i class="bi bi-plus-lg me-1"></i>Add Another Supplier
                   </button>
                 </td>
@@ -207,9 +241,11 @@
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 
-  <div class="card border-0 shadow-sm rounded-4 bg-primary bg-opacity-10 mt-4">
+  <div class="bottom-space" style="height: 80px;"></div>
+
+  <div class="position-fixed bottom-0 start-0 w-100 card border-0 shadow-sm rounded-top-4 bg-primary-subtle mt-4">
     <div class="card-body">
       <div class="row align-items-center">
         <div class="col-md-6">
@@ -218,7 +254,6 @@
               <div class="text-muted small">Total Charges</div>
               <div class="fw-bold fs-4">Rs. 2,950,000</div>
             </div>
-            <span class="badge bg-success rounded-pill px-3 py-2">All inclusive</span>
           </div>
         </div>
         <div class="col-md-6 d-flex justify-content-end gap-2 mt-3 mt-md-0">
