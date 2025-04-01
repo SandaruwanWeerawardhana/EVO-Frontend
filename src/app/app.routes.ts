@@ -50,6 +50,7 @@ import { RequestsComponent } from './page/customer/admin-dashbaord/pages/request
 import { SupplierPendingRequestComponent } from './page/supplier/dash/supplier-pending-request/supplier-pending-request.component';
 import { ViewInventoryComponent } from './page/supplier/view-inventory/view-inventory.component';
 import { UpcommingEventComponent } from './page/customer/upcomming-event/upcomming-event.component';
+import { MessageComponent } from './page/customer/admin-dashbaord/pages/message/message.component';
 
 export const routes: Routes = [
   {
