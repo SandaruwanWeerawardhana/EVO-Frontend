@@ -1,15 +1,14 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import Venue from '../../../model/Venue';
-import { NgFor, NgIf } from '@angular/common';
+import { NgFor } from '@angular/common';
 import * as bootstrap from 'bootstrap';
 import { EventCardComponent } from "./event-card/event-card.component";
-import Supplier from '../../../model/supplier';
 
 
 @Component({
   selector: 'app-all-events',
-  imports: [RouterLink, NgFor, EventCardComponent, NgIf],
+  imports: [RouterLink, NgFor, EventCardComponent],
   templateUrl: './all-events.component.html',
   styleUrl: './all-events.component.css'
 })

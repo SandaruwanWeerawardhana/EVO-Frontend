@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-photographer-info',
-  imports: [CommonModule,RouterLink,PhotographerInfoComponent,RatingReviewsComponent],
+  imports: [CommonModule,RouterLink,RatingReviewsComponent],
   templateUrl: './photographer-info.component.html',
   styleUrl: './photographer-info.component.css'
 })

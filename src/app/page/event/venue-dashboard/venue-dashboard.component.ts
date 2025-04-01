@@ -1,13 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
 import Venue from '../../../model/Venue';
 import { VenuePagePopupComponent } from '../venue-page-popup/venue-page-popup.component';
 
 @Component({
   selector: 'app-venue-dashboard',
   standalone: true,
-  imports: [RouterLink, CommonModule, VenuePagePopupComponent],
+  imports: [ CommonModule, VenuePagePopupComponent],
   templateUrl: './venue-dashboard.component.html',
   styleUrls: ['./venue-dashboard.component.css']
 })
