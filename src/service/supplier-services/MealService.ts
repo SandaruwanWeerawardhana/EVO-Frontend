@@ -11,67 +11,67 @@ import { Catering } from '../../app/model/supplier/Catering';
 })
 
 export class MealService {
-  private apiUrl = `${environment.baseUrl}/supplier/meal-controller`;
+  private baseUrl = `${environment.baseUrl}/supplier/meal-controller`;
 
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<Meal[]> {
-    return this.http.get<Meal[]>(`${this.apiUrl}/get-all`);
+    return this.http.get<Meal[]>(`${this.baseUrl}/get-all`);
   }
 
   searchByName(name: string): Observable<Meal[]> {
-    return this.http.get<Meal[]>(`${this.apiUrl}/search/${name}`);
+    return this.http.get<Meal[]>(`${this.baseUrl}/search/${name}`);
   }
 
   searchById(id: number): Observable<Meal> {
-    return this.http.get<Meal>(`${this.apiUrl}/search/${id}`);
+    return this.http.get<Meal>(`${this.baseUrl}/search/${id}`);
   }
 
   searchByType(type: MealType): Observable<Meal[]> {
-    return this.http.get<Meal[]>(`${this.apiUrl}/search/${type}`);
+    return this.http.get<Meal[]>(`${this.baseUrl}/search/${type}`);
   }
 
   save(meal: Meal): Observable<Meal> {
-    return this.http.post<Meal>(`${this.apiUrl}/save`, meal);
+    return this.http.post<Meal>(`${this.baseUrl}/save`, meal);
   }
 
   delete(meal: Meal): Observable<boolean> {
-    return this.http.delete<boolean>(`${this.apiUrl}/delete`, { body: meal });
+    return this.http.delete<boolean>(`${this.baseUrl}/delete`, { body: meal });
   }
 
   deleteById(id: number): Observable<boolean> {
-    return this.http.delete<boolean>(`${this.apiUrl}/delete/${id}`);
+    return this.http.delete<boolean>(`${this.baseUrl}/delete/${id}`);
   }
 
   update(meal: Meal): Observable<Meal> {
-    return this.http.put<Meal>(`${this.apiUrl}/update`, meal);
+    return this.http.put<Meal>(`${this.baseUrl}/update`, meal);
   }
 
   getAllCateringMeals(): Observable<Meal[]> {
-    return this.http.get<Meal[]>(`${this.apiUrl}/catering/get-all`);
+    return this.http.get<Meal[]>(`${this.baseUrl}/catering/get-all`);
   }
 
   addCateringMeal(meal: Meal, cateringId: number): Observable<Catering> {
-    return this.http.post<Catering>(`${this.apiUrl}/catering/${cateringId}`, meal);
+    return this.http.post<Catering>(`${this.baseUrl}/catering/${cateringId}`, meal);
   }
 
   deleteCateringMeal(id: number): Observable<boolean> {
-    return this.http.delete<boolean>(`${this.apiUrl}/catering/meal/${id}`);
+    return this.http.delete<boolean>(`${this.baseUrl}/catering/meal/${id}`);
   }
 
   updateCateringMeal(meal: Meal, cateringId: number): Observable<Catering> {
-    return this.http.put<Catering>(`${this.apiUrl}/catering/${cateringId}`, meal);
+    return this.http.put<Catering>(`${this.baseUrl}/catering/${cateringId}`, meal);
   }
 
   searchCateringByMealType(type: MealType): Observable<Catering[]> {
-    return this.http.get<Catering[]>(`${this.apiUrl}/catering/search/type/${type}`);
+    return this.http.get<Catering[]>(`${this.baseUrl}/catering/search/type/${type}`);
   }
 
   searchCateringByMealName(name: string): Observable<Catering[]> {
-    return this.http.get<Catering[]>(`${this.apiUrl}/catering/search/name/${name}`);
+    return this.http.get<Catering[]>(`${this.baseUrl}/catering/search/name/${name}`);
   }
 
   searchMealById(id: number): Observable<Meal> {
-    return this.http.get<Meal>(`${this.apiUrl}/search/${id}`);
+    return this.http.get<Meal>(`${this.baseUrl}/search/${id}`);
   }
 }
