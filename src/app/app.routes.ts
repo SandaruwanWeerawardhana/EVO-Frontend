@@ -56,10 +56,6 @@ import { AnnivesaryFormComponent } from './page/event/annivesary-form/annivesary
 import { UpcommingEventComponent } from './page/customer/upcomming-event/upcomming-event.component';
 import { TransectionsComponent } from './page/customer/admin-dashbaord/pages/transections/transections.component';
 
-// import { ViewInventoryComponent } from './page/supplier/view-inventory/view-inventory.component';
-
-
-
 export const routes: Routes = [
   {
     path: "",
