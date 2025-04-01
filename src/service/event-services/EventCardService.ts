@@ -14,7 +14,6 @@ export class EventCardService{
 
     getAllEvents():Observable<Event[]>{
         return this.http.get<Event[]>(`${environment.baseUrl}/event/get-all`);
-
-    }
+}
 }
     
