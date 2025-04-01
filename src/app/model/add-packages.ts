@@ -1,4 +1,4 @@
-export default class addPackages{
+export default class OLD_addPackages{
     id:number;
     title:string;
     description:string;
@@ -15,4 +15,3 @@ export default class addPackages{
       this.feature=feature;
     }
   }
-  

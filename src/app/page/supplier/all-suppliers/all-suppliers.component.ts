@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import Supplier from '../../../model/supplier';
+import OLD_Supplier from '../../../model/supplier';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -11,8 +11,8 @@ import { CommonModule } from '@angular/common';
 })
 export class AllSuppliersComponent {
 
-  suppliers: Supplier[] = [
-    new Supplier(
+  suppliers: OLD_Supplier[] = [
+    new OLD_Supplier(
       1,
       'FrameCrafters',
       'Photography',
@@ -25,7 +25,7 @@ export class AllSuppliersComponent {
       'https://framecrafters.com',
       'https://images.pexels.com/photos/16120232/pexels-photo-16120232/free-photo-of-tables-in-wedding-reception-venue.jpeg?auto=compress&cs=tinysrgb&w=600'
   ),
-  new Supplier(
+  new OLD_Supplier(
       2,
       'Catering Delight',
       'Catering',
@@ -38,7 +38,7 @@ export class AllSuppliersComponent {
       'https://cateringdelight.com',
       'https://images.pexels.com/photos/2291367/pexels-photo-2291367.jpeg?auto=compress&cs=tinysrgb&w=600'
   ),
-  new Supplier(
+  new OLD_Supplier(
       3,
       'Decor Magic',
       'Decor',
@@ -51,7 +51,7 @@ export class AllSuppliersComponent {
       'https://decormagic.com',
       'https://images.pexels.com/photos/705255/pexels-photo-705255.jpeg?auto=compress&cs=tinysrgb&w=600'
   ),
-  new Supplier(
+  new OLD_Supplier(
       4,
       'Beauty Essentials',
       'Beauty',
@@ -64,7 +64,7 @@ export class AllSuppliersComponent {
       'https://beautyessentials.com',
       'https://images.pexels.com/photos/1264210/pexels-photo-1264210.jpeg'
   ),
-  new Supplier(
+  new OLD_Supplier(
       5,
       'Event Planners',
       'Event Planning',
@@ -77,7 +77,7 @@ export class AllSuppliersComponent {
       'https://eventplanners.com',
       'https://images.pexels.com/photos/221457/pexels-photo-221457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   ),
-  new Supplier(
+  new OLD_Supplier(
       6,
       'Music Masters',
       'Entertainment',

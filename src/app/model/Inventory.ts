@@ -1,4 +1,4 @@
-export default class Inventory{
+export default class OLD_Inventory{
     title:string;
     imageURL:string;
     description:string;

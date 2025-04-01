@@ -1,4 +1,4 @@
-export class Review {
+export class OLD_Review {
  id: number;
  name: string;
  date: string;
@@ -14,4 +14,4 @@ export class Review {
     }
 }
 
- 
+

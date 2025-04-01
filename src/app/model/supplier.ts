@@ -1,4 +1,4 @@
-export default class Supplier {
+export default class OLD_Supplier {
     supplierId: number;
     supplierName: string;
     userType: string;
@@ -10,7 +10,7 @@ export default class Supplier {
     mobileNumber: string;
     website: string;
     brDocument: string;
-  
+
     constructor(supplierId: number, supplierName: string, userType: string, password: string, email: string, registeredDate: Date, businessName: string, businessDescription: string, mobileNumber: string, website: string, brDocument: string) {
         this.supplierId = supplierId;
         this.supplierName = supplierName;
