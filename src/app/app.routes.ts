@@ -52,6 +52,7 @@ import { MessageComponent } from './page/customer/admin-dashbaord/pages/message/
 import { AnnivesaryFormComponent } from './page/event/annivesary-form/annivesary-form.component';
 import { GetTogetherFormComponent } from './page/event/get-together-form/get-together-form.component';
 import { BirthdayPartyFormComponent } from './page/event/birthday-party-form/birthday-party-form.component';
+import { UpcommingEventComponent } from './page/customer/upcomming-event/upcomming-event.component';
 
 export const routes: Routes = [
   {
