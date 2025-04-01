@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { OLD_CustomerPaymentFilter } from '../../../model/CustomerPaymentFilter';
 import { CustomerPayment } from '../../../model/CustomerPayment';
-import { CustomerPaymentFilter } from '../../../model/CustomerPaymentFilter';
 
 
 @Component({
@@ -13,7 +13,7 @@ import { CustomerPaymentFilter } from '../../../model/CustomerPaymentFilter';
 })
 export class PaymentsCustomerComponent {
 
-  filter: CustomerPaymentFilter = {
+  filter: OLD_CustomerPaymentFilter = {
     searchCustomer: '',
     startDate: '',
     endDate: '',
@@ -72,7 +72,7 @@ export class PaymentsCustomerComponent {
     }
   ]
 
-  get filteredPayments(): CustomerPayment[] {
+  get filteredPayments():CustomerPayment[] {
     return this.customerPayments.filter(payment => {
       // Search by supplier name
       const matchesSearchCustomer = this.filter.searchCustomer ?

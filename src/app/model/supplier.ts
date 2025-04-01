@@ -1,4 +1,4 @@
-export default class Supplier {
+export default class OLD_Supplier {
     supplierId: number;
     supplierName: string;
     userType: string;

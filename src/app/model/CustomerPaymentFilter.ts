@@ -1,4 +1,4 @@
-export interface CustomerPaymentFilter {
+export interface OLD_CustomerPaymentFilter {
     searchCustomer: string;
     startDate: string;
     endDate: string;
