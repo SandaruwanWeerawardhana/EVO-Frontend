@@ -1,0 +1,15 @@
+.container {
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  .table {
+    margin-top: 20px;
+  }
+  
+  .card img {
+    object-fit: cover;
+    height: 100%;
+  }
+
+  

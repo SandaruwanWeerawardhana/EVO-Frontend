@@ -53,7 +53,6 @@ import { AnnivesaryFormComponent } from './page/event/annivesary-form/annivesary
 import { GetTogetherFormComponent } from './page/event/get-together-form/get-together-form.component';
 import { BirthdayPartyFormComponent } from './page/event/birthday-party-form/birthday-party-form.component';
 
-
 export const routes: Routes = [
   {
     path: "",
@@ -235,7 +234,11 @@ export const routes: Routes = [
         component:MassageComponent
       },
       {
-        path:"ongoin-event",
+        path:"upcoming-event",
+        component:UpcommingEventComponent,
+      },
+      {
+        path:"ongoing-event",
         component:OngoingEventComponent
       },
       {
