@@ -1,35 +1,56 @@
-
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common'; 
 import { Component, OnDestroy, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Client, over } from 'stompjs';
 import { catchError, of, retry, tap } from 'rxjs';
 
+
+interface  Message {
+  content: string;
+  sendTime: Date;
+  sender: 'SUPPLIER' | 'ADMIN';
+  adminId: string;
+  supplierId: number;
+}
+
+interface IncomingMessage {
+  content: string;
+  sendTime: string;
+  userType: 'SUPPLIER' | 'ADMIN';
+  adminId: string;
+  supplierId: number;
+}
+
 @Component({
   selector: 'app-massages',
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './massages.component.html',
-  styleUrl: './massages.component.css'
+  styleUrls: ['./massages.component.css'],
+  providers: [DatePipe] 
 })
 export class MassagesComponent implements OnInit, OnDestroy {
   connectionStatus: 'CONNECTED' | 'CONNECTING' | 'DISCONNECTED' = 'DISCONNECTED';
   messageText: string = '';
   private stompClient: Client | null = null;
   private webSocket: WebSocket | null = null;
-  messages: any[] = [];
+  messages: Message[] = [];
   adminIds: string[] = [];
   selectedAdminId: string | null = null;
   supplierId: number = 101;
 
-  // New properties
   loadingAdmins = true;
   loadError: string | null = null;
   wsUrl = 'ws://localhost:8080/ws';
   reconnectAttempts = 0;
+  loadingMessages = false;
 
-  constructor(private http: HttpClient, private cdr: ChangeDetectorRef) {}
+  constructor(
+    private http: HttpClient,
+    private cdr: ChangeDetectorRef,
+    private datePipe: DatePipe 
+  ) {}
 
   ngOnInit() {
     this.loadAdminIds();
@@ -37,7 +58,14 @@ export class MassagesComponent implements OnInit, OnDestroy {
   }
 
   private initializeWebSocket() {
-    this.connect();
+    this.connectionStatus = 'CONNECTING';
+    this.webSocket = new WebSocket('ws://localhost:8080/ws');
+    this.stompClient = over(this.webSocket);
+
+    this.stompClient.connect({},
+        (frame) => this.onConnectSuccess(frame),
+        (error) => this.onConnectError(error)
+    );
   }
 
   private loadAdminIds() {
@@ -60,29 +88,34 @@ export class MassagesComponent implements OnInit, OnDestroy {
   }
 
   private loadMessages(adminId: string) {
-    console.log('Loading messages for Admin ID:', adminId); 
-    this.http.get<any[]>(
+    this.loadingMessages = true;
+    this.http.get<IncomingMessage[]>(
       `http://localhost:8080/system/message/admin-supplier/chat/${adminId}/${this.supplierId}`
     ).pipe(
       catchError(error => {
         console.error('Failed to load messages:', error);
-        return of([]); 
+        return of([]);
       })
     ).subscribe(messages => {
-      console.log('Messages loaded:', messages);
       this.messages = messages.map(msg => ({
         content: msg.content,
-        timestamp: this.parseDate(msg.send_time), 
-        sender: msg.user_type === 'SUPPLIER' ? 'SUPPLIER' : 'ADMIN'
+        sendTime: this.parseDate(msg.sendTime), 
+        sender: msg.userType === 'SUPPLIER' ? 'SUPPLIER' : 'ADMIN',
+        adminId: msg.adminId,
+        supplierId: msg.supplierId
       }));
-      this.cdr.detectChanges(); 
+      this.loadingMessages = false;
+      this.cdr.detectChanges();
     });
   }
 
-  // Add date parsing helper
+  
   private parseDate(dateString: string): Date {
-    const date = new Date(dateString);
-    return isNaN(date.getTime()) ? new Date() : date;
+    return new Date(dateString); 
+  }
+  
+  private formatSendTime(date: Date): string {
+    return this.datePipe.transform(date, 'yyyy-MM-dd\'T\'HH:mm:ss') || '';
   }
 
   selectAdmin(adminId: string) {
@@ -94,13 +127,20 @@ export class MassagesComponent implements OnInit, OnDestroy {
   }
 
   private updateWebSocketSubscription() {
-    if (this.stompClient?.connected) {
-      console.log('Updating WebSocket subscription for Admin ID:', this.selectedAdminId); 
-      this.stompClient.unsubscribe('current_chat');
-      this.stompClient.subscribe(
-        `/topic/chat/${this.supplierId}/${this.selectedAdminId}`,
-        (message) => this.handleIncomingMessage(JSON.parse(message.body))
-      );
+    if (this.stompClient?.connected && this.selectedAdminId) {
+        const subscriptionPath = `/topic/chat/${this.supplierId}/${this.selectedAdminId}`;
+        
+    
+        if ((this.stompClient as any).subscriptions?.['current_chat']) {
+            this.stompClient.unsubscribe('current_chat');
+        }
+
+        
+        this.stompClient.subscribe(
+            subscriptionPath, 
+            (message) => this.handleIncomingMessage(JSON.parse(message.body)),
+            { id: 'current_chat' }
+        );
     }
   }
 
@@ -139,18 +179,19 @@ export class MassagesComponent implements OnInit, OnDestroy {
     setTimeout(() => this.connect(), delay);
   }
 
-  private handleIncomingMessage(message: any) {
+  private handleIncomingMessage(message: IncomingMessage) {
     if (message.supplierId === this.supplierId && message.adminId === this.selectedAdminId) {
-      const newMsg = {
+      const newMsg: Message = {
         content: message.content,
-        timestamp: new Date(message.timestamp),
-        sender: message.user_type === 'SUPPLIER' ? 'user' : 'admin'
+        sendTime: this.parseDate(message.sendTime), 
+        sender: message.userType === 'SUPPLIER' ? 'SUPPLIER' : 'ADMIN',
+        adminId: message.adminId,
+        supplierId: message.supplierId
       };
 
-   
       if (!this.messages.some(m => 
         m.content === newMsg.content && 
-        m.timestamp.getTime() === newMsg.timestamp.getTime()
+        m.sendTime.getTime() === newMsg.sendTime.getTime()
       )) {
         this.messages.push(newMsg);
         this.cdr.detectChanges();
@@ -162,21 +203,32 @@ export class MassagesComponent implements OnInit, OnDestroy {
     if (this.messageText.trim() && this.stompClient?.connected && this.selectedAdminId) {
       const message = {
         content: this.messageText,
-        timestamp: new Date().toISOString(),
-        user_type: 'SUPPLIER',
         supplierId: this.supplierId,
-        adminId: this.selectedAdminId
+        adminId: this.selectedAdminId,
+        userType: 'SUPPLIER'
       };
 
-      this.stompClient.send('/app/chat', {}, JSON.stringify(message));
-      
     
+      this.stompClient.send(
+        `/app/chat/admin-supplier/${this.supplierId}/${this.selectedAdminId}`,
+        {},
+        JSON.stringify(message)
+      );
+
+     
       this.messages.push({
-        ...message,
-        timestamp: new Date(message.timestamp),
-        sender: 'user'
+        content: this.messageText,
+        sendTime: new Date(), 
+        sender: 'SUPPLIER',
+        adminId: this.selectedAdminId,
+        supplierId: this.supplierId
       });
+
+     
       this.messageText = '';
+
+    
+      this.cdr.detectChanges();
     }
   }
 
