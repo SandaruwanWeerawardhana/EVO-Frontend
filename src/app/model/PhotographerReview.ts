@@ -1,4 +1,4 @@
-export default class PhotographerReview{
+export default class OLD_PhotographerReview{
   reviewId:number;
   rating:string;
   date:string;

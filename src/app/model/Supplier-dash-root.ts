@@ -1,4 +1,4 @@
-export class DashboardData {
+export class OLD_DashboardData {
     totalWorks: number;
     totalRatings: number;
     customers: number;
@@ -8,7 +8,7 @@ export class DashboardData {
     unreadMessages: number;
     unreadEmails: number;
 
-    constructor(data?: Partial<DashboardData>) {
+    constructor(data?: Partial<OLD_DashboardData>) {
         this.totalWorks = data?.totalWorks || 100;
         this.totalRatings = data?.totalRatings || 100;
         this.customers = data?.customers || 0;

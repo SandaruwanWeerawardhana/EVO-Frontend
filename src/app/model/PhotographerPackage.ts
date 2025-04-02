@@ -1,4 +1,4 @@
-export default class PhotographerPackage{
+export default class OLD_PhotographerPackage{
   id:number;
   name:string;
   price:number;
