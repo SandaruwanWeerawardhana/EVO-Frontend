@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrl: ['./reports.component.css']
 })
 export class ReportsComponent {
-  // constructor() {}
 }
