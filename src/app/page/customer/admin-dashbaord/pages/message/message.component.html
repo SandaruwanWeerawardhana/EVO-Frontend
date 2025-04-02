@@ -108,16 +108,7 @@
                     </div>
                 </div>
 
-                <div class="chat-container">
-                  <div *ngFor="let message of messages" [ngClass]="{'message-left': message.sender === 'SUPPLIER', 'message-right': message.sender === 'ADMIN'}">
-                    <div class="message-content">
-                      {{ message.content }}
-                    </div>
-                    <div class="message-timestamp">
-                      {{ message.timestamp | date:'short' }}
-                    </div>
-                  </div>
-                </div>
+               
         
                 <!-- Empty messages state -->
                 <div *ngIf="selectedSupplierId && messages.length === 0" class="text-center text-muted mt-3">

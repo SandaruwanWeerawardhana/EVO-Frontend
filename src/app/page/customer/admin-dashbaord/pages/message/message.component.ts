@@ -82,8 +82,8 @@ export class MessageComponent implements OnInit, OnDestroy  {
         console.log('Raw API response:', messages);
         this.messages = messages.map(msg => ({
           content: msg.content,
-          timestamp: this.parseDate(msg.sendTime), 
-          sender: msg.userType === 'SUPPLIER' ? 'SUPPLIER' : 'ADMIN' 
+          timestamp: this.parseDate(msg.sendTime), // match backend field name
+          sender: msg.userType === 'SUPPLIER' ? 'SUPPLIER' : 'ADMIN' // corrected field name
         }));
         console.log('Processed messages:', this.messages);
         this.loadingMessages = false;
@@ -97,6 +97,9 @@ export class MessageComponent implements OnInit, OnDestroy  {
       }
     });
 }
+
+
+
 
 private handleIncomingMessage(message: any) {
     console.log('Raw incoming message:', message);
@@ -173,7 +176,6 @@ private handleIncomingMessage(message: any) {
     this.updateWebSocketSubscription();
   }
 
-  
 
   private updateWebSocketSubscription() {
     if (this.stompClient?.connected) {
