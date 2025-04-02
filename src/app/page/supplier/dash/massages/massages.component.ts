@@ -5,7 +5,6 @@ import { HttpClient } from '@angular/common/http';
 import { Client, over } from 'stompjs';
 import { catchError, of, retry, tap } from 'rxjs';
 
-
 interface Message {
   content: string;
   sendTime: Date;
@@ -108,7 +107,6 @@ export class MassagesComponent implements OnInit, OnDestroy {
       this.cdr.detectChanges();
     });
   }
-
   
   private parseDate(dateString: string): Date {
     return new Date(dateString); 
@@ -130,12 +128,10 @@ export class MassagesComponent implements OnInit, OnDestroy {
     if (this.stompClient?.connected && this.selectedAdminId) {
         const subscriptionPath = `/topic/chat/${this.supplierId}/${this.selectedAdminId}`;
         
-    
         if ((this.stompClient as any).subscriptions?.['current_chat']) {
             this.stompClient.unsubscribe('current_chat');
         }
-
-        
+      
         this.stompClient.subscribe(
             subscriptionPath, 
             (message) => this.handleIncomingMessage(JSON.parse(message.body)),
@@ -206,7 +202,6 @@ export class MassagesComponent implements OnInit, OnDestroy {
         supplierId: this.supplierId,
         adminId: this.selectedAdminId
       };
-
     
       this.stompClient.send(
         `/app/chat/admin-supplier/${this.supplierId}/${this.selectedAdminId}`,
@@ -214,7 +209,6 @@ export class MassagesComponent implements OnInit, OnDestroy {
         JSON.stringify(message)
       );
 
-     
       this.messages.push({
         content: this.messageText,
         sendTime: new Date(), 
@@ -222,10 +216,8 @@ export class MassagesComponent implements OnInit, OnDestroy {
         adminId: this.selectedAdminId,
         supplierId: this.supplierId
       });
-
-     
+      
       this.messageText = '';
-
     
       this.cdr.detectChanges();
     }
