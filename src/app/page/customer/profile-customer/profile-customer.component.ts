@@ -1,14 +1,11 @@
 import { Component } from '@angular/core';
-import ProfileCustomer from '../../../model/ProfileCustomer';
-import { NgFor } from '@angular/common';
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-profile-customer',
-  imports: [ CommonModule, FormsModule, NgFor ],
+  imports: [ CommonModule, FormsModule ],
   templateUrl: './profile-customer.component.html',
   styleUrl: './profile-customer.component.css'
 })

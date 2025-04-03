@@ -1,12 +1,60 @@
 #all-tasks{
     padding-top:60px ;
+}
     
-    }
-    
-    #ongoing-event{
+#ongoing-event{
+   
     padding-top: 50px;
     width: 100%;
     padding-left: 30px;
     padding-right: 30px;
     
-    }
+}
+
+#live-icon{
+
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+
+}
+
+
+.start-time{
+    font-size: 12px;
+    color: #7d7a7a;
+    font-weight: 600;
+    margin-right: -210px;
+}
+.end-time{
+    font-size: 12px;
+    color: #7d7a7a;
+    font-weight: 600;
+    margin-right: 10px;
+   
+}    
+.more{
+    
+    margin-right: 53px;
+    font-size: 13px;
+    color: #7d7a7a;
+    font-weight: 600;
+  
+}
+
+.status-dot {
+    width: 10px; 
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px; 
+    
+}
+
+.view-details{
+    margin: 10px;
+    font-size: 13px;
+    margin-bottom: 9px !important;
+    text-decoration: underline;
+
+}

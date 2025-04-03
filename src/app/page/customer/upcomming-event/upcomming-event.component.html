@@ -1,74 +1,52 @@
-<div id="ongoing-event" class="container mt-3">
-    <div class="card mb-3 mx-auto" >
+<!-- Ongoing Event Section -->
+<div *ngIf="ongoingEvent" id="ongoing-event" class="container mt-5">
+    <div class="card mb-3 mx-auto">
         <div class="row g-0">
             <div class="col-md-4">
-                <img src="https://wallpapers.com/images/featured/party-pictures-oisongiyg27b81fo.jpg" 
-                     class="img-fluid rounded-start" alt="Ongoing Event">
+                <img [src]="ongoingEvent.imageUrl" class="img-fluid rounded-start" alt="Ongoing Event">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title">Ongoing Event</h5>
+                    <h5 class="card-title">{{ ongoingEvent.title }}</h5>
+                    <p class="card-text">{{ ongoingEvent.description }}</p>
                     <p class="card-text">
-                        This is a wider card with supporting text below as a natural lead-in to additional content. 
-                        This content is a little bit longer.
+                        <img id="live-icon" src="https://img.icons8.com/?size=100&id=adICvKyfJgD7&format=png&color=000000" alt="Live">
+                        <small class="text-body-secondary">Now Ongoing</small>
                     </p>
-                    <p class="card-text"><small class="text-body-secondary">Now Ongoing </small></p>
-                    <button type="button" class="btn btn-outline-secondary  "
-                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                    <button type="button" class="btn btn-outline-secondary"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                         View Details
-            </button>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Upcoming Events Section -->
+<div id="all-tasks" class="container m-5 mt-3" *ngIf="upcomingEvents.length > 0">
+    <div class="mb-4">
+        <h3>UPCOMING EVENTS</h3>
+    </div>
 
-
-
-
-<div id="all-tasks" class="container m-5 mt-5">
-
-    <div class="mb-4"> <h3>UPCOMMING EVENTS</h3> </div>
-
-    <div class="card w-75 mb-3">
+    <div *ngFor="let event of upcomingEvents" class="card w-75 mb-3 position-relative">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <p class="card-text">2.30 P.M</p>
-         </div>
-      </div>
+            <h5 class="card-title">{{ event.title }}</h5>
+            <p class="card-text">{{ event.description }}</p> 
+            <div class="row">
+                <p class="start-time col-4">Start: {{ event.startTime }}</p> 
+                <p class="end-time col-4">End: {{ event.endTime }}</p>
+            </div>   
+        </div>
 
-      <div class="card w-75 mb-3">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <p class="card-text">2.30 P.M</p>
-         </div>
-      </div>
-      
-      <div class="card w-75 mb-3">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <p class="card-text">2.30 P.M</p>
-         </div>
-      </div>
-      
-      <div class="card w-75 mb-3">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <p class="card-text">2.30 P.M</p>
-         </div>
-      </div>
+  
+        <div class="status-icon position-absolute bottom-0 end-0 m-3 w-25 d-flex align-items-center justify-content-end">
+            <p class="more d-flex align-items-center mb-0 me-2">
+             
+                <span class="status-dot" [ngStyle]="{'background-color': getStatusColor(event.status)}"></span>
 
-      <div class="card w-75 mb-3">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <p class="card-text">2.30 P.M</p>
-         </div>
-      </div> 
-
-</div>
+                {{ event.status }}
+            </p>
+            <p class="view-details  mb-0 ">view more</p>
+        </div>
+        

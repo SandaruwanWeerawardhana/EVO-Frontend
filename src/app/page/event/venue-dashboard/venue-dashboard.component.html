@@ -1,51 +1,69 @@
-<div class="container">
-    <h2 class="fw-bold pt-4">Select Your Venue</h2>
-    <p class="text-muted title-info">Select from a range of stunning venues to match your event's style</p>
+<div class="container mt-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Select Your Venue</a></li>
+        </ol>
+    </nav>
+
+    <h2 class="fw-bold">Select Your Venue</h2>
+    <p class="text-muted">Select from a range of stunning venues to match your event's style</p>
 
     <div class="row g-2 mb-4 filter-buttons">
-      <div class="col-md-2">
-        <label class="form-label fw-bold">Start Date</label>
-        <input type="date" class="form-control">
-      </div>
-    
-      <div class="col-md-2">
-        <label class="form-label fw-bold">Start Time</label>
-        <input type="time" class="form-control">
-      </div>
-      <div class="col-md-2">
-        <label class="form-label fw-bold">End Time</label>
-        <input type="time" class="form-control">
-      </div>
-      <div class="col-md-2">
-        <label class="form-label fw-bold">Popularity</label>
-        <select class="form-select">
-          <option selected>Most Popular</option>
-          <option>Least Popular</option>
-        </select>
-      </div>
-      <div class="col-md-2">
-        <label class="form-label fw-bold">Location</label>
-        <select class="form-select">
-          <option selected>All Locations</option>
-          <option>Matara</option>
-          <option>Galle</option>
-          <option>Hambanthota</option>
-        </select>
-      </div>
-      <div class="col-md-2">
-        <label class="form-label fw-bold">Budget</label>
-        <select class="form-select">
-          <option selected>Any Budget</option>
-          <option>Low</option>
-          <option>Medium</option>
-          <option>High</option>
-        </select>
-      </div>
+        <div class="col-md-2">
+            <label class="form-label fw-bold">Start Date</label>
+            <input type="date" class="form-control">
+        </div>
+
+        <div class="col-md-2">
+            <label class="form-label fw-bold">Start Time</label>
+            <input type="time" class="form-control">
+        </div>
+        <div class="col-md-2">
+            <label class="form-label fw-bold">End Time</label>
+            <input type="time" class="form-control">
+        </div>
+        <div class="col-md-2">
+            <label class="form-label fw-bold">Popularity</label>
+            <select class="form-select">
+                <option selected>Most Popular</option>
+                <option>Least Popular</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <label class="form-label fw-bold">Location</label>
+            <select class="form-select">
+                <option selected>All Locations</option>
+                <option>Matara</option>
+                <option>Galle</option>
+                <option>Hambanthota</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <label class="form-label fw-bold">Budget</label>
+            <select class="form-select">
+                <option selected>Any Budget</option>
+                <option>Low</option>
+                <option>Medium</option>
+                <option>High</option>
+            </select>
+        </div>
     </div>
-    
-    <div class="card-cont">
-      @for (venue of venues; track $index) {
-        <div class="card">
+</div>   
+<div class="container mt-4">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Select Your Venue</a></li>
+      </ol>
+    </nav>
+  
+    <h2 class="fw-bold">Select Your Venue</h2>
+    <p class="text-muted">Select from a range of stunning venues to match your event's style</p>
+  
+    <div class="row">
+      <div class="col-md-4 mb-4" *ngFor="let venue of venues">
+        <div class="card" style="width: 22rem;">
           <img [src]="venue.image" class="card-img-top ratio ratio-4x3" [alt]="venue.name">
           <div class="card-body">
             <h5 class="card-title fw-bold">{{ venue.name }}</h5>
@@ -61,7 +79,7 @@
             </button>
           </div>
         </div>
-      }
+      </div>
     </div>
     <app-venue-page-popup></app-venue-page-popup>
   </div>
