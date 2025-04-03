@@ -1,3 +1,7 @@
+// F:\PROJECT CLASS\front\EVO-Frontend\src\app\page\customer\admin-dashbaord\pages\message\message.component.ts
+
+
+
 import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -99,36 +103,30 @@ export class MessageComponent implements OnInit, OnDestroy  {
 }
 
 
-
-
 private handleIncomingMessage(message: any) {
-    console.log('Raw incoming message:', message);
-    
-    
-    const isRelevantMessage = 
-      parseInt(message.supplier_id) === parseInt(this.selectedSupplierId!) &&
-      parseInt(message.admin_id) === this.adminId;
+  console.log('Incoming message:', message);
 
-    if (isRelevantMessage) {
-      const newMsg = {
-        content: message.content,
-        timestamp: this.parseDate(message.sendTime),
-        sender: message.userType === 'SUPPLIER' ? 'SUPPLIER' : 'ADMIN' 
-      };
+  // Type-safe comparison
+  const isRelevantMessage = 
+    message.supplierId == this.selectedSupplierId && 
+    message.adminId == this.adminId.toString();
 
-        
-        const exists = this.messages.some(m => 
-            m.content === newMsg.content && 
-            m.timestamp.getTime() === newMsg.timestamp.getTime()
-        );
+  if (isRelevantMessage) {
+    const newMsg = {
+      content: message.content,
+      timestamp: this.parseDate(message.sendTime),
+      sender: message.userType === 'SUPPLIER' ? 'SUPPLIER' : 'ADMIN'
+    };
 
-        if (!exists) {
-            this.messages = [...this.messages, newMsg];
-            this.cdr.detectChanges();
-        }
+    if (!this.messages.some(m => 
+      m.content === newMsg.content &&
+      m.timestamp.getTime() === newMsg.timestamp.getTime()
+    )) {
+      this.messages = [...this.messages, newMsg];
+      this.cdr.detectChanges();
     }
+  }
 }
-
 
   sendMessage() {
     console.log('Send button clicked');
@@ -138,28 +136,18 @@ private handleIncomingMessage(message: any) {
   
     const message = {
       adminId: this.adminId,
-      supplierId: this.selectedSupplierId, 
+      supplierId: this.selectedSupplierId,
       content: this.messageText,
-      sendTime: new Date().toISOString(), 
-      userType: 'ADMIN' 
+      sendTime: new Date().toISOString(),
+      userType: 'ADMIN'
     };
   
-    
     const destination = `/app/chat/admin-supplier/${this.selectedSupplierId}/${this.adminId}`;
   
-    this.stompClient.send(
-      destination,
-      {},
-      JSON.stringify(message)
-    );
+    // Send the message via WebSocket
+    this.stompClient.send(destination, {}, JSON.stringify(message));
   
-    
-    this.messages = [...this.messages, {
-      content: message.content,
-      timestamp: new Date(),
-      sender: 'ADMIN'
-    }];
-    
+    // Clear the input field
     this.messageText = '';
   }
 
@@ -177,14 +165,24 @@ private handleIncomingMessage(message: any) {
   }
 
 
+
   private updateWebSocketSubscription() {
-    if (this.stompClient?.connected) {
-      console.log('Updating WebSocket subscription for Supplier ID:', this.selectedSupplierId); 
-      this.stompClient.unsubscribe('current_chat');
+    if (this.stompClient?.connected && this.selectedSupplierId) {
+      // Corrected path: supplierId first, then adminId
+      const subscriptionPath = `/topic/chat/${this.selectedSupplierId}/${this.adminId}`;
+  
+      // Unsubscribe properly
+      if ((this.stompClient as any).subscriptions['current_chat']) {
+        this.stompClient.unsubscribe('current_chat');
+      }
+  
+      // Subscribe to the correct topic
       this.stompClient.subscribe(
-        `/topic/chat/${this.selectedSupplierId}/${this.adminId}`,
-        (message) => this.handleIncomingMessage(JSON.parse(message.body))
+        subscriptionPath,
+        (message) => this.handleIncomingMessage(JSON.parse(message.body)),
+        { id: 'current_chat' }
       );
+      console.log('Admin subscribed to:', subscriptionPath);
     }
   }
 
