@@ -15,7 +15,7 @@ export class VenueDashboardComponent {
 
   venues: OLD_Venue[] = [
     {
-      id: 1,
+      id: 1, 
       supplierId: 1,
       name: "Shangri-La",
       location: "Panadura",
