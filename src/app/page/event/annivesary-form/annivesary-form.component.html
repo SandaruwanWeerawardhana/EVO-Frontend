@@ -1,0 +1,76 @@
+<div class="anniversary-wrapper">
+    <div class="anniversary-container">
+      <div class="form-header">
+        <h1 class="page-heading">Anniversary Celebration</h1>
+        <p class="form-subtitle">Create Your Special Moment</p>
+      </div>
+  
+      <form class="anniversary-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="anniversaryYear">Anniversary Year</label>
+            <div class="input-wrapper">
+              <i class="icon calendar-icon"></i>
+              <input 
+                type="number" 
+                id="anniversaryYear" 
+                class="form-control"
+                placeholder="Enter anniversary year"
+              >
+            </div>
+            <span class="error-message">Anniversary year is required</span>
+          </div>
+  
+          <div class="form-group">
+            <label for="wifeName">Wife's Name</label>
+            <div class="input-wrapper">
+              <i class="icon bride-icon"></i>
+              <input 
+                type="text" 
+                id="wifeName" 
+                class="form-control"
+                placeholder="Enter wife's name"
+              >
+            </div>
+            <span class="error-message">Wife's name is required</span>
+          </div>
+        </div>
+  
+        <div class="form-row">
+          <div class="form-group">
+            <label for="husbandName">Husband's Name</label>
+            <div class="input-wrapper">
+              <i class="icon groom-icon"></i>
+              <input 
+                type="text" 
+                id="husbandName" 
+                class="form-control"
+                placeholder="Enter husband's name"
+              >
+            </div>
+            <span class="error-message">Husband's name is required</span>
+          </div>
+  
+          <div class="form-group">
+            <label for="description">Event Description</label>
+            <div class="input-wrapper">
+              <i class="icon description-icon"></i>
+              <textarea 
+                id="description" 
+                class="form-control textarea"
+                placeholder="Share your anniversary vision"
+                rows="4"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-actions">
+          <button routerLink="/event/venue-selection" type="submit" class="submit-btn">
+            <span>Create Anniversary Event</span>
+            <i class="icon arrow-icon"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>

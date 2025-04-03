@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { RatingReviewsComponent } from "../rating-reviews/rating-reviews.component";
-import { RouterLink } from '@angular/router';
 import { DetailedPreviousWorkComponent } from "../detailed-previous-work/detailed-previous-work.component";
 
 @Component({
   selector: 'app-beauty-essentials-info',
-  imports: [RatingReviewsComponent, RouterLink, DetailedPreviousWorkComponent],
+  imports: [RatingReviewsComponent, DetailedPreviousWorkComponent],
   templateUrl: './beauty-essentials-info.component.html',
   styleUrl: './beauty-essentials-info.component.css'
 })

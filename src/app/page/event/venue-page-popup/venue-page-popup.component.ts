@@ -2,7 +2,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import Venue from '../../../model/Venue';
+import OLD_Venue from '../../../model/Venue';
 import * as bootstrap from 'bootstrap';
 
 @Component({
@@ -14,17 +14,18 @@ import * as bootstrap from 'bootstrap';
 })
 export class VenuePagePopupComponent {
   @ViewChild('venueModal') modalElement!: ElementRef;
-  currentVenue: Venue | null = null;
+  currentVenue: OLD_Venue | null = null;
 
-  public imageGallery = [
-    { "src": "https://cdn.pixabay.com/photo/2014/07/21/19/20/lobby-398845_1280.jpg" },
-    { "src": "https://cdn.pixabay.com/photo/2013/12/11/13/49/holiday-226830_1280.jpg"},
-    { "src": "https://cdn.pixabay.com/photo/2021/12/18/06/13/hotel-6878058_1280.jpg" }
+  imageGallery = [
+    { "src": "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg" },
+    { "src": "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg" },
+    { "src": "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg" },
+    { "src": "https://cdn.pixabay.com/photo/2025/03/07/13/12/flower-9453063_1280.jpg" }
   ];
 
   constructor(private router: Router) {}
 
-  showModal(venue: Venue): void {
+  showModal(venue: OLD_Venue): void {
     this.currentVenue = venue;
     const modal = new bootstrap.Modal(this.modalElement.nativeElement);
     modal.show();
