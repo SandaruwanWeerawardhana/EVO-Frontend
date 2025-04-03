@@ -1,18 +1,20 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import OLD_Supplier from '../../../model/supplier';
+import { Component, OnInit } from '@angular/core';
+import Supplier from '../../../model/supplier';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { SupplierService } from '../../../../service/supplier-services/supplierService';
 
 @Component({
   selector: 'app-all-suppliers',
-  imports: [RouterLink,CommonModule],
+  standalone: true,
+  imports: [RouterLink, CommonModule],
   templateUrl: './all-suppliers.component.html',
   styleUrl: './all-suppliers.component.css'
 })
-export class AllSuppliersComponent {
+export class AllSuppliersComponent implements OnInit {
 
-  suppliers: OLD_Supplier[] = [
-    new OLD_Supplier(
+  suppliers: Supplier[] = [
+    new Supplier(
       1,
       'FrameCrafters',
       'Photography',
@@ -25,7 +27,7 @@ export class AllSuppliersComponent {
       'https://framecrafters.com',
       'https://images.pexels.com/photos/16120232/pexels-photo-16120232/free-photo-of-tables-in-wedding-reception-venue.jpeg?auto=compress&cs=tinysrgb&w=600'
   ),
-  new OLD_Supplier(
+  new Supplier(
       2,
       'Catering Delight',
       'Catering',
@@ -38,7 +40,7 @@ export class AllSuppliersComponent {
       'https://cateringdelight.com',
       'https://images.pexels.com/photos/2291367/pexels-photo-2291367.jpeg?auto=compress&cs=tinysrgb&w=600'
   ),
-  new OLD_Supplier(
+  new Supplier(
       3,
       'Decor Magic',
       'Decor',
@@ -51,7 +53,7 @@ export class AllSuppliersComponent {
       'https://decormagic.com',
       'https://images.pexels.com/photos/705255/pexels-photo-705255.jpeg?auto=compress&cs=tinysrgb&w=600'
   ),
-  new OLD_Supplier(
+  new Supplier(
       4,
       'Beauty Essentials',
       'Beauty',
@@ -64,7 +66,7 @@ export class AllSuppliersComponent {
       'https://beautyessentials.com',
       'https://images.pexels.com/photos/1264210/pexels-photo-1264210.jpeg'
   ),
-  new OLD_Supplier(
+  new Supplier(
       5,
       'Event Planners',
       'Event Planning',
@@ -77,7 +79,7 @@ export class AllSuppliersComponent {
       'https://eventplanners.com',
       'https://images.pexels.com/photos/221457/pexels-photo-221457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   ),
-  new OLD_Supplier(
+  new Supplier(
       6,
       'Music Masters',
       'Entertainment',
@@ -91,4 +93,56 @@ export class AllSuppliersComponent {
       'https://images.pexels.com/photos/1301898/pexels-photo-1301898.jpeg?auto=compress&cs=tinysrgb&w=600'
   )
   ];
+  filteredSuppliers: Supplier[] = [];
+
+ 
+  popularity: string = 'Most Popular';
+  budget: string = 'Any Budget';
+  serviceType: string = 'All Services';
+  searchQuery: string = '';
+
+  constructor(private supplierService: SupplierService) {}
+
+  ngOnInit(): void {
+    this.supplierService.getAllSuppliers().subscribe(
+      (data: Supplier[]) => {
+        this.suppliers = data;
+        this.filteredSuppliers = data;
+      },
+      (error) => {
+        console.error('Error fetching suppliers:', error);
+      }
+    );
+  }
+
+  applyFilters(): void {
+    this.filteredSuppliers = this.suppliers.filter(supplier => {
+      let matchesPopularity = true;
+      let matchesBudget = true;
+      let matchesServiceType = true;
+      let matchesSearch = true;
+
+  
+      if (this.popularity === 'Most Popular') {
+        this.filteredSuppliers.sort((a, b) => (b.supplierId || 0) - (a.supplierId || 0)); 
+      } else if (this.popularity === 'Least Popular') {
+        this.filteredSuppliers.sort((a, b) => (a.supplierId || 0) - (b.supplierId || 0));
+      }
+
+   
+      if (this.budget !== 'Any Budget') {
+   
+      }
+      if (this.serviceType !== 'All Services') {
+        matchesServiceType = supplier.userType === this.serviceType;
+      }
+
+
+      if (this.searchQuery.trim()) {
+        matchesSearch = supplier.businessName.toLowerCase().includes(this.searchQuery.toLowerCase());
+      }
+
+      return matchesBudget && matchesServiceType && matchesSearch;
+    });
+  }
 }
