@@ -1,4 +1,4 @@
-export interface OLD_CustomerPayment {
+export interface CustomerPayment {
     date: string;
     transactionId: string;
     supplier: string;
