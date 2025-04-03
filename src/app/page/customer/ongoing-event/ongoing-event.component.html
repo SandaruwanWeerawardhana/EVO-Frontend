@@ -17,39 +17,74 @@
     </div>
   </div>
      
-<div>
-    <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col"></th>
-            <th scope="col">list</th>
-            <th scope="col">Start Name</th>
-            <th scope="col">Duration</th>
-            <th scope="col">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Wedding Celebration</td>
-            <td>19/03/2025 8:00</td>
-            <td>1h</td>
-            <td><img src="assets/icons8-live-48.png" alt="Live" width="24"></td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Wedding Celebration</td>
-            <td>19/03/2025 8:00</td>
-            <td>2h</td>
-            <td><img src="assets/icons8-event-accepted-tentatively-48.png" alt="Live" width="24"></td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Wedding Celebration</td>
-            <td>19/03/2025 8:00</td>
-            <td>1.30h</td>
-            <td><img src="assets/icons8-event-accepted-tentatively-48.png" alt="Live" width="24"></td>
-          </tr>
-        </tbody>
-      </table>
+
+<div class="timeline-container">
+  <div class="timeline-wrapper">
+      <div class="timeline-line"></div>
+      <div class="timeline-items">
+
+          <div class="timeline-item">
+              <div class="timeline-content">
+                  <div class="timeline-time">00:00 - 01:30</div>
+                  <h2>Introduction</h2>
+                  <p>Video starts with an overview of the main topic and objectives.</p>
+              </div>
+          </div>
+
+          <div class="timeline-item">
+              <div class="timeline-content">
+                  <div class="timeline-time">01:31 - 03:45</div>
+                  <h2>History</h2>
+                  <p>Historical context and background information about the subject.</p>
+              </div>
+          </div>
+
+          <div class="timeline-item">
+              <div class="timeline-content">
+                  <div class="timeline-time">03:46 - 07:20</div>
+                  <h2>Main Content</h2>
+                  <p>Detailed explanation of the core concepts and demonstrations.</p>
+              </div>
+          </div>
+
+          <div class="timeline-item">
+              <div class="timeline-content">
+                  <div class="timeline-time">07:21 - 10:50</div>
+                  <h2>Case Studies</h2>
+                  <p>Real-world examples and practical applications.</p>
+              </div>
+          </div>
+
+          <div class="timeline-item">
+              <div class="timeline-content">
+                  <div class="timeline-time">10:51 - End</div>
+                  <h2>Conclusion</h2>
+                  <p>Final thoughts and call to action for viewers.</p>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>
+
+<title>Real-Time Space Timeline (Sri Lanka)</title>
+<div class="sri-lanka-time">
+  <h2>🌏 Current Sri Lanka Time : {{ currentTime }}</h2>
+</div>
+
+<div class="timeline">
+  <div class="time-header">
+    <span>🌍 Earth Time (1 Hour) vs. 🚀 Space Events (Real-Time)</span>
+  </div>
+  <div class="time-container">
+    <div 
+      *ngFor="let event of spaceEvents" 
+      class="time-event"
+      [style.opacity]="isPastEvent(event.time) ? '1' : '0.5'"
+    >
+      <div class="earth-time">{{ event.earthTime }}</div>
+      <div class="space-event">{{ event.spaceEvent }}</div>
+    </div>
+  </div>
+</div>
+
+
