@@ -1,4 +1,4 @@
-export default class PhotographerBasicInfo{
+export default class OLD_PhotographerBasicInfo{
     title:string;
     rating:string;
     orders:number;

@@ -1,14 +1,11 @@
 import { Component } from '@angular/core';
-import ProfileCustomer from '../../../model/ProfileCustomer';
-import { NgFor } from '@angular/common';
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-profile-customer',
-  imports: [ CommonModule, FormsModule, NgFor ],
+  imports: [ CommonModule, FormsModule ],
   templateUrl: './profile-customer.component.html',
   styleUrl: './profile-customer.component.css'
 })
@@ -18,12 +15,14 @@ export class ProfileCustomerComponent {
   isEditing: boolean = false;
 
   customer = {
+
     fullName: 'Samantha',
     email: 'samantha@example.com',
     phoneNumber: '0785678900',
     address: 'galle',
     gender: 'Male',
     profileImgSrc: '/profile/profile.jpg' 
+    
   };
 
   constructor() {}
@@ -60,5 +59,7 @@ export class ProfileCustomerComponent {
      alert("Profile updated successfully!");
     }
   }
+
+
 
 }
