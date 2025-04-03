@@ -11,13 +11,8 @@ import { NgFor } from '@angular/common';
 export class AgendaComponent {
 
   adgenda: Adgenda[] = [
-    
+
     new Adgenda("Wedding", "Shangri-La", new Date("2025-06-15"), "Avinash Deshan"),
-    
-    
-      
-    
+
   ]
- 
-  
 }
