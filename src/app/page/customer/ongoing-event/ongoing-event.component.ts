@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './ongoing-event.component.css'
 })
 export class OngoingEventComponent {
-
+ 
 }

@@ -40,16 +40,21 @@ import { PreviousWorkComponent } from './page/supplier/previous-work/previous-wo
 import { ConditionsComponent } from './page/customer/admin/conditions/conditions.component';
 import { AddPackagesComponent } from './page/supplier/dash/add-packages/add-packages.component';
 import { AdminRootComponent } from './page/customer/admin-dashbaord/admin-root/admin-root.component';
-import { TransectionsComponent } from './page/customer/admin-dashbaord/pages/transections/transections.component';
+
 import { ReportsComponent } from './page/customer/admin-dashbaord/pages/reports/reports.component';
 import { NotificationsComponent } from './page/customer/admin-dashbaord/pages/notifications/notifications.component';
 import { AuditHistoryComponent } from './page/customer/admin-dashbaord/pages/audit-history/audit-history.component';
-      // import { AdminProfileComponent } from './page/customer/admin-dashbaord/pages/profile/profile.component';
 import { OverviewComponent } from './page/customer/admin-dashbaord/pages/overview/overview.component';
 import { RequestsComponent } from './page/customer/admin-dashbaord/pages/requests/requests.component';
 import { SupplierPendingRequestComponent } from './page/supplier/dash/supplier-pending-request/supplier-pending-request.component';
-import { ViewInventoryComponent } from './page/supplier/view-inventory/view-inventory.component';
+
+import { MessageComponent } from './page/customer/admin-dashbaord/pages/message/message.component';
+import { WeddingFormComponent } from './page/event/wedding-form/wedding-form.component';
+import { BirthdayPartyFormComponent } from './page/event/birthday-party-form/birthday-party-form.component';
+import { GetTogetherFormComponent } from './page/event/get-together-form/get-together-form.component';
+import { AnnivesaryFormComponent } from './page/event/annivesary-form/annivesary-form.component';
 import { UpcommingEventComponent } from './page/customer/upcomming-event/upcomming-event.component';
+import { TransectionsComponent } from './page/customer/admin-dashbaord/pages/transections/transections.component';
 
 export const routes: Routes = [
   {
@@ -91,6 +96,19 @@ export const routes: Routes = [
       {
         path: "agenda",
         component: AgendaComponent
+      },
+      {
+        path:"wedding-form",
+        component:WeddingFormComponent
+      },{
+        path:"birthday-party-form",
+        component:BirthdayPartyFormComponent
+      },{
+        path:"get-together-form",
+        component:GetTogetherFormComponent
+      },{
+        path:"anniversary-form",
+        component:AnnivesaryFormComponent
       }
     ]
   },
@@ -196,10 +214,10 @@ export const routes: Routes = [
         path:"previous-work",
         component:PreviousWorkComponent
       },
-      {
-        path:"view-inventory",
-        component:ViewInventoryComponent
-      }
+      // {
+      //   path:"view-inventory",
+      //   component:ViewInventoryComponent
+      // }
     ]
   },
   {
@@ -220,13 +238,11 @@ export const routes: Routes = [
       },
       {
         path:"upcoming-event",
-        component:UpcommingEventComponent,
-        children:[
-          {
-            path:"ongoing-event",
-            component:OngoingEventComponent
-          }
-        ]
+        component:UpcommingEventComponent
+      },
+      {
+        path:"ongoing-event",
+        component:OngoingEventComponent
       },
       {
         path:"payments",
@@ -276,6 +292,11 @@ export const routes: Routes = [
       {
         path:"requests",
         component:RequestsComponent
+      },
+      {
+        path:"messages",
+        component:MessageComponent
+
       },
       // {
       //   path:"admin-profile",
