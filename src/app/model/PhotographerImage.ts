@@ -1,4 +1,4 @@
-export default class PhotographerImage{
+export default class OLD_PhotographerImage{
   id:number;
   imageUrl:string;
 

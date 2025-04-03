@@ -1,4 +1,4 @@
- export default class PreviousWork{
+ export default class OLD_PreviousWork{
   workId:number;
   ProfileId:number;
   title:string;
@@ -6,7 +6,7 @@
   completionDate:string;
   imageUrls:string;
   clientName:string;
-  
+
   photographerName:string;
 
   constructor(workId:number,ProfileId:number,title:string,description:string,completionDate:string,imageUrls:string,clientName:string,  photographerName:string

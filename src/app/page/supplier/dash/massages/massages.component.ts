@@ -8,7 +8,6 @@ import { HttpClient } from '@angular/common/http';
 import { Client, over } from 'stompjs';
 import { catchError, of, retry, tap } from 'rxjs';
 
-
 interface  Message {
   content: string;
   sendTime: Date;
@@ -48,10 +47,11 @@ export class MassagesComponent implements OnInit, OnDestroy {
   wsUrl = 'ws://localhost:8080/ws';
   reconnectAttempts = 0;
   loadingMessages = false;
+  cdr: any;
 
   constructor(
     private http: HttpClient,
-    private cdr: ChangeDetectorRef,
+    //private cdr: ChangeDetectorRef,
     private datePipe: DatePipe 
   ) {}
 
@@ -111,7 +111,6 @@ export class MassagesComponent implements OnInit, OnDestroy {
       this.cdr.detectChanges();
     });
   }
-
   
   private parseDate(dateString: string): Date {
     return new Date(dateString); 
@@ -139,7 +138,6 @@ export class MassagesComponent implements OnInit, OnDestroy {
         if ((this.stompClient.subscriptions as any)?.['current_chat']) {
           this.stompClient.unsubscribe('current_chat');
         }
-  
         this.stompClient.subscribe(
           subscriptionPath,
           (message) => this.handleIncomingMessage(JSON.parse(message.body)),
@@ -210,7 +208,6 @@ export class MassagesComponent implements OnInit, OnDestroy {
         adminId: this.selectedAdminId,
         userType: 'SUPPLIER'
       };
-
     
       this.stompClient.send(
         `/app/chat/admin-supplier/${this.supplierId}/${this.selectedAdminId}`,
@@ -218,7 +215,6 @@ export class MassagesComponent implements OnInit, OnDestroy {
         JSON.stringify(message)
       );
 
-     
       this.messages.push({
         content: this.messageText,
         sendTime: new Date(), 
@@ -226,10 +222,8 @@ export class MassagesComponent implements OnInit, OnDestroy {
         adminId: this.selectedAdminId,
         supplierId: this.supplierId
       });
-
-     
+      
       this.messageText = '';
-
     
       this.cdr.detectChanges();
     }
