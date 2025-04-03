@@ -44,10 +44,11 @@ export class MassagesComponent implements OnInit, OnDestroy {
   wsUrl = 'ws://localhost:8080/ws';
   reconnectAttempts = 0;
   loadingMessages = false;
+  cdr: any;
 
   constructor(
     private http: HttpClient,
-    private cdr: ChangeDetectorRef,
+    //private cdr: ChangeDetectorRef,
     private datePipe: DatePipe 
   ) {}
 
