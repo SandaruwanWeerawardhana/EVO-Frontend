@@ -16,7 +16,7 @@ interface Message {
 interface IncomingMessage {
   content: string;
   sendTime: string;
-  userType: 'SUPPLIER' | 'ADMIN';
+  userType: 'SUPPLIER' | 'ADMIN' |'USER';
   adminId: string;
   supplierId: number;
 }
