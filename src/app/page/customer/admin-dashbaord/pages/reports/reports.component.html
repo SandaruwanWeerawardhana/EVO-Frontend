@@ -1,2 +1,244 @@
+<div class="container mb-5 mt-5 pb-5">
+    
+    <h1>Reports of Admin dash Board..</h1>
+    <p>Our Admin Dashboard provides comprehensive reports to ensure smooth event planning and management. From user insights to system audits, you can access detailed reports that help optimize coordination, organization, and execution. Whether you are managing users, suppliers, or events, these reports will assist in making data-driven decisions for a seamless experience.</p>
+  
+    <div class="row">
+        <div class="col-6">
+          <div class="card mb-3 EventCard" style="max-width: 540px;">
+            <div class="row no-gutters">
+              <div class="col-8">
+                <div class="card-body">
+                  <h5 class="card-title">User Reports</h5>
+                  <p class="card-text">For planning, coordination, and execution of weddings.</p>
+                  <!-- Button to trigger modal -->
+                  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reportModal">
+                    View User Reports
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+     
+      
+      <!-- Bootstrap Modal for the pop-up form -->
+      <div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="reportModalLabel">Generate User Report</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- Form -->
+              <form>
+                <div class="mb-3">
+                  <label for="userId" class="form-label">User ID</label>
+                  <input type="text" class="form-control" id="userId" placeholder="Enter User ID">
+                </div>
+                <div class="mb-3">
+                  <label for="reportType" class="form-label">Select Report Type</label>
+                  <select class="form-select" id="reportType">
+                    <option value="summary">Summary Report</option>
+                    <option value="detailed">Detailed Report</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-success">Generate User Report</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
+      
+
+
+        <div class="col-6">
+            <div class="card mb-3 EventCard" style="max-width: 540px;">
+                <div class="row no-gutters">
+                    
+                    <div class="col-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Event Reports</h5>
+                            <p class="card-text">for simplify the planning and execution of birthday celebrations.
+                            </p>
+                            <a routerLink="/event/birthday-party-form" class="btn btn-primary" role="button" data-bs-toggle="modal" data-bs-target="#reportModals">View Event Reports</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       <!-- Bootstrap Modal for the pop-up form -->
+      <div class="modal fade" id="reportModals" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="reportModalLabel">Generate Event Report</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- Form -->
+              <form>
+                <div class="mb-3">
+                  <label for="userId" class="form-label">Event ID</label>
+                  <input type="text" class="form-control" id="userId" placeholder="Enter Event ID">
+                </div>
+                <div class="mb-3">
+                  <label for="reportType" class="form-label">Select Report Type</label>
+                  <select class="form-select" id="reportType">
+                    <option value="summary">Summary Report</option>
+                    <option value="detailed">Detailed Report</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-success">Generate Event Report</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+        
+    
+  
+    <div class="row">
+        <div class="col-6">
+            <div class="card mb-3 EventCard" style="max-width: 540px;">
+                <div class="row no-gutters">
+                    
+                    <div class="col-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Supplier Reports</h5>
+                            <p class="card-text">for planning and coordination of social gatherings.</p>
+                            <a routerLink="/event/get-together-form" class="btn btn-primary" role="button" data-bs-toggle="modal" data-bs-target="#reportModalsup">View Supplier Reports</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap Modal for the pop-up form -->
+      <div class="modal fade" id="reportModalsup" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="reportModalLabel">Generate Supplier Report</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- Form -->
+              <form>
+                <div class="mb-3">
+                  <label for="userId" class="form-label">Supplier ID</label>
+                  <input type="text" class="form-control" id="userId" placeholder="Enter Supplier ID">
+                </div>
+                <div class="mb-3">
+                  <label for="reportType" class="form-label">Select Report Type</label>
+                  <select class="form-select" id="reportType">
+                    <option value="summary">Summary Report</option>
+                    <option value="detailed">Detailed Report</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-success">Generate Supplier Report</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <div class="col-6">
+            <div class="card mb-3 EventCard" style="max-width: 540px;">
+                <div class="row no-gutters">
+                    
+                    <div class="col-8">
+                        <div class="card-body">
+                            <h5 class="card-title">System Reports</h5>
+                            <p class="card-text">for planning and organization of anniversary celebrations.</p>
+                            <a routerLink="/event/anniversary-form" class="btn btn-primary" role="button" data-bs-toggle="modal" data-bs-target="#reportModalsystem">View System Reports</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap Modal for the pop-up form -->
+      <div class="modal fade" id="reportModalsystem" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="reportModalLabel">Generate System Report</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- Form -->
+              <form>
+                <div class="mb-3">
+                  <label for="userId" class="form-label">System ID</label>
+                  <input type="text" class="form-control" id="userId" placeholder="Enter System ID">
+                </div>
+                <div class="mb-3">
+                  <label for="reportType" class="form-label">Select Report Type</label>
+                  <select class="form-select" id="reportType">
+                    <option value="summary">Summary Report</option>
+                    <option value="detailed">Detailed Report</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#reportModalsystem">Generate Syetm Report</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+        <div class="col-6">
+            <div class="card mb-3 EventCard" style="max-width: 540px;">
+                <div class="row no-gutters">
+                   
+                    <div class="col-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Audit Reports</h5>
+                            <p class="card-text">for simplify the planning and execution of birthday celebrations.
+                            </p>
+                            <a routerLink="/event/birthday-party-form" class="btn btn-primary" role="button"data-bs-toggle="modal" data-bs-target="#reportModalReport">View Audit Reports</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <!-- Bootstrap Modal for the pop-up form -->
+      <div class="modal fade" id="reportModalReport" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="reportModalLabel">Generate System Report</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- Form -->
+              <form>
+                <div class="mb-3">
+                  <label for="userId" class="form-label">Report ID</label>
+                  <input type="text" class="form-control" id="userId" placeholder="Enter Report ID">
+                </div>
+                <div class="mb-3">
+                  <label for="reportType" class="form-label">Select Report Type</label>
+                  <select class="form-select" id="reportType">
+                    <option value="summary">Summary Report</option>
+                    <option value="detailed">Detailed Report</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#reportModalReport">Generate System Report</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   
