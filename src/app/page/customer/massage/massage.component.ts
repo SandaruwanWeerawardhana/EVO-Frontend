@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnDestroy, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnDestroy, OnInit, ChangeDetectorRef, ElementRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Client, over } from 'stompjs';
 import { catchError, of, retry, tap } from 'rxjs';
 
-
 const BACKEND_BASE_URL = 'http://localhost:8080';
+
 @Component({
   selector: 'app-customer-chat',
   standalone: true,
@@ -16,22 +16,20 @@ const BACKEND_BASE_URL = 'http://localhost:8080';
   providers: [HttpClient]
 })
 export class MassageComponent implements OnInit, OnDestroy {
+  @ViewChild('chatContainer') chatContainer!: ElementRef;
 
   readonly customerId = 201;
-  
-  
+
   supplierIds: string[] = [];
   selectedSupplierId: string | null = null;
   messages: any[] = [];
   messageText = '';
-  
 
   loadingSuppliers = false;
   loadingMessages = false;
   loadError: string | null = null;
   messageLoadError: string | null = null;
-  
- 
+
   private stompClient: Client | null = null;
   connectionStatus: 'CONNECTED' | 'CONNECTING' | 'DISCONNECTED' = 'DISCONNECTED';
 
@@ -51,7 +49,7 @@ export class MassageComponent implements OnInit, OnDestroy {
 
   private loadSuppliers(): void {
     this.loadingSuppliers = true;
-   
+
     this.http.get<string[]>(`${BACKEND_BASE_URL}/system/message/customer-supplier/suppliersByCustomerId/${this.customerId}`)
       .pipe(
         retry(2),
@@ -75,7 +73,7 @@ export class MassageComponent implements OnInit, OnDestroy {
 
   private loadMessages(): void {
     if (!this.selectedSupplierId) return;
-    
+
     this.loadingMessages = true;
     this.http.get<any[]>(`${BACKEND_BASE_URL}/system/message/customer-supplier/chat/${this.customerId}/${this.selectedSupplierId}`)
       .pipe(
@@ -87,6 +85,7 @@ export class MassageComponent implements OnInit, OnDestroy {
       )
       .subscribe(messages => {
         this.messages = messages;
+        this.scrollToBottom();
         this.cdr.detectChanges();
       });
   }
@@ -95,7 +94,7 @@ export class MassageComponent implements OnInit, OnDestroy {
     this.connectionStatus = 'CONNECTING';
     const ws = new WebSocket('ws://localhost:8080/ws');
     this.stompClient = over(ws);
-    
+
     this.stompClient.connect({}, () => {
       this.connectionStatus = 'CONNECTED';
       this.cdr.detectChanges();
@@ -118,12 +117,13 @@ export class MassageComponent implements OnInit, OnDestroy {
 
   private subscribeToMessages(): void {
     if (!this.selectedSupplierId || !this.stompClient?.connected) return;
-    
+
     const topic = `/topic/messages/${this.customerId}/${this.selectedSupplierId}`;
     this.stompClient.subscribe(topic, (message) => {
       const newMessage = JSON.parse(message.body);
       this.messages = [...this.messages, newMessage];
-      this.cdr.detectChanges();
+      this.cdr.detectChanges(); // Ensure DOM is updated
+      this.scrollToBottom(); // Scroll to the bottom
     });
   }
 
@@ -134,7 +134,6 @@ export class MassageComponent implements OnInit, OnDestroy {
       customerId: this.customerId,
       supplierId: this.selectedSupplierId,
       content: this.messageText,
-      
       sendTime: new Date().toISOString(),
       userType: 'CUSTOMER'
     };
@@ -145,5 +144,20 @@ export class MassageComponent implements OnInit, OnDestroy {
     );
 
     this.messageText = '';
+  }
+
+  private scrollToBottom(): void {
+    if (this.chatContainer && this.chatContainer.nativeElement) {
+      setTimeout(() => {
+        try {
+          this.chatContainer.nativeElement.scrollTop = this.chatContainer.nativeElement.scrollHeight;
+          console.log('Auto-scrolled to bottom:', this.chatContainer.nativeElement.scrollTop);
+        } catch (error) {
+          console.error('Error while auto-scrolling:', error);
+        }
+      }, 0);
+    } else {
+      console.warn('Chat container is not available for scrolling.');
+    }
   }
 }
