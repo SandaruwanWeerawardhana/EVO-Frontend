@@ -1,37 +1,9 @@
-#footerFixed{
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+.object-cover {
+  object-fit: cover;
 }
 
-.EventSummaryCard{
-    box-shadow: 1px 1px;
-    color: gray;
+.bottom-space{
+  padding: 40px;
 }
 
-.bottom-spacing{
-  padding: 5rem;
-}
 
-.btn{
-  transition: none !important;
-  border: none;
-  margin: 20px;
-  padding: 10px;
-}
-
-.btn:hover{
-  transition: none !important;
-  border: none;
-  background-color: #105cd4 !important;
-}
-
-.aas-btn-row{
-  display: flex;
-  justify-content: center;
-}
-
-.aas-txt-row{
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  margin: 10px;
-}

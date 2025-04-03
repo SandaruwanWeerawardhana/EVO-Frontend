@@ -1,4 +1,4 @@
-export default class addPreviousWork{
+export default class OLD_addPreviousWork{
     workId:number;
     profileId:number;
     title:string;
@@ -17,4 +17,3 @@ export default class addPreviousWork{
         this.imageUrl=imageUrl;
     }
   }
-  

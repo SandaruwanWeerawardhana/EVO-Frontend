@@ -1,4 +1,5 @@
-<div class="table-container" style="margin-top: 70px; padding: auto; padding-left: 25px;">
+<div class="table-container" style="margin-top: 70px;">
+
 
   <div class="filter-controls">
     <div class="row">
@@ -56,30 +57,35 @@
         </div>
       </div>
     </div>
-  </div>
 
-    <table class="table table-hover table-bordered shadow-lg">
-      <thead class="table-dark">
-        <tr>
-          <th scope="col">Date</th>
-          <th scope="col">Transection ID</th>
-          <th scope="col">Supplier</th>
-          <th scope="col">Supplier Type</th>
-          <th scope="col">Amount</th>
-          <th scope="col">Remarks</th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of filteredPayments">
-          <th scope="row">{{item.date}}</th>
-          <td>{{item.transactionId}}</td>
-          <td>{{item.supplier}}</td>
-          <td>{{item.supplierType}}</td>
-          <td>{{item.amount}}</td>
-          <td>{{item.remarks}}</td>
-          <td><a href="#"><img src="/payments-customer/receipt_print.png" alt="print receipt" style="height: 30px;" title="Print Receipt"></a></td>
-        </tr>
-      </tbody>
-    </table>
+    
+    <div class="table-responsive mt-4">
+      <table class="table table-hover table-bordered shadow-lg">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Transaction ID</th>
+            <th scope="col">Supplier</th>
+            <th scope="col">Supplier Type</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Remarks</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of filteredPayments">
+            <td>{{item.date}}</td>
+            <td>{{item.transactionId}}</td>
+            <td>{{item.supplier}}</td>
+            <td>{{item.supplierType}}</td>
+            <td>{{item.amount}}</td>
+            <td>{{item.remarks}}</td>
+            <td>
+              <a href="#"><img src="/payments-customer/receipt_print.png" alt="print receipt" style="height: 30px;" title="Print Receipt"></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
+</div>
