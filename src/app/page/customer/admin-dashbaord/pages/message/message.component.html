@@ -66,7 +66,7 @@
           </div>
 
           <!-- Messages Area -->
-          <div class="flex-grow-1 overflow-auto p-3 bg-light" style="height: 70vh;">
+          <div class="flex-grow-1 overflow-auto p-3 bg-light" style="height: 70vh;" #chatContainer>
             <!-- Empty state when no supplier selected -->
             <div *ngIf="!selectedSupplierId" class="d-flex h-100 justify-content-center align-items-center">
                 <div class="text-center text-muted">
@@ -103,7 +103,7 @@
                         style="max-width: 70%;">
                         <div class="text-break">{{message.content}}</div>
                         <div class="text-end small" [class.text-white-50]="message.sender === 'ADMIN'" [class.text-muted]="message.sender === 'SUPPLIER'">
-                            {{ message.sendTime | date:'shortTime' }}
+                            {{ message.timestamp | date:'shortTime' }}
                         </div>
                     </div>
                 </div>

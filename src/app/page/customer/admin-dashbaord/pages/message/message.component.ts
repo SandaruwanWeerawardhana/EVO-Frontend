@@ -3,7 +3,7 @@
 
 
 import { CommonModule } from '@angular/common';
-import { Component, OnDestroy, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnDestroy, OnInit, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Client, over } from 'stompjs';
@@ -17,6 +17,8 @@ import { catchError, of, retry, tap } from 'rxjs';
   styleUrl: './message.component.css'
 })
 export class MessageComponent implements OnInit, OnDestroy  {
+  @ViewChild('chatContainer') chatContainer!: ElementRef; // Reference to the chat container
+
   connectionStatus: 'CONNECTED' | 'CONNECTING' | 'DISCONNECTED' = 'DISCONNECTED';
   messageText: string = '';
   private stompClient: Client | null = null;
@@ -102,13 +104,11 @@ export class MessageComponent implements OnInit, OnDestroy  {
     });
 }
 
-
 private handleIncomingMessage(message: any) {
   console.log('Incoming message:', message);
 
-  // Type-safe comparison
-  const isRelevantMessage = 
-    message.supplierId == this.selectedSupplierId && 
+  const isRelevantMessage =
+    message.supplierId == this.selectedSupplierId &&
     message.adminId == this.adminId.toString();
 
   if (isRelevantMessage) {
@@ -118,38 +118,45 @@ private handleIncomingMessage(message: any) {
       sender: message.userType === 'SUPPLIER' ? 'SUPPLIER' : 'ADMIN'
     };
 
-    if (!this.messages.some(m => 
-      m.content === newMsg.content &&
-      m.timestamp.getTime() === newMsg.timestamp.getTime()
-    )) {
+    // Prevent duplicate messages
+    if (
+      !this.messages.some(
+        (m) =>
+          m.content === newMsg.content &&
+          m.timestamp.getTime() === newMsg.timestamp.getTime() &&
+          m.sender === newMsg.sender
+      )
+    ) {
       this.messages = [...this.messages, newMsg];
       this.cdr.detectChanges();
+      this.scrollToBottom(); // Scroll to the bottom after adding a new message
     }
   }
 }
 
-  sendMessage() {
-    console.log('Send button clicked');
-    if (!this.selectedSupplierId || !this.messageText.trim() || !this.stompClient?.connected) {
-      return;
-    }
-  
-    const message = {
-      adminId: this.adminId,
-      supplierId: this.selectedSupplierId,
-      content: this.messageText,
-      sendTime: new Date().toISOString(),
-      userType: 'ADMIN'
-    };
-  
-    const destination = `/app/chat/admin-supplier/${this.selectedSupplierId}/${this.adminId}`;
-  
-    // Send the message via WebSocket
-    this.stompClient.send(destination, {}, JSON.stringify(message));
-  
-    // Clear the input field
-    this.messageText = '';
+sendMessage() {
+  console.log('Send button clicked');
+  if (!this.selectedSupplierId || !this.messageText.trim() || !this.stompClient?.connected) {
+    return;
   }
+
+  const message = {
+    adminId: this.adminId,
+    supplierId: this.selectedSupplierId,
+    content: this.messageText,
+    sendTime: new Date().toISOString(),
+    userType: 'ADMIN'
+  };
+
+  const destination = `/app/chat/admin-supplier/${this.selectedSupplierId}/${this.adminId}`;
+
+  // Send the message via WebSocket
+  this.stompClient.send(destination, {}, JSON.stringify(message));
+
+  // Clear the input field
+  this.messageText = '';
+  this.cdr.detectChanges();
+}
 
  private parseDate(dateString: string): Date {
     const date = new Date(dateString);
@@ -221,7 +228,13 @@ private handleIncomingMessage(message: any) {
     setTimeout(() => this.connect(), delay);
   }
 
-
+  private scrollToBottom() {
+    if (this.chatContainer) {
+      setTimeout(() => {
+        this.chatContainer.nativeElement.scrollTop = this.chatContainer.nativeElement.scrollHeight;
+      }, 0); // Delay to ensure DOM updates are applied
+    }
+  }
 
   ngOnDestroy() {
     if (this.stompClient?.connected) {
