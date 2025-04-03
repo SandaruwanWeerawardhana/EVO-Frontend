@@ -1,16 +1,9 @@
-#footerFixed{
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.EventSummaryCard{
-    box-shadow: 1px 1px;
-    color: gray;
-}
-
 .object-cover {
   object-fit: cover;
 }
 
-.bottom-spacing{
-  padding:80px;
+.bottom-space{
+  padding: 40px;
 }
+
+
