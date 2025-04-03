@@ -1,15 +1,18 @@
-import { CommonModule, DatePipe } from '@angular/common'; // Import DatePipe
+// F:\PROJECT CLASS\front\EVO-Frontend\src\app\page\supplier\dash\massages\massages.component.ts
+
+
+import { CommonModule, DatePipe } from '@angular/common'; 
 import { Component, OnDestroy, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Client, over } from 'stompjs';
 import { catchError, of, retry, tap } from 'rxjs';
 
-interface Message {
+interface  Message {
   content: string;
   sendTime: Date;
   sender: 'SUPPLIER' | 'ADMIN';
-  adminId: string;
+  adminId: number;
   supplierId: number;
 }
 
@@ -17,7 +20,7 @@ interface IncomingMessage {
   content: string;
   sendTime: string;
   userType: 'SUPPLIER' | 'ADMIN';
-  adminId: string;
+  adminId: number;
   supplierId: number;
 }
 
@@ -35,8 +38,8 @@ export class MassagesComponent implements OnInit, OnDestroy {
   private stompClient: Client | null = null;
   private webSocket: WebSocket | null = null;
   messages: Message[] = [];
-  adminIds: string[] = [];
-  selectedAdminId: string | null = null;
+  adminIds: number[] = [];
+  selectedAdminId: number | null = null;
   supplierId: number = 101;
 
   loadingAdmins = true;
@@ -69,7 +72,7 @@ export class MassagesComponent implements OnInit, OnDestroy {
   }
 
   private loadAdminIds() {
-    this.http.get<string[]>(
+    this.http.get<number[]>(
       `http://localhost:8080/system/message/admin-supplier/adminsBySupplierId?supplierId=${this.supplierId}`
     ).pipe(
       retry(2),
@@ -87,7 +90,7 @@ export class MassagesComponent implements OnInit, OnDestroy {
     });
   }
 
-  private loadMessages(adminId: string) {
+  private loadMessages(adminId: number) {
     this.loadingMessages = true;
     this.http.get<IncomingMessage[]>(
       `http://localhost:8080/system/message/admin-supplier/chat/${adminId}/${this.supplierId}`
@@ -117,7 +120,7 @@ export class MassagesComponent implements OnInit, OnDestroy {
     return this.datePipe.transform(date, 'yyyy-MM-dd\'T\'HH:mm:ss') || '';
   }
 
-  selectAdmin(adminId: string) {
+  selectAdmin(adminId: number) {
     console.log('Selected Admin ID:', adminId); 
     this.selectedAdminId = adminId;
     this.messages = [];
@@ -125,22 +128,27 @@ export class MassagesComponent implements OnInit, OnDestroy {
     this.updateWebSocketSubscription();
   }
 
+  
   private updateWebSocketSubscription() {
     if (this.stompClient?.connected && this.selectedAdminId) {
-        const subscriptionPath = `/topic/chat/${this.supplierId}/${this.selectedAdminId}`;
-        
-        if ((this.stompClient as any).subscriptions?.['current_chat']) {
-            this.stompClient.unsubscribe('current_chat');
-        }
+      // CORRECTED PATH: supplierId first, then adminId
+      const subscriptionPath = `/topic/chat/${this.supplierId}/${this.selectedAdminId}`;
       
+      try {
+        if ((this.stompClient.subscriptions as any)?.['current_chat']) {
+          this.stompClient.unsubscribe('current_chat');
+        }
         this.stompClient.subscribe(
-            subscriptionPath, 
-            (message) => this.handleIncomingMessage(JSON.parse(message.body)),
-            { id: 'current_chat' }
+          subscriptionPath,
+          (message) => this.handleIncomingMessage(JSON.parse(message.body)),
+          { id: 'current_chat' }
         );
+        console.log('Supplier subscribed to:', subscriptionPath);
+      } catch (error) {
+        console.error('Subscription error:', error);
+      }
     }
   }
-
   connect() {
     this.connectionStatus = 'CONNECTING';
     this.cdr.detectChanges();
@@ -160,10 +168,6 @@ export class MassagesComponent implements OnInit, OnDestroy {
     this.reconnectAttempts = 0;
     this.cdr.detectChanges();
 
-    this.stompClient?.subscribe('/topic/messages', (message) => {
-      const parsed = JSON.parse(message.body);
-      this.handleIncomingMessage(parsed);
-    });
   }
 
   private onConnectError(error: any) {
@@ -201,7 +205,8 @@ export class MassagesComponent implements OnInit, OnDestroy {
       const message = {
         content: this.messageText,
         supplierId: this.supplierId,
-        adminId: this.selectedAdminId
+        adminId: this.selectedAdminId,
+        userType: 'SUPPLIER'
       };
     
       this.stompClient.send(
