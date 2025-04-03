@@ -1,30 +1,14 @@
-<div class="container py-4">
-  <div class="d-flex justify-content-between align-items-center mb-4">
-    <div class="d-flex align-items-center">
-      <h2 class="fw-bold m-0">Event Summary</h2>
-    </div>
-  </div>
-
-  <div class="row mb-4">
-    <div class="col-12">
-      <div class="card shadow-lg border-0 rounded-4 overflow-hidden bg-gradient">
-        <div class="card-header bg-primary bg-opacity-10 py-3">
-          <h5 class="fw-bold m-0">
-            <i class="bi bi-calendar-event-fill text-primary me-2"></i>Event Details
-          </h5>
-        </div>
-        <div class="card-body p-0">
-          <div class="row g-0">
-            <div class="col-md-8 p-3">
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <div class="detail-box p-3 rounded-3 bg-light bg-opacity-75 h-100">
-                    <div class="small text-muted mb-1">Event Type</div>
-                    <div class="d-flex align-items-center">
-                      <i class="bi bi-tag-fill text-primary me-2 fs-5"></i>
-                      <h5 class="fw-bold mb-0">Event type</h5>
-                    </div>
-                  </div>
+<div class="container">
+    <div class="row col-6 ">
+        <h1 class="fw-bold mt-3  mb-5 ms-2">Event Summary</h1>
+      </div>
+    <div class="row">
+      <div class="col-6">
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden m-2">
+            <div class="row g-0">
+                <div class="col-4 position-relative">
+                    <img src="/event-selection-images/card1.png" class="w-100 h-100 object-cover" alt="Event Image">
+                  <button  class="bi bi-trash3"></button>
                 </div>
               
                 <div class="col-md-6">
@@ -148,113 +132,11 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
-
-  <div class="row mb-4">
-    <div class="col-12">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <div class="d-flex align-items-center">
-          <i class="bi bi-truck text-primary me-2"></i>
-          <h5 class="fw-bold m-0">Suppliers</h5>
-        </div>
-      </div>
-
-      <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-        <div class="table-responsive">
-          <table class="table table-hover align-middle mb-0">
-            <thead class="bg-light">
-              <tr>
-                <th class="fw-semibold ps-3">Supplier</th>
-                <th class="fw-semibold">Type</th>
-                <th class="fw-semibold">Date</th>
-                <th class="fw-semibold">Price</th>
-                <th class="fw-semibold">Status</th>
-                <th class="fw-semibold text-end pe-3">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="ps-3">
-                  <div class="d-flex align-items-center">
-                    <div class="bg-light">
-                      <img src="/event-selection-images/card1.png" class="rounded-circle me-2" width="40" height="40" alt="Profile Image">
-                    </div>
-                    <div>
-                      <div class="fw-semibold">supplier name</div>
-                      <div class="small text-muted">description</div>
-                    </div>
-                  </div>
-                </td>
-                <td>Catering</td>
-                <td>Apr 15-17</td>
-                <td>Rs. 600,000</td>
-                <td>
-                  <span class="badge bg-danger text-light rounded-pill">Pending</span>
-                </td>
-                <td class="text-end pe-3">
-                  <button class="btn btn-sm btn-outline-primary me-1">
-                    <i class="bi bi-eye"></i>
-                  </button>
-                  <button class="btn btn-sm btn-outline-danger">
-                    <i class="bi bi-trash"></i>
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="ps-3">
-                  <div class="d-flex align-items-center">
-                    <div class="bg-light">
-                      <img src="/event-selection-images/card1.png" class="rounded-circle me-2" width="40" height="40" alt="Profile Image">
-                    </div>
-                    <div>
-                      <div class="fw-semibold">supplier name</div>
-                      <div class="small text-muted">description</div>
-                    </div>
-                  </div>
-                </td>
-                <td>Catering</td>
-                <td>Apr 15-17</td>
-                <td>Rs. 600,000</td>
-                <td>
-                  <span class="badge text-white bg-success rounded-pill">Accepted</span>
-                </td>
-                <td class="text-end pe-3">
-                  <button class="btn btn-sm btn-outline-primary me-1">
-                    <i class="bi bi-eye"></i>
-                  </button>
-                  <button class="btn btn-sm btn-outline-danger">
-                    <i class="bi bi-trash"></i>
-                  </button>
-                </td>
-              </tr>
-              <tr class="bg-light bg-opacity-50">
-                <td colspan="6" class="text-center py-3">
-                  <button class="btn btn-sm btn-outline-primary">
-                    <i class="bi bi-plus-lg me-1"></i>Add Another Supplier
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="bottom-space" style="height: 80px;"></div>
-
-  <div class="position-fixed bottom-0 start-0 w-100 card border-0 shadow-sm rounded-top-4 bg-primary-subtle mt-4">
-    <div class="card-body">
-      <div class="row align-items-center">
-        <div class="col-md-6">
-          <div class="d-flex align-items-center">
-            <div class="me-3">
-              <div class="text-muted small">Total Charges</div>
-              <div class="fw-bold fs-4">Rs. 2,950,000</div>
-            </div>
-          </div>
+    <div class="bottom-spacing"></div>
+    <div class="row mt-5 fixed-bottom bg-light p-2" id="footerFixed">
+        <div class="col-6">
+            <h5 class="">Total Charges :</h5>
+            <h5>Rs: 2,600,000</h5>
         </div>
         <div class="col-md-6 d-flex justify-content-end gap-2 mt-3 mt-md-0">
           <button type="button" class="btn btn-outline-secondary">
