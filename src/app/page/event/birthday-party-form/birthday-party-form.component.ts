@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -11,5 +11,88 @@ import Swal from 'sweetalert2';
 })
 
 export class BirthdayPartyFormComponent {
+  ownerName: string = 'Sasanka';
+  eventdate: string | null = null;
+  headcount: number = 23;
+  starttime: Date = new Date();
+  endtime: Date = new Date();
 
+  formdata: FormData = new FormData();
+
+  constructor(private router: Router) { 
+
+  }
+
+  submitbuttonOnClick() {
+    if (!this.ownerName) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Owner Name is required!',
+      });
+      return;
+    }
+    
+    if (!this.eventdate) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Event Date is required!',
+      });
+      return;
+    }
+    if (Date.parse(this.eventdate) < Date.now()) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please select a date in future!',
+      });
+      return;
+    }
+    if (this.headcount <= 0) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Headcount should be greater than 0!',
+      });
+      return;
+    }
+    if (!this.starttime || !this.endtime) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Start Time and End Time are required!',
+      });
+      return;
+    }
+    if (this.starttime >= this.endtime) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Start Time must be earlier than End Time!',
+      });
+      return;
+    }
+
+    this.formdata.append('ownerName', this.ownerName);
+    this.formdata.append('eventdate', this.eventdate.toString());
+    this.formdata.append('headcount', this.headcount.toString());
+    this.formdata.append('starttime', this.starttime.toString());
+    this.formdata.append('endtime', this.endtime.toString());
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Form submitted successfully!',
+      showConfirmButton: false,
+      timer: 1500,
+    }); 
+
+    const formObject: any = {};
+    this.formdata.forEach((value, key) => {
+      formObject[key] = value;
+    });
+    console.log('Form data:', formObject);
+    
+    this.router.navigate(['/event/venue-selection']);
+  }
 }
