@@ -26,4 +26,13 @@ export class AnnivesaryFormComponent {
     }
   }
 
+  isActive = false;
+  toggleHearts() {
+    this.isActive = true;
+    
+    setTimeout(() => {
+      this.isActive = false;
+    }, 3000); 
+  }
+
 }
