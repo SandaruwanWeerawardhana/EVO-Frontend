@@ -1,13 +1,13 @@
 import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 
 @Component({
   selector: 'app-wedding-form',
-  imports: [RouterLink,NgIf,FormsModule],
+  imports: [NgIf,FormsModule],
   templateUrl: './wedding-form.component.html',
   styleUrl: './wedding-form.component.css'
 })
@@ -37,8 +37,6 @@ export class WeddingFormComponent {
     }
     this.nextpageNumber = page;
   }
-
-
 
   validateBasicInfo(): boolean {
     const nameRegex = /^[A-Z][a-zA-Z]+(?:[-' ][A-Z][a-zA-Z]+)*$/;
