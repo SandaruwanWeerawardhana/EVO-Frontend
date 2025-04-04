@@ -1,60 +1,92 @@
-.wedding-registration {
-    max-width: 600px;
-    margin: auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
 
-  h1 {
-    text-align: center;
-    font-size: 24px;
-    color: #5a5a5a;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
- 
-  .form-label {
-    font-weight: 600;
-    color: #333;
-  }
-
-  .form-control {
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    transition: border-color 0.3s ease-in-out;
-  }
-  
-  .form-control:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-  }
-
-  .form-select {
-    border-radius: 5px;
-    padding: 8px;
-  }
-
-  .btn-submit {
-    width: 100%;
-    background: #007bff;
+.sub-topic{
+  color:indigo;
+  font-weight: 600;
+}
+  .gradient-btn {
+    background: linear-gradient(90deg, rgba(0,102,255,1) 0%, rgba(208,0,255,1) 100%);
     color: white;
-    padding: 10px;
-    font-size: 16px;
-    font-weight: bold;
     border: none;
-    border-radius: 5px;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: background 0.3s;
-  }
-  
-  .btn-submit:hover {
-    background: #0056b3;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
   }
 
-  @media (max-width: 768px) {
-    .wedding-registration {
-      padding: 15px;
+  .gradient-btn:hover {
+    box-shadow: 0 4px 12px rgba(106, 17, 203, 0.3);
+    color: white;
+  }
+
+  .gradient-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, rgba(208,0,255,1) 0%, rgba(0,102,255,1) 100%);
+    border-radius: 0.5rem;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+  }
+
+  .gradient-btn:hover::before {
+    opacity: 1;
+  }
+
+  .text-gradient {
+    background: linear-gradient(90deg, rgb(45, 41, 114) 0%, rgb(207, 9, 251) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .bg-gradient {
+    background: linear-gradient(90deg, rgba(0,102,255,1) 0%, rgba(208,0,255,1) 100%);
+  }
+
+  .card {
+    transition: all 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .form-control:focus, .form-select:focus {
+    border-color: rgba(106, 17, 203, 0.3);
+    box-shadow: 0 0 0 0.25rem rgba(106, 17, 203, 0.1);
+  }
+
+  .image-slider {
+    overflow: hidden;
+  }
+
+  .img-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+    z-index: 2;
+  }
+
+
+  @media (max-width: 491.98px) {
+    .image-slider {
+      height: 300px;
     }
   }
+
+  

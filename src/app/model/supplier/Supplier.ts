@@ -1,4 +1,4 @@
-import { SupplierCategoryType } from "../../utils/SupplierCategoryType";
+import { SupplierCategoryType } from "../../../utils/SupplierCategoryType";
 import { BeautySaloon } from "./BeautySaloon";
 import { Catering } from "./Catering";
 import { Inventory } from "./Inventory";

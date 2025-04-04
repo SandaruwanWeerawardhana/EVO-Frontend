@@ -35,3 +35,9 @@
       z-index: 1;
     }
 
+    .modern {
+      display: flex;
+      justify-content: center; /* Centers the card */
+      padding: 15px;
+      
+    }
