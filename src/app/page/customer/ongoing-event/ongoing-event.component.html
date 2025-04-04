@@ -1,90 +1,25 @@
-<div class="container">
-  <h2 class="text-center my-4">Wedding Agenda</h2>
-
-   <div class="card mb-3" style="max-width: 1000px;">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img src="assets/Anniversary copel in sun.jpg" class="img-fluid rounded-start" alt="">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">Wedding Celebration</h5>
-          <p class="card-text">Plan your wedding day efficiently with this structured agenda.</p>
-          <h5 class="card-title">08.00 AM</h5>
-          <p class="card-text"><small class="text-muted">Live</small></p>
+  <div class="container">
+    <h2 class="text-center my-4">Wedding Agenda</h2>
+     <div class="card mb-3" style="max-width: 1000px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="assets/Anniversary copel in sun.jpg" class="img-fluid rounded-start" alt="">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Wedding Celebration</h5>
+            <p class="card-text">Plan your wedding day efficiently with this structured agenda.</p>
+            <h5 class="card-title">08.00 AM</h5>
+            <p class="card-text"><small class="text-muted">Live</small></p>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-     
+    </div>  
 
-<div class="timeline-container">
-  <div class="timeline-wrapper">
-      <div class="timeline-line"></div>
-      <div class="timeline-items">
-
-          <div class="timeline-item">
-              <div class="timeline-content">
-                  <div class="timeline-time">00:00 - 01:30</div>
-                  <h2>Introduction</h2>
-                  <p>Video starts with an overview of the main topic and objectives.</p>
-              </div>
-          </div>
-
-          <div class="timeline-item">
-              <div class="timeline-content">
-                  <div class="timeline-time">01:31 - 03:45</div>
-                  <h2>History</h2>
-                  <p>Historical context and background information about the subject.</p>
-              </div>
-          </div>
-
-          <div class="timeline-item">
-              <div class="timeline-content">
-                  <div class="timeline-time">03:46 - 07:20</div>
-                  <h2>Main Content</h2>
-                  <p>Detailed explanation of the core concepts and demonstrations.</p>
-              </div>
-          </div>
-
-          <div class="timeline-item">
-              <div class="timeline-content">
-                  <div class="timeline-time">07:21 - 10:50</div>
-                  <h2>Case Studies</h2>
-                  <p>Real-world examples and practical applications.</p>
-              </div>
-          </div>
-
-          <div class="timeline-item">
-              <div class="timeline-content">
-                  <div class="timeline-time">10:51 - End</div>
-                  <h2>Conclusion</h2>
-                  <p>Final thoughts and call to action for viewers.</p>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
-
-<title>Real-Time Space Timeline (Sri Lanka)</title>
-<div class="sri-lanka-time">
-  <h2>🌏 Current Sri Lanka Time : {{ currentTime }}</h2>
-</div>
-
-<div class="timeline">
-  <div class="time-header">
-    <span>🌍 Earth Time (1 Hour) vs. 🚀 Space Events (Real-Time)</span>
-  </div>
-  <div class="time-container">
-    <div 
-      *ngFor="let event of spaceEvents" 
-      class="time-event"
-      [style.opacity]="isPastEvent(event.time) ? '1' : '0.5'"
-    >
-      <div class="earth-time">{{ event.earthTime }}</div>
-      <div class="space-event">{{ event.spaceEvent }}</div>
-    </div>
-  </div>
-</div>
+<app-timeline></app-timeline>
+       
 
 
+
+  
+  
