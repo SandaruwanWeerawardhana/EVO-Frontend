@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 interface Review {
   name: string;
@@ -77,8 +78,38 @@ newReview: Review = {
   }
 
   addReview() {
-    if (this.newReview.rating && this.newReview.title && this.newReview.content) {
-      const review: Review = {
+    if (!this.newReview.rating || this.newReview.rating < 1 || this.newReview.rating > 5) {
+        Swal.fire({
+            title: 'Invalid Rating',
+            text: 'Please provide a valid rating between 1 and 5.',
+            icon: 'error',
+            confirmButtonText: 'OK',
+            timer: 3000
+        });
+        return;
+    }
+    if (!this.newReview.title.trim()) {
+        Swal.fire({
+            title: 'Title Required',
+            text: 'Title is required.',
+            icon: 'warning',
+            confirmButtonText: 'OK',
+            timer: 3000
+        });
+        return;
+    }
+    if (!this.newReview.content.trim() || this.newReview.content.length < 10) {
+        Swal.fire({
+            title: 'Content Too Short',
+            text: 'Content must be at least 10 characters long.',
+            icon: 'warning',
+            confirmButtonText: 'OK',
+            timer: 3000
+        });
+        return;
+    }
+
+    const review: Review = {
         name: 'You',
         avatar: '/assets/default-avatar.jpg',
         rating: this.newReview.rating,
@@ -86,23 +117,19 @@ newReview: Review = {
         title: this.newReview.title,
         content: this.newReview.content,
         helpfulCount: 0
-      };
-      
-      this.reviews.unshift(review);
-      this.resetForm();
-      this.showModal = false;
-    }
-  }
-
-  private resetForm() {
-    this.newReview = {
-      name: 'You',
-      avatar: '/assets/default-avatar.jpg',
-      rating: 0,
-      date: new Date(),
-      title: '',
-      content: '',
-      helpfulCount: 0
     };
-  }
+
+    this.reviews.unshift(review);
+    this.showModal = false;
+
+    Swal.fire({
+        title: 'Success!',
+        text: 'Review submitted successfully!',
+        icon: 'success',
+        confirmButtonText: 'OK',
+        timer: 3000
+    });
+}
+
+  
 }
