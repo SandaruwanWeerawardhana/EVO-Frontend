@@ -18,9 +18,8 @@ interface Message {
 interface IncomingMessage {
   content: string;
   sendTime: string;
-  userType: 'SUPPLIER' | 'ADMIN' | 'CUSTOMER';
-  adminId?: number;
-  customerId?: number;
+  userType: 'SUPPLIER' | 'ADMIN' |'USER' | 'CUSTOMER';
+  adminId: string;
   supplierId: number;
 }
 
