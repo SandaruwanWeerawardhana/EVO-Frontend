@@ -46,11 +46,11 @@
                 <form>
                     <div class="mb-3">
                         <label for="ownerName" class="form-label">🎤 Owner Name</label>
-                        <input type="text" class="form-control" id="ownerName" placeholder="Enter your name" required>
+                        <input  type="text" class="form-control" id="ownerName" placeholder="Enter your name" required [(ngModel)]="ownerName" name="ownerName">
                     </div>
                     <div class="mb-3">
                         <label for="eventDate" class="form-label">📅 Event Date</label>
-                        <input type="date" class="form-control" id="eventDate" required>
+                        <input type="text" class="form-control" id="eventDate" required [(ngModel)]="ownerName" name="eventDate">
                     </div>
                     <div class="mb-3">
                         <label for="capacity" class="form-label">🎟️ Capacity</label>
@@ -64,7 +64,7 @@
                         <label for="endTime" class="form-label">⏳ End Time</label>
                         <input type="time" class="form-control" id="endTime" required>
                     </div>
-                    <button routerLink="/event/venue-selection" type="submit" class="btn btn-primary">Submit 🎉</button>
+                    <button  type="submit" class="btn btn-primary" (click)="submitbuttonOnClick()">Submit 🎉</button>
                 </form>
             </div>
         </div>
