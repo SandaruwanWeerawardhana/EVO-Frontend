@@ -21,7 +21,9 @@ interface Event {
 export class UpcommingEventComponent {
   showPopup: boolean = false;
   selectedEvent: Event | null = null;
+
   
+
   events: Event[] = [
     { title: 'Music Festival', description: 'Live music with amazing artists!', startTime: '10:40', endTime: '11:50', imageUrl: '', status: 'Active' },
     { title: 'Tech Conference', description: 'Innovations and networking.', startTime: '12:00', endTime: '15:00', imageUrl: 'https://images.stockcake.com/public/2/9/2/292f8e62-8891-41bb-9d82-cf81027244bf_large/tech-conference-speech-stockcake.jpg', status: 'Not-Active' },
