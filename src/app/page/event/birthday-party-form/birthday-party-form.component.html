@@ -42,31 +42,32 @@
             </div>
 
             <div class="col-lg-6 p-4">
-                <h2>🎈 Birthday Party Details 🎂</h2>
-                <form>
+                <h2>Birthday Party Details</h2>
+                <div>
                     <div class="mb-3">
                         <label for="ownerName" class="form-label">🎤 Owner Name</label>
-                        <input type="text" class="form-control" id="ownerName" placeholder="Enter your name" required>
+                        <input type="text" class="form-control" id="ownerName" placeholder="Enter your name" required [(ngModel)]="ownerName" name="ownerName" >
                     </div>
                     <div class="mb-3">
-                        <label for="eventDate" class="form-label">📅 Event Date</label>
-                        <input type="date" class="form-control" id="eventDate" required>
+                        <label for="eventDate" class="form-label">Event Date</label>
+                        <input type="date" class="form-control" id="eventDate" required [(ngModel)]="eventdate" name="eventdate" >
                     </div>
                     <div class="mb-3">
-                        <label for="capacity" class="form-label">🎟️ Capacity</label>
-                        <input type="number" class="form-control" id="capacity" min="1" required>
+                        <label for="capacity" class="form-label">Capacity</label>
+                        <input type="number" class="form-control" id="capacity" min="1" required [(ngModel)]="headcount" name="headcount" >
                     </div>
                     <div class="mb-3">
-                        <label for="startTime" class="form-label">⏰ Start Time</label>
-                        <input type="time" class="form-control" id="startTime" required>
+                        <label for="startTime" class="form-label">Start Time</label>
+                        <input type="time" class="form-control" id="startTime" required [(ngModel)]="starttime" name="starttime" >
                     </div>
                     <div class="mb-3">
-                        <label for="endTime" class="form-label">⏳ End Time</label>
-                        <input type="time" class="form-control" id="endTime" required>
+                        <label for="endTime" class="form-label">End Time</label>
+                        <input type="time" class="form-control" id="endTime" required [(ngModel)]="endtime" name="endtime" >
                     </div>
-                    <button routerLink="/event/venue-selection" type="submit" class="btn btn-primary">Submit 🎉</button>
-                </form>
+                    <button  type="submit" class="btn btn-primary" (click)="submitbuttonOnClick()">Submit</button>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+
+</div></div>
+
