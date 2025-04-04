@@ -9,7 +9,7 @@ import { catchError, of, retry, tap } from 'rxjs';
 interface Message {
   content: string;
   sendTime: Date;
-  sender: 'SUPPLIER' | 'ADMIN' | 'CUSTOMER';
+  sender: 'SUPPLIER' | 'ADMIN' | 'CUSTOMER' |'USER';
   adminId?: number;
   customerId?: number;
   supplierId: number;
@@ -19,8 +19,10 @@ interface IncomingMessage {
   content: string;
   sendTime: string;
   userType: 'SUPPLIER' | 'ADMIN' |'USER' | 'CUSTOMER';
-  adminId: string;
+  adminId: number;
   supplierId: number;
+  customerId?: number;
+ 
 }
 
 type ChatType = 'ADMIN' | 'CUSTOMER';
@@ -145,14 +147,15 @@ export class MassagesComponent implements OnInit, OnDestroy {
   }
 
   private processMessages(messages: IncomingMessage[]) {
-    this.messages = messages.map(msg => ({
+     messages.map(msg => (
+      this.messages .push( {
       content: msg.content,
       sendTime: new Date(msg.sendTime),
       sender: msg.userType,
       adminId: msg.adminId,
       customerId: msg.customerId,
       supplierId: msg.supplierId
-    }));
+    })));
     this.loadingMessages = false;
     this.cdr.detectChanges();
   }
