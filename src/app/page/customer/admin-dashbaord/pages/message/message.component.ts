@@ -32,7 +32,7 @@ export class MessageComponent implements OnInit, OnDestroy  {
   loadingMessages = false;
   loadError: string | null = null;
   messageLoadError: string | null = null;
-  wsUrl = 'ws://localhost:8080/ws';
+  wsUrl = 'wss://localhost:8080/ws';
   reconnectAttempts = 0;
 
   constructor(private http: HttpClient, private cdr: ChangeDetectorRef) {}

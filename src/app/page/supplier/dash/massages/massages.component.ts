@@ -80,7 +80,7 @@ export class MassagesComponent implements OnInit, OnDestroy {
 
   private loadAdminIds() {
     this.http.get<number[]>(
-     ` http://localhost:8080/system/message/admin-supplier/adminsBySupplierId?supplierId=${this.supplierId}`
+     `https://15c96c2573eb39ad3ae204d113d5a0c6.loophole.site/system/message/admin-supplier/adminsBySupplierId?supplierId=${this.supplierId}`
     ).pipe(
       retry(2),
       catchError(error => {
@@ -97,7 +97,7 @@ export class MassagesComponent implements OnInit, OnDestroy {
 
   private loadCustomerIds() {
     this.http.get<number[]>(
-      `http://localhost:8080/system/message/customer-supplier/customersBySupplierId?supplierId=${this.supplierId}`
+      `https://15c96c2573eb39ad3ae204d113d5a0c6.loophole.site/system/message/customer-supplier/customersBySupplierId?supplierId=${this.supplierId}`
     ).pipe(
       retry(2),
       catchError(error => {
@@ -124,7 +124,7 @@ export class MassagesComponent implements OnInit, OnDestroy {
   private loadAdminMessages() {
     if (!this.selectedAdminId) return;
     this.http.get<IncomingMessage[]>(
-     ` http://localhost:8080/system/message/admin-supplier/chat/${this.selectedAdminId}/${this.supplierId}`
+     `https://15c96c2573eb39ad3ae204d113d5a0c6.loophole.site/system/message/admin-supplier/chat/${this.selectedAdminId}/${this.supplierId}`
     ).pipe(
       catchError(error => {
         console.error('Failed to load admin messages:', error);
@@ -136,7 +136,7 @@ export class MassagesComponent implements OnInit, OnDestroy {
   private loadCustomerMessages() {
     if (!this.selectedCustomerId) return;
     this.http.get<IncomingMessage[]>(
-      `http://localhost:8080/system/message/customer-supplier/chat/${this.selectedCustomerId}/${this.supplierId}`
+      `https://15c96c2573eb39ad3ae204d113d5a0c6.loophole.site/system/message/customer-supplier/chat/${this.selectedCustomerId}/${this.supplierId}`
     ).pipe(
       catchError(error => {
         console.error('Failed to load customer messages:', error);
