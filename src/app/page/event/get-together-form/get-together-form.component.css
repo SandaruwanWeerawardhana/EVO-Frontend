@@ -1,49 +1,36 @@
 .myContainer {
     padding: 20px;
-   
   }
-  
-  
-  .carousel {
+
+.carousel {
     margin-top: 80px;
     margin-left: 110px;
     border-radius: 15px; 
     overflow: hidden; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   }
-  
-  
-  #get-together-form {
+
+#get-together-form {
     margin-top: 20px;
     margin-right: 120px;
     padding: 60px;
     border-radius: 15px; 
-   
   }
-  
-
-
 
 #title{
-
    color: rgb(115, 119, 119);
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
    margin-bottom: 30px;
-
 }
 
-
-
-  #get-together-form input {
+#get-together-form input {
      border-radius: 8px;
      padding: 10px;
   }
-  
 
-  .btn-primary {
+.btn-primary {
     background: linear-gradient(90deg, rgba(0,102,255,1) 0%, rgba(208,0,255,1) 100%);
     border: none;
-   
     padding: 12px;
     font-size: 16px;
     border-radius: 8px;
