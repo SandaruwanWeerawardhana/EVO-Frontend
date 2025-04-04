@@ -1,5 +1,4 @@
-/* ====== GLOBAL STYLES ====== */
-:root {
+.myRoot {
     --primary: #6c5ce7;          /* Elegant purple */
     --primary-light: #a29bfe;    /* Soft purple */
     --primary-dark: #5649c0;     /* Deep purple */
@@ -17,7 +16,7 @@
     --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
   }
   
-  body {
+  .myBody {
     font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
     color: var(--text);
     background-color: #f5f6fa;
