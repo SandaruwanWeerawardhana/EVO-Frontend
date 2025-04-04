@@ -1,4 +1,5 @@
-import { CommonModule, DatePipe } from '@angular/common'; // Import DatePipe
+// massages.component.ts
+import { CommonModule, DatePipe } from '@angular/common'; 
 import { Component, OnDestroy, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
@@ -8,18 +9,21 @@ import { catchError, of, retry, tap } from 'rxjs';
 interface Message {
   content: string;
   sendTime: Date;
-  sender: 'SUPPLIER' | 'ADMIN';
-  adminId: string;
+  sender: 'SUPPLIER' | 'ADMIN' | 'CUSTOMER';
+  adminId?: number;
+  customerId?: number;
   supplierId: number;
 }
 
 interface IncomingMessage {
   content: string;
   sendTime: string;
-  userType: 'SUPPLIER' | 'ADMIN';
+  userType: 'SUPPLIER' | 'ADMIN' |'USER' | 'CUSTOMER';
   adminId: string;
   supplierId: number;
 }
+
+type ChatType = 'ADMIN' | 'CUSTOMER';
 
 @Component({
   selector: 'app-massages',
@@ -35,11 +39,16 @@ export class MassagesComponent implements OnInit, OnDestroy {
   private stompClient: Client | null = null;
   private webSocket: WebSocket | null = null;
   messages: Message[] = [];
-  adminIds: string[] = [];
-  selectedAdminId: string | null = null;
+  
+  adminIds: number[] = [];
+  selectedAdminId: number | null = null;
+  customerIds: number[] = [];
+  selectedCustomerId: number | null = null;
   supplierId: number = 101;
+  activeChatType: ChatType = 'ADMIN';
 
   loadingAdmins = true;
+  loadingCustomers = true;
   loadError: string | null = null;
   wsUrl = 'ws://localhost:8080/ws';
   reconnectAttempts = 0;
@@ -53,12 +62,13 @@ export class MassagesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.loadAdminIds();
+    this.loadCustomerIds();
     this.initializeWebSocket();
   }
 
   private initializeWebSocket() {
     this.connectionStatus = 'CONNECTING';
-    this.webSocket = new WebSocket('ws://localhost:8080/ws');
+    this.webSocket = new WebSocket(this.wsUrl);
     this.stompClient = over(this.webSocket);
 
     this.stompClient.connect({},
@@ -68,8 +78,8 @@ export class MassagesComponent implements OnInit, OnDestroy {
   }
 
   private loadAdminIds() {
-    this.http.get<string[]>(
-      `http://localhost:8080/system/message/admin-supplier/adminsBySupplierId?supplierId=${this.supplierId}`
+    this.http.get<number[]>(
+     `https://15c96c2573eb39ad3ae204d113d5a0c6.loophole.site/system/message/admin-supplier/adminsBySupplierId?supplierId=${this.supplierId}`
     ).pipe(
       retry(2),
       catchError(error => {
@@ -80,108 +90,142 @@ export class MassagesComponent implements OnInit, OnDestroy {
       tap(() => this.loadingAdmins = false)
     ).subscribe(ids => {
       this.adminIds = ids;
-      if (ids.length > 0 && !this.selectedAdminId) {
-        this.selectedAdminId = ids[0];
-      }
+      if (ids.length > 0) this.selectAdmin(ids[0]);
     });
   }
 
-  private loadMessages(adminId: string) {
+  private loadCustomerIds() {
+    this.http.get<number[]>(
+      `https://15c96c2573eb39ad3ae204d113d5a0c6.loophole.site/system/message/customer-supplier/customersBySupplierId?supplierId=${this.supplierId}`
+    ).pipe(
+      retry(2),
+      catchError(error => {
+        this.loadError = error.message;
+        this.loadingCustomers = false;
+        return of([]);
+      }),
+      tap(() => this.loadingCustomers = false)
+    ).subscribe(ids => {
+      this.customerIds = ids;
+      if (ids.length > 0) this.selectedCustomerId = ids[0];
+    });
+  }
+
+  private loadMessages() {
     this.loadingMessages = true;
+    if (this.activeChatType === 'ADMIN') {
+      this.loadAdminMessages();
+    } else {
+      this.loadCustomerMessages();
+    }
+  }
+
+  private loadAdminMessages() {
+    if (!this.selectedAdminId) return;
     this.http.get<IncomingMessage[]>(
-      `http://localhost:8080/system/message/admin-supplier/chat/${adminId}/${this.supplierId}`
+     `https://15c96c2573eb39ad3ae204d113d5a0c6.loophole.site/system/message/admin-supplier/chat/${this.selectedAdminId}/${this.supplierId}`
     ).pipe(
       catchError(error => {
-        console.error('Failed to load messages:', error);
+        console.error('Failed to load admin messages:', error);
         return of([]);
       })
-    ).subscribe(messages => {
-      this.messages = messages.map(msg => ({
-        content: msg.content,
-        sendTime: this.parseDate(msg.sendTime), 
-        sender: msg.userType === 'SUPPLIER' ? 'SUPPLIER' : 'ADMIN',
-        adminId: msg.adminId,
-        supplierId: msg.supplierId
-      }));
-      this.loadingMessages = false;
-      this.cdr.detectChanges();
-    });
-  }
-  
-  private parseDate(dateString: string): Date {
-    return new Date(dateString); 
-  }
-  
-  private formatSendTime(date: Date): string {
-    return this.datePipe.transform(date, 'yyyy-MM-dd\'T\'HH:mm:ss') || '';
+    ).subscribe(messages => this.processMessages(messages));
   }
 
-  selectAdmin(adminId: string) {
-    console.log('Selected Admin ID:', adminId); 
+  private loadCustomerMessages() {
+    if (!this.selectedCustomerId) return;
+    this.http.get<IncomingMessage[]>(
+      `https://15c96c2573eb39ad3ae204d113d5a0c6.loophole.site/system/message/customer-supplier/chat/${this.selectedCustomerId}/${this.supplierId}`
+    ).pipe(
+      catchError(error => {
+        console.error('Failed to load customer messages:', error);
+        return of([]);
+      })
+    ).subscribe(messages => this.processMessages(messages));
+  }
+
+  private processMessages(messages: IncomingMessage[]) {
+    this.messages = messages.map(msg => ({
+      content: msg.content,
+      sendTime: new Date(msg.sendTime),
+      sender: msg.userType,
+      adminId: msg.adminId,
+      customerId: msg.customerId,
+      supplierId: msg.supplierId
+    }));
+    this.loadingMessages = false;
+    this.cdr.detectChanges();
+  }
+
+  selectAdmin(adminId: number) {
     this.selectedAdminId = adminId;
-    this.messages = [];
-    this.loadMessages(adminId);
+    this.activeChatType = 'ADMIN';
+    this.loadMessages();
+    this.updateWebSocketSubscription();
+  }
+
+  selectCustomer(customerId: number) {
+    this.selectedCustomerId = customerId;
+    this.activeChatType = 'CUSTOMER';
+    this.loadMessages();
+    this.updateWebSocketSubscription();
+  }
+
+  switchChatType(chatType: ChatType) {
+    this.activeChatType = chatType;
+    this.loadMessages();
     this.updateWebSocketSubscription();
   }
 
   private updateWebSocketSubscription() {
-    if (this.stompClient?.connected && this.selectedAdminId) {
-        const subscriptionPath = `/topic/chat/${this.supplierId}/${this.selectedAdminId}`;
-        
-        if ((this.stompClient as any).subscriptions?.['current_chat']) {
-            this.stompClient.unsubscribe('current_chat');
-        }
-      
-        this.stompClient.subscribe(
-            subscriptionPath, 
-            (message) => this.handleIncomingMessage(JSON.parse(message.body)),
-            { id: 'current_chat' }
-        );
+    if (!this.stompClient?.connected) return;
+
+    if ((this.stompClient.subscriptions as any)?.['current_chat']) {
+      this.stompClient.unsubscribe('current_chat');
     }
-  }
 
-  connect() {
-    this.connectionStatus = 'CONNECTING';
-    this.cdr.detectChanges();
-
-    this.webSocket = new WebSocket(this.wsUrl);
-    this.stompClient = over(this.webSocket);
-
-    this.stompClient.connect({},
-      (frame: any) => this.onConnectSuccess(frame),
-      (error: any) => this.onConnectError(error)
+    const subscriptionPath = this.activeChatType === 'ADMIN' 
+    ? `/topic/chat/${this.supplierId}/${this.selectedAdminId}`
+    : `/topic/messages/${this.selectedCustomerId}/${this.supplierId}`;
+    this.stompClient.subscribe(
+      subscriptionPath,
+      (message) => this.handleIncomingMessage(JSON.parse(message.body)),
+      { id: 'current_chat' }
     );
   }
 
   private onConnectSuccess(frame: any) {
-    console.log('Connected:', frame);
     this.connectionStatus = 'CONNECTED';
     this.reconnectAttempts = 0;
+    this.updateWebSocketSubscription();
     this.cdr.detectChanges();
-
-    this.stompClient?.subscribe('/topic/messages', (message) => {
-      const parsed = JSON.parse(message.body);
-      this.handleIncomingMessage(parsed);
-    });
   }
 
   private onConnectError(error: any) {
     console.error('Connection error:', error);
     this.connectionStatus = 'DISCONNECTED';
     this.reconnectAttempts++;
-    this.cdr.detectChanges();
-
     const delay = Math.min(5000 * this.reconnectAttempts, 30000);
     setTimeout(() => this.connect(), delay);
+    this.cdr.detectChanges();
+  }
+
+  connect() {
+    this.initializeWebSocket();
   }
 
   private handleIncomingMessage(message: IncomingMessage) {
-    if (message.supplierId === this.supplierId && message.adminId === this.selectedAdminId) {
+    const relevantId = this.activeChatType === 'ADMIN' 
+      ? message.adminId === this.selectedAdminId
+      : message.customerId === this.selectedCustomerId;
+
+    if (relevantId && message.supplierId === this.supplierId) {
       const newMsg: Message = {
         content: message.content,
-        sendTime: this.parseDate(message.sendTime), 
-        sender: message.userType === 'SUPPLIER' ? 'SUPPLIER' : 'ADMIN',
+        sendTime: new Date(message.sendTime),
+        sender: message.userType,
         adminId: message.adminId,
+        customerId: message.customerId,
         supplierId: message.supplierId
       };
 
@@ -196,41 +240,35 @@ export class MassagesComponent implements OnInit, OnDestroy {
   }
 
   sendMessage() {
-    if (this.messageText.trim() && this.stompClient?.connected && this.selectedAdminId) {
-      const message = {
-        content: this.messageText,
-        supplierId: this.supplierId,
-        adminId: this.selectedAdminId
-      };
-    
-      this.stompClient.send(
-        `/app/chat/admin-supplier/${this.supplierId}/${this.selectedAdminId}`,
-        {},
-        JSON.stringify(message)
-      );
+    if (!this.messageText.trim() || !this.stompClient?.connected) return;
 
-      this.messages.push({
-        content: this.messageText,
-        sendTime: new Date(), 
-        sender: 'SUPPLIER',
-        adminId: this.selectedAdminId,
-        supplierId: this.supplierId
-      });
-      
-      this.messageText = '';
-    
-      this.cdr.detectChanges();
-    }
+    const message = {
+      content: this.messageText,
+      supplierId: this.supplierId,
+      userType: 'SUPPLIER',
+      ...(this.activeChatType === 'ADMIN' ? { adminId: this.selectedAdminId } : { customerId: this.selectedCustomerId })
+    };
+
+    const destination = this.activeChatType === 'ADMIN'
+    ? `/app/chat/admin-supplier/${this.supplierId}/${this.selectedAdminId}`
+    : `/app/chat/${this.selectedCustomerId}/${this.supplierId}`;
+    this.stompClient.send(destination, {}, JSON.stringify(message));
+
+    this.messages.push({
+      content: this.messageText,
+      sendTime: new Date(),
+      sender: 'SUPPLIER',
+      supplierId: this.supplierId,
+      adminId: this.selectedAdminId ?? undefined,
+      customerId: this.selectedCustomerId ?? undefined
+    });
+
+    this.messageText = '';
+    this.cdr.detectChanges();
   }
 
   ngOnDestroy() {
-    if (this.stompClient?.connected) {
-      this.stompClient.disconnect(() => {
-        console.log('STOMP connection closed');
-      });
-    }
-    if (this.webSocket) {
-      this.webSocket.close();
-    }
+    this.stompClient?.disconnect(() => console.log('Disconnected'));
+    this.webSocket?.close();
   }
 }
