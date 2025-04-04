@@ -1,7 +1,7 @@
-.event-card:hover {
+/* .event-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175) !important;
-}
+} */
 
 .user-avatar img {
     width: 50px;
@@ -18,4 +18,7 @@
 
 .carousel-indicators button.active {
     opacity: 1 !important;
+}
+.card-header{
+    background: linear-gradient(90deg, rgba(0,102,255,1) 0%, rgba(208,0,255,1) 100%);
 }
