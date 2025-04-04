@@ -3,20 +3,24 @@
 }
 
 #bodyDiv {
-  min-height: 100px;
+  min-height: 90px;
   display: flex;
   align-items: center; 
   justify-content: center;
   overflow: hidden;
 }
 
+#formDiv{
+  margin-bottom: 350px;
+}
+
 .card {
   border-radius: 1rem;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1500px;
   margin: 0 auto;
   overflow: hidden;
-  height: auto;
+  height: 650px;
 }
 
 .card-body {
@@ -43,19 +47,19 @@
 .custom-image {
   border-radius: 1rem 0 0 1rem;
   width: 100%;
-  height: 635px;
+  height: 550px;
   object-fit: cover; 
   object-position: center;
 }
 
 label {
   font-size: 12px;
-  padding-bottom: 5px;
+  padding-bottom: 4px;
 }
 
 .form-control {
   border: 2px solid #007bff !important;
-  padding: 8px !important;
+  padding: 3px !important;
   font-size: 17px;
 }
 
@@ -72,24 +76,31 @@ label {
 }
 
 .page-heading {
-  font-size: 30px;
+  font-size: 25px;
   background-image: linear-gradient(to right, #0066ff, #bb00ff);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
   font-weight: 700;
 
 }
 
 
+
 :host {
   display: block;
   font-family: 'Arial', sans-serif;
-  min-height: 100vh;
+  min-height: 100px;
   background-color: #f5f5f5;
   overflow-x: hidden;
   position: relative;
+}
+
+
+h1 {
+  margin-bottom: 10px;
+  color: #ff4081;
 }
 
 .animation-button {
@@ -109,47 +120,24 @@ label {
   box-shadow: 0 4px 10px rgba(224, 17, 95, 0.3);
 }
 
-/* Class to apply when button is clicked */
-:host-context(.hearts-active) .animation-button {
-  animation: pulse 0.5s infinite;
-  background-color: #e0115f;
-}
 
 .heart {
   position: absolute;
-  font-size: 24px;
   color: #ff4081;
   opacity: 0;
-  top: -30px;
-  animation-duration: 3s;
+  top: -50px;
+  animation-name: heartFall;
+  animation-timing-function: ease-in;
   animation-fill-mode: forwards;
   user-select: none;
   pointer-events: none;
-  display: none;
+  z-index: 1;
 }
-
-.heart.show {
-  display: block;
-}
-
-/* Heart styles with different sizes */
-.heart-1, .heart-2, .heart-3, .heart-4, .heart-5, .heart-6 {
-  animation-name: heartFall;
-  animation-timing-function: ease-in;
-}
-
-.heart-1 { font-size: 20px; left: 10%; animation-delay: 0.1s; }
-.heart-2 { font-size: 30px; left: 25%; animation-delay: 0.7s; }
-.heart-3 { font-size: 35px; left: 40%; animation-delay: 0.3s; }
-.heart-4 { font-size: 25px; left: 60%; animation-delay: 0.5s; }
-.heart-5 { font-size: 40px; left: 75%; animation-delay: 0.2s; }
-.heart-6 { font-size: 22px; left: 90%; animation-delay: 0.6s; }
 
 @keyframes heartFall {
   0% {
-    top: -30px;
+    top: -50px;
     opacity: 0;
-    transform: translateY(0) rotate(0deg);
   }
   10% {
     opacity: 1;
@@ -158,9 +146,8 @@ label {
     opacity: 0.7;
   }
   100% {
-    top: 100vh;
+    top: calc(100vh + 50px);
     opacity: 0;
-    transform: translateY(0) rotate(360deg);
   }
 }
 
