@@ -14,7 +14,8 @@
                         <small class="text-body-secondary">Now Ongoing</small>
                     </p>
                     <button type="button" class="btn btn-outline-secondary"
-                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                        (click)="showPopupSummary(ongoingEvent)">
                         View Details
                     </button>
                 </div>
@@ -39,14 +40,22 @@
             </div>   
         </div>
 
-  
         <div class="status-icon position-absolute bottom-0 end-0 m-3 w-25 d-flex align-items-center justify-content-end">
             <p class="more d-flex align-items-center mb-0 me-2">
-             
                 <span class="status-dot" [ngStyle]="{'background-color': getStatusColor(event.status)}"></span>
-
                 {{ event.status }}
             </p>
-            <p class="view-details  mb-0 ">view more</p>
+            <button type="button" class="btn btn-link p-0 mb-0 view-details" (click)="showPopupSummary(event)">
+                View More
+            </button>
         </div>
-        
+    </div>
+</div>
+
+
+<div *ngIf="showPopup" class="modal-overlay">
+    <div class="modal-content">
+        <button class="close-btn" (click)="closePopup()">&times;</button>
+        <app-pop-up-summary ></app-pop-up-summary>
+    </div>
+</div>
