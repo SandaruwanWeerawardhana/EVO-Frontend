@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnDestroy } from '@angular/core';
 import {FormBuilder, FormGroup,ReactiveFormsModule,Validators,} from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
+import { routes } from '../../../app.routes';
 
 interface Heart {
   id: number;
@@ -16,14 +18,14 @@ interface Heart {
 
 @Component({
   selector: 'app-annivesary-form',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule ],
   templateUrl: './annivesary-form.component.html',
   styleUrl: './annivesary-form.component.css',
 })
 export class AnnivesaryFormComponent implements OnDestroy {
     anniversaryForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder , private router:Router) {
     this.anniversaryForm = this.fb.group({
       year: ['', Validators.required],
       wifeName: ['', Validators.required],
@@ -45,9 +47,10 @@ export class AnnivesaryFormComponent implements OnDestroy {
               title: 'Booking Added Successful',
               text: ''
             });
-            this.anniversaryForm.reset();
+            this.router.navigate(["/event/venue-selection"]);
+            
 
-
+    
     }else{
       Swal.fire({
         icon: 'error',
