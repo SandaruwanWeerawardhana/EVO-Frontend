@@ -36,12 +36,13 @@ export class AnnivesaryFormComponent implements OnDestroy {
       capacity: ['', Validators.required],
       description: ['']
     });
+    this.generateHeart();
+    this.toggleHearts();
   }
 
   onSubmit() {
     if (this.anniversaryForm.valid) {
       console.log(this.anniversaryForm.value);
-      this.toggleHearts();
          Swal.fire({
               icon: 'success',
               title: 'Booking Added Successful',
@@ -49,8 +50,6 @@ export class AnnivesaryFormComponent implements OnDestroy {
             });
             this.router.navigate(["/event/venue-selection"]);
             
-
-    
     }else{
       Swal.fire({
         icon: 'error',
@@ -68,7 +67,7 @@ export class AnnivesaryFormComponent implements OnDestroy {
   private maxHearts = 50;
   private intervalId: any = null;
   private timeoutId: any = null;
-  animationDuration = 30;
+  animationDuration = 3000;
 
   toggleHearts() {
     if (this.isActive) {
