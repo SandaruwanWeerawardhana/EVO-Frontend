@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
+import { TimelineComponent } from '../../../common/timeline/timeline.component';
+
 
 @Component({
   selector: 'app-ongoing-event',
-  imports: [],
+  imports: [TimelineComponent],
   templateUrl: './ongoing-event.component.html',
-  styleUrl: './ongoing-event.component.css'
+  styleUrls: ['./ongoing-event.component.css'],
 })
+
 export class OngoingEventComponent {
- 
+
 }
