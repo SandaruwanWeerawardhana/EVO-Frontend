@@ -1,4 +1,4 @@
-import { Supplier } from "./Supplier";
+import Supplier from "./Supplier";
 import { Venue } from "./Venue";
 
 export class VenueRequest {
