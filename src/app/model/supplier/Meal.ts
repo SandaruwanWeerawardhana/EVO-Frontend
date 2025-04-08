@@ -6,6 +6,7 @@ export class Meal {
   description?: string;
   price: number;
   type: MealType;
+  cateringId:number;
 
   constructor(data?: Partial<Meal>) {
     this.id = data?.id;
@@ -13,6 +14,7 @@ export class Meal {
     this.description = data?.description || '';
     this.price = data?.price || 0;
     this.type = data?.type || MealType.BREAKFAST;
+    this.cateringId = data?.cateringId || 0;
   }
 
   getTotalPrice(quantity: number): number {
