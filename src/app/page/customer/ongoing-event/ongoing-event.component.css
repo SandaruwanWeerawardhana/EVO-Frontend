@@ -1,5 +1,5 @@
 .custom-img-size {
-  width: 1000px; /* Adjust as needed */
+  width: 1000px;
   height: auto;
-  object-fit: cover; /* Ensures proper aspect ratio */
+  object-fit: cover;
 }
