@@ -1,4 +1,4 @@
-import { MealType } from "../../utils/MealType";
+import { MealType } from "../../../utils/MealType";
 
 export class Meal {
   id: number;
