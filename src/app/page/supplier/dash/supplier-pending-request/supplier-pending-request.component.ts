@@ -14,6 +14,7 @@ import Supplier from '../../../../model/supplier/Supplier';
 @Component({
   selector: 'app-supplier-pending-request',
   imports: [RouterLink,RouterOutlet,NgFor],
+
   templateUrl: './supplier-pending-request.component.html',
   styleUrl: './supplier-pending-request.component.css'
 })

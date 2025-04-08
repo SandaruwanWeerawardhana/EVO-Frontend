@@ -1,13 +1,16 @@
 <div class="card-body">
-  <h1 class="card-title mb-3">{{basicinfo.title}}</h1>
+  <h1 class="card-title mb-3">
+    <a routerLink="/supplier/previous-work" class="text-decoration-none text-dark" style="cursor: pointer;">
+      {{ basicinfo.title }}
+    </a>
+  </h1>
   <div class="row mb-3">
     <div class="col-6">
-      <span class="text-muted" *ngIf="basicinfo.rating == 'five'">⭐⭐⭐⭐⭐</span>
-      <span class="text-muted" *ngIf="basicinfo.rating == 'four'">⭐⭐⭐⭐☆</span>
-      <span class="text-muted" *ngIf="basicinfo.rating == 'three'">⭐⭐⭐☆☆</span>
-      <span class="text-muted" *ngIf="basicinfo.rating == 'two'">⭐⭐☆☆☆</span>
-      <span class="text-muted" *ngIf="basicinfo.rating == 'one'">⭐☆☆☆☆</span>
+      <button routerLink="/supplier/previous-work" type="button" class="btn btn-primary btn-xl fs-6">
+        View Profile
+      </button>
     </div>
+  
 
 
     <div class="col-6 text-end">
@@ -16,7 +19,7 @@
     </div>
   </div>
   <hr>
-  <div id="carouselExample" class="carousel slide mb-3" data-bs-ride="carousel">
+  <div id="carouselExample" class="carousel slide mb-3 " data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item" *ngFor="let image of images">
         <img [src]="image.imageUrl" width="100%">
@@ -76,19 +79,26 @@
 
   </div>
 
-  <div class="footer">
-    <div class="footer-content" style="margin-right: 1rem;">
-      <div>
-        <h3>Total Charges :</h3>
-        <h2>{{total_charges}}.00</h2>
+  <div class="z-3 position-fixed bottom-0 start-0 w-100 card border-0 shadow-sm rounded-top-3 bg-primary-subtle mt-4">
+    <div class="card-body">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="d-flex align-items-center">
+            <div class="me-3">
+              <div class="text-muted fs-4">Total Charges</div>
+              <div class="fw-bold display-6">Rs. 2,950,000</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 d-flex justify-content-end gap-2 mt-3 mt-md-0">
+          <button type="button" class="btn btn-outline-secondary btn-xl fs-4">
+            <i class="bi bi-arrow-left me-1"></i>Back
+          </button>
+          <button routerLink="/event/event-summery" type="button" class="btn btn-primary btn-xl fs-4">
+            Add Supplier
+          </button>
+        </div>
       </div>
-      <button class="btn btn-primary btn-lg" routerLink="/event/event-summery"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-          fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
-          <path
-            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
-        </svg>
-        Add Supplier&nbsp;&nbsp;
-      </button>
     </div>
   </div>
 </div>

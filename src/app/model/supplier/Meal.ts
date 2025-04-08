@@ -1,16 +1,21 @@
 import { MealType } from "../../../utils/MealType";
 
 export class Meal {
-  id: number;
+  id?: number;
   name: string;
-  pricePerPerson: number;
-  mealType: MealType;
+  description?: string;
+  price: number;
+  type: MealType;
 
-  constructor(id: number, name: string, pricePerPerson: number, mealType: MealType) {
-    this.id = id;
-    this.name = name;
-    this.pricePerPerson = pricePerPerson;
-    this.mealType = mealType;
+  constructor(data?: Partial<Meal>) {
+    this.id = data?.id;
+    this.name = data?.name || '';
+    this.description = data?.description || '';
+    this.price = data?.price || 0;
+    this.type = data?.type || MealType.BREAKFAST;
+  }
+
+  getTotalPrice(quantity: number): number {
+    return this.price * quantity;
   }
 }
-
