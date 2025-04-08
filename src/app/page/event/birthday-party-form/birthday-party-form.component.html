@@ -46,23 +46,23 @@
                 <div>
                     <div class="mb-3">
                         <label for="ownerName" class="form-label">🎤 Owner Name</label>
-                        <input type="text" class="form-control" id="ownerName" placeholder="Enter your name" required [(ngModel)]="ownerName" name="ownerName" >
+                        <input type="text" class="form-control" id="ownerName" placeholder="Enter your name" required [(ngModel)]="birthdayPartyForm.ownerName" name="ownerName" >
                     </div>
                     <div class="mb-3">
                         <label for="eventDate" class="form-label">Event Date</label>
-                        <input type="date" class="form-control" id="eventDate" required [(ngModel)]="eventdate" name="eventdate" >
+                        <input type="date" class="form-control" id="eventDate" required [(ngModel)]="birthdayPartyForm.eventdate" name="eventdate" >
                     </div>
                     <div class="mb-3">
                         <label for="capacity" class="form-label">Capacity</label>
-                        <input type="number" class="form-control" id="capacity" min="1" required [(ngModel)]="headcount" name="headcount" >
+                        <input type="number" class="form-control" id="capacity" min="1" required [(ngModel)]="birthdayPartyForm.headcount" name="headcount" >
                     </div>
                     <div class="mb-3">
                         <label for="startTime" class="form-label">Start Time</label>
-                        <input type="time" class="form-control" id="startTime" required [(ngModel)]="starttime" name="starttime" >
+                        <input type="time" class="form-control" id="startTime" required [(ngModel)]="birthdayPartyForm.starttime" name="starttime" >
                     </div>
                     <div class="mb-3">
                         <label for="endTime" class="form-label">End Time</label>
-                        <input type="time" class="form-control" id="endTime" required [(ngModel)]="endtime" name="endtime" >
+                        <input type="time" class="form-control" id="endTime" required [(ngModel)]="birthdayPartyForm.endtime" name="endtime" >
                     </div>
                     <button  type="submit" class="btn btn-primary" (click)="submitbuttonOnClick()">Submit</button>
                 </div>
