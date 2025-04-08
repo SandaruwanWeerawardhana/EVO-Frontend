@@ -20,8 +20,6 @@
             </div>
           </div>
         </div>
-     
-      
       <!-- Bootstrap Modal for the pop-up form -->
       <div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -32,19 +30,19 @@
             </div>
             <div class="modal-body">
               <!-- Form -->
-              <form>
+              <form   [formGroup]="userReportForm">
                 <div class="mb-3">
                   <label for="userId" class="form-label">User ID</label>
-                  <input type="text" class="form-control" id="userId" placeholder="Enter User ID">
+                  <input type="text" class="form-control" id="userId" placeholder="Enter User ID" formControlName="userId">
                 </div>
                 <div class="mb-3">
                   <label for="reportType" class="form-label">Select Report Type</label>
-                  <select class="form-select" id="reportType">
+                  <select class="form-select" id="reportType" formControlName="reportType">
                     <option value="summary">Summary Report</option>
                     <option value="detailed">Detailed Report</option>
                   </select>
                 </div>
-                <button type="submit" class="btn btn-success">Generate User Report</button>
+                <button type="submit" class="btn btn-success" (click)="submitUserReport()">Generate User Report</button>
               </form>
             </div>
           </div>
@@ -52,8 +50,6 @@
       </div>
 
       
-
-
         <div class="col-6">
             <div class="card mb-3 EventCard" style="max-width: 540px;">
                 <div class="row no-gutters">
@@ -79,19 +75,19 @@
             </div>
             <div class="modal-body">
               <!-- Form -->
-              <form>
+              <form [formGroup]="eventReportForm">
                 <div class="mb-3">
                   <label for="userId" class="form-label">Event ID</label>
-                  <input type="text" class="form-control" id="userId" placeholder="Enter Event ID">
+                  <input type="text" class="form-control" id="userId" placeholder="Enter Event ID" formControlName="eventId">
                 </div>
                 <div class="mb-3">
                   <label for="reportType" class="form-label">Select Report Type</label>
-                  <select class="form-select" id="reportType">
+                  <select class="form-select" id="reportType" formControlName="reportType">
                     <option value="summary">Summary Report</option>
                     <option value="detailed">Detailed Report</option>
                   </select>
                 </div>
-                <button type="submit" class="btn btn-success">Generate Event Report</button>
+                <button type="submit" class="btn btn-success" (click)="submitEventReport()">Generate Event Report</button>
               </form>
             </div>
           </div>
@@ -115,7 +111,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Bootstrap Modal for the pop-up form -->
       <div class="modal fade" id="reportModalsup" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -126,24 +121,25 @@
             </div>
             <div class="modal-body">
               <!-- Form -->
-              <form>
+              <form [formGroup]="supplierReportForm">
                 <div class="mb-3">
                   <label for="userId" class="form-label">Supplier ID</label>
-                  <input type="text" class="form-control" id="userId" placeholder="Enter Supplier ID">
+                  <input type="text" class="form-control" id="userId" placeholder="Enter Supplier ID" formControlName="supplierId">
                 </div>
                 <div class="mb-3">
                   <label for="reportType" class="form-label">Select Report Type</label>
-                  <select class="form-select" id="reportType">
+                  <select class="form-select" id="reportType"  formControlName="reportType" >
                     <option value="summary">Summary Report</option>
                     <option value="detailed">Detailed Report</option>
                   </select>
                 </div>
-                <button type="submit" class="btn btn-success">Generate Supplier Report</button>
+                <button type="submit" class="btn btn-success" (click)="submitSupplierReport()">Generate Supplier Report</button>
               </form>
             </div>
           </div>
         </div>
       </div>
+
 
         <div class="col-6">
             <div class="card mb-3 EventCard" style="max-width: 540px;">
@@ -159,7 +155,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Bootstrap Modal for the pop-up form -->
       <div class="modal fade" id="reportModalsystem" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -170,28 +165,24 @@
             </div>
             <div class="modal-body">
               <!-- Form -->
-              <form>
+              <form [formGroup]="systemReportForm">
                 <div class="mb-3">
                   <label for="userId" class="form-label">System ID</label>
-                  <input type="text" class="form-control" id="userId" placeholder="Enter System ID">
+                  <input type="text" class="form-control" id="userId" placeholder="Enter System ID" formControlName="systemId">
                 </div>
                 <div class="mb-3">
                   <label for="reportType" class="form-label">Select Report Type</label>
-                  <select class="form-select" id="reportType">
+                  <select class="form-select" id="reportType" formControlName="reportType">
                     <option value="summary">Summary Report</option>
                     <option value="detailed">Detailed Report</option>
                   </select>
                 </div>
-                <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#reportModalsystem">Generate Syetm Report</button>
+                <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#reportModalsystem" (click)="submitSystemReport()">Generate Syetm Report</button>
               </form>
             </div>
           </div>
         </div>
       </div>
-
-
-
-
 
 
         <div class="col-6">
@@ -209,7 +200,6 @@
                 </div>
             </div>
         </div>
-
          <!-- Bootstrap Modal for the pop-up form -->
       <div class="modal fade" id="reportModalReport" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -220,19 +210,19 @@
             </div>
             <div class="modal-body">
               <!-- Form -->
-              <form>
+              <form [formGroup]="auditReportForm">
                 <div class="mb-3">
                   <label for="userId" class="form-label">Report ID</label>
-                  <input type="text" class="form-control" id="userId" placeholder="Enter Report ID">
+                  <input type="text" class="form-control" id="userId" placeholder="Enter Report ID" formControlName="auditId">
                 </div>
                 <div class="mb-3">
                   <label for="reportType" class="form-label">Select Report Type</label>
-                  <select class="form-select" id="reportType">
+                  <select class="form-select" id="reportType" formControlName="reportType">
                     <option value="summary">Summary Report</option>
                     <option value="detailed">Detailed Report</option>
                   </select>
                 </div>
-                <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#reportModalReport">Generate System Report</button>
+                <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#reportModalReport" (click)="submitAuditReport()">Generate System Report</button>
               </form>
             </div>
           </div>
