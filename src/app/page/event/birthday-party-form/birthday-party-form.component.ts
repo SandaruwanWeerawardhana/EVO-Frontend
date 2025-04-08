@@ -102,12 +102,8 @@ export class BirthdayPartyFormComponent {
       showConfirmButton: false,
       timer: 1500,
     }); 
-
-    const formObject: any = {};
-    this.formdata.forEach((value, key) => {
-      formObject[key] = value;
-    });
-    console.log('Form data:', formObject);
+    
+    console.log(this.birthdayPartyForm);
     
     this.router.navigate(['/event/venue-selection']);
   }
