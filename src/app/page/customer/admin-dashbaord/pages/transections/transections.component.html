@@ -1,84 +1,82 @@
 <div class="table-container">
-    <input 
-    type="text" 
-    placeholder="Search..." 
-    class="form-control mb-3"
-  />
-    
-    
+  <div class="filter-controls">
+    <div class="row g-2 mb-4 filter-buttons justify-content-center align-items-center">
+      <div class="col-md-3">
+        <label class="form-label ps-2">
+          <h6>Start Date</h6>
+        </label>
+        <input type="date" placeholder="Start Date" class="form-control" />
+      </div>
+  
+      <div class="col-md-3">
+        <label class="form-label ps-2">
+          <h6>End Date</h6>
+        </label>
+        <input type="date" placeholder="End Date" class="form-control" />
+      </div>
+  
+      <div class="col-md-3">
+        <label class="form-label ps-2">
+          <h6>Amount</h6>
+        </label>
+        <input type="number" placeholder="-" class="form-control" />
+      </div>
+  
+      <div class="col-md-3">
+        <label class="form-label">Supplier Type</label>
+        <select class="form-select h-100">
+          <option selected>Supplier 1</option>
+          <option>Supplier 2</option>
+          <option>Supplier 3</option>
+          <option>Supplier 4</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  
+  </div>
+
+        <!--//--- transection-table -->
+
   <div class="table-container">
-    <h2>Transactions</h2>
     <table class="table table-hover table-bordered shadow-lg">
       <thead class="custom-thead">
         <tr>
           <th scope="col">Date</th>
           <th scope="col">Transection ID</th>
-          <th scope="col">Description</th>
           <th scope="col">Amount</th>
-          <th scope="col">Supplier</th>
-          <th scope="col">Customer</th>
+          <th scope="col">Supplier Name</th>
+          <th scope="col">Supplier Type</th>
+          <th scope="col">Customer Name</th>
+          <th scope="col">Export</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">2022/4/5</th>
-          <td>T001</td>
-          <td>Otto</td>
-          <td>Rs.1000</td>
-          <td>mr.perere</td>
-          <td>deneth</td>
+        <tr *ngFor="let item of filteredTransection">
+          <td scope="row">{{item.date}}</td>
+          <td>{{item.transectionId}}</td>
+          <td>{{item.amount}}</td>
+          <td>{{item.supplierName}}</td>
+          <td>{{item.supplierType}}</td>
+          <td>{{item.customerName}}</td>
+          <td><div class="button-container">
+            <label class="label">
+                <input type="checkbox" class="input" />
+                <span class="circle"><svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M12 19V5m0 14-4-4m4 4 4-4"></path>
+                    </svg>
+                    <div class="square"></div>
+                </span>
+                <p class="title">Download</p>
+                <p class="title2">Open</p>
+            </label>
+        </div></td>
         </tr>
-        <tr>
-          <th scope="row">2022/4/5</th>
-          <td>T001</td>
-          <td>Thornton</td>
-          <td>Rs.1000</td>
-          <td>Pending</td>
-          <td>Pending</td>
-        </tr>
-        <tr>
-          <th scope="row">2022/4/5</th>
-          <td>T001</td>
-          <td>Thornton</td>
-          <td>Rs.1000</td>
-          <td>Pending</td>
-          <td>Pending</td>
-        </tr>
-        <tr>
-          <th scope="row">2022/4/5</th>
-          <td>T001</td>
-          <td>Thornton</td>
-          <td>Rs.1000</td>
-          <td>Pending</td>
-          <td>Pending</td>
-        </tr>
-        <tr>
-          <th scope="row">2022/4/5</th>
-          <td>T001</td>
-          <td>Thornton</td>
-          <td>Rs.1000</td>
-          <td>Pending</td>
-          <td>Pending</td>
-        </tr>
-        <tr>
-          <th scope="row">2022/4/5</th>
-          <td>T001</td>
-          <td>Thornton</td>
-          <td>Rs.1000</td>
-          <td>Pending</td>
-          <td>Pending</td>
-        </tr>
-        <tr>
-          <th scope="row">2022/4/5</th>
-          <td>T001</td>
-          <td>Thornton</td>
-          <td>Rs.1000</td>
-          <td>Pending</td>
-          <td>Pending</td>
-        </tr>
-      
+
       </tbody>
+      
+
     </table>
   </div>
-  
-
