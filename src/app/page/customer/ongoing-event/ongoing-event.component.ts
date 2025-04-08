@@ -10,5 +10,5 @@ import { TimelineComponent } from '../../../common/timeline/timeline.component';
 })
 
 export class OngoingEventComponent {
-
+  
 }
