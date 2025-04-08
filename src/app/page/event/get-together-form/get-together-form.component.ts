@@ -1,13 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
 
 
 @Component({
   selector: 'app-get-together-form',
-  imports: [RouterLink , FormsModule,CommonModule],
+  imports: [ FormsModule,CommonModule],
   templateUrl: './get-together-form.component.html',
   styleUrl: './get-together-form.component.css'
 })

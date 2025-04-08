@@ -15,7 +15,7 @@ interface birthdayParty {
 }
 @Component({
   selector: 'app-birthday-party-form',
-  imports: [RouterLink, FormsModule],
+  imports: [ FormsModule],
   templateUrl: './birthday-party-form.component.html',
   styleUrl: './birthday-party-form.component.css'
 })
