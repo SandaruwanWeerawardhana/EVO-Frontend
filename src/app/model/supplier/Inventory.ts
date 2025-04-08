@@ -1,4 +1,4 @@
-import { SupplierCategoryType } from "../../utils/SupplierCategoryType";
+import { SupplierCategoryType } from "../../../utils/SupplierCategoryType";
 
 export class Inventory {
   inventoryID: number;

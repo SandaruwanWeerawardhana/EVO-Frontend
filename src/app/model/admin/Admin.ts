@@ -1,4 +1,4 @@
-import { AdminType } from "../../utils/AdminType";
+import { AdminType } from "../../../utils/AdminType";
 import { AuditHistory } from "./AuditHistory";
 
 export class Admin {

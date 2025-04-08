@@ -1,4 +1,4 @@
-import { HallAvailabilityType } from "../../utils/HallAvailabilityType";
+import { HallAvailabilityType } from "../../../utils/HallAvailabilityType";
 
 export class Hall {
   hallId: number | null;

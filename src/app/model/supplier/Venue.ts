@@ -1,4 +1,4 @@
-import { VenueType } from "../../utils/VenueType";
+import { VenueType } from "../../../utils/VenueType";
 import { Property } from "./Property";
 import { VenueRequest } from "./VenueRequest";
 

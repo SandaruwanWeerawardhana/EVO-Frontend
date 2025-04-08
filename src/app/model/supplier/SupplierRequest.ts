@@ -1,4 +1,4 @@
-import { SupplerRequestStatusType } from "../../utils/SupplerRequestStatusType";
+import { SupplerRequestStatusType } from "../../../utils/SupplerRequestStatusType";
 import { Customer } from "../customer/Customer";
 import { PackageFeature } from "./PackageFeature";
 import { ProfilePackage } from "./ProfilePackage";
