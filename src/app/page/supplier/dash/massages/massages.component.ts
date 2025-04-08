@@ -81,7 +81,7 @@ export class MassagesComponent implements OnInit, OnDestroy {
 
   private loadAdminIds() {
     this.http.get<number[]>(
-     `https://15c96c2573eb39ad3ae204d113d5a0c6.loophole.site/system/message/admin-supplier/adminsBySupplierId?supplierId=${this.supplierId}`
+     `http://localhost:8080/system/message/admin-supplier/adminsBySupplierId?supplierId=${this.supplierId}`
     ).pipe(
       retry(2),
       catchError(error => {
@@ -98,7 +98,7 @@ export class MassagesComponent implements OnInit, OnDestroy {
 
   private loadCustomerIds() {
     this.http.get<number[]>(
-      `https://15c96c2573eb39ad3ae204d113d5a0c6.loophole.site/system/message/customer-supplier/customersBySupplierId?supplierId=${this.supplierId}`
+      `http://localhost:8080/system/message/customer-supplier/customersBySupplierId?supplierId=${this.supplierId}`
     ).pipe(
       retry(2),
       catchError(error => {
@@ -125,7 +125,7 @@ export class MassagesComponent implements OnInit, OnDestroy {
   private loadAdminMessages() {
     if (!this.selectedAdminId) return;
     this.http.get<IncomingMessage[]>(
-     `https://15c96c2573eb39ad3ae204d113d5a0c6.loophole.site/system/message/admin-supplier/chat/${this.selectedAdminId}/${this.supplierId}`
+     `http://localhost:8080/system/message/admin-supplier/chat/${this.selectedAdminId}/${this.supplierId}`
     ).pipe(
       catchError(error => {
         console.error('Failed to load admin messages:', error);
@@ -137,7 +137,7 @@ export class MassagesComponent implements OnInit, OnDestroy {
   private loadCustomerMessages() {
     if (!this.selectedCustomerId) return;
     this.http.get<IncomingMessage[]>(
-      `https://15c96c2573eb39ad3ae204d113d5a0c6.loophole.site/system/message/customer-supplier/chat/${this.selectedCustomerId}/${this.supplierId}`
+      `http://localhost:8080/system/message/customer-supplier/chat/${this.selectedCustomerId}/${this.supplierId}`
     ).pipe(
       catchError(error => {
         console.error('Failed to load customer messages:', error);
@@ -222,7 +222,6 @@ export class MassagesComponent implements OnInit, OnDestroy {
       ? message.adminId === this.selectedAdminId
       : message.customerId === this.selectedCustomerId;
 
-    if (relevantId && message.supplierId === this.supplierId) {
       const newMsg: Message = {
         content: message.content,
         sendTime: new Date(message.sendTime),
@@ -231,15 +230,29 @@ export class MassagesComponent implements OnInit, OnDestroy {
         customerId: message.customerId,
         supplierId: message.supplierId
       };
+      this.messages.push(newMsg);
+      this.cdr.detectChanges();
 
-      if (!this.messages.some(m => 
-        m.content === newMsg.content && 
-        m.sendTime.getTime() === newMsg.sendTime.getTime()
-      )) {
-        this.messages.push(newMsg);
-        this.cdr.detectChanges();
-      }
-    }
+    // if (relevantId && message.supplierId === this.supplierId) {
+    //   const newMsg: Message = {
+    //     content: message.content,
+    //     sendTime: new Date(message.sendTime),
+    //     sender: message.userType,
+    //     adminId: message.adminId,
+    //     customerId: message.customerId,
+    //     supplierId: message.supplierId
+    //   };
+    //   this.messages.push(newMsg);
+    //   this.cdr.detectChanges();
+
+    //   if (!this.messages.some(m => 
+    //     m.content === newMsg.content && 
+    //     m.sendTime.getTime() === newMsg.sendTime.getTime()
+    //   )) {
+    //     this.messages.push(newMsg);
+    //     this.cdr.detectChanges();
+    //   }
+    // }
   }
 
   sendMessage() {
