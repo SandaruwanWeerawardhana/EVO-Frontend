@@ -3,6 +3,16 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
 
+
+interface birthdayParty {
+  ownerName: string;
+  eventdate: string | null;
+  headcount: number;
+  starttime: Date;
+  endtime: Date;
+  formdata: FormData;
+
+}
 @Component({
   selector: 'app-birthday-party-form',
   imports: [RouterLink, FormsModule],
@@ -10,12 +20,18 @@ import Swal from 'sweetalert2';
   styleUrl: './birthday-party-form.component.css'
 })
 
+
+
 export class BirthdayPartyFormComponent {
-  ownerName: string = 'Sasanka';
-  eventdate: string | null = null;
-  headcount: number = 23;
-  starttime: Date = new Date();
-  endtime: Date = new Date();
+
+  public birthdayPartyForm: birthdayParty = {
+    ownerName: '',
+    eventdate: null,
+    headcount: 0,
+    starttime: new Date(),
+    endtime: new Date(),
+    formdata: new FormData()
+  };
 
   formdata: FormData = new FormData();
 
@@ -24,7 +40,7 @@ export class BirthdayPartyFormComponent {
   }
 
   submitbuttonOnClick() {
-    if (!this.ownerName) {
+    if (!this.birthdayPartyForm.ownerName) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -33,7 +49,7 @@ export class BirthdayPartyFormComponent {
       return;
     }
     
-    if (!this.eventdate) {
+    if (!this.birthdayPartyForm.eventdate) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -41,7 +57,7 @@ export class BirthdayPartyFormComponent {
       });
       return;
     }
-    if (Date.parse(this.eventdate) < Date.now()) {
+    if (Date.parse(this.birthdayPartyForm.eventdate) < Date.now()) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -49,7 +65,7 @@ export class BirthdayPartyFormComponent {
       });
       return;
     }
-    if (this.headcount <= 0) {
+    if (this.birthdayPartyForm.headcount <= 0) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -57,7 +73,7 @@ export class BirthdayPartyFormComponent {
       });
       return;
     }
-    if (!this.starttime || !this.endtime) {
+    if (!this.birthdayPartyForm.starttime || !this.birthdayPartyForm.endtime) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -65,7 +81,7 @@ export class BirthdayPartyFormComponent {
       });
       return;
     }
-    if (this.starttime >= this.endtime) {
+    if (this.birthdayPartyForm.starttime >= this.birthdayPartyForm.endtime) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -74,11 +90,11 @@ export class BirthdayPartyFormComponent {
       return;
     }
 
-    this.formdata.append('ownerName', this.ownerName);
-    this.formdata.append('eventdate', this.eventdate.toString());
-    this.formdata.append('headcount', this.headcount.toString());
-    this.formdata.append('starttime', this.starttime.toString());
-    this.formdata.append('endtime', this.endtime.toString());
+    this.formdata.append('ownerName', this.birthdayPartyForm.ownerName);
+    this.formdata.append('eventdate', this.birthdayPartyForm.eventdate.toString());
+    this.formdata.append('headcount', this.birthdayPartyForm.headcount.toString());
+    this.formdata.append('starttime', this.birthdayPartyForm.starttime.toString());
+    this.formdata.append('endtime', this.birthdayPartyForm.endtime.toString());
 
     Swal.fire({
       icon: 'success',
