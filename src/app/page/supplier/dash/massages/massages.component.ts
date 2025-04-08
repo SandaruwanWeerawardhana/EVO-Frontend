@@ -1,6 +1,6 @@
 // massages.component.ts
 import { CommonModule, DatePipe } from '@angular/common'; 
-import { Component, OnDestroy, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnDestroy, OnInit, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Client, over } from 'stompjs';
@@ -36,6 +36,8 @@ type ChatType = 'ADMIN' | 'CUSTOMER';
   providers: [DatePipe] 
 })
 export class MassagesComponent implements OnInit, OnDestroy {
+  @ViewChild('chatContainer') chatContainer!: ElementRef;
+
   connectionStatus: 'CONNECTED' | 'CONNECTING' | 'DISCONNECTED' = 'DISCONNECTED';
   messageText: string = '';
   private stompClient: Client | null = null;
@@ -147,17 +149,19 @@ export class MassagesComponent implements OnInit, OnDestroy {
   }
 
   private processMessages(messages: IncomingMessage[]) {
-     messages.map(msg => (
-      this.messages .push( {
-      content: msg.content,
-      sendTime: new Date(msg.sendTime),
-      sender: msg.userType,
-      adminId: msg.adminId,
-      customerId: msg.customerId,
-      supplierId: msg.supplierId
-    })));
+    messages.forEach(msg => {
+      this.messages.push({
+        content: msg.content,
+        sendTime: new Date(msg.sendTime),
+        sender: msg.userType,
+        adminId: msg.adminId,
+        customerId: msg.customerId,
+        supplierId: msg.supplierId
+      });
+    });
     this.loadingMessages = false;
     this.cdr.detectChanges();
+    this.scrollToBottom(); // Ensure scrolling happens after processing messages
   }
 
   selectAdmin(adminId: number) {
@@ -165,6 +169,7 @@ export class MassagesComponent implements OnInit, OnDestroy {
     this.activeChatType = 'ADMIN';
     this.loadMessages();
     this.updateWebSocketSubscription();
+    this.scrollToBottom(); // Scroll to the bottom after selecting an admin
   }
 
   selectCustomer(customerId: number) {
@@ -172,6 +177,7 @@ export class MassagesComponent implements OnInit, OnDestroy {
     this.activeChatType = 'CUSTOMER';
     this.loadMessages();
     this.updateWebSocketSubscription();
+    this.scrollToBottom(); // Scroll to the bottom after selecting a customer
   }
 
   switchChatType(chatType: ChatType) {
@@ -219,41 +225,26 @@ export class MassagesComponent implements OnInit, OnDestroy {
   }
 
   private handleIncomingMessage(message: IncomingMessage) {
-    const relevantId = this.activeChatType === 'ADMIN' 
-      ? message.adminId === this.selectedAdminId
-      : message.customerId === this.selectedCustomerId;
+    const newMsg: Message = {
+      content: message.content,
+      sendTime: new Date(message.sendTime),
+      sender: message.userType,
+      adminId: message.adminId,
+      customerId: message.customerId,
+      supplierId: message.supplierId
+    };
+    this.messages.push(newMsg);
+    this.cdr.detectChanges();
+    this.scrollToBottom(); // Ensure scrolling happens after DOM updates
+  }
 
-      const newMsg: Message = {
-        content: message.content,
-        sendTime: new Date(message.sendTime),
-        sender: message.userType,
-        adminId: message.adminId,
-        customerId: message.customerId,
-        supplierId: message.supplierId
-      };
-      this.messages.push(newMsg);
-      this.cdr.detectChanges();
-
-    // if (relevantId && message.supplierId === this.supplierId) {
-    //   const newMsg: Message = {
-    //     content: message.content,
-    //     sendTime: new Date(message.sendTime),
-    //     sender: message.userType,
-    //     adminId: message.adminId,
-    //     customerId: message.customerId,
-    //     supplierId: message.supplierId
-    //   };
-    //   this.messages.push(newMsg);
-    //   this.cdr.detectChanges();
-
-    //   if (!this.messages.some(m => 
-    //     m.content === newMsg.content && 
-    //     m.sendTime.getTime() === newMsg.sendTime.getTime()
-    //   )) {
-    //     this.messages.push(newMsg);
-    //     this.cdr.detectChanges();
-    //   }
-    // }
+  private scrollToBottom() {
+    if (this.chatContainer) {
+      setTimeout(() => {
+        const container = this.chatContainer.nativeElement;
+        container.scrollTop = container.scrollHeight;
+      }, 0);
+    }
   }
 
   sendMessage() {
