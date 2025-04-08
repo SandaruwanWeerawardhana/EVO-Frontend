@@ -195,6 +195,7 @@ export class MassagesComponent implements OnInit, OnDestroy {
       (message) => this.handleIncomingMessage(JSON.parse(message.body)),
       { id: 'current_chat' }
     );
+    
   }
 
   private onConnectSuccess(frame: any) {
