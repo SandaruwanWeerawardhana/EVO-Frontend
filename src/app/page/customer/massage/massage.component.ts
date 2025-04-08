@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Client, over } from 'stompjs';
 import { catchError, of, retry, tap } from 'rxjs';
 
-const BACKEND_BASE_URL = 'https://15c96c2573eb39ad3ae204d113d5a0c6.loophole.site';
+const BACKEND_BASE_URL = 'http://localhost:8080';
 
 @Component({
   selector: 'app-customer-chat',
