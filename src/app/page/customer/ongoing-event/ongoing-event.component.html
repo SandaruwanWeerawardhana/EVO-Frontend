@@ -1,45 +1,37 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!-- i passed values to the container using Input() and i used async pipe. it subscribes to the variable and automatically retrieves its emitted value (Lahiru20)-->
+
 <div class="container">
   <h2 class="text-center my-4">Wedding Agenda</h2>
-  <div class="card mb-3" style="max-width: 1000px;">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <div class="col-md-3"> 
-          <img src="assets/Anniversary copel in sun.jpg" class="img-fluid rounded-start" alt="Couple photo">
-        </div>
-        <div class="col-md-9"> 
-        </div>
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">Wedding Celebration</h5>
-          <p class="card-text">Plan your wedding day efficiently with this structured agenda.</p>
-          <h5 class="card-title">05:30 PM</h5>
-          <p class="card-text"><small class="text-muted">Live</small></p>
-          
-          <!-- Progress Bar -->
-          <div class="progress" style="height: 25px; margin-top: 20px;">
-            <div class="progress-bar progress-bar-striped active" 
-                 role="progressbar" 
-                 aria-valuenow="60" 
-                 aria-valuemin="0" 
-                 aria-valuemax="100" 
-                 style="width: 60%; font-size: 16px; padding-top: 3px;">
-              60% Completed
-            </div>
-          </div>
-          
-        </div>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-12">
+        <ng-container *ngIf="currentTask$ | async as currentTask">
+          <app-ongoing-event-card
+            [title]="currentTask.title"
+            [description]="currentTask.description"
+            [start_time]="currentTask.start_time"
+            [end_time]="currentTask.end_time">
+          </app-ongoing-event-card>
+        </ng-container>
       </div>
     </div>
   </div>
+  <br>
+  <br>
 </div>
 
-<app-timeline></app-timeline>
-       
+<ng-container *ngIf="currentTask$ | async as currentTask">
+  <app-timeline
+    [timestamp]="currentTask.start_time"
+    [title]="currentTask.title"
+    [description]="currentTask.description">
+  </app-timeline>
+</ng-container>
 
 
 
-  
-  
+
+
+
+
+
