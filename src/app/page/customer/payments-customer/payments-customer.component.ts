@@ -82,7 +82,7 @@ export class PaymentsCustomerComponent {
   reportEvent(id:string){
     this.paymentService.reportEvent(id).subscribe({
       next: (data: CustomerPayment[]) => {
-        this.customerPayments = data;
+        console.log('Received customer payments:', data);
         this.filteredPayments = [...data];
       },
       error: (error) => {
@@ -91,4 +91,9 @@ export class PaymentsCustomerComponent {
     });
   }
 
+  saveAsBlob(data: Blob){
+    var blob = new Blob([data], { type:  'application/pdf' });
+    var url= window.URL.createObjectURL(blob);
+    window.open(url);
+  }
 }
