@@ -3,9 +3,9 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "../../app/environment/env.test";
 
-@Injectable({
-    providedIn:"root"
-})
+    @Injectable({
+        providedIn:"root"
+    })
 
 export class EventCardService{
     
@@ -13,7 +13,7 @@ export class EventCardService{
     }
 
     getAllEvents():Observable<Event[]>{
-        return this.http.get<Event[]>(`${environment.baseUrl}/event/get-all`);
-}
+        return this.http.get<Event[]>(`${environment.baseUrl}/public/featured-event/get-all`);
+    }
 }
     

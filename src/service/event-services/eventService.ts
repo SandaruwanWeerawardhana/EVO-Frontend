@@ -3,12 +3,17 @@ import { Observable } from "rxjs";
 import { environment } from "../../app/environment/env.test";
 
 export class eventService{
-    
+   
+ 
     constructor(private http:HttpClient){
     }
 
-    getAllEvents():Observable<Event[]>{
-        return this.http.get<Event[]>(`${environment.baseUrl}/event/get-all`);
+    getAllEvents():Observable<any[]>{
+        return this.http.get<any[]>(`${environment.baseUrl}/event/get-all`);
 
+    }
+
+    createEvent(event:any):Observable<any>{
+        return this.http.post<any>(`${environment.baseUrl}/event`, event);
     }
 }
