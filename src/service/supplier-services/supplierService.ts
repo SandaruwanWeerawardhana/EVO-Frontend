@@ -1,25 +1,41 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 import { environment } from '../../app/environment/env.test';
 import Supplier from '../../app/model/supplier';
+import { Venue } from '../../app/model/supplier/Venue';
+import OLD_Venue from '../../app/model/Venue';
+import { map } from 'rxjs/operators';
+
 @Injectable({
     providedIn: 'root'
 })
 export class SupplierService {
 
-    private apiUrl = `${environment.baseUrl}/supplier`;
+    private apiUrl = `${environment.baseUrl}/api/supplier`;
+    private allSuppliers: Supplier[] = [];
 
     constructor(private http: HttpClient) { }
 
+    
 
-    getAllSuppliers(): Observable<Supplier[]> {
-        return this.http.get<Supplier[]>(`${this.apiUrl}/get-all`);
-    }
+getAllSuppliers(): Observable<Supplier[]> {
+  return forkJoin([
+    this.http.get<Supplier[]>(`${this.apiUrl}?category=PHOTOGRAPHY`),
+    this.http.get<Supplier[]>(`${this.apiUrl}?category=CATERING`),
+    this.http.get<Supplier[]>(`${this.apiUrl}?category=BEAUTY`),
+    this.http.get<Supplier[]>(`${this.apiUrl}?category=VENUE`)
+  ]).pipe(
+    map((responses) => {
+      this.allSuppliers = responses.flat(); 
+      return this.allSuppliers;
+    })
+  );
+}
 
 
     searchSupplier(id: number): Observable<Supplier> {
-        return this.http.get<Supplier>(`${this.apiUrl}/search/${id}`);
+        return this.http.get<Supplier>(`${this.apiUrl}/${id}`);
     }
 
 

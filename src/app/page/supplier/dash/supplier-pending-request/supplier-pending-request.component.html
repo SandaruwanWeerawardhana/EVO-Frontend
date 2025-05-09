@@ -36,7 +36,7 @@
 <div class="col-12 col-lg-4 col-md-6 mb-4" >
     <div class="card" *ngFor="let supplierRequests of listOfSupplierRequests">
         <div class="d-flex flex-column card-body">
-            <h6 class="customer-name">👤 {{supplierRequests.customer.name}}</h6>
+            <h6 class="customer-name">👤 {{supplierRequests.customer.firstName+supplierRequests.customer.lastName}}</h6>
             <small class="package-name"><strong>📦 {{supplierRequests.selectedPackage.packageName}}</strong></small>
             <small class="extras">📜 Extras: {{supplierRequests.extraFeatures}}</small>
             <small class="date">📅 Date: {{supplierRequests.requestDate}}</small>

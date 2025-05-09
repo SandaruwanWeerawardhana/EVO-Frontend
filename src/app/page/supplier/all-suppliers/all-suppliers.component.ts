@@ -106,6 +106,8 @@ export class AllSuppliersComponent implements OnInit {
   ngOnInit(): void {
     this.supplierService.getAllSuppliers().subscribe(
       (data: Supplier[]) => {
+        console.log(data);
+        
         this.suppliers = data;
         this.filteredSuppliers = data;
       },
