@@ -120,15 +120,6 @@ export const routes: Routes = [
         path: "",
         component: AllSuppliersComponent
       },
-      
-      {
-        path: ":id",
-        component: AllSuppliersComponent,
-        children: [
-          {
-              
-      },
-      
       {
         path: "dashboard",
         component: DashboardComponent,
