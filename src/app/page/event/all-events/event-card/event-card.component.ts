@@ -10,7 +10,7 @@ import { EventCardService } from '../../../../../service/event-services/EventCar
   styleUrl: './event-card.component.css'
 })
 export class EventCardComponent implements OnInit {
-  @Input() public eventDetails: any;
+  @Input() public eventDetails: any | Event ;
   isFirstVar: Boolean = true;
 
 
@@ -26,15 +26,7 @@ export class EventCardComponent implements OnInit {
     return false;
   }
 
-  eventList:Event[] = []
+  constructor(private http: HttpClient){}
 
-  constructor(private http: HttpClient, private eventCardService:EventCardService){
 
-  }
-
-  getAllEventCards(){
-    this.eventCardService.getAllEvents().subscribe((eventList:Event[])=>{
-      this.eventList=eventList;
-    })
-  }
 }

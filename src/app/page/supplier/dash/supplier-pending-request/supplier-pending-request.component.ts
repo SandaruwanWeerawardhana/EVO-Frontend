@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
 import { SupplerRequestService } from '../../../../../service/supplier-request/SupplierRequestService';
 import { SupplierRequest } from '../../../../model/supplier/SupplierRequest';
 import { NgFor } from '@angular/common';
@@ -13,7 +12,7 @@ import Supplier from '../../../../model/supplier/Supplier';
 
 @Component({
   selector: 'app-supplier-pending-request',
-  imports: [RouterLink,RouterOutlet,NgFor],
+  imports: [NgFor],
 
   templateUrl: './supplier-pending-request.component.html',
   styleUrl: './supplier-pending-request.component.css'

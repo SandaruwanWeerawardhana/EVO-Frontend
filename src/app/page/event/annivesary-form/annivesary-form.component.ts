@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup,ReactiveFormsModule,Validators,} from '@angular/f
 import { Router, RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
 import { routes } from '../../../app.routes';
+import { event } from 'jquery';
 
 interface Heart {
   id: number;
@@ -40,9 +41,26 @@ export class AnnivesaryFormComponent implements OnDestroy {
     this.toggleHearts();
   }
 
+  setFormData() {
+    localStorage.removeItem("FormData");
+    localStorage.setItem("FormData", JSON.stringify({
+      eventDate: this.anniversaryForm.value.startDate,
+      eventType: "ANNIVERSARIES",
+      year: this.anniversaryForm.value.year,
+      wifeName: this.anniversaryForm.value.wifeName,
+      husbandName: this.anniversaryForm.value.husbandName,
+      startDate: this.anniversaryForm.value.startDate,
+      startTime: this.anniversaryForm.value.startTime,
+      endTime: this.anniversaryForm.value.endTime,
+      headCount: this.anniversaryForm.value.capacity,
+      description: this.anniversaryForm.value.description
+    }));
+  }
+
   onSubmit() {
     if (this.anniversaryForm.valid) {
       console.log(this.anniversaryForm.value);
+      this.setFormData();
          Swal.fire({
               icon: 'success',
               title: 'Booking Added Successful',

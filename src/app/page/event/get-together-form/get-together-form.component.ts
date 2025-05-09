@@ -1,17 +1,21 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { event } from 'jquery';
 import Swal from 'sweetalert2';
+import { routes } from '../../../app.routes';
+import { Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-get-together-form',
-  imports: [RouterLink , FormsModule,CommonModule],
+  imports: [ FormsModule,CommonModule],
   templateUrl: './get-together-form.component.html',
   styleUrl: './get-together-form.component.css'
 })
 export class GetTogetherFormComponent {
+
+  constructor(private route:Router) { }
 
   formData = {
     title: '',
@@ -85,8 +89,17 @@ export class GetTogetherFormComponent {
       timer: 3000
     });
   
-    console.log('Form is valid');
     console.log(this.formData);
+    localStorage.removeItem('FormData');
+    localStorage.setItem('FormData', JSON.stringify({
+      eventType: 'GET_TOGETHER',
+      title: this.formData.title,
+      description: this.formData.description,
+      eventDate: this.formData.eventDate,
+      startTime: this.formData.startTime,
+      endTime: this.formData.endTime,
+      headCount: this.formData.capacity
+    }));
+    this.route.navigate(["/event/venue-selection"]);
   }
-  
 }

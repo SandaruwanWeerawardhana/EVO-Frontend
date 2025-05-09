@@ -5,7 +5,7 @@ export class VenueRequest {
   venueRequestID: number;
   supplier: Supplier;
   venue: Venue;
-  createdDateTime: string;
+  createdDateTime: Date;
   status: boolean;
 
   constructor(
@@ -18,7 +18,7 @@ export class VenueRequest {
     this.venueRequestID = venueRequestID;
     this.supplier = supplier;
     this.venue = venue;
-    this.createdDateTime = createdDateTime;
+    this.createdDateTime = new Date(createdDateTime);
     this.status = status;
   }
 }

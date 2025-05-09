@@ -101,8 +101,8 @@
                         [class.text-white]="message.sender === 'ADMIN'"
                         class="p-3 rounded-3 shadow-sm" 
                         style="max-width: 70%;">
-                        <div class="text-break">{{message.content}}</div>
-                        <div class="text-end small" [class.text-white-50]="message.sender === 'ADMIN'" [class.text-muted]="message.sender === 'SUPPLIER'">
+                        <div class="text-break">{{ message.content }}</div>
+                        <div class="text-end small text-muted mt-1">
                             {{ message.timestamp | date:'shortTime' }}
                         </div>
                     </div>

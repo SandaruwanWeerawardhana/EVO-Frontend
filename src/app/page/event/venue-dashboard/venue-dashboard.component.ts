@@ -1,16 +1,46 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import OLD_Venue from '../../../model/Venue';
 import { VenuePagePopupComponent } from '../venue-page-popup/venue-page-popup.component';
+import { FormsModule } from '@angular/forms';
+import { SupplierService } from '../../../../service/supplier-services/supplierService';
+import { VenueService } from '../../../../service/event-services/VenueService';
 
 @Component({
   selector: 'app-venue-dashboard',
   standalone: true,
-  imports: [ CommonModule, VenuePagePopupComponent],
+  imports: [ CommonModule, VenuePagePopupComponent ,FormsModule],
   templateUrl: './venue-dashboard.component.html',
   styleUrls: ['./venue-dashboard.component.css']
 })
-export class VenueDashboardComponent {
+export class VenueDashboardComponent implements OnInit {
+  eventDate: string = ""
+  eventType: string = "";
+  eventLocation: string = "";
+  eventGuestCount: number = 0;  
+  eventBudget: number = 0;
+  eventTradition: string = "";
+  eventStartTime: string = "";
+  eventEndTime: string = "";
+
+  constructor(private venueService:VenueService) { }
+ 
+  ngOnInit(): void {
+    const storedData: string | null = localStorage.getItem("FormData");
+  
+    if (storedData) {
+      const formData = JSON.parse(storedData); 
+
+      const date = new Date(formData.eventDate);
+      this.eventDate = date.toISOString().substring(0, 10); 
+      this.eventType = formData.eventType;
+    } else {
+      console.log("No FormData found in localStorage.");
+    }
+
+    this.setVenueSuppliers();
+  }
+  
   @ViewChild(VenuePagePopupComponent) venuePopup!: VenuePagePopupComponent;
 
   venues: OLD_Venue[] = [
@@ -48,6 +78,14 @@ export class VenueDashboardComponent {
       capacity: 100
     }
   ];
+
+  setVenueSuppliers(){
+    this.venueService.getAllVenues(this.eventType).subscribe(
+      (response) => {
+        this.venues = response;
+        console.log(this.venues);
+        
+  })}
 
   showVenuePopup(venue: OLD_Venue): void {
     this.venuePopup.showModal(venue);

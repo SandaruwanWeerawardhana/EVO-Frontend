@@ -2,7 +2,9 @@ import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { event } from 'jquery';
 import Swal from 'sweetalert2';
+import { WeddingType } from '../../../../utils/WeddingType';
 
 
 @Component({
@@ -170,16 +172,22 @@ export class WeddingFormComponent {
    if(!this.validateDateInfo()){
       return;
    }
-
+   this.setFormData();
    this.router.navigate(["/event/venue-selection"]);
+  }
 
-   this.formdata.append("brideName",this.bridesName);
-   this.formdata.append("groomName",this.groomsName);
-   this.formdata.append("guestsCount",this.guestscount.toString());
-   this.formdata.append("tradition",this.tradition);
-   this.formdata.append("weddingDate",this.weddingDate.toString());
-   this.formdata.append("startTime",this.startTime.toString());
-   this.formdata.append("endTime",this.endTime.toString());
-   console.log(this.formdata);
+  setFormData() {
+    localStorage.removeItem("FormData");
+    localStorage.setItem("FormData",JSON.stringify({
+     eventType: "WEDDING",
+     eventDate: this.weddingDate.toString(),
+     startTime: this.startTime.toString(),
+     endTime: this.endTime.toString(),
+     WeddingType: this.tradition,
+     headCount: this.guestscount,
+     brideName: this.bridesName,
+     groomName: this.groomsName
+    }));
+   
   }
 }

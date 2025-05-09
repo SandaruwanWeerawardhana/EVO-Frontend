@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { event } from 'jquery';
 import Swal from 'sweetalert2';
 
 
@@ -15,7 +16,7 @@ interface birthdayParty {
 }
 @Component({
   selector: 'app-birthday-party-form',
-  imports: [RouterLink, FormsModule],
+  imports: [ FormsModule],
   templateUrl: './birthday-party-form.component.html',
   styleUrl: './birthday-party-form.component.css'
 })
@@ -104,6 +105,15 @@ export class BirthdayPartyFormComponent {
     }); 
     
     console.log(this.birthdayPartyForm);
+    localStorage.removeItem('FormData');
+    localStorage.setItem('FormData', JSON.stringify({
+      eventType: 'BIRTHDAY_PARTIS',
+      ownerName: this.birthdayPartyForm.ownerName,
+      eventDate: this.birthdayPartyForm.eventdate,
+      headCount: this.birthdayPartyForm.headcount,
+      startTime: this.birthdayPartyForm.starttime,
+      endTime: this.birthdayPartyForm.endtime,
+    }));
     
     this.router.navigate(['/event/venue-selection']);
   }

@@ -1,6 +1,12 @@
 <div class="p-5 mt-5">
     <div class="content ">
-        <h1 class="bg-danger-subtle">Blogs</h1>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h1 class="bg-danger-subtle" style="margin: 0;">Blogs</h1>
+            <div style="display: flex; gap: 10px;">
+              <button>Create +</button>
+            </div>
+          </div>
+          
         <div class="d-flex flex-wrap justify-content-around gap-3">
             <div class="card" style="width: 18rem;">
                 <img
@@ -38,15 +44,22 @@
 
                         <br><br>
                         <!-- Read More / Read Less button -->
-                        <button (click)="toggleReadMore1()">
-                            {{ isReadMoreVisible1 ? 'Read Less' : 'Read More' }}
-                        </button>
-                        <br>
-
-                        <button class="like-button" (click)="toggleLike1()">
-                            ❤️ {{ isLiked1 ? 'Liked' : 'Like' }} ({{ likeCount1 }})
-                        </button>
-                    </p>
+                        <div style="display: flex; justify-content: flex-end; align-items: center; gap: 10px; padding: 10px;">
+                            <button 
+                              (click)="toggleReadMore1()" 
+                              style="padding: 8px 16px; background-color: #0d6efd; color: white; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s;">
+                              {{ isReadMoreVisible1 ? 'Read Less' : 'Read More' }}
+                            </button>
+                          
+                            <button 
+                              class="like-button" 
+                              (click)="toggleLike1()" 
+                              style="padding: 8px 16px; background-color: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s;">
+                              {{ isLiked1 ? 'Liked' : 'Like' }} ({{ likeCount1 }})
+                            </button>
+                          </div>
+                          
+                    
 
                 </div>
             </div>
@@ -81,15 +94,21 @@
                             - Event Specialization<br>
                             - Memorable Keepsakes
                         </span>
-                        <button (click)="toggleReadMore2()">
-                            {{ isReadMoreVisible2 ? 'Read Less' : 'Read More' }}
-                        </button>
-                        <br>
-                        <button class="like-button" (click)="toggleLike2()">
-                            ❤️ {{ isLiked2 ? 'Liked' : 'Like' }} ({{ likeCount2 }})
-                        </button>
-
-                    </p>
+                        <div style="display: flex; justify-content: flex-end; align-items: center; gap: 10px; padding: 10px;">
+                            <button 
+                              (click)="toggleReadMore2()" 
+                              style="padding: 8px 16px; background-color: #0d6efd; color: white; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s;">
+                              {{ isReadMoreVisible2 ? 'Read Less' : 'Read More' }}
+                            </button>
+                          
+                            <button 
+                              class="like-button" 
+                              (click)="toggleLike2()" 
+                              style="padding: 8px 16px; background-color: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s;">
+                              ❤️{{ isLiked2 ? 'Liked' : 'Like' }} ({{ likeCount2 }})
+                            </button>
+                          </div>
+                    
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
@@ -118,13 +137,21 @@
                             - High-Quality Results<br>
                             - Quick Turnaround
                         </span>
-                        <button (click)="toggleReadMore3()">
-                            {{ isReadMoreVisible3 ? 'Read Less' : 'Read More' }}
-                        </button>
-                        <br><button class="like-button" (click)="toggleLike3()">
-                            ❤️ {{ isLiked3 ? 'Liked' : 'Like' }} ({{ likeCount3 }})
-                        </button>
-                    </p>
+                        <div style="display: flex; justify-content: flex-end; align-items: center; gap: 10px; padding: 10px;">
+                            <button 
+                              (click)="toggleReadMore3()" 
+                              style="padding: 8px 16px; background-color: #0d6efd; color: white; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s;">
+                              {{ isReadMoreVisible3 ? 'Read Less' : 'Read More' }}
+                            </button>
+                          
+                            <button 
+                              class="like-button" 
+                              (click)="toggleLike3()" 
+                              style="padding: 8px 16px; background-color: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s;">
+                              ❤️{{ isLiked3 ? 'Liked' : 'Like' }} ({{ likeCount3 }})
+                            </button>
+                          </div>
+                    
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
@@ -157,14 +184,21 @@
                             - High-Quality Products<br>
                             - Relaxing Experience
                         </span>
-                        <button (click)="toggleReadMore4()">
-                            {{ isReadMoreVisible4 ? 'Read Less' : 'Read More' }}
-                        </button>
-                        <br>
-                        <button class="like-button" (click)="toggleLike4()">
-                            ❤️ {{ isLiked4 ? 'Liked' : 'Like' }} ({{ likeCount4 }})
-                        </button>
-                    </p>
+                        <div style="display: flex; justify-content: flex-end; align-items: center; gap: 10px; padding: 10px;">
+                            <button 
+                              (click)="toggleReadMore4()" 
+                              style="padding: 8px 16px; background-color: #0d6efd; color: white; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s;">
+                              {{ isReadMoreVisible4 ? 'Read Less' : 'Read More' }}
+                            </button>
+                          
+                            <button 
+                              class="like-button" 
+                              (click)="toggleLike4()" 
+                              style="padding: 8px 16px; background-color: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s;">
+                              ❤️{{ isLiked4 ? 'Liked' : 'Like' }} ({{ likeCount4 }})
+                            </button>
+                          </div>
+                          
 
 
                 </div>
@@ -200,14 +234,21 @@
                             - Professional Service<br>
                             - Customizable Packages
                         </span>
-                        <button (click)="toggleReadMore5()">
-                            {{ isReadMoreVisible5 ? 'Read Less' : 'Read More' }}
-                        </button>
-                        <br>
-                        <button class="like-button" (click)="toggleLike5()">
-                            ❤️ {{ isLiked5 ? 'Liked' : 'Like' }} ({{ likeCount5 }})
-                        </button>
-                    </p>
+                        <div style="display: flex; justify-content: flex-end; align-items: center; gap: 10px; padding: 10px;">
+                            <button 
+                              (click)="toggleReadMore5()" 
+                              style="padding: 8px 16px; background-color: #0d6efd; color: white; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s;">
+                              {{ isReadMoreVisible5 ? 'Read Less' : 'Read More' }}
+                            </button>
+                          
+                            <button 
+                              class="like-button" 
+                              (click)="toggleLike5()" 
+                              style="padding: 8px 16px; background-color: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s;">
+                              ❤️{{ isLiked5 ? 'Liked' : 'Like' }} ({{ likeCount5 }})
+                            </button>
+                          </div>
+                     
 
                 </div>
             </div>
@@ -240,15 +281,21 @@
                             - High-Quality Products<br>
                             - Relaxing Experience
                         </span>
-                        <button (click)="toggleReadMore6()">
-                            {{ isReadMoreVisible6? 'Read Less' : 'Read More' }}
-                        </button>
-                        <br>
-                        <button class="like-button" (click)="toggleLike6()">
-                            ❤️ {{ isLiked6 ? 'Liked' : 'Like' }} ({{ likeCount6 }})
-                        </button>
-                    </p>
-
+                        <div style="display: flex; justify-content: flex-end; align-items: center; gap: 10px; padding: 10px;">
+                            <button 
+                              (click)="toggleReadMore6()" 
+                              style="padding: 8px 16px; background-color: #0d6efd; color: white; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s;">
+                              {{ isReadMoreVisible6 ? 'Read Less' : 'Read More' }}
+                            </button>
+                          
+                            <button 
+                              class="like-button" 
+                              (click)="toggleLike6()" 
+                              style="padding: 8px 16px; background-color: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s;">
+                              ❤️{{ isLiked6 ? 'Liked' : 'Like' }} ({{ likeCount6 }})
+                            </button>
+                          </div>
+                   
                 </div>
             </div>
 
@@ -283,15 +330,22 @@
                             - Event Specialization<br>
                             - Memorable Keepsakes
                         </span>
-                        <button (click)="toggleReadMore7()">
-                            {{ isReadMoreVisible7 ? 'Read Less' : 'Read More' }}
-                        </button>
-                        <br>
-                        <button class="like-button" (click)="toggleLike7()">
-                            ❤️ {{ isLiked7 ? 'Liked' : 'Like' }} ({{ likeCount7 }})
-                        </button>
+                        <div style="display: flex; justify-content: flex-end; align-items: center; gap: 10px; padding: 10px;">
+                            <button 
+                              (click)="toggleReadMore7()" 
+                              style="padding: 8px 16px; background-color: #0d6efd; color: white; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s;">
+                              {{ isReadMoreVisible7 ? 'Read Less' : 'Read More' }}
+                            </button>
+                          
+                            <button 
+                              class="like-button" 
+                              (click)="toggleLike7()" 
+                              style="padding: 8px 16px; background-color: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s;">
+                              ❤️{{ isLiked7 ? 'Liked' : 'Like' }} ({{ likeCount7 }})
+                            </button>
+                          </div>
 
-                    </p>
+                
 
                 </div>
             </div>
@@ -330,17 +384,20 @@
                             - Personalized Servic
                         </span>
 
-                        <button (click)="toggleReadMore8()">
-                            {{ isReadMoreVisible8 ? 'Read Less' : 'Read More' }}
-                        </button>
-
-                        <br>
-                        <button class="like-button" (click)="toggleLike8()">
-                            ❤️ {{ isLiked8 ? 'Liked' : 'Like' }} ({{ likeCount8 }})
-                        </button>
-
-                    </p>
-
+                        <div style="display: flex; justify-content: flex-end; align-items: center; gap: 10px; padding: 10px;">
+                            <button 
+                              (click)="toggleReadMore8()" 
+                              style="padding: 8px 16px; background-color: #0d6efd; color: white; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s;">
+                              {{ isReadMoreVisible8 ? 'Read Less' : 'Read More' }}
+                            </button>
+                          
+                            <button 
+                              class="like-button" 
+                              (click)="toggleLike8()" 
+                              style="padding: 8px 16px; background-color: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s;">
+                              ❤️{{ isLiked8 ? 'Liked' : 'Like' }} ({{ likeCount8 }})
+                            </button>
+                          </div>
                 </div>
             </div>
         </div>
