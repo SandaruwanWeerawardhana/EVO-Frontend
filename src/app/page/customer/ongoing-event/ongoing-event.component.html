@@ -1,17 +1,20 @@
 <!-- i passed values to the container using Input() and i used async pipe. it subscribes to the variable and automatically retrieves its emitted value (Lahiru20)-->
 
 <div class="container">
-  <h2 class="text-center my-4">Wedding Agenda</h2>
+  <h2 class="text-center my-4">Ongoing Event</h2>
   <div class="container mt-5">
     <div class="row">
       <div class="col-12">
-        <ng-container *ngIf="currentTask$ | async as currentTask">
-          <app-ongoing-event-card
-            [title]="currentTask.title"
-            [description]="currentTask.description"
-            [start_time]="currentTask.start_time"
-            [end_time]="currentTask.end_time">
-          </app-ongoing-event-card>
+        <ng-container *ngIf="currentTasks$ | async as currentTasks">
+          <!-- Display individual task cards -->
+          <div *ngFor="let task of currentTasks" class="mb-4">
+            <app-ongoing-event-card
+              [title]="task.title"
+              [description]="task.description"
+              [start_time]="task.start_time"
+              [end_time]="task.end_time">
+            </app-ongoing-event-card>
+          </div>
         </ng-container>
       </div>
     </div>
@@ -20,11 +23,12 @@
   <br>
 </div>
 
-<ng-container *ngIf="currentTask$ | async as currentTask">
+<!-- Single timeline entry with grouped task description -->
+<ng-container *ngIf="currentTasks$ | async as currentTasks">
   <app-timeline
-    [timestamp]="currentTask.start_time"
-    [title]="currentTask.title"
-    [description]="currentTask.description">
+    [timestamp]="currentTasks[0]?.start_time ?? ''"
+    [title]="getTimelineTitle(currentTasks)"
+    [description]="getGroupedTaskDescription(currentTasks)">
   </app-timeline>
 </ng-container>
 
