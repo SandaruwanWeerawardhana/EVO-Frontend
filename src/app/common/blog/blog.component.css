@@ -3,6 +3,7 @@
   width: 90%;
   margin-top: 7px;
 
+  height: 100vh;
 }
 
 .post-container {
@@ -17,7 +18,7 @@
 }
 
 .scroll-container {
-  height: 100vh;
+  height: calc(100vh - 200px);
   overflow-y: auto;
   padding-bottom: 20px;
 
@@ -97,6 +98,17 @@
 
   display: flex;
   align-items: end;
+
+  transform: scale(1);
+  transition: background-color 0.4s ease-out, transform 0.3s ease-out;
+}
+
+.add-post-button-container:hover {
+  transform: scale(1.07);
+  background-color: #d000ff;
+  font-weight: bold;
+  transition: font-weight 0.2s ease-in, background 0.4s ease-out,
+    transform 0.3s ease-in-out;
 }
 
 .add-post-button {

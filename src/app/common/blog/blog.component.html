@@ -1,4 +1,4 @@
-<div class="container" style="overflow: hidden; height: 100%">
+<div style="overflow: hidden; height: calc(100vh - 80px)">
   <a
     data-bs-toggle="modal"
     data-bs-target="#exampleModal"
@@ -15,31 +15,29 @@
       <div class="card-text">Explore posts or create one, here!</div>
 
       <div class="scroll-container">
-        <div class="post-container" *ngFor="let item of [1, 2, 3, 4, 5]">
+        <div class="post-container" *ngFor="let post of data">
           <div class="post">
             <div class="post-title">
               <img src="assets/girlMsgProfile1.jpg" class="post-avatar" />
-              POST TITLE
+              {{ post.title }}
             </div>
-            <div class="post-author">Post Author <span> | Supplier</span></div>
+            <div class="post-author">
+              {{ post.author_name }}
+              <span> | {{ post.author_type.toLowerCase() }}</span>
+            </div>
             says,
 
             <div class="post-body">
-              Post Body Lorem ipsum dolor sit amet consectetur, adipisicing
-              elit. Porro quia recusandae, iure eum voluptatum ratione
-              architecto laborum omnis in aspernatur, magni dolor ut obcaecati
-              aut minima rem vero eos modi? Lorem ipsum, dolor sit amet
-              consectetur adipisicing elit. Accusamus dolorum, ratione in,
-              recusandae saepe repellendus blanditiis earum accusantium, ea fuga
-              quaerat optio sed cum? Quos beatae reiciendis quae nobis in.
+              {{ post.content }}
             </div>
 
             <div class="post-controls">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                fill="none"
+                [attr.fill]="post.liked ? 'red' : 'none'"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
+                (click)="likePost(post.id!)"
                 stroke="currentColor"
                 style="width: 30px"
               >
@@ -67,7 +65,8 @@
 
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                fill="none"
+                [attr.fill]="post.bookmarked ? 'yellow' : 'none'"
+                (click)="bookmarkPost(post.id!)"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
@@ -81,7 +80,12 @@
               </svg>
             </div>
 
-            <div class="post-footer">Created 20m ago</div>
+            <div class="post-footer">
+              {{ prettifyDate(post.createdAt) }}
+              <h6>
+                | {{ post.like_count }} likes {{ post.bookmark_count }} saves.
+              </h6>
+            </div>
           </div>
         </div>
       </div>
@@ -116,6 +120,7 @@
               type="text"
               class="form-control"
               placeholder="Awesome title"
+              [(ngModel)]="modalPostTitle"
             />
           </div>
           <div class="mb-3">
@@ -124,6 +129,7 @@
               class="form-control"
               rows="3"
               placeholder="Write an awesome post here!"
+              [(ngModel)]="modalPostContent"
             ></textarea>
           </div>
         </div>
@@ -131,7 +137,12 @@
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
             Close
           </button>
-          <button type="button" class="btn btn-secondary">
+          <button
+            data-bs-dismiss="modal"
+            type="button"
+            (click)="createPost()"
+            class="btn btn-secondary"
+          >
             Create a new post
           </button>
         </div>
