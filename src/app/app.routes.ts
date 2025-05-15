@@ -31,7 +31,6 @@ import { MassageComponent } from './page/customer/massage/massage.component';
 import { OngoingEventComponent } from './page/customer/ongoing-event/ongoing-event.component';
 import { PaymentsCustomerComponent } from './page/customer/payments-customer/payments-customer.component';
 import { ProfileCustomerComponent } from './page/customer/profile-customer/profile-customer.component';
-import { ReviewsCustomerComponent } from './page/customer/reviews-customer/reviews-customer.component';
 import { DashRootCustomerComponent } from './page/customer/dash-root-customer/dash-root-customer.component';
 import { ProfileEditComponent } from './page/supplier/dash/profile/profile-edit/profile-edit.component';
 import { ProfileComponent } from './page/supplier/dash/profile/profile.component';
@@ -251,10 +250,6 @@ export const routes: Routes = [
       {
         path:"profile",
         component:ProfileCustomerComponent
-      },
-      {
-        path:"reviews",
-        component:ReviewsCustomerComponent
       },
       {
         path:"conditions",
