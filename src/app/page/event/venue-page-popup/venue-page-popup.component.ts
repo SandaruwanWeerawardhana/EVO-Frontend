@@ -34,7 +34,10 @@ export class VenuePagePopupComponent {
   bookNow(): void {
     if (this.currentVenue) {
       this.router.navigate(['/event/event-summery']);
-        localStorage.setItem("FormData.venueId",this.currentVenue.id+"");
+      
+      const formData = JSON.parse(localStorage.getItem("FormData") || '{}');
+      formData.venueId = this.currentVenue.name;
+        localStorage.setItem("FormData",JSON.stringify(formData));
     }
   }
 }

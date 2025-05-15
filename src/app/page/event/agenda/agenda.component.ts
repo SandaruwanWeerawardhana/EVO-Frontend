@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AgendaService } from '../../../../service/event-services/agendaService';
@@ -28,7 +28,9 @@ interface EventDetails {
   styleUrls: ['./agenda.component.css']
 })
 
-export class AgendaComponent {
+export class AgendaComponent implements OnInit {
+
+  
 
    showPopup:boolean=false;
     closePopup(){
@@ -44,12 +46,21 @@ public agendaList:any=[
   }
 ]
 
+public eventdetails:any=[
+  {
+    eventType:''
+    
+  }
+]
+
   agenda: EventDetails[] = [{ type: '', venue: '', date: '', organizer: '' }];
   sessions: Session[] = [];
   newSession: Session = { title: '', type: '', startTime: '', endTime: '' };
   editingIndex: number = -1;
   showSessionForm: boolean = false;
   showEventDetails: boolean = true;
+  agendastring = localStorage.getItem('FormData');
+  agendadata = this.agendastring ? JSON.parse(this.agendastring) : null;
 
   constructor(private agendService:AgendaService) { }
 
@@ -60,8 +71,10 @@ public agendaList:any=[
       venue: 'Virtual Meeting',
       date: '2025-05-15',
       organizer: 'Your Organization'
-    };
+    }
   }
+
+  
 
   toggleEventDetails(): void {
     this.showEventDetails = !this.showEventDetails;
