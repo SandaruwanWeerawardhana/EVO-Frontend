@@ -9,9 +9,10 @@ export default class OLD_Supplier {
     businessDescription: string;
     mobileNumber: string;
     website: string;
-    brDocument: string;    
+    brDocument: string;   
+   // completedOrders: number  
   
-    constructor(supplierId: number, supplierName: string, userType: string, password: string, email: string, registeredDate: Date, businessName: string, businessDescription: string, mobileNumber: string, website: string, brDocument: string,) {
+    constructor(supplierId: number, supplierName: string, userType: string, password: string, email: string, registeredDate: Date, businessName: string, businessDescription: string, mobileNumber: string, website: string, brDocument: string) {
 
         this.supplierId = supplierId;
         this.supplierName = supplierName;
@@ -24,5 +25,6 @@ export default class OLD_Supplier {
         this.mobileNumber = mobileNumber;
         this.website = website;
         this.brDocument = brDocument;
+         
     }
 }

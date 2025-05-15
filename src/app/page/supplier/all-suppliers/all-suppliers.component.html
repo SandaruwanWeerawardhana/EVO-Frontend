@@ -1,66 +1,97 @@
 <div class="container">
-    <div class="pt-4">
-        <h2 class="fw-bold">Select Your Supplier</h2>
-        <p class="text-muted">Select & Customize Your Event Experience with EvoPlan Services</p>
+  <div class="pt-4">
+    <h2 class="fw-bold">Select Your Supplier</h2>
+    <p class="text-muted">
+      Select & Customize Your Event Experience with EvoPlan Services
+    </p>
+  </div>
+
+  <div class="container">
+    <div class="g-4 row align-items-center justify-content-center filter-buttons mb-2">
+      <div class="col-md-2">
+        <label class="form-label fw-bold">Popularity</label>
+        <select
+          class="form-select h-100"
+          [(ngModel)]="popularity"
+          (change)="applyFilters()"
+        >
+          <option>Most Popular</option>
+          <option>Least Popular</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <label class="form-label fw-bold">Budget</label>
+        <select
+          class="form-select h-100"
+          [(ngModel)]="budget"
+          (change)="applyFilters()"
+        >
+          <option>Any Budget</option>
+          <option>Low</option>
+          <option>Medium</option>
+          <option>High</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <label class="form-label fw-bold">Service Type</label>
+        <select
+          class="form-select h-100"
+          [(ngModel)]="serviceType"
+          (change)="applyFilters()"
+        >
+          <option>All Services</option>
+          <option>Photography</option>
+          <option>Catering</option>
+          <option>Decor</option>
+          <option>Beauty</option>
+          <option>Event Planning</option>
+          <option>Entertainment</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <label class="form-label fw-bold">Search</label>
+        <div class="h-75 search-wrapper">
+          <div class="h-100 search-input-group">
+            <input
+              type="text"
+              class="form-control search-input"
+              placeholder="Search suppliers..."
+              [(ngModel)]="searchQuery"
+              (input)="applyFilters()"
+              style="width: 200px"
+            />
+            <i class="fa fa-search search-icon"></i>
+          </div>
         </div>
-    
-        <div class="container">
-            <div class="g-4 row align-items-center justify-content-center filter-buttons mb-2">
-                <div class="col-md-2">
-                    <label class="form-label fw-bold">Popularity</label>
-                    <select class="form-select h-100">
-                        <option selected>Most Popular</option>
-                        <option>Least Popular</option>
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <label class="form-label fw-bold">Budget</label>
-                    <select class="form-select h-100">
-                        <option selected>Any Budget</option>
-                        <option>Low</option>
-                        <option>Medium</option>
-                        <option>High</option>
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <label class="form-label fw-bold">Service Type</label>
-                    <select class="form-select h-100">
-                        <option selected>All Services</option>
-                        <option>Photography</option>
-                        <option>Catering</option>
-                        <option>Decor</option>
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <label class="form-label fw-bold">Search</label>
-                    <div class="h-75 search-wrapper">
-                        <div class="h-100 search-input-group">
-                            <input type="text" class="form-control h-150 search-input" placeholder="Search Photographers" style="width: 200px;">
-                            <i class="fa-search fas search-icon"></i>
-                        </div>
-                    </div> 
-                </div>
-            </div>
-        </div>
-  
-    <div class="mt-4">
-        <div class="supplier-list">
-            <div *ngFor="let supplier of suppliers" class="card" style="width: 22rem;">
-                <img [src]="supplier.brDocument" class="card-img-top img-fluid rounded ratio ratio-4x3" alt="{{supplier.businessName}}">
-                <div class="card-body">
-                    <h5 class="card-title fw-bold">{{ supplier.businessName }}</h5>
-                    <p class="card-text">{{ supplier.businessDescription }}</p>
-                    <hr>
-                    <p class="mb-1"><strong>Completed Orders:</strong> 110</p>
-                    <hr>
-                    <p><strong>Ratings:</strong> {{ supplier.userType }}</p>
-                </div>
-                <div class="card-footer bg-primary text-center">
-                    <button routerLink="/supplier/photographer-info" class="btn btn-primary text-white w-100 fw-bold">Select Supplier</button>
-                </div>
-            </div>
-        </div>
-    
-        <div style="margin: 80px;"></div>
+      </div>
     </div>
+  </div>
+
+  <div class="mt-4">
+    <div class="supplier-list">
+      <div *ngFor="let supplier of filteredSuppliers" class="card">
+        <img
+          [src]="supplier.brDocument"
+          class="card-img-top"
+          alt="{{ supplier.businessName }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ supplier.businessName }}</h5>
+          <p class="card-text">{{ supplier.businessDescription }}</p>
+          <p><strong>Service:</strong> {{ supplier.userType }}</p>
+        </div>
+        <div class="card-footer">
+          <button
+            routerLink="/supplier/photographer-info"
+          >
+            Select Supplier
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="filteredSuppliers.length === 0" class="text-center py-5">
+      <h4>No suppliers match your filters</h4>
+    </div>
+  </div>
 </div>
