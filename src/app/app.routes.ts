@@ -22,7 +22,6 @@ import { DashRootComponent } from './page/supplier/dash/dash-root/dash-root.comp
 import { ProfileViewComponent } from './page/supplier/dash/profile/profile-view/profile-view.component';
 import { ManagePackagesComponent } from './page/supplier/dash/manage-packages/manage-packages.component';
 import { InventoryComponent } from './page/supplier/dash/inventory/inventory.component';
-import { BlogsComponent } from './page/supplier/dash/blogs/blogs.component';
 import { PaymentsComponent } from './page/supplier/dash/payments/payments.component';
 import { MassagesComponent } from './page/supplier/dash/massages/massages.component';
 import { MyReviewsComponent } from './page/supplier/dash/my-reviews/my-reviews.component';
@@ -172,7 +171,7 @@ export const routes: Routes = [
           },
           {
             path: "blogs",
-            component: BlogsComponent
+            component: BlogComponent
           },
           {
             path: "payments",
