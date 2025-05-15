@@ -1,7 +1,8 @@
 .feed-container {
   height: 100%;
   width: 90%;
-  margin-top: 20px;
+  margin-top: 7px;
+
 }
 
 .post-container {
@@ -11,15 +12,17 @@
   margin-left: 40px;
   margin-right: 40px;
 
+  border-radius: 20px;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .scroll-container {
-  width: 100vh;
-  overflow: scroll;
+  height: 100vh;
+  overflow-y: auto;
+  padding-bottom: 20px;
 
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .scroll-container::-webkit-scrollbar {
@@ -76,6 +79,26 @@
 .post-controls svg:hover {
   color: purple;
 
-  transform: scale(2.02);
+  transform: scale(1.5);
   transition: background-color 0.3s ease, transform 0.3s ease-in-out;
+}
+
+.add-post-button-container {
+  position: fixed;
+  padding: 10px;
+  bottom: 40px;
+  right: 40px;
+  background-color: rgb(149, 23, 221);
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 10;
+
+  display: flex;
+  align-items: end;
+}
+
+.add-post-button {
+  margin-top: 22px;
 }

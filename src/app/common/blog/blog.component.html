@@ -1,12 +1,21 @@
-<div class="container">
-  <div class="card feed-container shadow">
+<div class="container" style="overflow: hidden; height: 100%">
+  <a
+    data-bs-toggle="modal"
+    data-bs-target="#exampleModal"
+    class="add-post-button-container"
+  >
+    <i class="fa fa-plus add-post-button"></i>
+    <h5 style="padding-top: 10px">Create post</h5>
+  </a>
+
+  <div class="feed-container card shadow">
     <div class="card-body">
       <h1 class="card-title">Blog Feed</h1>
 
       <div class="card-text">Explore posts or create one, here!</div>
 
-      <div class="scroll-container" *ngFor="let item of [1,2,3,4,5]">
-        <div class="post-container">
+      <div class="scroll-container">
+        <div class="post-container" *ngFor="let item of [1, 2, 3, 4, 5]">
           <div class="post">
             <div class="post-title">
               <img src="assets/girlMsgProfile1.jpg" class="post-avatar" />
@@ -74,10 +83,58 @@
 
             <div class="post-footer">Created 20m ago</div>
           </div>
-
-          
         </div>
-        
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">
+            Create a new post
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="form-label">Post Title</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Awesome title"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Post Content</label>
+            <textarea
+              class="form-control"
+              rows="3"
+              placeholder="Write an awesome post here!"
+            ></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+            Close
+          </button>
+          <button type="button" class="btn btn-secondary">
+            Create a new post
+          </button>
+        </div>
       </div>
     </div>
   </div>
