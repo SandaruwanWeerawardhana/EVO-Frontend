@@ -55,6 +55,7 @@ import { GetTogetherFormComponent } from './page/event/get-together-form/get-tog
 import { AnnivesaryFormComponent } from './page/event/annivesary-form/annivesary-form.component';
 import { UpcommingEventComponent } from './page/customer/upcomming-event/upcomming-event.component';
 import { TransectionsComponent } from './page/customer/admin-dashbaord/pages/transections/transections.component';
+import { BlogComponent } from './common/blog/blog.component';
 
 export const routes: Routes = [
   {
@@ -262,7 +263,7 @@ export const routes: Routes = [
       },
       {
         path:"blogs",
-        component:BlogsComponent
+        component: BlogComponent
       }
     ]
   },{
