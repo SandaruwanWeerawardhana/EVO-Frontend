@@ -1,117 +1,12 @@
+html, body, div {
+  zoom: 0.94;
+}
 
-html, body, div{
-    zoom: 0.94;
-  }
-
-  .breadcrumb a {
-    text-decoration: none;
-    color: #6c757d;
-  }
-
-  .breadcrumb-item+.breadcrumb-item::before {
-    content: "›";
-    color: #6c757d;
-    padding: 0 5px;
-  }
-  
-  .filter-buttons .form-control,
-  .filter-buttons .btn {
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
-    font-weight: 500;
-  }
-
-  .service-card {
-    border: 1px solid #dee2e6;
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    background-color: #fff;
-  }
-  
-  .service-card img {
-    width: 80px;
-    height: 80px;
-    border-radius: 10px;
-    object-fit: cover;
-  }
-  
-  .title-wrap{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-  
-  .search-bar-right{
-    align-items: center;
-    width: 20rem;
-    margin: 10px;
-  }
-  
-  .search-header {
-    padding: 20px;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .search-input-group {
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
-  
-  .search-input {
-    border: 2px solid #eee;
-    border-radius: 30px;
-    padding: 15px 25px;
-    padding-right: 50px;
-    width: 100%;
-    transition: all 0.3s ease;
-  }
-  
-  .search-input:focus {
-    border-color: #007bff;
-    box-shadow: none;
-  }
-  
-  .search-icon {
-    position: absolute;
-    right: 20px;
-    color: #666;
-  }
-  
-  .card-container{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-  }
-  
-  .btn{
-    transition: none !important;
-    border: none;
-  }
-  
-  .btn:hover{
-    transition: none !important;
-    border: none;
-    background-color: #105cd4 !important;
-  }
-  
-  .card-footer:has(.btn:hover) {
-    background-color: #105cd4 !important;
-  }
- 
 .breadcrumb a {
   text-decoration: none;
   color: #6c757d;
 }
+
 .breadcrumb-item+.breadcrumb-item::before {
   content: "›";
   color: #6c757d;
@@ -126,72 +21,113 @@ html, body, div{
   font-weight: 500;
 }
 
-.service-card {
-  border: 1px solid #dee2e6;
-  border-radius: 10px;
-  padding: 15px;
-  margin-bottom: 15px;
+.title-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.search-bar-right {
+  align-items: center;
+  width: 20rem;
+  margin: 10px;
+}
+
+.search-header {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.search-input-group {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 15px;
-  background-color: #fff;
 }
 
-.service-card img {
-  width: 80px;
-  height: 80px;
-  border-radius: 10px;
-  object-fit: cover;
+.search-input {
+  border: 2px solid #eee;
+  border-radius: 30px;
+  padding: 15px 25px;
+  padding-right: 50px;
+  width: 100%;
+  transition: all 0.3s ease;
 }
 
-.venue-list {
+.search-input:focus {
+  border-color: #007bff;
+  box-shadow: none;
+}
+
+.search-icon {
+  position: absolute;
+  right: 20px;
+  color: #666;
+}
+
+.supplier-list {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 30px;
+  justify-content: center;
+}
+
+.card {
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 22rem;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
 .card-img-top {
   width: 100%;
-  height: 300px;
-  border-bottom: 1px solid #ddd;
+  height: 220px;
+  object-fit: cover;
 }
 
-.supplier-list{
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
+.card-body {
+  padding: 15px;
 }
 
 .card-title {
-  font-size: 18px;
+  font-size: 1.1rem;
   font-weight: 600;
-  color: rgba(45, 46, 46, 1);
+  margin-bottom: 10px;
 }
 
-.card-body p {
-  margin: 8px 0;
-  font-size: 14px;
-  color: rgba(60, 60, 67, 0.8);
+.card-text {
+  font-size: 0.95rem;
+  color: #555;
+  min-height: 60px;
 }
 
 .card-footer {
-  padding: 10px;
-  background: rgba(0, 102, 255, 1);
-  color: white;
+  background-color: transparent;
+  border-top: none;
+  padding: 15px;
 }
 
 .card-footer button {
-  padding: 10px;
-  background: rgba(0, 102, 255, 1);
+  background: linear-gradient(90deg, rgba(0,102,255,1), rgba(208,0,255,1));
   border: none;
   border-radius: 6px;
-  font-size: 16px;
+  font-size: 14px;
+  padding: 10px 0;
+  width: 100%;
   font-weight: 600;
+  color: white;
   cursor: pointer;
 }
 
 .card-footer button:hover {
-  background: rgb(59, 80, 234);
+  opacity: 0.9;
 }

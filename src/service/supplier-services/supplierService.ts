@@ -34,7 +34,7 @@ getAllSuppliers(): Observable<Supplier[]> {
 }
 
 
-    searchSupplier(id: number): Observable<Supplier> {
+    searchSupplier(id: string): Observable<Supplier> {
         return this.http.get<Supplier>(`${this.apiUrl}/${id}`);
     }
 

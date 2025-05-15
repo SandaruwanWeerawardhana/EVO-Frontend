@@ -1,4 +1,4 @@
-export default class OLD_Customer{
+export default class OLD_{
     id:number;
     name:string;
     address:string;

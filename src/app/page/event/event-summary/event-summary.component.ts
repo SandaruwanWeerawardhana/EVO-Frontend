@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { VenueService } from '../../../../service/event-services/VenueService';
 import Supplier from '../../../model/supplier/Supplier';
+import { SupplierService } from '../../../../service/supplier-services/supplierService';
+import { eventService } from '../../../../service/event-services/eventService';
 
 @Component({
   selector: 'app-event-summary',
@@ -13,8 +15,9 @@ import Supplier from '../../../model/supplier/Supplier';
 })
 export class EventSummaryComponent implements OnInit {
 
-  constructor(private venueService:VenueService) { }
+  constructor(private venueService:VenueService , private supplierService:SupplierService ) { }
 
+  public eventObject: any = null;
   public eventDetails: any = null;
 
   public eventSummery:any = null;
@@ -55,17 +58,17 @@ export class EventSummaryComponent implements OnInit {
   totalPrice:number = 0;
 
   ngOnInit(): void {
-    
-    this.refeshData();
+    this.getEventObject(localStorage.getItem('eventId'))
     this.getEventData()
     console.log(this.eventDetails.eventType)
     this.getVenueData();
     this.totalPrice=this.calculateTotalPrice();
+    this.getSupplierData();
     
   }
 
-  refeshData(){
-
+  getEventObject(id:any){
+  //  this.eventObject = this.eventService.getEvent(id);
   }
 
   getEventData(){
@@ -91,15 +94,22 @@ export class EventSummaryComponent implements OnInit {
   }
 
   calculateTotalPrice() {
-    let total = 0;
+    let total = this.venue.price;
     this.suppliers.forEach((supplier) => {
       if (supplier.aveilabiility === "Available") {
-        total += supplier.price;
+        total += supplier.price
       }
     });
-    this.eventSummery = {
-      ...this.event,
-      totalPrice: total
-    };
     return total;}
+
+    getSupplierData(){
+      const eventId = localStorage.getItem("eventId");
+      console.log(eventId);
+      
+      if (eventId) {
+         this.suppliers = this.eventObject.suppliers
+      } else {
+        console.log("No supplier id in localStorage.");
+      }
+    }
 }
