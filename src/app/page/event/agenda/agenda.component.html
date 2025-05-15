@@ -1,67 +1,136 @@
-<body class="bg-light">
-    <div class="container mt-5">
-        <h1 class="fw-bold ">Select Your Agenda</h1>
-        <p class="text-muted ">Fill out this form carefully to generate the completed agenda.</p>
+<div class="full-content">
+  <div class="container py-5">
+  <div class="text-center mb-5">
+    <h1 class="fw-bold text-gradient mb-3" style="font-size: 2.5rem; letter-spacing: 1px;">
+      Create Agenda
+    </h1>
+    <p class="text-muted mb-0">
+      Easily customize your agenda for efficient event management and seamless planning.
+    </p>
+  </div>
 
-        <div  *ngFor="let item of adgenda" class="card p-4 shadow-sm">
-            <h2 class="fw-bold">Event Details</h2>
-            <div class="row g-3">
-                <div class="col-md-6">
-                    <label for="event-type" class="form-label">Event Type</label>
-                    <input type="text" class="form-control" id="type" name="type" disabled>
-                </div>
-
-                <div class="col-md-6">
-                    <label for="venue" class="form-label">Venue</label>
-                    <input type="text" class="form-control" id="venue" name="venue" disabled>
-                </div>
-
-                <div class="col-md-6">
-                    <label for="date" class="form-label">Date</label>
-                    <input type="date" class="form-control" id="date" name="date" disabled>
-                </div>
-
-                <div class="col-md-6">
-                    <label for="organizer" class="form-label">Organizer</label>
-                    <input type="text" class="form-control" id="organizer" name="organizer" disabled>
-                </div>
-            </div>
+  <div class="row gx-4 gy-4">
+    <div class="col-lg-5">
+      <div *ngFor="let item of agenda" class="card shadow-sm h-100 mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <span class="fw-medium text-primary">Event Details</span>
+          <button class="btn btn-sm btn-outline-primary" (click)="toggleEventDetails()">
+            <i class="bi" [ngClass]="showEventDetails ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
+          </button>
         </div>
-
-        <div class="card p-4 shadow-sm mt-4">
-
-        <div class="card p-4 shadow-sm mt-4">
-            <h2 class="fw-bold">Session Details</h2>
-            <div id="sessions-container">
-                <div class="session border p-3 mb-3">
-                    <h3 class="fw-semibold">Session No 1</h3>
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <label class="form-label">Session Title</label>
-                            <input type="text" class="form-control" name="session-title">
-                        </div>
-
-                        <div class="col-md-6">
-                            <label class="form-label">Session Type</label>
-                            <input type="text" class="form-control" name="session-type">
-                        </div>
-
-                        <div class="col-md-6">
-                            <label class="form-label">Start Time</label>
-                            <input type="time" class="form-control" name="start-time">
-                        </div>
-
-                        <div class="col-md-6">
-                            <label class="form-label">End Time</label>
-                            <input type="time" class="form-control" name="end-time">
-                        </div>
-                    </div>
-                    <button class="btn btn-danger mt-3" onclick="removeSession(this)">Remove Session</button>
-                </div>
+        <div class="card-body" *ngIf="showEventDetails">
+          <div class="row g-3">
+            <div class="col-md-12 mb-2">
+              <label class="form-label small text-muted">Event Type</label>
+              <input type="text" class="form-control" [(ngModel)]="item.type" disabled>
             </div>
-            <button class="btn btn-primary mt-3" onclick="addSession()">+ Add New Session</button>
+            <div class="col-md-12 mb-2">
+              <label class="form-label small text-muted">Venue</label>
+              <input type="text" class="form-control" [(ngModel)]="item.venue" disabled>
+            </div>
+            <div class="col-md-12 mb-2">
+              <label class="form-label small text-muted">Date</label>
+              <input type="date" class="form-control" [(ngModel)]="item.date" disabled>
+            </div>
+            <div class="col-md-12">
+              <label class="form-label small text-muted">Organizer</label>
+              <input type="text" class="form-control" [(ngModel)]="item.organizer" disabled>
+            </div>
+          </div>
         </div>
-
-        <button class="btn btn-success mt-4 w-100">Submit Agenda</button>
+      </div>
     </div>
 
+    <div class="col-lg-7">
+      <div class="card shadow-sm h-100 mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <span class="fw-medium text-primary">Customize Agenda</span>
+          <span class="badge bg-primary">{{sessions.length}} items</span>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive mb-3">
+            <table class="table table-bordered table-hover mb-0">
+              <thead class="table-light">
+                <tr>
+                  <th>id</th>
+                  <th>Title</th>
+                  <th>Type</th>
+                  <th>Start</th>
+                  <th>End</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let session of sessions; let i = index">
+                  <td>{{i + 1}}</td>
+                  <td>{{session.title || 'Session ' + (i + 1)}}</td>
+                  <td>{{session.type || '--'}}</td>
+                  <td>{{session.startTime || '--:--'}}</td>
+                  <td>{{session.endTime || '--:--'}}</td>
+                  <td>
+                    <button class="btn btn-sm btn-outline-primary me-1" (click)="editSession(i)">
+                      <i class="bi bi-pencil"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger" (click)="removeSession(i)">
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <button *ngIf="!showSessionForm" class="btn btn-outline-success" (click)="openSessionForm()">
+            <i class="bi bi-plus"></i> Add Session
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="showSessionForm" class="modal fade show d-block" tabindex="-1" style="background-color: rgba(0, 0, 0, 0.5); z-index: 1050;">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-primary">Add New Session</h5>
+          <button type="button" class="btn-close" (click)="cancelSessionForm()"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-3">
+            <div class="col-12">
+              <label class="form-label small text-muted">Title</label>
+              <input type="text" class="form-control" [(ngModel)]="newSession.title" placeholder="Enter session title">
+            </div>
+            <div class="col-12">
+              <label class="form-label small text-muted">Type</label>
+              <select class="form-select" [(ngModel)]="newSession.type">
+                <option value="">Select type</option>
+                <option value="Presentation">Presentation</option>
+                <option value="Workshop">Workshop</option>
+                <option value="Break">Break</option>
+              </select>
+            </div>
+            <div class="col-6">
+              <label class="form-label small text-muted">Start</label>
+              <input type="time" class="form-control" [(ngModel)]="newSession.startTime">
+            </div>
+            <div class="col-6">
+              <label class="form-label small text-muted">End</label>
+              <input type="time" class="form-control" [(ngModel)]="newSession.endTime">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" (click)="cancelSessionForm()">Cancel</button>
+          <button type="button" class="btn btn-success" (click)="saveSession()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-end mt-5">
+    <button class="btn btn-primary" (click)="submitAgenda()">
+      <i class="bi bi-check-circle"></i> Create Agenda
+    </button>
+  </div>
+</div>
+</div>
