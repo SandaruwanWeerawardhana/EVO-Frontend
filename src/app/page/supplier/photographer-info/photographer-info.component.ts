@@ -55,6 +55,14 @@ export class PhotographerInfoComponent implements OnInit{
 
 
 
+  addSupplier() { 
+   
+    
+    
+  }
+
+
+
 }
 
 

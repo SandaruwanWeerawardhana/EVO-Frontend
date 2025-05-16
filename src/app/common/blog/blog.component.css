@@ -1,0 +1,116 @@
+.feed-container {
+  height: 100%;
+  width: 90%;
+  margin-top: 7px;
+
+  height: 100vh;
+}
+
+.post-container {
+  margin-top: 30px;
+  background-color: azure;
+  padding: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
+
+  border-radius: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-container {
+  height: calc(100vh - 200px);
+  overflow-y: auto;
+  padding-bottom: 20px;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.post-container:hover {
+  background-color: antiquewhite;
+  transform: scale(1.02);
+}
+
+.post-title {
+  font-weight: bold;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.post-author {
+  opacity: 70%;
+}
+
+.post-body {
+  padding-top: 20px;
+}
+
+.post-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+  display: inline;
+  margin-right: 10px;
+}
+
+.post-footer {
+  padding-top: 20px;
+  font-size: 12px;
+}
+
+.post-controls {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 20px;
+}
+
+.post-controls svg {
+  transform: scale(1);
+  transition: background-color 0.3s ease, transform 0.3s ease-out;
+}
+
+.post-controls svg:hover {
+  color: purple;
+
+  transform: scale(1.5);
+  transition: background-color 0.3s ease, transform 0.3s ease-in-out;
+}
+
+.add-post-button-container {
+  position: fixed;
+  padding: 10px;
+  bottom: 40px;
+  right: 40px;
+  background-color: rgb(149, 23, 221);
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 10;
+
+  display: flex;
+  align-items: end;
+
+  transform: scale(1);
+  transition: background-color 0.4s ease-out, transform 0.3s ease-out;
+}
+
+.add-post-button-container:hover {
+  transform: scale(1.07);
+  background-color: #d000ff;
+  font-weight: bold;
+  transition: font-weight 0.2s ease-in, background 0.4s ease-out,
+    transform 0.3s ease-in-out;
+}
+
+.add-post-button {
+  margin-top: 22px;
+}

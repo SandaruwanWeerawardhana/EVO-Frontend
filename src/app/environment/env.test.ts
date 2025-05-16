@@ -1,5 +1,5 @@
   export const environment={
   prod:false,
-  baseUrl:'https://develop-ones-vote-clear.trycloudflare.com'
+  baseUrl:'https://acer-greetings-allen-differ.trycloudflare.com'
 }
 

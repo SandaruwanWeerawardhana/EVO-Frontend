@@ -22,7 +22,6 @@ import { DashRootComponent } from './page/supplier/dash/dash-root/dash-root.comp
 import { ProfileViewComponent } from './page/supplier/dash/profile/profile-view/profile-view.component';
 import { ManagePackagesComponent } from './page/supplier/dash/manage-packages/manage-packages.component';
 import { InventoryComponent } from './page/supplier/dash/inventory/inventory.component';
-import { BlogsComponent } from './page/supplier/dash/blogs/blogs.component';
 import { PaymentsComponent } from './page/supplier/dash/payments/payments.component';
 import { MassagesComponent } from './page/supplier/dash/massages/massages.component';
 import { MyReviewsComponent } from './page/supplier/dash/my-reviews/my-reviews.component';
@@ -32,7 +31,6 @@ import { MassageComponent } from './page/customer/massage/massage.component';
 import { OngoingEventComponent } from './page/customer/ongoing-event/ongoing-event.component';
 import { PaymentsCustomerComponent } from './page/customer/payments-customer/payments-customer.component';
 import { ProfileCustomerComponent } from './page/customer/profile-customer/profile-customer.component';
-import { ReviewsCustomerComponent } from './page/customer/reviews-customer/reviews-customer.component';
 import { DashRootCustomerComponent } from './page/customer/dash-root-customer/dash-root-customer.component';
 import { ProfileEditComponent } from './page/supplier/dash/profile/profile-edit/profile-edit.component';
 import { ProfileComponent } from './page/supplier/dash/profile/profile.component';
@@ -55,6 +53,7 @@ import { GetTogetherFormComponent } from './page/event/get-together-form/get-tog
 import { AnnivesaryFormComponent } from './page/event/annivesary-form/annivesary-form.component';
 import { UpcommingEventComponent } from './page/customer/upcomming-event/upcomming-event.component';
 import { TransectionsComponent } from './page/customer/admin-dashbaord/pages/transections/transections.component';
+import { BlogComponent } from './common/blog/blog.component';
 
 export const routes: Routes = [
   {
@@ -171,7 +170,7 @@ export const routes: Routes = [
           },
           {
             path: "blogs",
-            component: BlogsComponent
+            component: BlogComponent
           },
           {
             path: "payments",
@@ -253,16 +252,12 @@ export const routes: Routes = [
         component:ProfileCustomerComponent
       },
       {
-        path:"reviews",
-        component:ReviewsCustomerComponent
-      },
-      {
         path:"conditions",
         component:ConditionsComponent
       },
       {
         path:"blogs",
-        component:BlogsComponent
+        component: BlogComponent
       }
     ]
   },{

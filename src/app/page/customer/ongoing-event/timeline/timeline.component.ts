@@ -30,9 +30,9 @@ export class TimelineComponent implements OnInit {
 
   private zoomLevel: number = 1; // Initial zoom level
 
-  ngOnInit() {
+  async ngOnInit() {
 
-    this.agenda_tasks = this.agendaService.getAllTasks();
+    this.agenda_tasks = await this.agendaService.getAllTasks();
     this.fallbackTask = this.agendaService.getFallbackTask();
 
     // this function is use to compare with current date and time and previous tasks of today and before now time - Lahiru20

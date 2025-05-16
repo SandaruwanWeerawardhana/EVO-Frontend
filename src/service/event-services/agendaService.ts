@@ -28,8 +28,28 @@ export class AgendaService {
     updateagenda(agenda:AgendaComponent):Observable<AgendaComponent>{
         return this.http.put<AgendaComponent>(`${environment.baseUrl}/api/event/agenda/update`, {agenda});
     }
+
+    addagenda(agenda:Agenda):Observable<Agenda>{
+        return this.http.post<Agenda>(`${environment.baseUrl}/event/agenda/add`, {agenda});
+
+
+
+    }
+
+}
+
+
+    interface Agenda{
+
+        id:number;
+        time:String;
+        date:Date;
+        tasks:String;
+        
+        
+    }
     
 
     
-}
+
 
