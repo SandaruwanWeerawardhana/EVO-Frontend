@@ -1,8 +1,9 @@
 <h1 align="center"> EVO-Frontend - Event Planning Platform</h1>
 
-## 🎉 Project Overview
+## Backend and Frontend Links
+- **Frontend GitHub Repository:** [Evo Frontend](https://github.com/SandaruwanWeerawardhana/EVO-Frontend.git)
+- **Backend GitHub Repository:**   [Evo Backend](https://github.com/SandaruwanWeerawardhana/EVO-Backend.git)
 
-EVO-Frontend is a comprehensive event planning web application built with Angular 19. The platform connects customers who want to plan events with suppliers who provide event-related services, creating a seamless ecosystem for event management.
 
 ## 🌟 Key Features
 
