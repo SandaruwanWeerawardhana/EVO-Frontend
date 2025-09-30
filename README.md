@@ -1,4 +1,4 @@
-# EVO-Frontend - Event Planning Platform
+<h1 align="center"> EVO-Frontend - Event Planning Platform</h1>
 
 ## 🎉 Project Overview
 
@@ -228,14 +228,6 @@ The application integrates with various services:
 - **Touch-Friendly**: Optimized for touch interactions
 - **Progressive Web App**: PWA capabilities for enhanced mobile experience
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -247,12 +239,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Backend Integration**: API and database experts
 - **Quality Assurance**: Testing and validation team
 
-## 📞 Support
-
-For support and inquiries:
-- **Email**: support@evoplan.com
-- **Documentation**: [Project Wiki](https://github.com/SandaruwanWeerawardhana/EVO-Frontend/wiki)
-- **Issues**: [GitHub Issues](https://github.com/SandaruwanWeerawardhana/EVO-Frontend/issues)
 
 ## 🚧 Roadmap
 
